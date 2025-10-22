@@ -1,0 +1,562 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-color: #FF6600;
+} */
+
+/* :root { --brand: #ff8c0b; } */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+/* @media (prefers-color-scheme: light) { */
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary-50: #e6edef;
+  --primary-100: #d9e4e8;
+  --primary-200: #b1c7cf;
+  --primary-300: #066c93;
+  --primary-400: #055a7b;
+  --primary-500: #ff8c0b;
+  --primary-600: #044158;
+  --primary-700: #02364a;
+  --primary-800: #022431;
+  --primary-900: #021d27;
+  --secondary-500: #088def;
+}
+.text-secondary-500 {
+  color: #088def;
+}
+
+.text-red {
+  color: #fa5050;
+}
+
+.bg-red {
+  background-color: #fa5050;
+}
+
+/* } */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Lahzeh, Helvetica, sans-serif;
+}
+
+/* tailwind custom config: */
+@layer utilities {
+  .bg-primary {
+    background-color: var(--primary-500);
+  }
+
+  .bg-primary-50 {
+    background-color: var(--primary-50);
+  }
+
+  .bg-primary-100 {
+    background-color: var(--primary-100);
+  }
+
+  .bg-primary-200 {
+    background-color: var(--primary-200);
+  }
+
+  .bg-primary-300 {
+    background-color: var(--primary-300);
+  }
+
+  .bg-primary-400 {
+    background-color: var(--primary-400);
+  }
+
+  .bg-primary-500 {
+    background-color: var(--primary-500);
+  }
+
+  .bg-primary-600 {
+    background-color: var(--primary-600);
+  }
+
+  .bg-primary-700 {
+    background-color: var(--primary-700);
+  }
+
+  .bg-primary-800 {
+    background-color: var(--primary-800);
+  }
+
+  .bg-primary-900 {
+    background-color: var(--primary-900);
+  }
+
+  .border-primary {
+    border-color: var(--primary-500);
+  }
+
+  .border-primary-50 {
+    border-color: var(--primary-50);
+  }
+
+  .border-primary-100 {
+    border-color: var(--primary-100);
+  }
+
+  .border-primary-200 {
+    border-color: var(--primary-200);
+  }
+
+  .border-primary-300 {
+    border-color: var(--primary-300);
+  }
+
+  .border-primary-400 {
+    border-color: var(--primary-400);
+  }
+
+  .border-primary-500 {
+    border-color: var(--primary-500);
+  }
+
+  .border-primary-600 {
+    border-color: var(--primary-600);
+  }
+
+  .border-primary-700 {
+    border-color: var(--primary-700);
+  }
+
+  .border-primary-800 {
+    border-color: var(--primary-800);
+  }
+
+  .border-primary-900 {
+    border-color: var(--primary-900);
+  }
+
+  .text-primary {
+    color: var(--primary-500);
+  }
+
+  .text-primary-50 {
+    color: var(--primary-50);
+  }
+
+  .text-primary-100 {
+    color: var(--primary-100);
+  }
+
+  .text-primary-200 {
+    color: var(--primary-200);
+  }
+
+  .text-primary-300 {
+    color: var(--primary-300);
+  }
+
+  .text-primary-400 {
+    color: var(--primary-400);
+  }
+
+  .text-primary-500 {
+    color: var(--primary-500);
+  }
+
+  .text-primary-600 {
+    color: var(--primary-600);
+  }
+
+  .text-primary-700 {
+    color: var(--primary-700);
+  }
+
+  .text-primary-800 {
+    color: var(--primary-800);
+  }
+
+  .text-primary-900 {
+    color: var(--primary-900);
+  }
+  .text-2xs {
+    font-size: 0.5rem;
+    /* 8px */
+    line-height: 1rem;
+  }
+  .text-xs {
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+  }
+
+  /* 16px */
+  .text-sm {
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+  }
+
+  /* 20px */
+  .text-base {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+  }
+
+  /* 24px */
+  .text-lg {
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.75rem;
+  }
+
+  /* 28px */
+  .text-xl {
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+  }
+
+  /* 28px */
+  .text-2xl {
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+  }
+
+  /* 32px */
+  .text-3xl {
+    font-size: 1.875rem;
+    /* 30px */
+    line-height: 2.25rem;
+  }
+
+  /* 36px */
+  .text-4xl {
+    font-size: 2.25rem;
+    /* 36px */
+    line-height: 2.5rem;
+  }
+
+  /* 40px */
+  .text-5xl {
+    font-size: 3rem;
+    /* 48px */
+    line-height: 1;
+  }
+
+  .text-6xl {
+    font-size: 3.75rem;
+    /* 60px */
+    line-height: 1.5;
+  }
+
+  .text-7xl {
+    font-size: 4.5rem;
+    /* 72px */
+    line-height: 1;
+  }
+
+  .text-8xl {
+    font-size: 6rem;
+    /* 96px */
+    line-height: 1;
+  }
+
+  .text-9xl {
+    font-size: 8rem;
+    line-height: 1;
+  }
+
+  /* rounded-sm  - 4px*/
+  /* rounded-lg  - 8px*/
+  /* rounded-xl - 12px */
+  /* rounded-3xl - 24px */
+}
+
+.MuiPickerPopper-paper {
+  color: white;
+}
+
+.fade-in {
+  opacity: 1;
+  animation: fadeIn 0.1s forwards;
+}
+.fade-out {
+  opacity: 0;
+  animation: fadeOut 0.1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  @media (max-width: 640px) {
+    .xs-fullwidth {
+      @apply w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border;
+    }
+  }
+    @media (min-width: 640px) {   
+    .sm-fullwidth {
+      @apply w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border;
+    }
+  }
+}
+
+.half-circle-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.half-circle-divider hr {
+  flex: 1;
+  height: 2.5px;
+  border: none;
+  background: repeating-linear-gradient(
+    to right,
+    #d8dfea,
+    #d8dfea 6px,
+    transparent 8px,
+    transparent 11px
+  );
+}
+
+.half-circle {
+  width: 20px;
+  height: 20px;
+  background: #e6ebf4;
+}
+
+.half-circle.left {
+  border-radius: 20px 0 0 20px;
+  margin-right: -10px;
+}
+
+.half-circle.right {
+  border-radius: 0 20px 20px 0;
+  margin-left: -10px;
+}
+
+.half-circle-divider-white {
+  display: flex;
+  align-items: center;
+  width: calc(100% + 30px);
+  margin-left: -15px;
+  margin-right: -15px;
+  overflow: visible;
+}
+
+.half-circle-divider-white hr {
+  flex: 1;
+  height: 2.5px;
+  border: none;
+  background: repeating-linear-gradient(
+    to right,
+    #ffffff,
+    #ffffff 6px,
+    transparent 8px,
+    transparent 11px
+  );
+}
+
+.half-circle-divider-white .half-circle {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+}
+
+.half-circle-divider-white .half-circle.left {
+  border-radius: 20px 0 0 20px;
+  margin-right: -10px;
+}
+
+.half-circle-divider-white .half-circle.right {
+  border-radius: 0 20px 20px 0;
+  margin-left: -10px;
+}
+
+/* .left {
+  margin-right: 8px;
+}
+
+.right {
+  margin-left: 8px;
+} */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-come {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Base hidden state */
+.reveal,
+.reveal-in {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Variants */
+.reveal.is-visible {
+  animation: fade-up 1000ms ease-out both;
+}
+
+@keyframes fade-in-text {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-in.is-visible {
+  animation: fade-in 1000ms ease-out both;
+}
+
+/* Stagger via CSS variable --d */
+.reveal.is-visible,
+.reveal-in.is-visible {
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-down {
+  opacity: 0;
+  transform: translateY(-12px);
+  will-change: opacity, transform;
+}
+
+.reveal-down.is-visible {
+  animation: fade-down 800ms ease-out both;
+  animation-delay: var(--d, 0s);
+  /* optional stagger */
+}
+
+/* optional accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-down {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal-down.is-visible {
+    animation: none !important;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal.is-visible,
+  .reveal-in.is-visible {
+    animation: none !important;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Define animation but keep it paused initially */
+.animate-slide-in-left.is-visible {
+  opacity: 0;
+  animation: slideInLeft var(--dur, 0.6s) ease-out var(--d, 0ms) both;
+  animation-play-state: paused;
+}
+
+/* IO flips it to running */
+.is-visible.animate-slide-in-left {
+  animation-play-state: running;
+}

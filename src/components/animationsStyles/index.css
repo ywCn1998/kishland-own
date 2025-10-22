@@ -1,0 +1,36 @@
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-left {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease-out forwards;
+  animation-delay: 200ms;
+  animation-duration: 1s;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s infinite;
+
+  /* animation-duration: 100ms; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  } /* stay invisible for 500ms */
+  100% {
+    opacity: 1;
+  }
+}
