@@ -4,7 +4,7 @@ export const routeTranslations: Record<string, string> = {
   categories : "سافاری",
   reserve : "سبد خرید",
   flights: "پروازها",
-  hotels: "هتل‌ها",
+  hotel: "هتل‌ها",
   details: "جزئیات",
   offers: "پیشنهادها",
   contact: "تماس با ما",

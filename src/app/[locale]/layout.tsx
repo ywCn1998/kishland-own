@@ -19,7 +19,7 @@ import RevealObserver from "@/components/shared/RevealObserver";
 import MobileBottomNav from "@/components/shared/bottomNavigation/bottomNavigation";
 
 export async function generateStaticParams() {
-  return await routing.locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 type Params = {

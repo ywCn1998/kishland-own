@@ -42,14 +42,7 @@ export default function Category() {
           justifyContent={"space-between"}
         >
           <BreadCrumbFa />
-          <Stack
-            display={"flex"}
-            flexDirection={"row"}
-            className="items-center"
-          >
-            <Typography>برگشت</Typography>
-            <KeyboardBackspaceOutlined />
-          </Stack>
+    
         </Stack>
         <CategorySwiper fullWidth={true} />
         <Stack className="mt-20!">

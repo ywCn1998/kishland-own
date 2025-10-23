@@ -6,7 +6,7 @@ import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutl
 import TotalResponsive from "./totalResponsive";
 
 type PriceCardProps = {
-  onNext: () => void;
+  onNext?: () => void;
 };
 
 export default function PriceCard({ onNext }: PriceCardProps) {

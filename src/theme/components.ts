@@ -5,6 +5,8 @@ import InputComponents from "./components/inputs";
 import NavigationComponents from "./components/navigation";
 import SurfaceComponents from "./components/surfaces";
 import AccordionComponents from "./components/accordion";
+import SelectComponents from "./components/select";
+import CheckboxComponents from "./components/checkbox";
 
 const components: Components<Theme> = {
   ...TypographyComponents,
@@ -13,6 +15,8 @@ const components: Components<Theme> = {
   ...NavigationComponents,
   ...SurfaceComponents,
   ...AccordionComponents,
+  ...SelectComponents,
+  ...CheckboxComponents,
 };
 
 export default components;
