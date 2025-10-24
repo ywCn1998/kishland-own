@@ -33,32 +33,34 @@ const faqs = [
   },
 ];
 
-export default function CommonQuestions() {
+export default function CommonQuestions({ hasTItle = true, hasFooter = true }: { hasTItle?: boolean, hasFooter?: boolean }) {
   return (
     <Stack>
-      <Stack
-        className="flex! flex-col! justify-center! items-center! "
-        mt={10}
-        mb={5}
-        spacing={2}
-      >
-        <Typography className="text-slate-400! text-lg! reveal-down">
-          شاید جواب سوالت اینجا باشه
-        </Typography>
-        <GoldenText
-          textClass="text-5xl! font-bold! reveal-down"
-          text={
-            <>
-              <span className="text-black!">پر تکرارترین </span> سوالات{" "}
-              <span className="text-black!">متداول شما</span>
-            </>
-          }
-          bgColor="orange"
-          textColor="primary"
-          bgColorSx={{left: 20, bottom: -10}}
-          bgWidth="93% "
-        />
-      </Stack>
+      {hasTItle && (
+        <Stack
+          className="flex! flex-col! justify-center! items-center! "
+          mt={10}
+          mb={5}
+          spacing={2}
+        >
+          <Typography className="text-slate-400! text-lg!">
+            شاید جواب سوالت اینجا باشه
+          </Typography>
+          <GoldenText
+            textClass="text-5xl! font-bold!"
+            text={
+              <>
+                <span className="text-black!">پر تکرارترین </span> سوالات{" "}
+                <span className="text-black!">متداول شما</span>
+              </>
+            }
+            bgColor="orange"
+            textColor="primary"
+            bgColorSx={{ left: 20, bottom: -10 }}
+            bgWidth="93% "
+          />
+        </Stack>
+      )}
 
       <div className="w-full! mx-auto bg-white  rounded-lg ">
         {faqs.map((faq, idx) => (
@@ -73,9 +75,11 @@ export default function CommonQuestions() {
         ))}
       </div>
 
-      <Stack className="border-1! border-slate-200! p-3! rounded-2xl! mt-10!">
-        <Question />
-      </Stack>
+      {hasFooter && (
+        <Stack className="border-1! border-slate-200! p-3! rounded-2xl! mt-10!">
+          <Question />
+        </Stack>
+      )}
     </Stack>
   );
 }
