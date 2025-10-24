@@ -1,16 +1,23 @@
 'use client'
 import { AccessTimeOutlined, CloudCircle, LocationOn, LocationOnOutlined, MapOutlined, PinOutlined, Search, WhatshotOutlined } from "@mui/icons-material";
-import { Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import { Button, Divider, Grid, Rating, Stack, Typography } from "@mui/material";
 
 // @ts-ignore
 import { UilFire, UilMapMarker } from '@iconscout/react-unicons';
+import TextIcon from "../../textIcon";
+import {
+    Star as StarIcon,
+    Stars as StarsIcon,
+    KeyboardArrowDown
+} from '@mui/icons-material';
 
 
-
-export function AirCard({
-    onClick
+export function WideListCard({
+    onClick,
+    isHotelListCard = false
 }: {
-    onClick: (val: boolean) => void
+    onClick?: (val: boolean) => void
+    isHotelListCard?: boolean
 }) {
     return (
         <Grid size={{ md: 12 }}  >
@@ -29,8 +36,8 @@ export function AirCard({
                     }}>
 
                     <img
-                        src={'/images/entertainment/list/jong.jpg'}
-                        className="h-[265px]"
+                        src={!isHotelListCard ? "/images/entertainment/list/jong.jpg" : "/images/building1.png"}
+                        className="h-[265px] w-4/12 rounded-xl!"
                     />
 
 
@@ -54,18 +61,35 @@ export function AirCard({
                                 جنگ شبانه پازل شو کیش
                             </Typography>
 
-                            <Stack>
-                                <Typography color="textSecondary">(32 نظر) 4.8/5</Typography>
+                            {!isHotelListCard && (
+                                <Stack>
+                                    <Typography color="textSecondary">(32 نظر) 4.8/5</Typography>
+                                </Stack>
+                            )}
+
+                            <Stack className="flex flex-col-reverse! justify-between " gap={isHotelListCard ? 2 : 0} mt={isHotelListCard ? 2 : 6}>
+                                <Stack className="flex flex-row! gap-2">
+                                    <UilMapMarker color={'#FA5050'} />
+                                    <Typography color="textSecondary">
+                                        آدرس : تقاطع بلوار سنایی و بلوار دریا
+                                    </Typography>
+                                </Stack>
+                                {
+                                    isHotelListCard && (
+                                        <Stack className="flex! flex-row! gap-3! items-center! mb-2!">
+                                            <Rating
+                                                name="hover-feedback"
+                                                value={5}
+                                                precision={0.5}
+                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                            />
+                                            <TextIcon endIcon={<StarsIcon color="success" className="text-xl!" />} className="text-sm!" sx={{ color: "text.secondary" }} text="(32 نظر) 4.8/5" />
+                                        </Stack>
+                                    )
+                                }
                             </Stack>
 
-                            <Stack className="flex flex-row! gap-2 mt-12">
-                                <UilMapMarker color={'#FA5050'} />
-                                <Typography color="textSecondary">
-                                    آدرس : تقاطع بلوار سنایی و بلوار دریا
-                                </Typography>
-                            </Stack>
-
-                            <Stack className="flex flex-row! items-center gap-2 mt-2">
+                            <Stack className="flex flex-row! items-center gap-2" mt={!isHotelListCard ? 2.5 : 4}>
                                 <Stack className="border-1 border-slate-200 rounded-xl flex flex-row! px-3 py-3 ">
                                     <AccessTimeOutlined sx={{ color: "#626E94" }} />
                                     <Typography color="textSecondary">180 دقیقه</Typography>
@@ -110,10 +134,10 @@ export function AirCard({
                                 تا 25 % تخفیف
                             </Typography>
 
-                            <Typography className="text-center mt-4! line-through">
+                            <Typography className="text-center mt-10! line-through">
                                 8,800,000 تومان
                             </Typography>
-                            <Typography variant="body2" className="text-center font-bold!">
+                            <Typography className="text-center font-bold! text-xl!" color="secondary.main">
                                 8,500,000 تومان
                             </Typography>
 
@@ -122,7 +146,7 @@ export function AirCard({
                                     شروع قیمت برای یک نفر
                                 </Typography>
                                 <Button
-                                    onClick={() => onClick(true)}
+                                    onClick={() => onClick!(true)}
                                     variant="contained" fullWidth className="text-white! ">
                                     <Typography variant="button">رزرو بلیط</Typography>
                                 </Button>
@@ -135,7 +159,10 @@ export function AirCard({
                 </Stack>
 
 
-
+                {
+                    isHotelListCard &&
+                    <Button sx={{ color: "text.secondary" }} className="w-full! bg-slate-100! rounded-xl! py-3! mt-4!" endIcon={<KeyboardArrowDown />}>رزرو سریع</Button>
+                }
 
             </Stack>
         </Grid>
