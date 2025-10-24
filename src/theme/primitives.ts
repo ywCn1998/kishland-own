@@ -18,15 +18,15 @@ interface ICustomTheme extends ThemeOptions {
 
 // Light theme
 export const lightTheme: ThemeOptions = {
-  palette: {
-    mode: 'light',
+ palette: {
+    mode: "light",
     primary: {
-      main: '#FF8C0B',
+      main: "#FF8C0B",
       "50": "#E6EDEF",
-      100: "#D9E4E8",
+      100: "#FFF2D3",
       200: "#B1C7CF",
       300: "#066C93",
-      400: "#055A7B",
+      400: "#ffa733",
       500: "#FF8C0B",
       600: "#044158",
       700: "#02364A",
@@ -34,21 +34,32 @@ export const lightTheme: ThemeOptions = {
       900: "#021D27",
     },
     secondary: {
-      main: '#088DEF',
-      500: '#088def'
+      50: "#f0f7ff",
+      main: "#088DEF",
+      500: "#088def",
       // main: '#088DEF'
     },
+    error: {
+      main: "#FA5050",
+      200: "#FA50501A"
+    },
+    success: {
+      main: "#13D397",
+    },
     background: {
-      default: '#FFFFFF',
-      paper: '#F5F7FA',
+      default: "#FFFFFF",
+      paper: "#F5F7FA",
+    },
+    info: {
+      main: "#088def"
     },
     text: {
-      primary: '#18181B',
-      secondary: '#044963',
-      disabled : "#626E94",
+      primary: "#18181B",
+      secondary: "#6c779a",
+      disabled: "#626E94",
+      
     },
-
-  }
+  },
 }
 
 // Dark theme

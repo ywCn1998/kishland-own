@@ -3,15 +3,18 @@ import Journey from "@/components/shared/_components/extraFooterInformation/_com
 import { Button, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import GoldenText from "../GoldenText";
+import FooterHotels from "./_components/hotels";
 
 export default function ExtraFooterInformation({
   honerOfColobrate = true,
   moreToRead = false,
   companies = true,
+  hotels = false,
 }: {
   honerOfColobrate?: boolean;
   moreToRead?: boolean;
   companies?: boolean;
+  hotels?:boolean;
 }) {
   return (
     <Container maxWidth="xl">
@@ -56,6 +59,11 @@ export default function ExtraFooterInformation({
         </Stack>
         </Stack>
       )}
+      {
+        hotels && (
+          <FooterHotels/>
+        )
+      }
 
       <Stack mt={{lg :10 , xs : 2}} spacing={{ lg: 3, xs: 4 }} className="xs-fullwidth">
         <Typography className="text-slate-400! !text-sm lg:text-base! reveal-down">

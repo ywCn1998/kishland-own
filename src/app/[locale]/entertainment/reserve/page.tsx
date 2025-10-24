@@ -32,14 +32,7 @@ export default function Home() {
           justifyContent={"space-between"}
         >
         <BreadCrumbFa/>
-          <Stack
-            display={"flex"}
-            flexDirection={"row"}
-            className="items-center"
-          >
-            <Typography>برگشت</Typography>
-            <KeyboardBackspaceOutlined />
-          </Stack>
+        
         </Stack>
         <Stack className="mt-[-58px] ">
           <ReserveStepper />

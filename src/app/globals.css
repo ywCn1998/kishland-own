@@ -201,11 +201,7 @@ body {
   .text-primary-900 {
     color: var(--primary-900);
   }
-  .text-2xs {
-    font-size: 0.5rem;
-    /* 8px */
-    line-height: 1rem;
-  }
+
   .text-xs {
     font-size: 0.75rem;
     /* 12px */
