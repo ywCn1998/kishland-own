@@ -1,97 +1,88 @@
-"use client";
+import { Stack, Container, Typography, Grid } from "@mui/material";
+import { setRequestLocale } from "next-intl/server";
 
 import {
-  KeyboardBackspaceOutlined,
-  Menu,
-  WindowOutlined,
-} from "@mui/icons-material";
-import {
-  Accordion,
-  Button,
-  Container,
-  Grid,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import {
-  CategorySlider,
-  ExtraFooterInformation,
+    CategorySlider,
+    CommonQuestions,
+    ExtraFooterInformation,
 } from "@/components/shared/_components";
-import PaginationComponent from "@/components/shared/Pagination";
-import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
-import FilterBox from "../../entertainment/list/_components/filterBox";
-import { BlitType } from "../../entertainment/list/_components/blitType";
-import { AirCard } from "../../entertainment/list/_components/blitType/aircard";
 import HotelBannerSearchTicketSection from "@/components/shared/_components/banner/hotelBannerSearchTicket";
+import MainTabs from "@/components/shared/mainTabs";
+import ListSection from "./_components/listSection";
+import FilterBox from "../../entertainment/list/_components/filterBox";
+import HotelCategory from "./_components/hotelCategory";
+import ChanceCard from "../../entertainment/list/_components/chanceCard";
 
-export default function Category() {
-  const [OpenMdl, setOpenMdl] = useState(false);
-  return (
-    <>
-      <Container maxWidth="xl" sx={{ marginBottom: 5 }}>
+
+
+const cardData = [
+    { date: "۱۶ فروردین", price: "7.2" },
+    { date: "۱۵ فروردین", price: "8" },
+    { date: "۱۴ فروردین", price: "11.3" },
+    { date: "۱۳ فروردین", price: "14.8", color: "red" },
+    { date: "۱۲ فروردین", price: "7.7", color: "green" },
+    { date: "۱۱ فروردین", price: "10.1" },
+    { date: "۱۰ فروردین", price: "4" },
+    { date: "۱۰ فروردین", price: "5" },
+    { date: "۱۰ فروردین", price: "6" },
+    { date: "۱۰ فروردین", price: "7" },
+
+];
+
+
+export default function List({ params }: { params: { locale: string } }) {
+    const { locale } = params;
+
+    setRequestLocale(locale);
+
+    return (
         <Stack
-          className="mb-10"
-          display={"flex"}
-          flexDirection={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
+            style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
+            className="mb-10!"
         >
-          <BreadCrumbFa />
-    
-        </Stack>
-     
-        <Stack className="mt-20!">
-          <CategorySlider />
-        </Stack>
+            <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 2 } }}>
+                <CategorySlider />
 
-        <Grid container className="mt-16" spacing={2}>
-          <Grid size={{ md: 3 }}>
-            <Stack className="border-1 border-slate-200  rounded-xl p-4">
-              <FilterBox />
-            </Stack>
-          </Grid>
+                {/* step 1 */}
+                <Stack gap={10}>
+                    <HotelBannerSearchTicketSection peoplesNumber="2 بزرگسال" location="تور مشهد به کیش" endDate="6 تیر" startDate="2 تیر" fromWhere="مشهد" nights="" />
+                    {/* <BannerSection location="تور مشهد به کیش" /> */}
+                </Stack>
 
-          <Grid size={{ md: 9 }}>
-            <Grid size={{ md: 12 }} spacing={3} container>
-              <Grid size={{ md: 12 }}>
-                <BlitType />
-              </Grid>
-            </Grid>
+                <Grid container mt={6} spacing={2}>
+                    <Grid size={3}>
+                        <Stack className="border-1 border-slate-200  rounded-xl p-4">
+                            {/* <ChanceCard
+                                title='شانس امروزتو امتحان کن !'
+                                description='هر روز یک گردونه شانس با کلی جایزه'
+                                btn_title='بچرخون'
+                                img='/images/entertainment/list/chance.png'
+                                onClick={() => console.log('dsaf')}
+                            /> */}
+                            <FilterBox />
+                        </Stack>
+                    </Grid>
+                    <Grid size={9}>
+                        <ListSection />
+                    </Grid>
+                </Grid>
 
-            <Grid size={{ md: 12 }} container spacing={2}>
-              <AirCard onClick={setOpenMdl} />
-              <AirCard onClick={setOpenMdl} />
-              <AirCard onClick={setOpenMdl} />
-              <img
-                src={"/images/entertainment/landing/tourwithfamily.png"}
-                className="w-full! rounded-2xl "
-              />
+            </Container>
 
-              <AirCard onClick={setOpenMdl} />
-              <AirCard onClick={setOpenMdl} />
-              <AirCard onClick={setOpenMdl} />
 
-              <img
-                src={"/images/entertainment/landing/tourwithfamily.png"}
-                className="w-full! rounded-2xl "
-              />
+            {/* دیگر پیشنهادات */}
 
-              <AirCard onClick={setOpenMdl} />
-              <AirCard onClick={setOpenMdl} />
-              <AirCard onClick={setOpenMdl} />
-            </Grid>
-            <PaginationComponent
-              totalItems={40}
-              pageSize={20}
-              currentPage={2}
-              onPageChange={() => {}}
-            />
-          </Grid>
-        </Grid>
-        <ExtraFooterInformation companies={false} honerOfColobrate={false} />
-      </Container>
-    </>
-  );
+
+
+            <Container maxWidth="xl">
+                <CommonQuestions hasFooter={false} />
+
+                <HotelCategory />
+            </Container>
+
+
+
+            <ExtraFooterInformation moreToRead={true} companies={false} honerOfColobrate={false} />
+        </Stack >
+    );
 }

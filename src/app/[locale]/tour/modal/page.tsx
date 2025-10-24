@@ -1,7 +1,6 @@
 import { Stack, Container, Typography, Dialog, Button } from "@mui/material";
 import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
-
 import {
     CommonQuestions,
 } from "@/components/shared/_components";
@@ -12,7 +11,11 @@ import CutsomCollapse from "@/components/shared/collapse/collapse";
 import CustomAccordion from "@/components/shared/collapse/collapse";
 import { RoomCard } from "@/components/shared/cards/tour/roomCard";
 import Question from "@/components/shared/_components/commonQuestions/_components/question";
-
+import CityCenterLoactions from "./_locationModalComponents/cityCenterLocations";
+import ViewsOfHotel from "../(landing)/_components/ViewsOfHotelSection";
+import TextIcon from "@/components/shared/textIcon";
+import PeopleComments from "@/components/shared/_components/peopleComments";
+import RulesOfHotel from "@/components/shared/_components/rolesOfHotel";
 
 
 export default function LocationModal({ params }: { params: { locale: string } }) {
@@ -74,23 +77,29 @@ export default function LocationModal({ params }: { params: { locale: string } }
 
 
                         <CustomAccordion title="فاصله هتل تا مکان های مهم کیش">
-                            <></>
+                            <CityCenterLoactions />
                         </CustomAccordion>
 
                         <CustomAccordion title="هتل کوروش را بهتر ببینید و بشناسید">
-                            <></>
+                            <Stack mt={2}>
+                                <ViewsOfHotel hasDetails={true} />
+                            </Stack>
                         </CustomAccordion>
 
                         <CustomAccordion title="شرایط و ضوابط">
-                            <></>
+                            <RulesOfHotel />
                         </CustomAccordion>
                         <CustomAccordion title="سوالات متداول">
-                            <Stack mt={5}>
+                            <Stack mt={3}>
                                 <CommonQuestions hasFooter={false} hasTItle={false} />
                             </Stack>
                         </CustomAccordion>
                         <Stack className="border-1! border-slate-200! p-3! rounded-2xl!">
-                            <Question animation={false}/>
+                            <Question animation={false} />
+                        </Stack>
+
+                        <Stack mb={15}>
+                            <PeopleComments />
                         </Stack>
 
                     </Stack>
