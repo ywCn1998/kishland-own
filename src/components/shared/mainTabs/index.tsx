@@ -1,6 +1,7 @@
 "use client"
 import React, { createElement, isValidElement, useMemo, useState } from "react";
-import { SxProps, Tab, Tabs, Theme } from "@mui/material";
+import { Button, IconButton, Stack, SxProps, Tab, Tabs, Theme } from "@mui/material";
+import SortIcon from '@mui/icons-material/Sort';
 
 type TabIcon = React.ReactNode | React.ComponentType<any>;
 
@@ -14,14 +15,26 @@ type TabItem = {
 export default function MainTabs({
     data,
     tabStyle,
+    changeCardUi,
+    setChangeCardUi,
+    sortByPrice,
+    setSortByExpensive,
+    setSortByCheap
 }: {
     data: TabItem[];
     tabStyle?: SxProps<Theme>;
+    changeCardUi?: boolean
+    setChangeCardUi?: (val: boolean) => void
+    sortByPrice?: boolean
+    setSortByExpensive?: (val: boolean) => void
+    setSortByCheap?: (val: boolean) => void
+    setSortByPrice?: (val: boolean) => void
 }) {
     const firstEnabledIndex = useMemo(
         () => Math.max(0, data.findIndex((t) => !t.disabled)),
         [data]
     );
+
     const [value, setValue] = useState(firstEnabledIndex);
 
     const renderIcon = (icon?: TabIcon) => {
@@ -45,7 +58,7 @@ export default function MainTabs({
                     p: 1,
                     backgroundColor: "white",
                     alignItems: "center",
-                    minHeight: 64,
+                    minHeight: 60,
                 },
                 // default icon tweaks (can be overridden per Tab via iconSx)
                 "& .MuiTab-root .MuiTab-iconWrapper": {
@@ -56,6 +69,7 @@ export default function MainTabs({
                 border: "1px solid",
                 borderColor: "divider",
                 borderRadius: "14px",
+                position: "relative"
             }}
         >
             {data.map((tab, index) => (
@@ -77,6 +91,7 @@ export default function MainTabs({
                                 cursor: "default",
                                 pointerEvents: "none",
                             },
+                            position: "absolute",
                             // allow per-tab icon overrides
                             "& .MuiTab-iconWrapper": tab.iconSx as any,
                         },
@@ -85,7 +100,36 @@ export default function MainTabs({
                     ]}
                 />
             ))}
-        </Tabs>
+            {
+                changeCardUi && (
+                    <IconButton className="absolute! left-4!"
+                        onClick={() => {
+                            // @ts-ignore
+                            setChangeCardUi?.((prev) => !prev)
+                        }}
+                    >
+                        <SortIcon />
+                    </IconButton>
+                )
+            }
+            {
+                sortByPrice && (
+                    <Stack className="flex flex-row! h-full absolute! left-4!">
+                        <Button onClick={() => {
+                            // @ts-ignore
+                            setSortByCheap?.((prev) => !prev)
+                        }}
+                            variant="text" className="p-3!" sx={{ color: "text.secondary" }}>ارزان ترین</Button>
+                        <Button onClick={() => {
+                            // @ts-ignore
+                            setSortByExpensive?.((prev) => !prev)
+                        }}
+                            variant="text" className="p-3!" sx={{ color: "text.secondary" }}>گران ترین</Button>
+                    </Stack>
+                )
+            }
+
+        </Tabs >
     );
 }
 
