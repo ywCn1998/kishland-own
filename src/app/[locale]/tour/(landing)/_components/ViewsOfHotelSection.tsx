@@ -1,5 +1,4 @@
 import { Container, Typography, Stack, Grid, Button } from "@mui/material";
-import { getTranslations } from "next-intl/server";
 import BlogCard from "../../../../../components/shared/cards/blogCard";
 
 const services = [

@@ -1,6 +1,5 @@
 import { Stack, Container, Typography, Grid } from "@mui/material";
 import { setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
 
 import {
     CategorySlider,
@@ -36,7 +35,6 @@ export default function List({ params }: { params: { locale: string } }) {
 
     setRequestLocale(locale);
 
-    const t = useTranslations();
     return (
         <Stack
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
