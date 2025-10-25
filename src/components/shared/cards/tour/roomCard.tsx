@@ -15,10 +15,12 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
 export function RoomCard({
     onClick,
-    isSelected
+    isSelected,
+    borderLess
 }: {
     onClick?: (val: boolean) => void,
-    isSelected?: boolean
+    isSelected?: boolean;
+    borderLess?: boolean
 }) {
     return (
         <Grid size={{ md: 12 }}  >
