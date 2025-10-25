@@ -2,7 +2,7 @@ import { Typography, Stack } from "@mui/material";
 import { ReactNode } from "react";
 
 interface IProp {
-    text?: string;
+    text?: string | ReactNode;
     startIcon?: ReactNode
     endIcon?: ReactNode
     className?: string

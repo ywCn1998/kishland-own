@@ -21,10 +21,10 @@ import {
 } from "./_components";
 import Image from "next/image";
 
-export default function Home({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export default function Home() {
+  // const { locale } = params;
 
-  setRequestLocale(locale);
+  // setRequestLocale(locale);
 
   return (
     <Stack

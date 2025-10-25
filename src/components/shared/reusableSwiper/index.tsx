@@ -19,6 +19,7 @@ interface ReusableSwiperProps {
   navigation?: boolean;
   dots?: boolean;
   autoplay?: boolean; //
+  style?: any
 }
 
 export default function ReusableSwiper({
@@ -33,6 +34,7 @@ export default function ReusableSwiper({
   navigation = false,
   dots = true,
   autoplay = false,
+  style
 }: ReusableSwiperProps) {
   if (!pagination) {
     return (
@@ -59,7 +61,7 @@ export default function ReusableSwiper({
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={spaceBetween}
-        style={{ height: height }}
+        style={{ height: height, ...style }}
         // ✅ only add breakpoints if slidesPerView is not 'auto'
         {...(slidePerViewXs !== "auto"
           ? {

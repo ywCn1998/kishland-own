@@ -24,12 +24,12 @@ import {
 } from "@/components/shared/_components";
 import GoldenText from "@/components/shared/_components/GoldenText";
 
-export default function Home({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export default function Home() {
+  // const { locale } = params;
 
-  setRequestLocale(locale);
+  // setRequestLocale(locale);
 
-  const t = useTranslations();
+  // const t = useTranslations();
   return (
     <Stack
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}

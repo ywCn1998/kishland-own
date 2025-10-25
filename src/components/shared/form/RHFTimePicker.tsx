@@ -79,6 +79,7 @@ export default function RHFTimePicker({
               <TimePicker
                 {...pickerProps}
                 value={valueAsDate}
+                // @ts-ignore check later
                 onChange={handleChange}
                 ampm={false}
                 views={["hours", "minutes"]}

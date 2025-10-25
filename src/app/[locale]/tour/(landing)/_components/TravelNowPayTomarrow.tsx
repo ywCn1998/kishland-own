@@ -19,7 +19,7 @@ const TravelNowPayTomarrow = () => {
                 <span className="text-primary z-[80]!">پولش </span> نباش!
 
               </>
-            } textColor="secondary" bgColor="skyBlue" bgWidth={{ xs: "95%" }} isxsHasBg={true} />
+            } textColor="secondary" bgColor="skyBlue" bgWidth="95%" />
           </Typography>
           <br />
           <Typography className="text-gray-900! mt-5! leading-[35px]! reveal-down">

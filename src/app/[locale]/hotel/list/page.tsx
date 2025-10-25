@@ -30,10 +30,10 @@ const cardData = [
 ];
 
 
-export default function List({ params }: { params: { locale: string } }) {
-    const { locale } = params;
+export default function List() {
+    // const { locale } = params;
 
-    setRequestLocale(locale);
+    // setRequestLocale(locale);
 
     return (
         <Stack

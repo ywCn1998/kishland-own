@@ -41,12 +41,8 @@ const services = [
 
 
 
-export default function HotelDetails({ params }: { params: { locale: string } }) {
-    const { locale } = params;
-
-    setRequestLocale(locale);
-
-    const t = useTranslations();
+export default function HotelDetails() {
+    
     return (
         <Stack
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}

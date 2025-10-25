@@ -1,6 +1,6 @@
 import { Box, Card, Typography, CardContent, Button, CardMedia, Stack, Rating, Divider } from "@mui/material";
 import Image from "next/image";
-import { UilFire } from '@iconscout/react-unicons';
+import { LocalFireDepartment as UilFire } from '@mui/icons-material';
 import {
     Star as StarIcon,
     Stars as StarsIcon,
@@ -35,7 +35,7 @@ export default function NormalListCard({ isWide, isOfferCard = false }: { isWide
                         <Box sx={{ height: "100%", position: "relative", borderRadius: 1.5, overflow: "hidden", m: 1.2 }}>
                             <Image src={"/images/building1.png"} alt="building" fill />
                             <Stack className="items-center! text-white! bg-[#FA5050] self-start p-3 rounded-lg flex flex-row! gap-2 z-10! absolute! bottom-2! right-2!">
-                                {!isOfferCard && <UilFire />}
+                                {!isOfferCard && <UilFire className="text-white!"/>}
                                 <Typography className="text-sm!">
                                     {isOfferCard ? "پیشنهاد ویژه" : "پیشنهاد ویژه کیش لندیار"}
                                 </Typography>
