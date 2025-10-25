@@ -4,18 +4,25 @@ import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
-const Question = () => {
+type QuestionProps = { animation?: boolean };
+
+const Question = ({ animation = true }: QuestionProps) => {
+  const r = animation ? "reveal" : "";
+  const rd = animation ? "reveal-down" : "";
+
   return (
     <Stack className="flex! flex-row! justify-between! items-center!">
       <Stack className="flex! flex-row! items-center! gap-2">
-        <div className="w-25! h-25! relative reveal">
+        <div className={`w-25! h-25! relative ${r}`}>
           <Image src="/images/phone-message.png" alt="s" fill />
         </div>
+
         <Stack spacing={2}>
-          <Typography className="text-lg! font-bold! reveal-down">
+          <Typography className={`text-lg! font-bold! ${rd}`}>
             جواب سوالت رو پیدا نکردی ؟!
           </Typography>
-          <Typography className="text-slate-400! reveal-down">
+
+          <Typography className={`text-slate-400! ${rd}`}>
             اشکالی نداره! تیم پشتیبانی کیشلندیار 24 ساعته آماده شنیدن سوالات،
             پیشنهادات و انتقادات شما عزیزان هستش
           </Typography>
@@ -25,7 +32,7 @@ const Question = () => {
       <Stack>
         <Button
           sx={{ bgcolor: "secondary.main" }}
-          className="text-white! rounded-3xl! px-14! font-normal! reveal"
+          className={`text-white! rounded-3xl! px-14! font-normal! ${r}`}
           variant="contained"
           startIcon={<PhoneInTalkIcon />}
         >

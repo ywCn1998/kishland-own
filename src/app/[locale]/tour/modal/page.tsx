@@ -18,12 +18,13 @@ import PeopleComments from "@/components/shared/_components/peopleComments";
 import RulesOfHotel from "@/components/shared/_components/rolesOfHotel";
 
 
-export default function LocationModal({ params }: { params: { locale: string } }) {
-    const { locale } = params;
+export default function LocationModal(
+    // { params }: { params: { locale: string } }
+) {
+    // const { locale } = params;
 
-    setRequestLocale(locale);
+    // setRequestLocale(locale);
 
-    const t = useTranslations();
     return (
         <Dialog
             fullWidth

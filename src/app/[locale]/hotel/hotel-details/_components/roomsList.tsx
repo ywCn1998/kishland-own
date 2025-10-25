@@ -25,6 +25,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 // import ChooseTicketSlider from "@/components/shared/_components/chooseTicketSlider";
 import { useState } from "react";
 import ShowMoreButton from "@/components/shared/showMoreButton";
+import ChooseTicketSlider from "@/components/shared/_components/chooseTicketSlider";
 
 
 const cardData = [
@@ -137,7 +138,7 @@ export default function RoomsList() {
                 <Stack className="border-1! border-slate-200! p-5! rounded-2xl!" mt={2}>
                     <TextIcon className="border-1! rounded-xl p-4! w-full! text-sm! mb-5!" sx={{ borderColor: "error.main", color: "error.main", backgroundColor: "error.200" }} startIcon={<WarningIcon className="text-xl! ml-3!" />} text="این اتاق در تاریخ انتخابی شما خدمات ارائه نمیدهد و قیمت مشخصی ندارد. به منظور رزرو این اتاق تارخ خود را تغییر دهید." />
                     <RoomCard borderLess={true} />
-                    {/* <ChooseTicketSlider perView={5} data={cardData} hasStep={false} /> */}
+                    <ChooseTicketSlider perView={5} data={cardData} hasStep={false} />
                     <Stack className="flex! flex-row! gap-4! w-full!" mt={2}>
                         <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg!" sx={{ color: "primary", borderColor: "primary.main" }}>لیست انتظار </Button>
                         <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg! border-slate-400! text-black!" >تغییر تاریخ رزرو</Button>

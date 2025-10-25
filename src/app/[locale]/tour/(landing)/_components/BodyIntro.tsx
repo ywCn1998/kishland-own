@@ -16,8 +16,8 @@ export default function BodyIntro() {
             از دریا تا آسمان
           </Typography>
           <Typography className="text-2xl! md:text-5xl! lg:text-6xl! font-bold! reveal relative! right-[-20px] top-4!">
-            <GoldenText mainClass="" text="جزیره" isRightAttention textColor="secondary" />{" "}
-            <GoldenText mainClass="" text="کیش" textColor="primary" textClass="pl-2!" />
+            <GoldenText text="جزیره" isRightAttention textColor="secondary" />{" "}
+            <GoldenText text="کیش" textColor="primary" textClass="pl-2!" />
             تو رو صدا می‌زنن
           </Typography>
         </div>

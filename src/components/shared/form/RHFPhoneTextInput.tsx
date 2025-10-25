@@ -1,6 +1,7 @@
 import { Controller, useFormContext } from "react-hook-form";
 import { Stack, TextFieldProps } from "@mui/material";
 import { useState } from "react";
+// @ts-ignore
 import MuiPhoneNumber from "mui-phone-number";
 
 export interface IProps {
@@ -44,7 +45,7 @@ const RHFPhoneTextInput = ({
               InputLabelProps={{
                 shrink: focused || !!field.value ? true : false,
               }}
-              onChange={(val) => {
+              onChange={(val: any) => {
                 if (!val) {
                   field.onChange("");
                   return;

@@ -26,12 +26,13 @@ const cardData = [
 ];
 
 
-export default function List({ params }: { params: { locale: string } }) {
-    const { locale } = params;
+export default function List(
+    // { params }: { params: { locale: string } }
+) {
+    // const { locale } = params;
 
-    setRequestLocale(locale);
+    // setRequestLocale(locale);
 
-    const t = useTranslations();
     return (
         <Stack
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}

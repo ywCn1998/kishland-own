@@ -195,7 +195,7 @@ export default function EntertainmentDetailDialog({
 
                                 </Stack>
 
-                                <Typography variant="card_title">تله کابین میکامال کیش</Typography>
+                                <Typography variant="h3">تله کابین میکامال کیش</Typography>
 
                                 <Stack className="flex flex-row! items-center gap-2 ">
                                     <Stack className="border-1 border-slate-200 rounded-xl flex flex-row! px-3 py-3 ">
@@ -272,7 +272,7 @@ export default function EntertainmentDetailDialog({
 
                             >
                                 <Stack className="flex! flex-row! items-center gap-2!">
-                                    <Typography variant="card_title" component="span">لیست سانس ها</Typography>
+                                    <Typography variant="h3" component="span">لیست سانس ها</Typography>
                                     <Typography color="textSecondary" variant="body1">(مبنای قیمت برای 1 نفر)</Typography>
                                 </Stack>
                             </AccordionSummary>
@@ -292,7 +292,7 @@ export default function EntertainmentDetailDialog({
 
                                         <Grid size={{ md: 6 }}>
                                             <Stack className="flex flex-row! items-center justify-between py-4!">
-                                                <Typography sx={{ fontWeight: 500 }} variant="card_title">سانس ساعت 20:00</Typography>
+                                                <Typography sx={{ fontWeight: 500 }} variant="h3">سانس ساعت 20:00</Typography>
                                                 <Typography color="textSecondary" variant="body1">۲ مورد</Typography>
                                             </Stack>
                                             <Divider />
@@ -309,7 +309,7 @@ export default function EntertainmentDetailDialog({
 
                                         <Grid size={{ md: 6 }}>
                                             <Stack className="flex flex-row! items-center justify-between py-4!">
-                                                <Typography sx={{ fontWeight: 500 }} variant="card_title">سانس ساعت 20:00</Typography>
+                                                <Typography sx={{ fontWeight: 500 }} variant="h3">سانس ساعت 20:00</Typography>
                                                 <Typography color="textSecondary" variant="body1">۲ مورد</Typography>
                                             </Stack>
                                             <Divider />
@@ -409,7 +409,7 @@ export default function EntertainmentDetailDialog({
 
                             >
                                 <Stack className="flex! flex-row! items-center gap-2!">
-                                    <Typography variant="card_title" component="span">شوی شبانه کیش (اتحاد جنگ ها ) را بهتر ببینید و بشناسید</Typography>
+                                    <Typography variant="h3" component="span">شوی شبانه کیش (اتحاد جنگ ها ) را بهتر ببینید و بشناسید</Typography>
                                 </Stack>
                             </AccordionSummary>
 

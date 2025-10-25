@@ -16,7 +16,7 @@ export default function SanseCard() {
 
 
             <Stack className="flex flex-col! gap-1 pt-5 " >
-                <Typography variant="card_title">صندلی اکونومی (اقتصادی)</Typography>
+                <Typography variant="h3">صندلی اکونومی (اقتصادی)</Typography>
 
                 <Stack className="flex flex-row! items-center ">
                     <Typography className="line-through" variant="body1" color="primary">650,000</Typography>

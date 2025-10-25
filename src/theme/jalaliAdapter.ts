@@ -1,5 +1,6 @@
 // JalaliAdapter.js
 // src/JalaliAdapter.js
+// @ts-ignore
 import jMoment from 'moment-jalaali';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 
