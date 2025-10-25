@@ -14,9 +14,9 @@ import { useTranslations } from "next-intl";
 // ]
 
 const navbarItems = [
-  { titleKey: "تور کیش", href: "/" },
-  { titleKey: "هتل‌های کیش", href: "/" },
-  { titleKey: "تفریحات کیش", href: "/" },
+  { titleKey: "تور کیش", href: "/fa/tour" },
+  { titleKey: "هتل‌های کیش", href: "/fa/hotel" },
+  { titleKey: "تفریحات کیش", href: "/fa/entertainment" },
   { titleKey: "لینک‌های مفید", href: "/" },
 ];
 

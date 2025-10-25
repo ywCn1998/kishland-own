@@ -17,6 +17,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import RevealObserver from "@/components/shared/RevealObserver";
 import MobileBottomNav from "@/components/shared/bottomNavigation/bottomNavigation";
+import RouteIO from "../_route-io";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -74,6 +75,7 @@ export default async function RootLayout({
                   visibleClass: "is-visible",
                 }}
               />
+               <RouteIO />
               <Header />
               <Stack component="main" sx={{ minHeight: "70vh" }}>
                 {children}

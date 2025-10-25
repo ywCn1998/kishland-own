@@ -32,6 +32,7 @@ html,
 body {
   overflow-x: hidden;
 }
+
 /* @media (prefers-color-scheme: light) { */
 :root {
   --background: #0a0a0a;
@@ -48,6 +49,7 @@ body {
   --primary-900: #021d27;
   --secondary-500: #088def;
 }
+
 .text-secondary-500 {
   color: #088def;
 }
@@ -301,6 +303,7 @@ body {
   opacity: 1;
   animation: fadeIn 0.1s forwards;
 }
+
 .fade-out {
   opacity: 0;
   animation: fadeOut 0.1s forwards;
@@ -310,14 +313,17 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @keyframes fadeOut {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -326,13 +332,16 @@ body {
 @layer utilities {
   @media (max-width: 640px) {
     .xs-fullwidth {
-      @apply w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border;
+      @apply w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen box-border;
     }
   }
-    @media (min-width: 640px) {   
+
+  @media (min-width: 640px) {
     .sm-fullwidth {
-      @apply w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border;
+      @apply w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen box-border;
     }
+
+    /* } */
   }
 }
 
@@ -341,17 +350,16 @@ body {
   align-items: center;
   width: 100%;
 }
+
 .half-circle-divider hr {
   flex: 1;
   height: 2.5px;
   border: none;
-  background: repeating-linear-gradient(
-    to right,
-    #d8dfea,
-    #d8dfea 6px,
-    transparent 8px,
-    transparent 11px
-  );
+  background: repeating-linear-gradient(to right,
+      #d8dfea,
+      #d8dfea 6px,
+      transparent 8px,
+      transparent 11px);
 }
 
 .half-circle {
@@ -383,13 +391,11 @@ body {
   flex: 1;
   height: 2.5px;
   border: none;
-  background: repeating-linear-gradient(
-    to right,
-    #ffffff,
-    #ffffff 6px,
-    transparent 8px,
-    transparent 11px
-  );
+  background: repeating-linear-gradient(to right,
+      #ffffff,
+      #ffffff 6px,
+      transparent 8px,
+      transparent 11px);
 }
 
 .half-circle-divider-white .half-circle {
@@ -522,6 +528,7 @@ body {
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .reveal,
   .reveal-in {
     opacity: 1 !important;
@@ -539,6 +546,7 @@ body {
     transform: translateX(-100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
