@@ -1,6 +1,15 @@
-import { Box, Dialog, DialogProps, Divider, Typography } from "@mui/material";
-import { Close, Person } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogProps,
+  Divider,
+  Stack,
+  Typography,
+} from "@mui/material";
+import { Person } from "@mui/icons-material";
 import { ReactNode } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 interface Props {
   open: boolean;
@@ -10,7 +19,7 @@ interface Props {
   maxWidth?: DialogProps["maxWidth"];
   fullWidth?: boolean;
   showIcon?: boolean;
-  className?: string;
+  closeText?: string;
 }
 
 const BaseModal = ({
@@ -21,7 +30,7 @@ const BaseModal = ({
   maxWidth = "md",
   fullWidth = true,
   showIcon = true,
-  className = "",
+  closeText = "برگشت",
 }: Props) => {
   const CloseHandle = () => {
     setOpen(!open);
@@ -32,16 +41,31 @@ const BaseModal = ({
       fullWidth={fullWidth}
       maxWidth={maxWidth}
       onClose={CloseHandle}
-      className={className}
+      PaperProps={{
+        sx: {
+          borderRadius: 4,
+          p: 6,
+          backgroundColor: "white",
+        },
+      }}
     >
-      <Box className="bg-white relative p-5">
-        <span className="absolute left-3 top-3" onClick={CloseHandle}>
-          <Close />
-        </span>
-        <Typography className="flex items-center text-xl font-semibold">
-          {showIcon && <Person className="mb-2 me-1" />}
-          {title}
-        </Typography>
+      <Box className="bg-white ">
+        <Stack className="justify-between items-center flex-row-reverse!  ">
+          <Button
+            variant="text"
+            size="small"
+            className="flex-row! items-center gap-2 text-slate-400! "
+            onClick={CloseHandle}
+          >
+            <Typography className="text-sm!">{closeText}</Typography>
+            <ArrowBackIcon fontSize="small" />
+          </Button>
+          <Typography className="flex items-center text-xl! font-medium!">
+            {showIcon && <Person className="mb-2 me-1" />}
+            {title}
+          </Typography>
+        </Stack>
+
         <Divider orientation="horizontal" className="!mt-3" />
         {children}
       </Box>
