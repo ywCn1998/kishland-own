@@ -22,9 +22,11 @@ interface ISideBarItem {
     icon: any
 }
 
+const path = (url: string) => `/fa/panel/${url}/`
+
 const SideBarItems: ISideBarItem[] = [
-    { title: "حساب کاربری", route: "/fa/panel/user-account", icon: PersonOutline },
-    { title: "سفارشات من", route: "/orders", icon: ReceiptLongOutlined },
+    { title: "حساب کاربری", route: path("user-account"), icon: PersonOutline },
+    { title: "سفارشات من", route: path("history"), icon: ReceiptLongOutlined },
     { title: "کیف پول", route: "/wallet", icon: AccountBalanceWalletOutlined },
     { title: "پیشنهادات برای شما", route: "/suggestions", icon: EmojiObjectsOutlined },
     { title: "لیست مسافران", route: "/travelers", icon: GroupsOutlined },
@@ -39,7 +41,7 @@ export default function SideBar() {
 
     return (
         <>
-            <List className="rounded-xl!" disablePadding >
+            <List className="rounded-2xl!" disablePadding sx={{ py: 1 }}>
                 {SideBarItems.map((item) => (
                     <React.Fragment key={item.title}>
                         {item.title === "خروج از حساب" && <Divider sx={{ my: 0.3 }} />}
@@ -62,7 +64,7 @@ export default function SideBar() {
                                         alignItems: "center",
                                         gap: 0.5,
                                         p: 1,
-                                        borderRadius: "5px",
+                                        borderRadius: 1.5,
                                         width: "100%",
                                         backgroundColor: isActive(item.route) ? "#f5f7fa" : "white",
                                         "&:hover": { backgroundColor: "#f5f7fa" },
