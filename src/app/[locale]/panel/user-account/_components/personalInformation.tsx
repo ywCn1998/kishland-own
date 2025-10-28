@@ -1,5 +1,5 @@
 import RHFTextInput from "@/components/shared/form/RHFTextInput";
-import { Grid, MenuItem } from "@mui/material";
+import { Button, Grid, MenuItem } from "@mui/material";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import RHFSelect from "@/components/shared/form/RHFSelect";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -34,6 +34,14 @@ export default function PersonalInformation() {
 
             <Grid size={6}>
                 <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
+            </Grid>
+
+            <Grid size={6}>
+                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
+            </Grid>
+
+            <Grid size={6}>
+                <Button type="submit" sx={{ width: "100%", color: "white", height: "100%", fontWeight: 500, fontSize: 18 }} variant="contained"> ذخیره تغییرات</Button>
             </Grid>
         </Grid>
     )

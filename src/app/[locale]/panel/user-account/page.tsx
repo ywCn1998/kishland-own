@@ -8,6 +8,10 @@ import { DeleteOutlineOutlined, LocalSeeOutlined, AccountBalanceWalletOutlined, 
 
 import { useState } from "react";
 import PersonalInformation from "./_components/personalInformation";
+import { ExtraFooterInformation } from "@/components/shared/_components";
+import ContactInformation from "./_components/contactInformation";
+import PassportInformation from "./_components/passportInformation";
+import BankAccountInformation from "./_components/bankAccountInformation";
 
 const tabs = [
     {
@@ -20,19 +24,19 @@ const tabs = [
         id: "contact",
         label: "اطلاعات تماس",
         icon: <PhoneOutlined sx={{ fontSize: 20 }} />,
-        component: <div>Contact Info Component</div>,
+        component: <ContactInformation />,
     },
     {
         id: "passport",
         label: "اطلاعات پاسپورت",
         icon: <LanguageOutlined sx={{ fontSize: 20 }} />,
-        component: <div>Passport Info Component</div>,
+        component: <PassportInformation />,
     },
     {
         id: "bank",
         label: "اطلاعات حساب بانکی",
         icon: <CreditCardOutlined sx={{ fontSize: 20 }} />,
-        component: <div>Bank Account Info Component</div>,
+        component: <BankAccountInformation />,
     },
 ];
 
@@ -90,6 +94,7 @@ export default function UserAccount() {
                     </FormProvider>
                 </Grid>
             </Grid>
+            <ExtraFooterInformation companies={false} honerOfColobrate={false} />
         </Container>
     )
 }
