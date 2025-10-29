@@ -7,6 +7,8 @@ import SurfaceComponents from "./components/surfaces";
 import AccordionComponents from "./components/accordion";
 import SelectComponents from "./components/select";
 import CheckboxComponents from "./components/checkbox";
+import RadioComponents from "./components/radio";
+import SwitchComponents from "./components/switch";
 
 const components: Components<Theme> = {
   ...TypographyComponents,
@@ -17,6 +19,8 @@ const components: Components<Theme> = {
   ...AccordionComponents,
   ...SelectComponents,
   ...CheckboxComponents,
+  ...RadioComponents,
+  ...SwitchComponents,
 };
 
 export default components;

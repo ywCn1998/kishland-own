@@ -14,6 +14,7 @@ type TabItem = {
 
 export default function MainTabs({
     data,
+    border = true,
     tabStyle,
     changeCardUi,
     setChangeCardUi,
@@ -22,6 +23,7 @@ export default function MainTabs({
     setSortByCheap
 }: {
     data: TabItem[];
+    border?: boolean;
     tabStyle?: SxProps<Theme>;
     changeCardUi?: boolean
     setChangeCardUi?: (val: boolean) => void
@@ -66,9 +68,10 @@ export default function MainTabs({
                     "& svg": { fontSize: 18 },
                 },
                 mb: 2,
-                border: "1px solid",
+                border: border ? "1px solid" : "none" ,
+                borderBottom : border ? "1px solid" : "1px solid",
                 borderColor: "divider",
-                borderRadius: "14px",
+                borderRadius: border ? "14px" : 0,
                 position: "relative"
             }}
         >

@@ -9,6 +9,9 @@ import {
   Divider,
   Button,
   IconButton,
+  Tab,
+  MenuItem,
+  Tabs,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PersonIcon from "@mui/icons-material/Person";
@@ -19,8 +22,11 @@ import FormProvider from "@/providers/FormProvider";
 import useSubmitPassenger from "./hooks/useSubmitPassengers";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { CheckBox } from "@mui/icons-material";
+import { CheckBox, Label } from "@mui/icons-material";
 import RHFCheckbox from "@/components/shared/form/RHFCheckBox";
+import MainTabs from "@/components/shared/mainTabs";
+
+const tabItems = [{ label: "بدون میهمان خارجی" }, { label: "با میهمان خارجی" }];
 
 export default function PassengersDetails() {
   const { OnSubmit, methods } = useSubmitPassenger();
@@ -135,6 +141,9 @@ export default function PassengersDetails() {
                     size="small"
                   />
                 </div>
+                <Stack>
+                  <MainTabs data={tabItems} border={false} />
+                </Stack>
                 <Stack className="flex! flex-row! gap-4! mt-6!">
                   <RHFTextInput
                     startIcon={<PersonIcon />}
@@ -148,7 +157,7 @@ export default function PassengersDetails() {
                   />
                 </Stack>
               </Stack>
-                <Stack className="reveal">
+              <Stack className="reveal">
                 <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3!">
                   <Stack className="flex! gap-2! flex-row! items-center">
                     <Typography className="text-xl! font-medium!">
@@ -184,6 +193,9 @@ export default function PassengersDetails() {
                     size="small"
                   />
                 </div>
+                <Stack>
+                  <MainTabs data={tabItems} border={false} />
+                </Stack>
                 <Stack className="flex! flex-row! gap-4! mt-6!">
                   <RHFTextInput
                     startIcon={<PersonIcon />}

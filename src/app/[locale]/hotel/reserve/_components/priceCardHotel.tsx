@@ -8,6 +8,7 @@ import SingleBedIcon from '@mui/icons-material/SingleBed';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import TextIcon from "@/components/shared/textIcon";
 import Link from "next/link";
+import CancelModal from "@/components/shared/_components/cancelMidal.tsx/cancelModal";
 
 
 type PriceCardProps = {
@@ -16,6 +17,7 @@ type PriceCardProps = {
 
 export default function PriceCardHotel({ onNext }: PriceCardProps) {
   const [timeLeft, setTimeLeft] = useState(10 * 60);
+  const [openCancelModal , setOpenCancelModal] = useState<boolean>(false)
 
   useEffect(() => {
     if (timeLeft <= 0) return;
@@ -210,6 +212,7 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
             mt: 2,
             cursor: "pointer",
           }}
+          onClick={()=>setOpenCancelModal(!openCancelModal)}
         >
           <Typography variant="caption2" color="secondary">
             قوانین استرداد بلیط
@@ -230,6 +233,7 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
         </Box>
         <TotalResponsive total={"22,000,000"} />
       </Stack>
+      <CancelModal open={openCancelModal} setOpen={setOpenCancelModal}/>
     </>
   );
 }
