@@ -8,9 +8,29 @@ import SingleBedIcon from '@mui/icons-material/SingleBed';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import TextIcon from "@/components/shared/textIcon";
 import Link from "next/link";
-import CancelModal from "@/components/shared/_components/cancelMidal.tsx/cancelModal";
+import CancelModal from "@/components/shared/_components/cancelModal.tsx/cancelModal";
+import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
+import LoginPhoneModal from "@/components/shared/modal/loginModals/loginPhoneModal";
+import ShareModal from "@/components/shared/modal/shareModal/shareModal";
+import SuccessModal from "@/components/shared/modal/commentsModals/failOrSuccessModal";
+import CartModal from "@/components/shared/modal/cartModal/cartModal";
+import LogOutModal from "@/components/shared/modal/logOutModal";
 
 
+const items = [
+  {
+    name : "کشتی امیر کبیر کیش ",
+    sanse : "سانس 12:00 الی 12:30",
+    date : "1404/03/09",
+    count : 7 ,
+  },
+    {
+    name : "کشتی امیر کبیر کیش ",
+    sanse : "سانس 12:00 الی 12:30",
+    date : "1404/03/09",
+    count : 7 ,
+  },
+]
 type PriceCardProps = {
   onNext?: () => void;
 };
@@ -233,7 +253,8 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
         </Box>
         <TotalResponsive total={"22,000,000"} />
       </Stack>
-      <CancelModal open={openCancelModal} setOpen={setOpenCancelModal}/>
+      {/* <CancelModal open={openCancelModal} setOpen={setOpenCancelModal}/> */}
+      <LogOutModal open={openCancelModal} setOpen={setOpenCancelModal} />
     </>
   );
 }

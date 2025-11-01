@@ -14,12 +14,14 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 interface Props {
   open: boolean;
   setOpen: (open: boolean) => void;
-  title: string;
+  title: string | ReactNode;
   children: ReactNode;
   maxWidth?: DialogProps["maxWidth"];
   fullWidth?: boolean;
   showIcon?: boolean;
   closeText?: string;
+  bgImage?: string;
+  onClose?: ()=>void;
 }
 
 const BaseModal = ({
@@ -31,10 +33,11 @@ const BaseModal = ({
   fullWidth = true,
   showIcon = true,
   closeText = "برگشت",
+  bgImage,
+  onClose,
 }: Props) => {
-  const CloseHandle = () => {
-    setOpen(!open);
-  };
+  const CloseHandle = () => setOpen(!open);
+
   return (
     <Dialog
       open={open}
@@ -44,30 +47,54 @@ const BaseModal = ({
       PaperProps={{
         sx: {
           borderRadius: 4,
-          p: 6,
-          backgroundColor: "white",
+          overflow: "hidden",
+          p: 0,
         },
       }}
     >
-      <Box className="bg-white ">
-        <Stack className="justify-between items-center flex-row-reverse!  ">
-          <Button
-            variant="text"
-            size="small"
-            className="flex-row! items-center gap-2 text-slate-400! "
-            onClick={CloseHandle}
-          >
-            <Typography className="text-sm!">{closeText}</Typography>
-            <ArrowBackIcon fontSize="small" />
-          </Button>
-          <Typography className="flex items-center text-xl! font-medium!">
-            {showIcon && <Person className="mb-2 me-1" />}
-            {title}
-          </Typography>
-        </Stack>
+      <Box
+        sx={{
+          backgroundImage: bgImage ? `url(${bgImage})` : "none",
+          backgroundSize: "cover", 
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <Box sx={{ p: 5 }}>
+          <Stack
+            direction="row-reverse"
+            alignItems="center"
+            justifyContent="space-between"
 
-        <Divider orientation="horizontal" className="!mt-3" />
-        {children}
+          >
+            <Button
+              variant="text"
+              size="small"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                color: "text.secondary",
+              }}
+              onClick={onClose ? onClose : CloseHandle}
+            >
+              <Typography variant="body2">{closeText}</Typography>
+              <ArrowBackIcon fontSize="small" />
+            </Button>
+          
+            
+            <Typography variant="h6" sx={{ display: "flex", alignItems: "center" }}>
+              {showIcon && <Person sx={{ mr: 1, mb: "2px" }} />}
+              {title}
+            </Typography>
+          </Stack>
+
+          <Divider sx={{ mt: 2, mb: 3 }} />
+
+          {children}
+        </Box>
       </Box>
     </Dialog>
   );
