@@ -40,6 +40,7 @@ export default function TourSearch({ activePage = "tour" }) {
                 variant={activePage === "tour" ? "contained" : "outlined"}
                 className="font-normal! reveal"
                 startIcon={<BusinessCenterIcon />}
+                href="/fa/tour"
               >
                 تور ها
               </Button>
@@ -55,6 +56,7 @@ export default function TourSearch({ activePage = "tour" }) {
                 variant={activePage === "hotel" ? "contained" : "outlined"}
                 startIcon={<ApartmentIcon />}
                 className="reveal"
+                href="/fa/hotel"
               >
                 هتل‌ها و اقامتگاه‌ها
               </Button>
@@ -70,6 +72,7 @@ export default function TourSearch({ activePage = "tour" }) {
                 variant={activePage === "fun" ? "contained" : "outlined"}
                 startIcon={<SportsRugbyIcon />}
                 className="reveal"
+                href="/fa/entertainment"
               >
                 تفریحات
               </Button>
@@ -155,6 +158,7 @@ export default function TourSearch({ activePage = "tour" }) {
                   <IconButton
                     className="w-full md:w-14 md:h-14 h-16 "
                     sx={{ bgcolor: "primary.main", borderRadius: 1 }}
+                    href="/fa/hotel/list"
                   >
                     <Typography className="text-white pl-1 text-lg text-extralight md:hidden">
                       بزن بریم
@@ -262,6 +266,7 @@ export default function TourSearch({ activePage = "tour" }) {
                   <IconButton
                     className="w-full md:w-14 md:h-14 h-16 "
                     sx={{ bgcolor: "primary.main", borderRadius: 1 }}
+                    href="/fa/tour/list"
                   >
                     <Typography className="text-white pl-1 text-lg text-extralight md:hidden">
                       بزن بریم

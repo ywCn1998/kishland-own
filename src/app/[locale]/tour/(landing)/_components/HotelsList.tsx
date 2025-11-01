@@ -26,6 +26,7 @@ export default function HotelsList() {
               <Button
                 variant="outlined"
                 className="bg-white! text-black! w-full rounded-xl!"
+                href="/fa/hotel/hotel-details"
               >
                 <span className="reveal-down">{label}</span>
               </Button>

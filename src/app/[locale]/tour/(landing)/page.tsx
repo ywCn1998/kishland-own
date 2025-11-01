@@ -23,6 +23,7 @@ import {
   LastSearch,
 } from "@/components/shared/_components";
 import GoldenText from "@/components/shared/_components/GoldenText";
+import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
 
 export default function Home() {
   // const { locale } = params;
@@ -61,6 +62,7 @@ export default function Home() {
                 responsiveCaption=" این تور های رو از دست نده ..."
                 title={" پیشنهادات لحظه ای"}
                 buttonText={"مشاهده لیست پیشنهادات ها"}
+                href="/fa/tour/list"
               // captionClass="block! text-xs! sm:text-base md:text-xl"
               />
 
@@ -112,6 +114,7 @@ export default function Home() {
       </Container>
 
       <ExtraFooterInformation />
+      <HotDiscountModal/>
     </Stack >
   );
 }

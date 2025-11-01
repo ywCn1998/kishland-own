@@ -1,9 +1,11 @@
-import React from "react";
+"use client"
+
+import React, { useState } from "react";
 import BaseModal from "../BaseModal";
-import { ModalProps } from "@/interface/@types";
 import { Button, Stack, Typography } from "@mui/material";
 
-export default function HotDiscountModal({ open, setOpen }: ModalProps) {
+export default function HotDiscountModal() {
+  const [open , setOpen] = useState<boolean>(true)
   return (
     <>
       <BaseModal

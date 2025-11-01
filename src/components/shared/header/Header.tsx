@@ -11,11 +11,11 @@ import {
   LoginOutlined,
   Widgets,
 } from "@mui/icons-material";
+import { useState } from "react";
+import RegisterModal from "../modal/loginModals/registerModal";
 
 export default function Header({}) {
-  // const { locale } = await params;
-  // const t = useTranslations('Header');
-  // const t = await getTranslations({ locale });
+ const [open , setOpen] = useState<boolean>(false)
   return (
     <Container maxWidth="xl">
       <Stack className="lg:!py-8  " sx={{ boxShadow: "none" }}>
@@ -68,8 +68,9 @@ export default function Header({}) {
                   color: "text.primary",
                 }}
                 className="px-10! h-[55px]!"
+                onClick={()=>setOpen(!open)}
               >
-                <Typography className="text-base!">ورود یا ثبت نام</Typography>
+                <Typography className="text-base!" >ورود یا ثبت نام</Typography>
               </Button>
               {/* <Button variant="text">پنل کاربری</Button> */}
             </Stack>
@@ -103,6 +104,7 @@ export default function Header({}) {
           </Typography>
         </Stack>
       </Stack>
+      <RegisterModal open={open} setOpen={setOpen}/>
     </Container>
   );
 }

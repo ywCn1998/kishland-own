@@ -20,12 +20,9 @@ import {
   BestEntertainmentSection,
 } from "./_components";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  // const { locale } = params;
-
-  // setRequestLocale(locale);
-
   return (
     <Stack
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
@@ -46,12 +43,14 @@ export default function Home() {
 
         {/* banner */}
         <Stack className="w-full h-[450px] relative rounded-3xl! mt-10! mb-20! reveal">
-          <Image
-            src={"/images/sea-chair.png"}
-            alt="s"
-            fill
-            className="animate-slide-in-left !"
-          />
+          <Link href="/fa/entertainment/list">
+            <Image
+              src={"/images/sea-chair.png"}
+              alt="s"
+              fill
+              className="animate-slide-in-left !"
+            />
+          </Link>
         </Stack>
 
         {/* discounded tours */}
@@ -62,12 +61,15 @@ export default function Home() {
 
           {/* banner */}
           <Stack className="w-full h-[300px] relative rounded-3xl! mt-38! mb-20! reveal">
-            <Image
-              src={"/images/tafrih-banner.png"}
-              alt="s"
-              fill
-              className="animate-slide-in-left !"
-            />
+            <Link href="/fa/hotel/list">
+              {" "}
+              <Image
+                src={"/images/tafrih-banner.png"}
+                alt="s"
+                fill
+                className="animate-slide-in-left! cursor-pointer!"
+              />
+            </Link>
           </Stack>
         </Stack>
 
@@ -76,6 +78,7 @@ export default function Home() {
           caption="این بار این سفر واست خاطره میشه ..."
           title={"پکیج دلخواهت رو انتخاب کن "}
           buttonText={"مشاهده لیست پیشنهادات ها"}
+          href="/fa/entertainment/list"
         />
 
         {/* acconamy */}
@@ -87,6 +90,7 @@ export default function Home() {
             title="بهترین تفریحات کیش"
             buttonText="مشاهده لیست تفریحات"
             className="p-0!"
+            href="/fa/entertainment/list"
           />
 
           <Stack className="px-8!">

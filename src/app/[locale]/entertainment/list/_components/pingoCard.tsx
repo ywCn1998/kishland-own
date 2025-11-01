@@ -1,4 +1,5 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 
 
@@ -24,7 +25,7 @@ export function PingoCard({
     return (
         <Grid size={{ md: 4 }}>
             <Stack
-                className="flex flex-col! h-full items-center relative rounded-2xl! overflow-hidden! py-7 px-3"
+                className="flex flex-col! h-full items-center relative rounded-2xl! overflow-hidden! py-7 px-3 cursor-pointer!"
                 sx={{
                     position: 'relative',
                     borderRadius: 4,
@@ -81,12 +82,14 @@ export function PingoCard({
                             {new_price} تومان
                         </Typography>
                     </Stack>
-
-                    <Typography variant="button"
+                <Link href={"/fa/entertainment/reserve"}>
+                <Typography variant="button"
                         // color="textDisabled"
-                        className="mt-8! text-white!">
+                        className="mt-8! text-white!" >
                         مشاهده و رزرو پکیج
                     </Typography>
+                </Link>
+                    
                 </Stack>
             </Stack>
 

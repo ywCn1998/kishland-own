@@ -80,6 +80,7 @@ export default async function Home() {
               title={" بهترین قیمت هتل های کیش "}
               buttonText={"مشاهده لیست هتل ها"}
               className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA]"
+              href="/fa/hotel/list"
             />
           </Container>
           <Stack>
@@ -101,6 +102,7 @@ export default async function Home() {
               title={" محبوب‌ترین هتل‌های کیش"}
               buttonText={"مشاهده لیست هتل ها"}
               className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA]"
+              href="/fa/hotel/list"
             />
           </Container>
         </Stack>
@@ -113,7 +115,7 @@ export default async function Home() {
           component={"img"}
           src={"/images/hotel/hotelgoonloan.png"}
           sx={{ width: "100%" }}
-          className="mt-12 reveal "
+          className="mt-12 reveal cursor-pointer!"
         />
 
         <CommonQuestions />

@@ -234,7 +234,7 @@ export default function EntertainmentDetailDialog({
 
 
 
-                                <Button variant="contained" color="inherit">انتخاب سانس</Button>
+                                <Button variant="contained" color="inherit" href="/fa/entertainment/reserve">انتخاب سانس</Button>
                             </Stack>
 
 

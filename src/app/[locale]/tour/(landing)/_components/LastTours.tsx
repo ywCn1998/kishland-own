@@ -71,6 +71,7 @@ const LatestToursSection = ({ umbrella = true, titles = true }: lastTour) => {
                 endIcon={<KeyboardBackspaceIcon className="text-gray-600!" />}
                 variant="outlined"
                 className="border-1 border-black! bg-white! text-black! py-4! reveal-down"
+                href="/fa/tour/list"
               >
                 مشاهده لیست پکیج ها
               </Button>

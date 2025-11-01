@@ -54,6 +54,7 @@ const BuyOneGetTwoSection = () => {
           <Button
             className="w-6/12 text-white! rounded-xl! text-lg! reveal"
             variant="contained"
+            href="/fa/entertainment/list"
           >
             مشاهده لیست تفریحات
           </Button>

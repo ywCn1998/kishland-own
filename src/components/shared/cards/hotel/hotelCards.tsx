@@ -170,6 +170,7 @@ export default async function HotelCards({
               <Button
                 variant="contained"
                 className="bg-slate-200! py-5! rounded-sm! lg:rounded-lg! !px-1 lg:!px-3"
+                href="/fa/hotel/hotel-details"
               >
                 <Typography className="!text-xs lg:!text-base">
                   مشاهده

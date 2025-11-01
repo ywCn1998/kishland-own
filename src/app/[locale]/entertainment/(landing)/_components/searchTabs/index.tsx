@@ -178,6 +178,7 @@ function InputsGrid() {
               py: 1.2,
               color: "white",
             }}
+            href="/fa/tour/list"
           >
             بزن بریم!
           </Button>
