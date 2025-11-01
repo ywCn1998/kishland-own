@@ -13,6 +13,7 @@ import { PingoCard } from "./_components/pingoCard";
 import FilterBox from "./_components/filterBox";
 import EntertainmentDetailDialog from "./_components/detail";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // { params }: { params: { locale: string } }
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
   const [OpenMdl, setOpenMdl] = useState(false);
 
 
-
+  const router = useRouter()
 
 
 
@@ -41,7 +42,7 @@ export default function Home() {
         </Stack>
 
         <Stack display={'flex'} flexDirection={'row'} className="items-center">
-          <Typography>برگشت</Typography>
+          <Typography onClick={() => router.back()}>برگشت</Typography>
           <KeyboardBackspaceOutlined />
         </Stack>
 

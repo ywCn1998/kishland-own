@@ -1,9 +1,7 @@
 "use client"
 import {
     ExtraFooterInformation,
-    OfferBanner,
 } from "@/components/shared/_components";
-import { KeyboardBackspaceOutlined } from "@mui/icons-material";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
 
@@ -18,7 +16,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
-import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import Steps from "./steps";
 
 
@@ -85,7 +82,7 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                     marginBottom: 5,
                     display: "flex",
                     flexDirection: "column",
-                    gap: 4  ,
+                    gap: 4,
                 }}
             >
                 <Stack
@@ -130,7 +127,7 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
 
 
                 <Stack sx={{ mt: 10 }}>
-                    <ExtraFooterInformation 
+                    <ExtraFooterInformation
                         honerOfColobrate={false}
                         moreToRead={true}
                         companies={false}

@@ -21,6 +21,7 @@ export default function PanelLayout({ children }: { children: ReactNode }) {
             <ExtraFooterInformation
                 companies={false}
                 honerOfColobrate={false}
+                hasHeader={false}
             />
         </Container >
     );

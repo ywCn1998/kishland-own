@@ -5,7 +5,9 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import SortOutlinedIcon from '@mui/icons-material/SortOutlined';
 import { HotelHistoryCard } from "../cards/hotelHistoryCard";
 
-export default function HotelHistory() {
+export default function HotelHistory({ orderId }: { orderId: number }) {
+    console.log(orderId);
+
     return (
         <Stack className="w-full!">
             <Stack className="border-1! border-slate-200! rounded-3xl flex! flex-row! justify-between! items-center! p-5!">
@@ -14,9 +16,12 @@ export default function HotelHistory() {
             </Stack>
 
             <Stack mt={3} spacing={3}>
-                {Array.from({ length: 3 }).map((_, index) => (
-                    <HotelHistoryCard />
-                ))}
+                {/* {Array.from({ length: 3 }).map((_, index) => ( */}
+                <HotelHistoryCard status="pending" />
+                <HotelHistoryCard status="reserved" />
+                <HotelHistoryCard status="end" orderId={orderId} />
+                <HotelHistoryCard status="canceled" />
+                {/* ))} */}
             </Stack>
         </Stack>
     )
