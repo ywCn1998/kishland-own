@@ -1,4 +1,4 @@
-import { Typography, Stack } from "@mui/material";
+import { Typography, Stack, SxProps } from "@mui/material";
 import { ReactNode } from "react";
 
 interface IProp {
@@ -6,12 +6,13 @@ interface IProp {
     startIcon?: ReactNode
     endIcon?: ReactNode
     className?: string
-    sx?: any;
+    sx?: SxProps;
+    gap?: number | string
 }
-export default function TextIcon({ text, startIcon, endIcon, className, sx }: IProp) {
+export default function TextIcon({ text, startIcon, endIcon, className, sx, gap = 0.5 }: IProp) {
     return (
         <Typography component="div" color="text.secondary" className={`${className}`} sx={{ ...sx }}>
-            <Stack direction="row" alignItems="center" spacing={1} gap={0.5}>
+            <Stack direction="row" alignItems="center" spacing={1} gap={gap}>
                 {startIcon}
                 {text}
                 {endIcon}

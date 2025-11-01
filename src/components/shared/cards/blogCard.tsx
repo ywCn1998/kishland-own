@@ -30,6 +30,7 @@ interface BlogCardProps {
 
   /** Typography tweaks */
   titleSize?: "lg" | "xl"; // maps to classes
+  boxShadow?: number
 }
 
 export default function BlogCard({
@@ -45,7 +46,7 @@ export default function BlogCard({
   // showMeta = true,
   dateText = "",
   views,
-
+  boxShadow = 3,
   titleSize = "lg",
 }: BlogCardProps) {
   const titleClass = titleSize === "xl" ? "text-3xl! mb-4!" : "text-2xl!";
@@ -59,7 +60,7 @@ export default function BlogCard({
         borderRadius: 2,
         overflow: "hidden",
         color: "white",
-        boxShadow: 3,
+        boxShadow: boxShadow,
         "& img": { transition: "transform 0.4s ease-in-out" },
         "&:hover img": { transform: "scale(1.15)" },
       }}
