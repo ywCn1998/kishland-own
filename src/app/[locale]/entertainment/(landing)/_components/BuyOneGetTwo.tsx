@@ -11,17 +11,17 @@ const BuyOneGetTwoSection = () => {
       mt={10}
       sx={{ height: { xs: 140, lg: 550 } }}
       className=""
-      spacing={{xs : 2 , lg : 4}}
+      spacing={{ xs: 2, lg: 4 }}
     >
-      <Grid size={5}>
+      <Grid size={{ xs: 4, lg: 5 }}>
         <div className="h-full! relative reveal reveal">
           <Image
             //   component="img"
             fill
             src={"/images/by-one-get-two.png"}
             alt={"fromsea"}
+            className="w-[100%]"
             style={{
-              width: "100%",
               height: "100%",
               objectFit: "fill",
               zIndex: 1,
@@ -29,20 +29,25 @@ const BuyOneGetTwoSection = () => {
           />
         </div>
       </Grid>
-      <Grid size={7} className=" flex! flex-col h-full! justify-center!">
-        <Typography className="text-xs! text-slate-400! reveal-down md:hidden!">الان سفر کن بعدا قسطی پرداخت کن ...</Typography>
+      <Grid
+        size={{ xs: 8, lg: 7 }}
+        className=" flex! flex-col h-full! justify-center!"
+      >
+        <Typography className="text-xs! text-slate-400! reveal-down md:hidden!">
+          الان سفر کن بعدا قسطی پرداخت کن ...
+        </Typography>
         <Typography className="text-xl! text-slate-400! reveal-down hidden! md:block!">
           🔥 یک تفریح رایگان به همراه دو تجربه هیجان‌انگیز در کیش خواهید داشت!
         </Typography>
 
-        <Typography className="md:text-5xl! text-xl! font-bold! gap-2!  mb-5 reveal-down md:mt-10! mt-4! text-nowrap! md:text-wrap!">
-          دو تا <span className="text-primary-500">تفریح </span> بخر یکی{" "}
+        <Typography className="md:text-5xl! text-lg! font-bold! md:gap-2! gap-0!  mb-5 reveal-down md:mt-10! mt-4! text-nowrap! md:text-wrap!">
+          دو تا <span className="text-primary-500">تفریح </span> بخر یکی
           {/* <div> */}
           <GoldenText
             text="جایزه"
             isTopThreeAttention
             textColor="secondary"
-            attentionClass="top-[-30px]! left-0!"
+            attentionClass="top-[-30px]! left-0! hidden! md:block!"
           />
           {/* </div> */}
           ببر!!
@@ -69,6 +74,13 @@ const BuyOneGetTwoSection = () => {
             href="/fa/entertainment/list"
           >
             مشاهده لیست تفریحات
+          </Button>
+          <Button
+            className=" text-white! rounded-2xl! text-sm! reveal md:hidden!"
+            variant="contained"
+            href="/fa/entertainment/list"
+          >
+            خرید قسطی تور
           </Button>
         </Stack>
       </Grid>
