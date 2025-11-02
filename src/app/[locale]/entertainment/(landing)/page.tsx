@@ -29,9 +29,12 @@ export default function Home() {
       className="mb-10!"
     >
       <Container maxWidth="xl">
-        <CategorySlider />
-
-        <BodyIntroSection />
+        <Stack className="hidden! md:block!">
+          <CategorySlider />
+        </Stack>
+        <Stack className="hidden! md:block!">
+          <BodyIntroSection />
+        </Stack>
 
         <Stack spacing={10} mt={8}>
           <SearchTabSection />

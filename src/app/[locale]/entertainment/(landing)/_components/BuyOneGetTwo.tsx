@@ -6,7 +6,13 @@ import GoldenText from "@/components/shared/_components/GoldenText";
 
 const BuyOneGetTwoSection = () => {
   return (
-    <Grid container mt={10} sx={{ height: 550 }} className="" spacing={4}>
+    <Grid
+      container
+      mt={10}
+      sx={{ height: { xs: 140, lg: 550 } }}
+      className=""
+      spacing={{xs : 2 , lg : 4}}
+    >
       <Grid size={5}>
         <div className="h-full! relative reveal reveal">
           <Image
@@ -23,20 +29,26 @@ const BuyOneGetTwoSection = () => {
           />
         </div>
       </Grid>
-      <Grid size={7} className="h-full flex! flex-col h-full! justify-center!">
-        <Typography className="text-xl! text-slate-400! reveal-down">
+      <Grid size={7} className=" flex! flex-col h-full! justify-center!">
+        <Typography className="text-xs! text-slate-400! reveal-down md:hidden!">الان سفر کن بعدا قسطی پرداخت کن ...</Typography>
+        <Typography className="text-xl! text-slate-400! reveal-down hidden! md:block!">
           🔥 یک تفریح رایگان به همراه دو تجربه هیجان‌انگیز در کیش خواهید داشت!
         </Typography>
 
-        <Typography className="text-5xl! font-bold! gap-2!  mb-5 reveal-down mt-10!">
+        <Typography className="md:text-5xl! text-xl! font-bold! gap-2!  mb-5 reveal-down md:mt-10! mt-4! text-nowrap! md:text-wrap!">
           دو تا <span className="text-primary-500">تفریح </span> بخر یکی{" "}
           {/* <div> */}
-            <GoldenText text="جایزه" isTopThreeAttention textColor="secondary" attentionClass="top-[-30px]! left-0!"/>
+          <GoldenText
+            text="جایزه"
+            isTopThreeAttention
+            textColor="secondary"
+            attentionClass="top-[-30px]! left-0!"
+          />
           {/* </div> */}
           ببر!!
         </Typography>
 
-        <Typography className="mt-3!  leading-[35px]! reveal-down text-lg! reveal-down">
+        <Typography className="mt-3!  leading-[35px]! reveal-down text-lg! reveal-down hidden! md:block!">
           با خرید دو تفریح از کیش لندیار، یک تفریح دیگر به‌صورت هدیه دریافت
           کنید! این فرصت ویژه به شما امکان می‌دهد تا بیشتر از جزیره کیش لذت
           ببرید و یک تجربه اضافه و هیجان‌انگیز را بدون هزینه اضافی داشته باشید.
@@ -45,14 +57,14 @@ const BuyOneGetTwoSection = () => {
 
         <Stack className="w-full! flex! flex-row! gap-8! reveal" mt={2}>
           <Button
-            className="w-6/12 text-black! rounded-xl! text-lg! reveal"
+            className="w-6/12 text-black! rounded-xl! text-lg! reveal hidden! md:block!"
             variant="outlined"
             startIcon={<AdbIcon />}
           >
             دانلود اپلیکیشن
           </Button>
           <Button
-            className="w-6/12 text-white! rounded-xl! text-lg! reveal"
+            className="w-6/12 text-white! rounded-xl! text-lg! reveal hidden! md:block!"
             variant="contained"
             href="/fa/entertainment/list"
           >

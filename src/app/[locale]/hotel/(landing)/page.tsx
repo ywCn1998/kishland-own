@@ -53,16 +53,16 @@ export default async function Home() {
         </Stack>
         <img
           src={"/images/hotel/plane.png"}
-          className="absolute left-35  top-293 z-0 animate-slide-in-left duration-1000!"
+          className="absolute left-35  top-293 z-0 animate-slide-in-left duration-1000! hidden! md:block!"
         />
         <img
           src={"/images/hotel/dashplane.png"}
-          className="absolute left-0 top-280 z-0 animate-slide-in-left duration-1000!"
+          className="absolute left-0 top-280 z-0 animate-slide-in-left duration-1000! hidden! md:block!"
         />
         <Stack className="mt-10 relative">
           <img
             src={"/images/hotel/hotelarrow.png"}
-            className="absolute right-105 top-30 reveal-down "
+            className="absolute right-105 top-30 reveal-down hidden! md:block!"
           />
           <WhyKishLand path={"/images/hotel/hotelWhyKish.png"} width="360px" />
         </Stack>
