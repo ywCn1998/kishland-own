@@ -40,6 +40,15 @@ export default function Home() {
         <CategorySlider />
         <Stack className="px-4 md:px-0 bg-white"><TourSearchSection /></Stack>
         <LastSearch />
+        <Stack className="px-4! md:hidden! mt-4!">
+          <Stack className="rounded-xl! p-3! flex! flex-row! items-center! gap-3!" sx={{ backgroundColor: "secondary.50" }}>
+            <img src="/images/new/chance.png" className="w-12! h-12!" alt="" />
+            <Stack className="flex! flex-col! gap-2! ">
+              <Typography fontWeight={500} className="text-sm!" sx={{ color: "secondary.main" }}>شانس <span className="text-black!">امروزتو امتحان کن</span></Typography>
+              <Typography color="text.secondary" className="text-xs!">هر روز یک گردونه شانس با کلی جایزه</Typography>
+            </Stack>
+          </Stack>
+        </Stack>
       </Container>
 
       <Stack className="flex! flex-col-reverse! md:flex-col!">
@@ -54,7 +63,7 @@ export default function Home() {
         <Stack className="w-full! flex! flex-col-reverse! md:flex-col">
           <ViewsOfHotelSection />
 
-          <Stack className="bg-slate-100 md:bg-white mx-0!">
+          <Stack className="bg-slate-100 md:bg-white mx-0! my-5! md:my-0!">
             <Container maxWidth="xl" className="mx-auto!">
               {/* <Stack className="hidden! md:block!"> */}
               <OfferBanner
@@ -109,12 +118,12 @@ export default function Home() {
       </Container>
 
 
-      <Container maxWidth="xl">
+      <Stack maxWidth="xl" className="mx-auto!">
         <MainBlog />
-      </Container>
+      </Stack>
 
       <ExtraFooterInformation />
-      <HotDiscountModal/>
+      <HotDiscountModal />
     </Stack >
   );
 }

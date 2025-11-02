@@ -31,6 +31,7 @@ interface BlogCardProps {
   /** Typography tweaks */
   titleSize?: "lg" | "xl"; // maps to classes
   boxShadow?: number
+  titleClass?: string
 }
 
 export default function BlogCard({
@@ -48,8 +49,9 @@ export default function BlogCard({
   views,
   boxShadow = 3,
   titleSize = "lg",
+  titleClass
 }: BlogCardProps) {
-  const titleClass = titleSize === "xl" ? "text-3xl! mb-4!" : "text-2xl!";
+  const titleStyle = titleSize === "xl" ? "text-3xl! mb-4!" : "text-2xl!";
 
   return (
     <Box
@@ -111,18 +113,18 @@ export default function BlogCard({
         <>
           {!!title && (
             <Typography
-              className={`${titleClass} hover:font-semibold! cursor-pointer!`}
+              className={`${titleStyle} ${titleClass} hover:font-semibold! cursor-pointer!`}
               fontWeight={300}
             >
               {title}
             </Typography>
           )}
-
+          {/* 
           {hasFloatImage && (
             <Stack className="w-[90%]! mx-auto! h-16! relative!">
               <Image alt="blogs-decoration" src="/images/blog-float.png" fill />
             </Stack>
-          )}
+          )} */}
         </>
 
         {/* Variant: description only (old BlogCard2) */}

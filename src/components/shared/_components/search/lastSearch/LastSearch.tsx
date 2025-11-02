@@ -5,7 +5,7 @@ interface lastSearch {
 }
 export default function LastSearch({ hotel = false }: lastSearch) {
   return (
-    <Grid container mt={2}>
+    <Grid container mt={2} className="hidden! md:flex!">
       <Stack className="flex! flex-row! justify-between! w-full! items-center!">
         <Typography className="reveal text-lg! font-medium! reveal-down">
           آخرین جست و جو های من (2)

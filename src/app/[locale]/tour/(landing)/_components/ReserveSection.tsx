@@ -6,7 +6,7 @@ import GoldenText from "@/components/shared/_components/GoldenText";
 const ReserveSection = () => {
   return (
     <Grid container mt={5} sx={{ height: { xs: "auto", md: 500 } }} className="flex! flex-col-reverse! md:flex-row! gap-4! md:gap-0!">
-      <Grid size={{ xs: 12, md: 7 }} className="h-full flex! flex-col h-full! justify-center!">
+      <Grid size={{ xs: 12, md: 7 }} className="flex! flex-col h-full! justify-center!">
         <Typography className="text-slate-400! text-base md:text-lg! reveal-down mb-2! md:mb-0!">
           کیش، سرزمین ماجراجویی و لذت!
         </Typography>

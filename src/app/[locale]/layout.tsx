@@ -75,14 +75,14 @@ export default async function RootLayout({
                   visibleClass: "is-visible",
                 }}
               />
-               <RouteIO />
+              <RouteIO />
               <Header />
-              <Stack component="main" sx={{ minHeight: "70vh" }}>
+              <Stack component="main" sx={{ minHeight: "70dvh" }} className="mt-20! md:mt-0!">
                 {children}
               </Stack>
               <Footer />
             </Stack>
-             <MobileBottomNav /> 
+            <MobileBottomNav />
           </NextIntlClientProvider>
         </MuiProvider>
       </Box>
