@@ -1,8 +1,9 @@
-import { Container, Grid, Stack } from "@mui/material";
+import { Box, Container, Grid, Stack } from "@mui/material";
 import BlogCard from "../../cards/blogCard"; // unified BlogCard
+import ReusableSwiper from "../../reusableSwiper";
 
 export default async function MainBlogs() {
-  const leftColumn = [
+  const images = [
     {
       description: "شما اومدید جزیره یا جنگ؟!",
       imageUrl: "/images/blog2.png",
@@ -27,9 +28,6 @@ export default async function MainBlogs() {
       dateText: "۲۷ اسفند ۱۴۰۳، ۱۴:۱۴",
       views: 589,
     },
-  ];
-
-  const rightColumn = [
     {
       title: "پاهایم را به آرامی روی شن های ساحل می گذارم",
       imageUrl: "/images/blog1.png",
@@ -39,22 +37,33 @@ export default async function MainBlogs() {
     },
   ];
 
+
+
+
+  const floatsImages = [
+    "/images/float1.png",
+    "/images/float2.png",
+    "/images/float3.png",
+    "/images/float4.png",
+  ];
+
+  const floatSlice = floatsImages.slice(0, 4);
+
   return (
-    <Container maxWidth="xl" sx={{ marginBottom: "50px", mt: 4 }}>
+    <Container disableGutters maxWidth="xl" sx={{ marginBottom: "50px", mt: 4 }}>
       <Grid
         container
         spacing={2}
-        sx={{ p: 2, height: "550px", flexDirection: "row-reverse" }}
+        className="md:h-[600px]! flex-col! md:flex-row-reverse!"
       >
         {/* ستون سمت چپ */}
         <Grid
           size={7}
-          sx={{ height: "100%" }}
-          className="flex! flex-row gap-4!"
+          className="flex! flex-row gap-4! hidden! md:flex!"
         >
           {/* Left 2×2 layout */}
-          <Stack className="h-full! w-full!" spacing={2}>
-            {leftColumn.slice(0, 2).map((item, i) => (
+          <Stack className="h-full! w-full! " spacing={2}>
+            {images.slice(0, 2).map((item, i) => (
               <div key={i} className="w-full! h-6/12!">
                 <BlogCard
                   imageUrl={item.imageUrl}
@@ -68,7 +77,7 @@ export default async function MainBlogs() {
           </Stack>
 
           <Stack className="h-full! w-full!" spacing={2}>
-            {leftColumn.slice(2, 4).map((item, i) => (
+            {images.slice(2, 4).map((item, i) => (
               <div key={i} className="w-full! h-6/12!">
                 <BlogCard
                   imageUrl={item.imageUrl}
@@ -83,22 +92,87 @@ export default async function MainBlogs() {
         </Grid>
 
         {/* ستون سمت راست */}
-        <Grid size={5} sx={{ height: "100%" }}>
-          {rightColumn.map((item, i) => (
-            <BlogCard
-              key={i}
-              imageUrl={item.imageUrl}
-              title={item.title}
-              hasFloatImage={item.hasFloatImage}
-              // showMeta={item.showMeta}
-              dateText={item.dateText}
-              views={item.views}
-              height="100%"
-              titleSize="xl"
-            />
-          ))}
+        <Grid size={{ xs: 12, md: 5 }} className="h-[400px]! md:h-full! relative! px-4! md:px-0! ">
+          <BlogCard
+            imageUrl={images[4].imageUrl}
+            title={images[4].title}
+            // hasFloatImage={images[4].hasFloatImage}
+            dateText={images[4].dateText}
+            views={images[4].views}
+            height="100%"
+            titleSize="xl"
+            titleClass="mb-20! md:mb-28! text-xl! md:text-3xl!"
+          />
+
+          {/* ------------------------------------- */}
+
+          <Stack className="absolute! bottom-13! md:bottom-15! left-1/2! -translate-x-1/2! z-10! w-full! px-7!">
+            <Stack className="bg-white! h-18! md:h-24! rounded-full! flex! flex-row! gap-1.5! md:gap-2.5! p-1.5! md:p-2.5!">
+              {floatSlice.map((img, index) => {
+                const isFirst = index === 0;
+                const isLast = index === floatSlice.length - 1;
+
+
+                // Regular image
+                return (
+                  <Stack
+                    key={img}
+                    className={`h-full! w-3/12! overflow-hidden! cursor-pointer! ${isFirst
+                      ? "rounded-l-md! rounded-r-full!"
+                      : isLast
+                        ? "rounded-r-md! rounded-l-full!"
+                        : "rounded-md!"
+                      }`}
+                  >
+                    <img
+                      src={img}
+                      alt=""
+                      className="w-full! h-full! object-cover! transition-transform! duration-[400ms]! ease-in-out! hover:scale-[1.15]"
+                    />
+                  </Stack>
+                );
+              })}
+            </Stack>
+          </Stack>
+
+
+          {/* ------------------------------------- */}
         </Grid>
+
       </Grid>
+
+      <Box
+        sx={{
+          // maxWidth: "100%",
+          // mx: "auto",
+          pb: 4,
+          display: "flex",
+          flexDirection: "row",
+          borderRadius: 2,
+          marginTop: 2,
+        }}
+        className="reveal-down h-[300px]! md:hidden! pr-4!"
+      >
+        <ReusableSwiper
+          dots={true}
+          slidePerViewXs={1.4}
+          slidePerviewLg={4}
+          spaceBetween={15}
+          pagination={true}
+        >
+          {images.slice(0, 4).map((item, i) => (
+            // <div key={i} className="w-full! h-6/12!">
+            <BlogCard
+              imageUrl={"/images/blog1.png"}
+              description={item.description}
+              height="100%"
+              dateText="۲۷ اسفند ۱۴۰۳، ۱۴:۱۴"
+              views={589}
+            />
+            // </div>
+          ))}
+        </ReusableSwiper>
+      </Box>
     </Container>
   );
 }

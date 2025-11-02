@@ -1,38 +1,55 @@
+import ReusableSwiper from "@/components/shared/reusableSwiper";
 import { Button, Grid, Stack } from "@mui/material";
+
+const hotelsList = [
+  { route: "", label: "هتل کوروش کبیر" },
+  { route: "", label: "هتل داریوش" },
+  { route: "", label: "هتل ارم" },
+  { route: "", label: "هتل پارمیدا" },
+  { route: "", label: "هتل شایان" },
+
+  { route: "", label: "هتل کوروش کبیر" },
+  { route: "", label: "هتل شایگان" },
+  { route: "", label: "هتل فلامینگو" },
+  { route: "", label: "هتل ایران" },
+  { route: "", label: "هتل آرامیس" },
+
+  { route: "", label: "هتل کوروش کبیر" },
+  { route: "", label: "هتل سان رایز" },
+  { route: "", label: "هتل آریان" },
+  { route: "", label: "هتل ویدا" },
+  { route: "", label: "هتل پارسیان" },
+];
+
 
 export default function HotelsList() {
   return (
     <Stack mt={10} spacing={2} className="bg-[#FFF9EC] rounded-xl! p-3!">
-      {[
-        ["هتل کوروش کبیر", "هتل داریوش", "هتل ارم", "هتل پارمیدا", "هتل شایان"],
-        [
-          "هتل کوروش کبیر",
-          "هتل شایگان",
-          "هتل فلامینگو",
-          "هتل ایران",
-          "هتل آرامیس",
-        ],
-        [
-          "هتل کوروش کبیر",
-          "هتل سان رایز",
-          "هتل آریان",
-          "هتل ویدا",
-          "هتل پارسیان",
-        ],
-      ].map((row, rowIndex) => (
-        <Grid container spacing={2} key={rowIndex}>
-          {row.map((label, i) => (
-            <Grid size="grow" key={i}>
-              <Button
-                variant="outlined"
-                className="bg-white! text-black! w-full rounded-xl!"
-              >
-                <span className="reveal-down">{label}</span>
-              </Button>
-            </Grid>
+      <Grid container columns={10} spacing={2} className="hidden! md:flex!">
+        {hotelsList.map((row, rowIndex) => (
+          <Grid size={2} key={rowIndex}>
+            <Button
+              variant="outlined"
+              className="bg-white! text-black! w-full rounded-xl!"
+            >
+              <span className="reveal-down">{row.label}</span>
+            </Button>
+          </Grid>
+        ))}
+      </Grid>
+
+      <Stack className="md:hidden!">
+        <ReusableSwiper slidePerViewXs={2} slideperviewMd={4} slidePerviewLg={4} spaceBetween={10} pagination={true}>
+          {hotelsList.map((row, index) => (
+            <Button
+              variant="outlined"
+              className="bg-white! text-black! w-full rounded-xl!"
+            >
+              <span className="reveal-down text-sm! text-nowrap!">{row.label}</span>
+            </Button>
           ))}
-        </Grid>
-      ))}
+        </ReusableSwiper>
+      </Stack>
     </Stack>
   );
 }

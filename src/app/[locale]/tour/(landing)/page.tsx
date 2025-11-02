@@ -39,6 +39,16 @@ export default function Home() {
         <CategorySlider />
         <Stack className="px-4 md:px-0 bg-white"><TourSearchSection /></Stack>
         <LastSearch />
+        <Stack className="mt-3! px-4! md:hidden!" >
+          <Stack className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!" sx={{ backgroundColor: "secondary.50" }}>
+            <img src="/images/chance.png" className="h-12! w-12!" alt="" />
+            <Stack className="flex! flex-col! gap-2!">
+              <Typography sx={{ fontWeight: 500, color: "secondary.main" }} className="text-base!">شانس <span className="text-black!">امروزتو امتحان کن</span></Typography>
+              <Typography color="text.secondary" className="text-xs!">هر روز یک گردونه شانس با کلی جایزه</Typography>
+            </Stack>
+          </Stack>
+        </Stack>
+
       </Container>
 
       <Stack className="flex! flex-col-reverse! md:flex-col!">
@@ -53,7 +63,7 @@ export default function Home() {
         <Stack className="w-full! flex! flex-col-reverse! md:flex-col">
           <ViewsOfHotelSection />
 
-          <Stack className="bg-slate-100 md:bg-white mx-0!">
+          <Stack className="bg-slate-100 md:bg-white mx-0! my-5! md:my-0!">
             <Container maxWidth="xl" className="mx-auto!">
               {/* <Stack className="hidden! md:block!"> */}
               <OfferBanner
@@ -68,7 +78,7 @@ export default function Home() {
 
             </Container>
 
-            <Container maxWidth="xl" className="mx-auto! " disableGutters>
+            <Container maxWidth="xl" className="mx-auto!" >
               <TourSuggestionSlider />
             </Container>
 
@@ -107,7 +117,11 @@ export default function Home() {
       </Container>
 
 
-      <Container maxWidth="xl">
+      <Container maxWidth="xl"
+        sx={{
+          px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
+        }}
+        disableGutters className="mx-auto!">
         <MainBlog />
       </Container>
 
