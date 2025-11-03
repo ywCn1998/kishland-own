@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 
 export default function EconomyPackageSection() {
   const [value, setValue] = useState(" 1 ");
@@ -20,25 +21,25 @@ export default function EconomyPackageSection() {
   };
   return (
     <>
-      <Stack className="flex! flex-row! bg-[#F5F7FA]! mt-10! py-8! px-6! rounded-2xl! gap-5! justify-center items-center">
+      <Stack className="flex! flex-row! bg-none! md:bg-[#F5F7FA]! mt-10! py-8! md:px-6! px-0! rounded-2xl! md:gap-5! gap-2! justify-center items-center">
         <Button
           variant="contained"
-          className="w-4/12! text-white! reveal-down"
+          className="w-4/12! text-white! reveal-down text-sm! md:text-base! text-nowrap! rounded-xl! md:rounded-2xl! font-medium!"
           sx={{ bgcolor: "secondary.main" }}
         >
           پکیج اکونومی
         </Button>
         <Button
           variant="contained"
-          className="w-4/12! reveal-down"
-          sx={{ bgcolor: "white" }}
+          className="w-4/12! reveal-down text-sm! md:text-base! text-nowrap! rounded-xl! md:rounded-2xl! font-medium!"
+          sx={{ bgcolor: { xs: "#F5F7FA", lg: "white" } }}
         >
           پکیج اقتصادی
         </Button>
         <Button
           variant="contained"
-          className="w-4/12! reveal-down"
-          sx={{ bgcolor: "white" }}
+          className="w-4/12! reveal-down text-sm! md:text-base! text-nowrap! rounded-xl! md:rounded-2xl! font-medium!"
+          sx={{ bgcolor: { xs: "#F5F7FA", lg: "white" } }}
         >
           پکیج VIP
         </Button>
@@ -47,19 +48,19 @@ export default function EconomyPackageSection() {
         <ImgTextGrid
           imgHeight={500}
           imgUrl="/images/acconamy.png"
-          imgGridSIze={6}
-          childrenGridSIze={6}
+          imgGridSIze={{ xs: 12, lg: 6 }}
+          childrenGridSIze={{ xs: 12, lg: 6 }}
           height={"auto"}
         >
-          <Typography className="text-slate-400! text-lg! mb-4! reveal-down">
+          <Typography className="text-slate-400! text-base! md:text-lg! mb-4! reveal-down">
             مناسب برای سفرهای جمع‌وجور، بی‌دردسر و با امکانات کاربردی در کیش
           </Typography>
-          <Typography className="text-5xl! font-bold! leading-[75px]! reveal-down">
+          <Typography className="text-xl! md:text-5xl! font-bold! leading-[45px]!  md:leading-[75px]! reveal-down">
             <span className="text-primary">پکیج‌های </span>
             <span className="text-secondary-500">اکونومی </span> کیش کیش
             تجربه‌ای جذاب با امکانات پایه و مقرون‌به‌صرفه
           </Typography>
-          <Typography className="text-lg! mt-5! leading-[40px] reveal-down">
+          <Typography className="text-base! md:text-lg! mt-5! leading-[30px]  md:leading-[40px] reveal-down">
             پکیج‌های اکنومی مخصوص افرادی طراحی شده که به‌دنبال تجربه‌ای ساده،
             خودمانی و کاربردی از سفر به کیش هستند. اقامتگاه‌های راحت، امکانات
             پایه و تفریحات عمومی در محیطی دوستانه و مقرون‌به‌صرفه، بدون
@@ -67,7 +68,7 @@ export default function EconomyPackageSection() {
             انعطاف‌پذیر.
           </Typography>
 
-          <Stack className="p-4! border-1! border-slate-200! rounded-lg! flex! flex-row! justify-between! items-center w-full! mt-4!">
+          <Stack className="p-4! border-1! border-slate-200! rounded-lg!  flex-row! justify-between! items-center w-full! mt-4! hidden! md:flex!">
             <div>
               <Typography className="text-2xl! font-semibold! mb-4! reveal-down">
                 پکیج اکنومومی شامل 4 تفریح
@@ -150,11 +151,15 @@ export default function EconomyPackageSection() {
               </Select>
             </FormControl>
           </Stack>
-          <Stack className="text-red bg-[#FA50501A] text-center! rounded-xl! py-2! border-[1px] border-text-red mt-4!">
+          <Stack className="text-red bg-[#FA50501A] text-center! rounded-xl! py-2! border-[1px] border-text-red mt-4! hidden! md:flex!">
             پکیج‌ها تک نفره می باشد و در صورت نیاز، می‌توان چندین پکیج برای
             افراد مختلف خریداری کرد.
           </Stack>
         </ImgTextGrid>
+        <Box className="flex! md:hidden! flex-col! gap-4!">
+          <Button variant="contained" className="text-white! rounded-xl!" href="entertainment/list">رزرو پکیج</Button>
+          <Button startIcon={<PhoneInTalkIcon/>} variant="outlined" className="text-black! rounded-xl!">دریافت مشاوره</Button>
+        </Box>
       </Stack>
     </>
   );

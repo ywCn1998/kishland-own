@@ -69,7 +69,7 @@ const BuyOneGetTwoSection = () => {
             دانلود اپلیکیشن
           </Button>
           <Button
-            className="w-6/12 text-white! rounded-xl! text-lg! reveal hidden! md:block!"
+            className="w-6/12 text-white! rounded-xl! text-lg! reveal hidden! md:flex! "
             variant="contained"
             href="/fa/entertainment/list"
           >

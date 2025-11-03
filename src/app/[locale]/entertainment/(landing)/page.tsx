@@ -1,4 +1,4 @@
-import { Stack, Container, Typography } from "@mui/material";
+import { Stack, Container, Typography, Box } from "@mui/material";
 import { setRequestLocale } from "next-intl/server";
 import {
   ExtraFooterInformation,
@@ -74,16 +74,18 @@ export default function Home() {
             />
           </Link>
         </Stack>
-         <Stack className="w-full h-[140px] relative rounded-3xl! mt-10! mb-20! reveal md:hidden!">
+        <Box className="w-full h-[140px] relative rounded-3xl! mt-10! mb-20! reveal md:hidden!">
           <Link href="/fa/entertainment/list">
             <Image
-              src={"/images/entertainment/landing/responsiveentertainmentbanner.png"}
+              src={
+                "/images/entertainment/landing/responsiveentertainmentbanner.png"
+              }
               alt="s"
               fill
-              className="animate-slide-in-left !"
+              className="animate-slide-in-left w-full!"
             />
           </Link>
-        </Stack>
+        </Box>
 
         {/* discounded tours */}
         <DicountedEntertainmentSection />
@@ -92,7 +94,7 @@ export default function Home() {
           <BuyOneGetTwoSection />
 
           {/* banner */}
-          <Stack className="w-full h-[300px] relative rounded-3xl! mt-38! mb-20! reveal">
+          <Stack className="w-full h-[300px] relative rounded-3xl! mt-38! mb-20! reveal hidden! md:block!">
             <Link href="/fa/hotel/list">
               {" "}
               <Image
@@ -105,13 +107,16 @@ export default function Home() {
           </Stack>
         </Stack>
 
-        <OfferBanner
-          bgColor="white"
-          caption="این بار این سفر واست خاطره میشه ..."
-          title={"پکیج دلخواهت رو انتخاب کن "}
-          buttonText={"مشاهده لیست پیشنهادات ها"}
-          href="/fa/entertainment/list"
-        />
+        <Box className="mt-10! md:mt-0!">
+          <OfferBanner
+            bgColor="white"
+            caption="این بار این سفر واست خاطره میشه ..."
+            responsiveCaption="این بار این سفر واست خاطره میشه ..."
+            title={"پکیج دلخواهت رو انتخاب کن "}
+            buttonText={"مشاهده لیست پیشنهادات ها"}
+            href="/fa/entertainment/list"
+          />
+        </Box>
 
         {/* acconamy */}
         <EconomyPackageSection />
@@ -143,7 +148,12 @@ export default function Home() {
               className="animate-slide-in-left !"
             />
           </Stack>
-          <CommonQuestions />
+          <Box className="hidden! md:block!">
+            <CommonQuestions />
+          </Box>
+          <Box className=" md:hidden!">
+            <CommonQuestions responsive={true} hasTItle={false} hasFooter={false}/>
+          </Box>
           <CommentSlider />
         </Container>
         <Stack mb={7}>

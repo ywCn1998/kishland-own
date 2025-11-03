@@ -3,16 +3,16 @@
 
 import { Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { ReactNode } from "react";
 
 type CenteredGridProps = {
   imgUrl: string;
   imgAlt?: string;
   children: React.ReactNode;
-  imgGridSIze?: number;
-  childrenGridSIze?: number;
+  imgGridSIze?: number | object;
+  childrenGridSIze?: number | object;
   flexDirection?: string;
-  height?: number | string;
+  height?: number | string | object;
   imgHeight?: string |number
 };
 
@@ -28,7 +28,7 @@ export default function ImageAndText({
   return (
     <Grid
       container
-      sx={{ height, position: "relative", flexDirection }}
+      sx={{ height, position: "relative", flexDirection : {xs : "column-reverse" , lg : flexDirection} }}
       alignItems="center"
       justifyContent="center"
     >
