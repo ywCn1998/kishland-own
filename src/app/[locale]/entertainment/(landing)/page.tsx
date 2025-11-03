@@ -36,11 +36,11 @@ export default function Home() {
           <BodyIntroSection />
         </Stack>
 
-        <Stack spacing={10} mt={8}>
+        <Stack spacing={10} className="md:mt-8! mt-2!">
           <SearchTabSection />
 
           <LastSearch />
-          <Stack className="mt-3! w-full! px-4! md:hidden!">
+          <Stack className="mt-4! w-full! md:hidden!">
             <Stack
               className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!"
               sx={{ backgroundColor: "secondary.50" }}
@@ -59,8 +59,11 @@ export default function Home() {
               </Stack>
             </Stack>
           </Stack>
+          
+          <Stack className="mt-[20px]! md:mt-0!">
+          <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!"  />
 
-          <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!" />
+          </Stack>
         </Stack>
 
         {/* banner */}
@@ -74,7 +77,7 @@ export default function Home() {
             />
           </Link>
         </Stack>
-        <Box className="w-full h-[140px] relative rounded-3xl! mt-10! mb-20! reveal md:hidden!">
+        <Box className="w-full h-[140px]  rounded-3xl! mt-5! mb-20! reveal md:hidden!">
           <Link href="/fa/entertainment/list">
             <Image
               src={
@@ -88,9 +91,12 @@ export default function Home() {
         </Box>
 
         {/* discounded tours */}
+        <Stack className="hidden! md:block!">
         <DicountedEntertainmentSection />
 
-        <Stack>
+        </Stack>
+
+        <Stack className="mt-[-120]! md:mt-0!">
           <BuyOneGetTwoSection />
 
           {/* banner */}
@@ -121,7 +127,7 @@ export default function Home() {
         {/* acconamy */}
         <EconomyPackageSection />
 
-        <Stack className="bg-[#F0F7FF] rounded-3xl! mt-20! pb-8! mb-28! reveal">
+        <Stack className="bg-[#F0F7FF] rounded-3xl! md:mt-20! mt-20! pb-8! mb-0! md:mb-28! reveal hidden! md:block!">
           <OfferBanner
             caption="جایی که آرامش و تفریح یکجا معنا پیدا میکنند "
             title="بهترین تفریحات کیش"
@@ -140,7 +146,7 @@ export default function Home() {
 
       <Stack>
         <Container maxWidth="xl" sx={{ mb: 2 }}>
-          <Stack className="w-full h-[200px] relative rounded-3xl! mt-38! mb-10! reveal">
+          <Stack className="w-full h-[200px] relative rounded-3xl! mt-38! mb-10! reveal hidden! md:block!">
             <Image
               src={"/images/colops.png"}
               alt="s"

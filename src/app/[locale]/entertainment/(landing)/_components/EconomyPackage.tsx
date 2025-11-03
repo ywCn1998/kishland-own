@@ -21,7 +21,7 @@ export default function EconomyPackageSection() {
   };
   return (
     <>
-      <Stack className="flex! flex-row! bg-none! md:bg-[#F5F7FA]! mt-10! py-8! md:px-6! px-0! rounded-2xl! md:gap-5! gap-2! justify-center items-center">
+      <Stack className="flex! flex-row! bg-none! md:bg-[#F5F7FA]! mt-[-30]! md:mt-10! py-8! md:px-6! px-0! rounded-2xl! md:gap-5! gap-2! justify-center items-center">
         <Button
           variant="contained"
           className="w-4/12! text-white! reveal-down text-sm! md:text-base! text-nowrap! rounded-xl! md:rounded-2xl! font-medium!"
