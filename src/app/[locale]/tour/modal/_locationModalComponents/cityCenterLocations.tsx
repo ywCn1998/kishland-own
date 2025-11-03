@@ -31,7 +31,7 @@ export default function CityCenterLoactions() {
                                     className="rounded-2xl! p-7! flex! w-full! cursor-pointer!"
                                     sx={{
                                         backgroundColor: isActive
-                                            ? "primary.100"
+                                            ? "primary.100" 
                                             : "background.paper",
                                         transition: "0.2s",
                                     }}

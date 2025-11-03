@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
+import { DialogProps } from "@mui/material";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type TSelectCity = {
   id: string;
@@ -24,4 +25,14 @@ export interface ISelectedRefrence {
 
 export interface IRefrences {
   title: string;
+}
+export interface ModalProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  categorySlide?: boolean;
+  title?:string;
+  image?:string;
+  description ?:string;
+  success?:boolean;
+  items ?:{name : string , sanse :string , date:string , count:number}[]
 }

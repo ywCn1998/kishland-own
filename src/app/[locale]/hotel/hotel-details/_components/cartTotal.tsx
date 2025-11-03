@@ -63,7 +63,7 @@ export default function CartTotal() {
                     <Typography className="text-3xl! font-bold! text-center! text-white!">8,500,000 تومان</Typography>
                 </Stack>
 
-                <Button sx={{ backgroundColor: "primary.main" }} className="w-full! text-white! text-xl! mt-6!">رزرو اتاق</Button>
+                <Button sx={{ backgroundColor: "primary.main" }} className="w-full! text-white! text-xl! mt-6!" href="/fa/hotel/reserve">رزرو اتاق</Button>
             </FormProvider>
 
 

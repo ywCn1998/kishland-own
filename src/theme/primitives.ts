@@ -22,8 +22,8 @@ export const lightTheme: ThemeOptions = {
     mode: "light",
     primary: {
       main: "#FF8C0B",
-      "50": "#E6EDEF",
-      100: "#FFF2D3",
+      50: "#FFF9EC",
+      100: "#FFA733",
       200: "#B1C7CF",
       300: "#066C93",
       400: "#ffa733",
@@ -41,10 +41,12 @@ export const lightTheme: ThemeOptions = {
     },
     error: {
       main: "#FA5050",
+      50: "#FFD9D9",
       200: "#FA50501A",
     },
     success: {
       main: "#13D397",
+      50: "#DDFFF4",
     },
     background: {
       default: "#FFFFFF",
@@ -52,6 +54,7 @@ export const lightTheme: ThemeOptions = {
     },
     info: {
       main: "#088def",
+      50: "#FFD9D9",
     },
     text: {
       primary: "#18181B",

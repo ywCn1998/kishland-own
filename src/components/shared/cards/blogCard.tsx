@@ -30,12 +30,14 @@ interface BlogCardProps {
 
   /** Typography tweaks */
   titleSize?: "lg" | "xl"; // maps to classes
+  boxShadow?: number
+  titleClass?: string
 }
 
 export default function BlogCard({
   imageUrl,
   height = 280,
-  overlay = "rgba(0, 0, 0, 0.15)",
+  overlay = "rgba(0, 0, 0, 0.14)",
   className,
 
   description,
@@ -45,10 +47,12 @@ export default function BlogCard({
   // showMeta = true,
   dateText = "",
   views,
-
+  boxShadow = 3,
   titleSize = "lg",
+  titleClass
 }: BlogCardProps) {
-  const titleClass = titleSize === "xl" ? "text-3xl! mb-4!" : "text-2xl!";
+  const titleStyle = titleSize === "xl" ? "text-3xl! mb-4!" : "text-2xl!";
+
 
   return (
     <Box
@@ -59,7 +63,7 @@ export default function BlogCard({
         borderRadius: 2,
         overflow: "hidden",
         color: "white",
-        boxShadow: 3,
+        boxShadow: boxShadow,
         "& img": { transition: "transform 0.4s ease-in-out" },
         "&:hover img": { transform: "scale(1.15)" },
       }}
@@ -99,7 +103,10 @@ export default function BlogCard({
         sx={{
           position: "relative",
           zIndex: 3,
-          px: 3,
+          px: {
+            xs: 1.5,
+            md: 3
+          },
           pt: 3,
           pb: 2.5,
           height: "100%",
@@ -110,7 +117,7 @@ export default function BlogCard({
         <>
           {!!title && (
             <Typography
-              className={`${titleClass} hover:font-semibold! cursor-pointer!`}
+              className={`${titleStyle} ${titleClass} hover:font-semibold! cursor-pointer!`}
               fontWeight={300}
             >
               {title}

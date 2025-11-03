@@ -1,4 +1,4 @@
-import { Stack, Container } from "@mui/material";
+import { Stack, Container, Typography } from "@mui/material";
 import { setRequestLocale } from "next-intl/server";
 import {
   ExtraFooterInformation,
@@ -20,38 +20,69 @@ import {
   BestEntertainmentSection,
 } from "./_components";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  // const { locale } = params;
-
-  // setRequestLocale(locale);
-
   return (
     <Stack
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
       <Container maxWidth="xl">
-        <CategorySlider />
-
-        <BodyIntroSection />
+        <Stack className="hidden! md:block!">
+          <CategorySlider />
+        </Stack>
+        <Stack className="hidden! md:block!">
+          <BodyIntroSection />
+        </Stack>
 
         <Stack spacing={10} mt={8}>
           <SearchTabSection />
 
           <LastSearch />
+          <Stack className="mt-3! w-full! px-4! md:hidden!">
+            <Stack
+              className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!"
+              sx={{ backgroundColor: "secondary.50" }}
+            >
+              <img src="/images/chance.png" className="h-12! w-12!" alt="" />
+              <Stack className="flex! flex-col! gap-2!">
+                <Typography
+                  sx={{ fontWeight: 500, color: "secondary.main" }}
+                  className="text-base!"
+                >
+                  شانس <span className="text-black!">امروزتو امتحان کن</span>
+                </Typography>
+                <Typography color="text.secondary" className="text-xs!">
+                  هر روز یک گردونه شانس با کلی جایزه
+                </Typography>
+              </Stack>
+            </Stack>
+          </Stack>
 
           <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!" />
         </Stack>
 
         {/* banner */}
-        <Stack className="w-full h-[450px] relative rounded-3xl! mt-10! mb-20! reveal">
-          <Image
-            src={"/images/sea-chair.png"}
-            alt="s"
-            fill
-            className="animate-slide-in-left !"
-          />
+        <Stack className="w-full h-[450px] relative rounded-3xl! mt-10! mb-20! reveal hidden! md:block">
+          <Link href="/fa/entertainment/list">
+            <Image
+              src={"/images/sea-chair.png"}
+              alt="s"
+              fill
+              className="animate-slide-in-left !"
+            />
+          </Link>
+        </Stack>
+         <Stack className="w-full h-[140px] relative rounded-3xl! mt-10! mb-20! reveal md:hidden!">
+          <Link href="/fa/entertainment/list">
+            <Image
+              src={"/images/entertainment/landing/responsiveentertainmentbanner.png"}
+              alt="s"
+              fill
+              className="animate-slide-in-left !"
+            />
+          </Link>
         </Stack>
 
         {/* discounded tours */}
@@ -62,12 +93,15 @@ export default function Home() {
 
           {/* banner */}
           <Stack className="w-full h-[300px] relative rounded-3xl! mt-38! mb-20! reveal">
-            <Image
-              src={"/images/tafrih-banner.png"}
-              alt="s"
-              fill
-              className="animate-slide-in-left !"
-            />
+            <Link href="/fa/hotel/list">
+              {" "}
+              <Image
+                src={"/images/tafrih-banner.png"}
+                alt="s"
+                fill
+                className="animate-slide-in-left! cursor-pointer!"
+              />
+            </Link>
           </Stack>
         </Stack>
 
@@ -76,6 +110,7 @@ export default function Home() {
           caption="این بار این سفر واست خاطره میشه ..."
           title={"پکیج دلخواهت رو انتخاب کن "}
           buttonText={"مشاهده لیست پیشنهادات ها"}
+          href="/fa/entertainment/list"
         />
 
         {/* acconamy */}
@@ -87,6 +122,7 @@ export default function Home() {
             title="بهترین تفریحات کیش"
             buttonText="مشاهده لیست تفریحات"
             className="p-0!"
+            href="/fa/entertainment/list"
           />
 
           <Stack className="px-8!">

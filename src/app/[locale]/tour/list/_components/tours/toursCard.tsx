@@ -31,7 +31,7 @@ export function TourCard({
                     display={'flex'} flexDirection={'row'}
                     alignItems={'center'} sx={{
                         position: 'relative',
-                        width: '100%',
+                        width: '100%',      
                         gap: 2,
                         height: "255px"
                     }}>
@@ -167,7 +167,7 @@ export function TourCard({
                                 </Typography>
                                 <Button
                                     onClick={() => onClick!(true)}
-                                    variant="contained" fullWidth className="text-white! px-2! text-sm!">
+                                    variant="contained" fullWidth className="text-white! px-2! text-sm!" href={isLocationModal ? "/fa/tour/reserve" : "/fa/tour/modal"}>
                                     {isLocationModal ? "انتخاب اتاق" : "خرید تور با این هتل"}
                                 </Button>
                             </Stack>

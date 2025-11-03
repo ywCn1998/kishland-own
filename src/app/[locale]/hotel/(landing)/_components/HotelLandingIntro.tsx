@@ -7,15 +7,15 @@ export default function HotelLandingIntro() {
     <Grid
       container
       mt={4}
-      sx={{ height: 500 }}
-      className="flex! items-center!  justify-center! relative! "
+      sx={{ height: {md : 900 , lg : 500} }}
+      className="flex! items-center! flex-col! lg:flex-row!  justify-center! relative! "
     >
       <Grid size={7} className="h-full!  flex! justify-center! flex-col! ">
         <div className="mt-3! reveal">
-          <Typography className="text-6xl! font-bold! reveal">
+          <Typography className="lg:text-6xl! text-2xl!  font-bold! reveal">
             یه چمدون آرامش
           </Typography>
-          <Typography className="text-6xl! font-bold! reveal relative!  top-4!">
+          <Typography className="lg:text-6xl! text-2xl! font-bold! reveal relative!  lg:top-4!">
             اقامتی رویایی در
             <GoldenText text="جزیره" textColor="primary" textClass="pl-2!" />
             <GoldenText
@@ -25,7 +25,7 @@ export default function HotelLandingIntro() {
             />{" "}
           </Typography>
         </div>
-        <Typography className="text-slate-400! mt-12! text-2xl! font-light! pl-28! reveal-down leading-12">
+        <Typography className="text-slate-400! mt-12! md:text-2xl! text-sm! font-light! pl-28! reveal-down leading-12">
           از هتل‌های لوکس با ویوی دریا تا اقامتگاه‌های دنج و آروم، اینجا هر
           سلیقه‌ای یه انتخاب خاص داره!
         </Typography>

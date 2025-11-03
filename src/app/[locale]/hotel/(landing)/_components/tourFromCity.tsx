@@ -1,6 +1,7 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Link from "next/link";
 const city = [
   {
     name: "مشهد",
@@ -33,7 +34,11 @@ const city = [
 export default function TourFromCity() {
   return (
     <>
-      <Grid container className="flex flex-row flex-wrap w-full reveal-down" spacing={3}>
+      <Grid
+        container
+        className="flex flex-row flex-wrap w-full reveal-down"
+        spacing={3}
+      >
         {city.map((c, index) => (
           <Grid
             key={c.name + index}
@@ -44,8 +49,13 @@ export default function TourFromCity() {
               hover:shadow-md hover:border-blue-300 active:scale-95
             "
           >
-            <Typography className="!text-lg"> تور کیش از {c.name} </Typography>
-            <ArrowBackIosIcon fontSize="small" />
+            <Link href={"/fa/tour/list"} className="flex! flex-row! justify-between! items-center! w-full!">
+              <Typography className="!text-lg">
+                {" "}
+                تور کیش از {c.name}{" "}
+              </Typography>
+              <ArrowBackIosIcon fontSize="small" />
+            </Link>
           </Grid>
         ))}
       </Grid>

@@ -77,7 +77,7 @@ export default function NormalListCard({ isWide, isOfferCard = false }: { isWide
                             {!isOfferCard && (
                                 <Stack className="flex! flex-row!" mt={1.5}>
                                     <Button color="secondary" variant="text" className="p-0! text-sm!">مشاهده بر روی نقشه</Button>
-                                    <Button color="secondary" variant="text" className="p-0! text-sm! mr-16!">اطلاعات هتل</Button>
+                                    <Button color="secondary" variant="text" className="p-0! text-sm! mr-16!" href="/fa/hotel/hotel-details">اطلاعات هتل</Button>
                                 </Stack>
                             )}
                         </Stack>

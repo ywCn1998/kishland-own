@@ -44,6 +44,7 @@ export default function mainBanner({
               sx={{ color: bgColor ? bgColor : "secondary.500" }}
               className=" bg-white! text-xl! w-[50%] self-start!"
               variant="contained"
+              href="/fa/entertainment/list"
             >
               {buttonText ? buttonText : "مشاهده لیست تفریحات"}
             </Button>

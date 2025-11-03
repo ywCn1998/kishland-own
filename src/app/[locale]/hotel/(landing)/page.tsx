@@ -53,16 +53,16 @@ export default async function Home() {
         </Stack>
         <img
           src={"/images/hotel/plane.png"}
-          className="absolute left-35  top-293 z-0 animate-slide-in-left duration-1000!"
+          className="absolute left-35  top-293 z-0 animate-slide-in-left duration-1000! hidden! md:block!"
         />
         <img
           src={"/images/hotel/dashplane.png"}
-          className="absolute left-0 top-280 z-0 animate-slide-in-left duration-1000!"
+          className="absolute left-0 top-280 z-0 animate-slide-in-left duration-1000! hidden! md:block!"
         />
         <Stack className="mt-10 relative">
           <img
             src={"/images/hotel/hotelarrow.png"}
-            className="absolute right-105 top-30 reveal-down "
+            className="absolute right-105 top-30 reveal-down hidden! md:block!"
           />
           <WhyKishLand path={"/images/hotel/hotelWhyKish.png"} width="360px" />
         </Stack>
@@ -80,6 +80,7 @@ export default async function Home() {
               title={" بهترین قیمت هتل های کیش "}
               buttonText={"مشاهده لیست هتل ها"}
               className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA]"
+              href="/fa/hotel/list"
             />
           </Container>
           <Stack>
@@ -101,6 +102,7 @@ export default async function Home() {
               title={" محبوب‌ترین هتل‌های کیش"}
               buttonText={"مشاهده لیست هتل ها"}
               className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA]"
+              href="/fa/hotel/list"
             />
           </Container>
         </Stack>
@@ -113,7 +115,7 @@ export default async function Home() {
           component={"img"}
           src={"/images/hotel/hotelgoonloan.png"}
           sx={{ width: "100%" }}
-          className="mt-12 reveal "
+          className="mt-12 reveal cursor-pointer!"
         />
 
         <CommonQuestions />

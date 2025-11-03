@@ -123,7 +123,7 @@ export function AirCard({
                                 </Typography>
                                 <Button
                                     onClick={() => onClick(true)}
-                                    variant="contained" fullWidth className="text-white! ">
+                                    variant="contained" fullWidth className="text-white! " >
                                     <Typography variant="button">رزرو بلیط</Typography>
                                 </Button>
                             </Stack>

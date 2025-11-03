@@ -67,7 +67,7 @@ export default function GoldenText({
       }}
     >
       <Typography
-        pr={1.4}
+        pr={{lg : 1.4 , xs :0.5}}
         component="span"
         variant="inherit"
         className={`relative! ${textClass}`}

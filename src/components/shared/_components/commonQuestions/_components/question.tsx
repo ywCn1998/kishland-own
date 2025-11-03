@@ -35,6 +35,7 @@ const Question = ({ animation = true }: QuestionProps) => {
           className={`text-white! rounded-3xl! px-14! font-normal! ${r}`}
           variant="contained"
           startIcon={<PhoneInTalkIcon />}
+          href="/fa/panel/support"
         >
           ارتباط با پشتیبانی
         </Button>

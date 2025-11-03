@@ -8,7 +8,7 @@ import ReusableSwiper from "@/components/shared/reusableSwiper";
 import GoldenText from "../GoldenText";
 
 // 3. -------- کامپوننت کاروسل محصولات --------
-export default function CommentSlider({}) {
+export default function CommentSlider({ }) {
   // تنظیمات Embla Carousel برای حالت راست‌چین
   // const [emblaRef] = useEmblaCarousel({ direction: 'rtl', loop: false, align: 'start' });
 
@@ -19,16 +19,16 @@ export default function CommentSlider({}) {
         mt={10}
         spacing={2}
       >
-        <Typography className="text-slate-400! text-lg! reveal-down">
+        <Typography className="text-slate-400! z-10! text-sm! md:text-lg! reveal-down">
           نظر کاربران درباره ما
         </Typography>
-        <Typography className="text-5xl! font-bold! reveal-down">
-        <GoldenText text={
-          <>
-            <span className="text-black!">ببین </span> بقیه <span className="text-black!">چی میگن؟!</span>
-          </>
-        }
-        bgColor="orange" textColor="secondary" bgWidth="120%" bgColorSx={{left: -50, bottom: -10}}/>
+        <Typography className="text-2xl! md:text-5xl! font-bold! reveal-down">
+          <GoldenText text={
+            <>
+              <span className="text-black!">ببین </span> بقیه <span className="text-black!">چی میگن؟!</span>
+            </>
+          }
+            bgColor="orange" textColor="secondary" bgWidth="120%" bgColorSx={{ left: -50, bottom: -10 }} />
         </Typography>
       </Stack>
       <Box
@@ -43,28 +43,7 @@ export default function CommentSlider({}) {
         }}
         className="reveal-down"
       >
-        {/* <EmblaCarousel
-        options={{
-          active: true,
-          align: "center",
-          loop: false,
-          // dragFree: true,
-          draggable: true,
-          // containScroll: true,
-          skipSnaps: true,
-          slidesToScroll: 1,
-        }}
-      >
-        {Array(6)
-          .fill(null)
-          .map((_, i) => (
-            <div className={`${styles.embla__slide} `}>
-              <Stack className="pt-3!">
-                <CommentCard />
-              </Stack>
-            </div>
-          ))}
-      </EmblaCarousel> */}
+
 
         <ReusableSwiper
           dots={true}

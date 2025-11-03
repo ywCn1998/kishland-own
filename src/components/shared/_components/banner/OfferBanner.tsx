@@ -8,6 +8,7 @@ export default function OfferBanner({
   bgColor ,
   className,
   responsiveCaption,
+  href,
 }: {
   responsiveCaption?: string;
   caption?: string;
@@ -15,6 +16,7 @@ export default function OfferBanner({
   buttonText?: string;
   bgColor?: string;
   className?: string;
+  href?:string;
 }) {
   return (
     // <Container maxWidth="xl">
@@ -39,6 +41,7 @@ export default function OfferBanner({
           }
           variant="outlined"
           className="!hidden lg:!flex border-1 border-black! bg-white! text-black! py-4! reveal-down"
+          href={href}
         >
           {buttonText}
         </Button>
