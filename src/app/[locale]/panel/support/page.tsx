@@ -5,8 +5,8 @@ import { Button, Grid, Stack } from "@mui/material";
 import Row from "./_components/tableRow";
 import Image from "next/image";
 import TextIcon from "@/components/shared/textIcon";
-import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import { Add, MoreOutlined } from "@mui/icons-material";
+import Link from "next/link";
 
 const headCells: ITableHeadCell[] = [
     {
@@ -77,7 +77,7 @@ export default function Support() {
 
                 <Stack className="flex! flex-row! items-center! justify-between!">
                     <TextIcon className="text-base! px-2!" text="تیکت های شما" startIcon={<MoreOutlined className="text-2xl!" />} />
-                    <Button variant="outlined" className="text-base! text-black! rounded-xl!" startIcon={<Add />}>افزودن درخواست جدید</Button>
+                    <Button component={Link} href="/fa/panel/support/new-ticket" variant="outlined" className="text-base! text-black! rounded-xl!" startIcon={<Add />}>افزودن درخواست جدید</Button>
                 </Stack>
 
 
