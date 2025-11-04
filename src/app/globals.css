@@ -33,6 +33,11 @@ body {
   overflow-x: hidden;
 }
 
+#nprogress .bar {
+  background: #e8c274 !important; /* gold color like your site */
+  height: 3px !important;
+}
+
 /* @media (prefers-color-scheme: light) { */
 :root {
   --background: #0a0a0a;
@@ -355,11 +360,13 @@ body {
   flex: 1;
   height: 2.5px;
   border: none;
-  background: repeating-linear-gradient(to right,
-      #d8dfea,
-      #d8dfea 6px,
-      transparent 8px,
-      transparent 11px);
+  background: repeating-linear-gradient(
+    to right,
+    #d8dfea,
+    #d8dfea 6px,
+    transparent 8px,
+    transparent 11px
+  );
 }
 
 .half-circle {
@@ -391,11 +398,13 @@ body {
   flex: 1;
   height: 2.5px;
   border: none;
-  background: repeating-linear-gradient(to right,
-      #ffffff,
-      #ffffff 6px,
-      transparent 8px,
-      transparent 11px);
+  background: repeating-linear-gradient(
+    to right,
+    #ffffff,
+    #ffffff 6px,
+    transparent 8px,
+    transparent 11px
+  );
 }
 
 .half-circle-divider-white .half-circle {
@@ -528,7 +537,6 @@ body {
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-
   .reveal,
   .reveal-in {
     opacity: 1 !important;

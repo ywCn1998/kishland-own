@@ -28,9 +28,9 @@ const statusColors: Record<string, string> = {
 
 
 const statusBackground: Record<string, string> = {
-    pending: "primary.100", // strong red → error
+    pending: "primary.50", // strong red → error
     answered: "secondary.50", // same for consistency
-    closed: "#BFC4D5", // orange → waiting
+    closed: "background.paper", // orange → waiting
 };
 
 const Row: FC<any & { index: number }> = ({
