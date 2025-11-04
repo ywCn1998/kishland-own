@@ -6,11 +6,13 @@ export default function HotelLandingIntro() {
   return (
     <Grid
       container
-      mt={4}
-      sx={{ height: {md : 900 , lg : 500} }}
-      className="flex! items-center! flex-col! lg:flex-row!  justify-center! relative! "
+      mt={{
+        xs: 2, md: 4
+      }}
+      sx={{ height: { md: 900, lg: 500 } }}
+      className="flex! items-center! flex-col-reverse! lg:flex-row!  justify-center! relative! "
     >
-      <Grid size={7} className="h-full!  flex! justify-center! flex-col! ">
+      <Grid size={{ xs: 12, md: 7 }} className="h-full!  flex! justify-center! flex-col! ">
         <div className="mt-3! reveal">
           <Typography className="lg:text-6xl! text-2xl!  font-bold! reveal">
             یه چمدون آرامش
@@ -22,10 +24,19 @@ export default function HotelLandingIntro() {
               text="کیش"
               isTopAttention
               textColor="secondary"
+              className="hidden! md:inline-flex!"
+            />{" "}
+
+            <GoldenText
+              text="کیش"
+              isTopAttention
+              textColor="secondary"
+              attentionClass="bottom-[13px]! right-8!  w-12! h-12! md:hidden!"
+              className="md:hidden!"
             />{" "}
           </Typography>
         </div>
-        <Typography className="text-slate-400! mt-12! md:text-2xl! text-sm! font-light! pl-28! reveal-down leading-12">
+        <Typography className="text-slate-400! mt-4! md:mt-12! md:text-2xl! text-base! font-light! md:pl-28! reveal-down md:leading-12">
           از هتل‌های لوکس با ویوی دریا تا اقامتگاه‌های دنج و آروم، اینجا هر
           سلیقه‌ای یه انتخاب خاص داره!
         </Typography>
@@ -34,12 +45,12 @@ export default function HotelLandingIntro() {
         <img
           src="/images/bird.png"
           alt="Centered"
-          className="h-[70px] w-[150px] reveal "
+          className="h-[70px] w-[150px] reveal hidden! md:inline!"
         />
       </div>
 
-      <Grid size={5} className="h-full!">
-        <div className="h-full! relative! reveal">
+      <Grid size={{ xs: 12, md: 5 }} className="md:h-full! ">
+        <div className="md:h-full! relative! reveal h-[250px]!">
           <Image
             //   component="img"
             fill

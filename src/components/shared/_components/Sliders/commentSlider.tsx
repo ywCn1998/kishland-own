@@ -39,7 +39,7 @@ export default function CommentSlider({ }) {
           display: "flex",
           flexDirection: "row",
           borderRadius: 2,
-          marginTop: 5,
+          marginTop: { xs: 1, md: 5 },
         }}
         className="reveal-down"
       >

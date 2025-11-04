@@ -22,6 +22,10 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+const activityData = [
+  { title: "کشتی تفریحی کارینا کیش" },
+  { title: "کشتی امیرکبیر کیش" },
+];
 export default function Home() {
   return (
     <Stack
@@ -39,7 +43,7 @@ export default function Home() {
         <Stack spacing={10} className="md:mt-8! mt-2!">
           <SearchTabSection />
 
-          <LastSearch />
+          <LastSearch data={activityData} />
           <Stack className="mt-4! w-full! md:hidden!">
             <Stack
               className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!"
@@ -59,9 +63,9 @@ export default function Home() {
               </Stack>
             </Stack>
           </Stack>
-          
+
           <Stack className="mt-[20px]! md:mt-0!">
-          <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!"  />
+            <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!" />
 
           </Stack>
         </Stack>
@@ -92,7 +96,7 @@ export default function Home() {
 
         {/* discounded tours */}
         <Stack className="hidden! md:block!">
-        <DicountedEntertainmentSection />
+          <DicountedEntertainmentSection />
 
         </Stack>
 
@@ -158,7 +162,7 @@ export default function Home() {
             <CommonQuestions />
           </Box>
           <Box className=" md:hidden!">
-            <CommonQuestions responsive={true} hasTItle={false} hasFooter={false}/>
+            <CommonQuestions responsive={true} hasTItle={false} hasFooter={false} />
           </Box>
           <CommentSlider />
         </Container>

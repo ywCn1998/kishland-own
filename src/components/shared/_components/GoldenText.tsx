@@ -30,6 +30,7 @@ export default function GoldenText({
   bgColor,
   bgColorSx,
   bgHeight = 30,
+  className
 }: {
   text: ReactNode;
   textColor?: TextColor;
@@ -43,6 +44,7 @@ export default function GoldenText({
   bgColor?: BgColor;
   bgColorSx?: object;
   bgHeight?: string | number;
+  className?: string
 }) {
   const resolvedbgColor =
     bgColor && bgColor in bgColorMap
@@ -57,6 +59,7 @@ export default function GoldenText({
   const stop = typeof bgHeight === "number" ? `${bgHeight}%` : bgHeight;
   return (
     <Stack
+      className={className}
       component="span"
       direction="row"
       sx={{
@@ -67,7 +70,7 @@ export default function GoldenText({
       }}
     >
       <Typography
-        pr={{lg : 1.4 , xs :0.5}}
+        pr={{ lg: 1.4, xs: 0.5 }}
         component="span"
         variant="inherit"
         className={`relative! ${textClass}`}
@@ -87,7 +90,7 @@ export default function GoldenText({
               pointerEvents: "none",
               zIndex: -1, // behind the text but within this context
               // bottom → halfway transparent
-              background: {sm : "none" , lg : `linear-gradient(to top, ${resolvedbgColor}, rgba(255,0,0,0) ${stop})`},
+              background: { sm: "none", lg: `linear-gradient(to top, ${resolvedbgColor}, rgba(255,0,0,0) ${stop})` },
               width: bgWidth,
               top: "40%", // adjust start position
               ...bgColorSx,

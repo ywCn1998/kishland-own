@@ -79,22 +79,22 @@ export default function CommonQuestions({
       )}
 
       {responsive ? (
-        <Accordion className=" rounded-lg border-none! reveal" defaultExpanded>
+        <Accordion className=" rounded-lg border-none!" defaultExpanded>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon fontSize="large"/>}
+            expandIcon={<ExpandMoreIcon fontSize="large" />}
             aria-controls="faq-content"
             id="faq-header"
           >
             <p className="font-semibold text-2xl!">سوالات متداول</p>
           </AccordionSummary>
-          <Divider className="mt-4!"/>
+          <Divider className="mt-4!" />
 
           <AccordionDetails className="p-0">
             <div className="w-full mx-auto rounded-b-lg">
               {faqs.map((faq, idx) => (
                 <div key={idx}>
                   <CollapseItem
-                   costumIcon={true}
+                    costumIcon={true}
                     title={faq.title}
                     description={faq.description}
                   />

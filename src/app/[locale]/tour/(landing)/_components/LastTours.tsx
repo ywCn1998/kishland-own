@@ -42,8 +42,9 @@ const tours = [
 interface lastTour {
   umbrella?: boolean;
   titles?: boolean;
+  isHotel?: boolean
 }
-const LatestToursSection = ({ umbrella = true, titles = true }: lastTour) => {
+const LatestToursSection = ({ umbrella = true, titles = true, isHotel = false }: lastTour) => {
   return (
     <>
       {umbrella && (
@@ -84,6 +85,52 @@ const LatestToursSection = ({ umbrella = true, titles = true }: lastTour) => {
           </Stack>
         )}
 
+        {isHotel && (
+          <Stack className="md:hidden! flex! flex-row! justify-between! w-full! items-center! mt-0! relative!">
+            <div>
+              <Typography className="text-sm! md:text-lg! text-slate-400! mb-5! reveal-down">
+                {isHotel ? (
+                  <span>
+                    یه تفریح عالی یه اقامت گاه درجه یک میخواد
+                  </span>
+                ) : (
+                  <span>
+                    تور + پکیجی از تفریحات و هیجان
+                  </span>
+                )}
+              </Typography>
+              <Typography className="font-bold! text-lg! md:text-5xl! reveal-down">
+                {isHotel ? (
+                  <span>
+                    محبوب ترین هتل های کیش
+                  </span>
+                ) : (
+                  <span>
+                    جدیدترین <span className="text-[#FF8C0B]">تورهای</span> کیش
+                  </span>
+                )}
+              </Typography>
+            </div>
+            <div>
+              <Button
+                endIcon={<KeyboardBackspaceIcon className="text-gray-600!" />}
+                variant="outlined"
+                className="text-sm! border-0! md:text-base! md:border-1! md:border-black! bg-white! text-slate-400! md:text-black! p-0! md:px-4! md:py-4! reveal-down"
+              >
+                <span className="hidden! md:inline!">
+                  مشاهده لیست پکیج ها
+                </span>
+                <span className=" md:hidden!">
+                  {
+                    isHotel ? "مشاهده همه" : "لیست مشاهده"
+                  }
+                </span>
+              </Button>
+            </div>
+          </Stack>
+        )}
+
+
         <Box
           sx={{
             maxWidth: "100%",
@@ -92,13 +139,13 @@ const LatestToursSection = ({ umbrella = true, titles = true }: lastTour) => {
             display: "flex",
             flexDirection: "row",
             borderRadius: 2,
-            marginTop: { xs: 6, md: 5 },
+            marginTop: { xs: 3, md: 5 },
           }}
           className="reveal-down"
         >
           <ReusableSwiper slidePerViewXs={1.4} slideperviewMd={4} slidePerviewLg={4} spaceBetween={20} pagination={true}>
             {tours.map((tour, index) => (
-              <Stack className="h-[300px]! md:h-[600px]!">
+              <Stack className="h-[350px]! md:h-[600px]!">
                 <TourCard key={index} {...tour} />
               </Stack>
             ))}

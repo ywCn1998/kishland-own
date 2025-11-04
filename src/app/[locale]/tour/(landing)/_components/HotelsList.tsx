@@ -22,15 +22,18 @@ const hotelsList = [
 ];
 
 
-export default function HotelsList() {
+export default function HotelsList({ className }: { className?: string }) {
   return (
-    <Stack mt={10} spacing={2} className="bg-[#FFF9EC] rounded-xl! p-3!">
+    <Stack mt={10} spacing={2} className={`bg-[#FFF9EC] rounded-xl! p-3 ${className}`}>
       <Grid container columns={10} spacing={2} className="hidden! md:flex!">
         {hotelsList.map((row, rowIndex) => (
-          <Grid size={2} key={rowIndex}>
+          <Grid size={2} key={rowIndex} className="
+          flex flex-row items-center justify-around border-1 border-slate-200 rounded-2xl text-center cursor-pointer
+          transition-all duration-300 ease-in-out active:scale-95 hover:shadow-md hover:border-blue-300
+        ">
             <Button
               variant="outlined"
-              className="bg-white! text-black! w-full rounded-xl!"
+              className="border-0! bg-white! text-black! w-full rounded-2xl!"
             >
               <span className="reveal-down">{row.label}</span>
             </Button>

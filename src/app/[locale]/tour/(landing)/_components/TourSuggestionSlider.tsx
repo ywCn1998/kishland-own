@@ -18,7 +18,7 @@ export default async function TourSuggestionSlider() {
           display: "flex",
           flexDirection: "row",
           borderRadius: 2,
-          marginTop: {xs: 0, md: 5},
+          marginTop: { xs: 0, md: 5 },
         }}
         className="reveal-down"
       >
