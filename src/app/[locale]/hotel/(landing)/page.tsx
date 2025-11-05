@@ -1,12 +1,6 @@
 import {
   Box,
-  Button,
   Container,
-  Divider,
-  Grid,
-  IconButton,
-  List,
-  ListItem,
   Stack,
   Typography,
 } from "@mui/material";
@@ -25,6 +19,7 @@ import {
   LastToursSection,
   ReserveSection,
   TourSearchSection,
+  TourSuggestionSlider,
   TravelNowPayTomarrow,
 } from "../../tour/(landing)/_components";
 import HotelLandingIntro from "./_components/HotelLandingIntro";
@@ -38,19 +33,80 @@ export default async function Home() {
   // const { locale } = params;
   // setRequestLocale(locale);
   // const t = useTranslations();
-
+  const hotelData = [
+    {
+      title: "هتل آپارتمان های کیش",
+      date: "از 1404/01/20 تا 1404/01/22",
+    },
+    {
+      title: "هتل 5 ستاره",
+      date: "از 1404/01/20 تا 1404/01/22",
+    },
+    {
+      title: "هتل 4 ستاره",
+      date: "از 1404/01/20 تا 1404/01/22",
+    },
+  ];
   return (
     <Stack
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
-      <Container maxWidth="xl" sx={{ marginBottom: 5 }}>
+      <Container maxWidth="xl" disableGutters sx={{ px: { xs: 0, sm: 2, md: 3 }, marginBottom: 5 }}>
         <CategorySlider />
-        <TourSearchSection activePage={"hotel"} />
-        <HotelLandingIntro />
-        <Stack className="mt-2">
-          <LastSearch hotel={true} />
+        <Stack px={{ xs: 2, sm: 0 }}>
+          <TourSearchSection activePage={"hotel"} />
         </Stack>
+
+        <Stack className="mt-2 flex! flex-col-reverse!">
+          <Stack px={{ xs: 2, sm: 0 }}>
+            <HotelLandingIntro />
+          </Stack>
+
+          <Stack className="mt-1! md:mt-3! md:hidden!">
+            <Stack className="bg-slate-100 md:bg-white mx-0! my-5! md:my-0!">
+              <Container maxWidth="xl" className="mx-auto!">
+                {/* <Stack className="hidden! md:block!"> */}
+                <OfferBanner
+                  caption=" این تور های رو از دست نده ..."
+                  responsiveCaption=" این تور های رو از دست نده ..."
+                  title={" پیشنهادات لحظه ای"}
+                  buttonText={"مشاهده لیست پیشنهادات ها"}
+                  href="/fa/tour/list"
+                // captionClass="block! text-xs! sm:text-base md:text-xl"
+                />
+
+                {/* </Stack> */}
+
+              </Container>
+
+              <Container maxWidth="xl" className="mx-auto!" sx={{
+                px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
+                pl: { xs: 2 }
+              }}
+                disableGutters>
+                <TourSuggestionSlider />
+              </Container>
+
+            </Stack>
+          </Stack>
+
+          <Stack className=" md:hidden! px-4 sm:px-0! mt-4" >
+            <Stack className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!" sx={{ backgroundColor: "secondary.50" }}>
+              <img src="/images/chance.png" className="h-12! w-12!" alt="" />
+              <Stack className="flex! flex-col! gap-2!">
+                <Typography sx={{ fontWeight: 500, color: "secondary.main" }} className="text-base!">شانس <span className="text-black!">امروزتو امتحان کن</span></Typography>
+                <Typography color="text.secondary" className="text-xs!">هر روز یک گردونه شانس با کلی جایزه</Typography>
+              </Stack>
+            </Stack>
+          </Stack>
+
+          <Stack className="pr-4! sm:pr-0!">
+            <LastSearch hotel data={hotelData} />
+          </Stack>
+        </Stack>
+
+
         <img
           src={"/images/hotel/plane.png"}
           className="absolute left-35  top-293 z-0 animate-slide-in-left duration-1000! hidden! md:block!"
@@ -70,9 +126,15 @@ export default async function Home() {
           component={"img"}
           src={"/images/hotel/hotelNewentertainment.png"}
           sx={{ width: "100%" }}
-          className="reveal"
+          className="reveal px-4! sm:px-0! hidden! md:inline!"
         />
-        <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth !hidden lg:!flex mt-10">
+        <Box
+          component={"img"}
+          src={"/images/hotel/hotelNewentertainmentMobile.png"}
+          sx={{ width: "100%" }}
+          className="reveal px-4! sm:px-0! md:hidden!"
+        />
+        <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth !hidden lg:!flex mt-10 px-4! md:px-0!">
           <Container maxWidth="xl">
             <OfferBanner
               responsiveCaption="بهترین ها را در کیش میسازیم برای شما"
@@ -108,22 +170,30 @@ export default async function Home() {
         </Stack>
 
         <Stack className="sm-fullwidth">
-          <LastToursSection umbrella={false} titles={false} />
+          <LastToursSection umbrella={false} titles={false} isHotel={true} />
         </Stack>
-        <HotelReserveSection />
+        <Stack className="px-4! md:px-0!">
+          <HotelReserveSection />
+        </Stack>
         <Box
           component={"img"}
           src={"/images/hotel/hotelgoonloan.png"}
           sx={{ width: "100%" }}
-          className="mt-12 reveal cursor-pointer!"
+          className="mt-16! reveal cursor-pointer! hidden! md:inline!"
         />
 
-        <CommonQuestions />
+        <Stack className="md:hidden!" mt={5}>
+          <CommonQuestions responsive={true} hasTItle={false} hasFooter={false} />
+        </Stack>
+
+        <Stack className="hidden! md:block">
+          <CommonQuestions responsive={true} />
+        </Stack>
 
         <CommentSlider />
-        <Stack className="sm-fullwidth">
+        <Container maxWidth="xl" disableGutters>
           <MainBlog />
-        </Stack>
+        </Container>
       </Container>
       <Stack mt={-10}>
         <ExtraFooterInformation honerOfColobrate={false} hotels={true} />

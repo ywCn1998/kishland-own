@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import BaseModal from "../BaseModal";
 import { Button, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 export default function HotDiscountModal() {
-  const [open , setOpen] = useState<boolean>(true)
+  const [open, setOpen] = useState<boolean>(true)
   return (
     <>
       <BaseModal
@@ -18,7 +19,7 @@ export default function HotDiscountModal() {
         fullWidth={false}
       >
         <Stack className="items-center gap-5!">
-          <img src={"/images/modals/hotdis.png"} className="w-100 h-100"/>
+          <img src={"/images/modals/hotdis.png"} className="w-100 h-100" />
           <Stack className="flex! flex-row! items-center! ">
             <Typography className="text-4xl! font-[750]! ">تخفیفات</Typography>
             <Typography className="text-4xl! font-[750]! text-red-400">داغ </Typography>
@@ -26,10 +27,10 @@ export default function HotDiscountModal() {
           </Stack>
           <Typography className="text-lg! text-slate-500!">میخواهی زودتر از بقیه از تخفیفات باخبر بشی</Typography>
           <Stack className="flex! flex-row! w-full! gap-5">
-            <Button variant="outlined" className="w-full!" onClick={()=>setOpen(!open)}>
+            <Button variant="outlined" className="w-full!" onClick={() => setOpen(!open)}>
               <Typography className="text-black" >فعلا نه</Typography>
             </Button>
-            <Button variant="contained" className="w-full!">
+            <Button variant="contained" className="w-full!" >
               <Typography className="text-white">اره میخوامم</Typography>
             </Button>
           </Stack>

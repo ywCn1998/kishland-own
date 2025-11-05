@@ -1,7 +1,15 @@
 import CollapseItem from "@/components/shared/collapse/collapseText";
-import { Divider, Stack, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Divider,
+  Stack,
+  Typography,
+} from "@mui/material";
 import Question from "./_components/question";
 import GoldenText from "../GoldenText";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const faqs = [
   {
@@ -33,7 +41,15 @@ const faqs = [
   },
 ];
 
-export default function CommonQuestions({ hasTItle = true, hasFooter = true }: { hasTItle?: boolean, hasFooter?: boolean }) {
+export default function CommonQuestions({
+  hasTItle = true,
+  hasFooter = true,
+  responsive = false,
+}: {
+  hasTItle?: boolean;
+  hasFooter?: boolean;
+  responsive?: boolean;
+}) {
   return (
     <Stack>
       {hasTItle && (
@@ -62,18 +78,48 @@ export default function CommonQuestions({ hasTItle = true, hasFooter = true }: {
         </Stack>
       )}
 
-      <div className="w-full! mx-auto bg-white  rounded-lg ">
-        {faqs.map((faq, idx) => (
-          <>
-            <CollapseItem
-              key={idx}
-              title={faq.title}
-              description={faq.description}
-            />
-            <Divider className="text-gray-50! bg-gray-50!" />
-          </>
-        ))}
-      </div>
+      {responsive ? (
+        <Accordion className=" rounded-lg border-none!" defaultExpanded>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon fontSize="large" />}
+            aria-controls="faq-content"
+            id="faq-header"
+          >
+            <p className="font-semibold text-2xl!">سوالات متداول</p>
+          </AccordionSummary>
+          <Divider className="mt-4!" />
+
+          <AccordionDetails className="p-0">
+            <div className="w-full mx-auto rounded-b-lg">
+              {faqs.map((faq, idx) => (
+                <div key={idx}>
+                  <CollapseItem
+                    costumIcon={true}
+                    title={faq.title}
+                    description={faq.description}
+                  />
+                  {idx !== faqs.length - 1 && (
+                    <Divider className="bg-gray-100" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </AccordionDetails>
+        </Accordion>
+      ) : (
+        <div className="w-full! mx-auto bg-white  rounded-lg ">
+          {faqs.map((faq, idx) => (
+            <>
+              <CollapseItem
+                key={idx}
+                title={faq.title}
+                description={faq.description}
+              />
+              <Divider className="text-gray-50! bg-gray-50!" />
+            </>
+          ))}
+        </div>
+      )}
 
       {hasFooter && (
         <Stack className="border-1! border-slate-200! p-3! rounded-2xl! mt-10!">

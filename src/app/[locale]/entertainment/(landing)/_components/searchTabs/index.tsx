@@ -11,6 +11,7 @@ import {
   Button,
   useTheme,
   MenuItem,
+  Divider,
 } from "@mui/material";
 import ContentCutIcon from "@mui/icons-material/ContentCut"; // تفریحات ✂️
 import HotelIcon from "@mui/icons-material/Hotel"; // هتل‌ها و اقامتگاه‌ها
@@ -32,7 +33,8 @@ export default function SearchTabs() {
   return (
     <Box
       sx={{
-        bgcolor: "background.paper",
+       
+        bgcolor: {xs : "none" , lg :"background.paper"},
         border: "1px solid",
         borderColor: "divider",
         borderRadius: 3,
@@ -40,7 +42,7 @@ export default function SearchTabs() {
         position: "relative",
         direction: "rtl", // ensure RTL layout for the tabs row
       }}
-      className="reveal"
+      className="reveal "
     >
       {/* Tabs header */}
       <Tabs
@@ -60,6 +62,7 @@ export default function SearchTabs() {
           borderBottom: "1px solid",
           borderColor: "divider",
         }}
+        className="hidden! md:flex!"
       >
         <Tab
           icon={<BusinessCenterIcon className="ml-1!" fontSize="small" />}
@@ -129,8 +132,8 @@ function InputsGrid() {
 
   return (
     <FormProvider methods={methods}>
-      <Grid container spacing={3} sx={{ direction: "ltr" }}>
-        <Grid size="grow" sx={{borderRight: "1px solid"}} className="border-slate-300!">
+      <Grid container spacing={3} sx={{ direction: "ltr" , display : "flex" , flexDirection : {xs : "column" , lg : "row"} }}>
+        <Grid size="grow" sx={{borderRight: {lg : "1px solid" , xs : "none"}}} className="border-slate-300!">
           {/* <RHFSelect
             startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
             label="تاریخ ورود"
@@ -141,7 +144,9 @@ function InputsGrid() {
           </RHFSelect> */}
           <RHFDatePicker name="date" label="تاریخ ورود" startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}/>
         </Grid>
-        <Grid size="grow" sx={{borderRight: "1px solid"}} className="border-slate-300!">
+                <Divider className="md:hidden!"/>
+
+        <Grid size="grow" sx={{borderRight: {lg : "1px solid" , xs : "none"}}} className="border-slate-300!">
           <RHFSelect
             startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
             label="دسته بندی"
@@ -151,6 +156,7 @@ function InputsGrid() {
             <MenuItem value="کشتی های تفریحی">کشتی های تفریحی </MenuItem>
           </RHFSelect>
         </Grid>
+        <Divider className="md:hidden!"/>
         <Grid size="grow">
           <RHFSelect
             startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
@@ -162,7 +168,7 @@ function InputsGrid() {
           </RHFSelect>
         </Grid>
         <Grid
-          size={1.5}
+          size={{xs : 12 , lg : 1.5}}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -177,6 +183,7 @@ function InputsGrid() {
               px: 3,
               py: 1.2,
               color: "white",
+              width : "100%",
             }}
             href="/fa/tour/list"
           >

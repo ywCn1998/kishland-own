@@ -18,6 +18,7 @@ import Image from "next/image";
 import RevealObserver from "@/components/shared/RevealObserver";
 import MobileBottomNav from "@/components/shared/bottomNavigation/bottomNavigation";
 import RouteIO from "../_route-io";
+import NextTopLoader from "nextjs-toploader";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -66,6 +67,11 @@ export default async function RootLayout({
         </div>
         <MuiProvider>
           <NextIntlClientProvider>
+            <NextTopLoader
+              color="#C8A456"   // ← gold like your theme
+              height={4}
+              showSpinner={false}
+            />
             <Stack className="z-20!">
               <RevealObserver
                 options={{
@@ -75,14 +81,14 @@ export default async function RootLayout({
                   visibleClass: "is-visible",
                 }}
               />
-               <RouteIO />
+              <RouteIO />
               <Header />
-              <Stack component="main" sx={{ minHeight: "70vh" }} className="mt-20! md:mt-0!">
+              <Stack component="main" sx={{ minHeight: "70vh" }} className="mt-28! md:mt-0!">
                 {children}
               </Stack>
               <Footer />
             </Stack>
-             <MobileBottomNav /> 
+            <MobileBottomNav />
           </NextIntlClientProvider>
         </MuiProvider>
       </Box>

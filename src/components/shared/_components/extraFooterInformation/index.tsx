@@ -4,6 +4,7 @@ import { Button, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import GoldenText from "../GoldenText";
 import FooterHotels from "./_components/hotels";
+import HotelsList from "@/app/[locale]/tour/(landing)/_components/HotelsList";
 
 export default function ExtraFooterInformation({
   honerOfColobrate = true,
@@ -63,7 +64,7 @@ export default function ExtraFooterInformation({
       )}
       {
         hotels && (
-          <FooterHotels />
+          <HotelsList className="bg-white! px-0!"/>
         )
       }
 

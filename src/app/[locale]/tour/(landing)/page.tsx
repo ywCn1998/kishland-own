@@ -24,7 +24,10 @@ import {
 } from "@/components/shared/_components";
 import GoldenText from "@/components/shared/_components/GoldenText";
 import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
-
+const activityData = [
+  { title: "کشتی تفریحی کارینا کیش" },
+  { title: "کشتی امیرکبیر کیش" },
+];
 export default function Home() {
   // const { locale } = params;
 
@@ -39,7 +42,9 @@ export default function Home() {
       <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 2 } }}>
         <CategorySlider />
         <Stack className="px-4 md:px-0 bg-white"><TourSearchSection /></Stack>
-        <LastSearch />
+        <Stack className="hidden! md:block!">
+          <LastSearch data={activityData} />
+        </Stack>
         <Stack className="mt-3! px-4! md:hidden!" >
           <Stack className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!" sx={{ backgroundColor: "secondary.50" }}>
             <img src="/images/chance.png" className="h-12! w-12!" alt="" />
@@ -80,7 +85,11 @@ export default function Home() {
 
             </Container>
 
-            <Container maxWidth="xl" className="mx-auto!" >
+            <Container maxWidth="xl" className="mx-auto!" sx={{
+              px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
+              pl: { xs: 2 }
+            }}
+              disableGutters>
               <TourSuggestionSlider />
             </Container>
 
@@ -128,7 +137,7 @@ export default function Home() {
       </Container>
 
       <ExtraFooterInformation />
-      <HotDiscountModal/>
+      <HotDiscountModal />
     </Stack >
   );
 }

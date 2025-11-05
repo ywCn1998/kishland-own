@@ -30,7 +30,7 @@ export default function OfferBanner({
         <Typography className=" block lg:hidden !text-[8px] text-slate-400! mb-2! reveal-down text-nowrap">
           {responsiveCaption}
         </Typography>
-        <Typography className="font-bold! sm:text-base  lg:text-5xl! reveal-down">
+        <Typography className="font-bold! text-lg!  md:text-5xl! reveal-down">
           {title}
         </Typography>
       </div>
