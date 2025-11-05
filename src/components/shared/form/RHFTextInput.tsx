@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export interface IProps {
   name: string;
@@ -38,9 +38,14 @@ const RHFTextInput = ({
 }: IProps & TextFieldProps) => {
   const { control } = useFormContext();
   const [showPassword, setShowPassword] = useState(false);
+  const inputRef = useRef<HTMLInputElement | null>(null); // 👈 create a ref for focusing
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
+  };
+
+  const handlePlaceholderClick = () => {
+    inputRef.current?.focus(); // 👈 when clicked, focus input
   };
 
   return (
@@ -52,8 +57,14 @@ const RHFTextInput = ({
       render={({ field, fieldState: { error } }) => (
         <Stack gap={2} sx={{ width: "100%" }}>
           <TextField
+          fullWidth
+          id="fullWidth"
             {...field}
             {...others}
+            inputRef={(el) => {
+              field.ref(el);
+              inputRef.current = el;
+            }}
             error={!!error?.message}
             helperText={error?.message || ""}
             value={field.value ?? ""}
@@ -73,14 +84,18 @@ const RHFTextInput = ({
                 !field.value && (startIcon || placeholder) ? (
                   <InputAdornment
                     position="start"
-                    sx={{ color: "text.disabled" }}
+                    sx={{
+                      color: "text.disabled",
+                      cursor: "text",
+                    }}
+                    onClick={handlePlaceholderClick} // 👈 focus input on click
                   >
                     {startIcon && (
                       <Box
                         sx={{
                           mr: 0.75,
                           color: "#626E94",
-                          display: { xs: "none", lg: "block" }, 
+                          display: { xs: "none", lg: "block" },
                         }}
                       >
                         {startIcon}
@@ -94,8 +109,8 @@ const RHFTextInput = ({
                           color: "#626E94",
                           mr: 1.5,
                           fontWeight: 300,
+                          userSelect: "none",
                         }}
-                        className="mx-2!"
                       >
                         {placeholder}
                       </Typography>

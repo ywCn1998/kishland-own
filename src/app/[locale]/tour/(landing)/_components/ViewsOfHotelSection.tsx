@@ -48,7 +48,7 @@ const images = [
   "/images/lobby-4.png",
 ];
 
-export default async function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasDetails?: boolean, isIntegrated?: boolean }) {
+export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasDetails?: boolean, isIntegrated?: boolean }) {
   const visibleImages = images.slice(0, 4);
   const remainingCount = images.length - visibleImages.length;
   return (

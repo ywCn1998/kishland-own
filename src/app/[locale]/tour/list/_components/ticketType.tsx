@@ -1,11 +1,5 @@
 "use client"
 import { Button, Typography, Stack, Container, Grid, IconButton, Box, Divider, Tabs, Tab, colors } from "@mui/material";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import SearchIcon from "@mui/icons-material/Search";
-import RoomServiceIcon from '@mui/icons-material/RoomService';
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
-import TextIcon from "@/components/shared/textIcon";
 import TextNumber from "@/components/shared/textNumber";
 import SortIcon from '@mui/icons-material/Sort';
 import TicketCard from "@/components/shared/cards/tour/ticketCard";
