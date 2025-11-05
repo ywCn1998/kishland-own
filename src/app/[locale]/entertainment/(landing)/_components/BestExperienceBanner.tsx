@@ -11,7 +11,7 @@ export default function BestExprienceBannerSection() {
       imgUrl="/images/best-experience-banner.png"
       childrenGridSIze={{ xs: 12, lg: 7 }}
       imgGridSIze={{ xs: 12, lg: 5 }}
-      height={{ xs: 2000, lg: 500 }}
+      height={{ xs: 1100, lg: 500 }}
     >
       <Typography className="text-xs! md:text-lg! text-slate-400! mb-3!">
         🏝️ در قلب جزیرهٔ رویایی کیش، هتل‌هایی منتخب و منحصر به فرد فقط برای شما!

@@ -1,11 +1,12 @@
 "use client";
-import { Button, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 // import { useTranslations } from 'next-intl';
 import { getTranslations } from "next-intl/server";
 import Typography from "@mui/material/Typography";
+import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import {
   PhoneInTalkOutlined,
   LoginOutlined,
@@ -15,7 +16,11 @@ import { useState } from "react";
 import RegisterModal from "../modal/loginModals/registerModal";
 
 export default function Header({}) {
- const [open , setOpen] = useState<boolean>(false)
+  const path = location.pathname;
+  const parts = path.split("/");
+  const lastPart = parts.pop();
+
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <Container maxWidth="xl">
       <Stack className="lg:!py-8  " sx={{ boxShadow: "none" }}>
@@ -68,17 +73,72 @@ export default function Header({}) {
                   color: "text.primary",
                 }}
                 className="px-10! h-[55px]!"
-                onClick={()=>setOpen(!open)}
+                onClick={() => setOpen(!open)}
               >
-                <Typography className="text-base!" >ورود یا ثبت نام</Typography>
+                <Typography className="text-base!">ورود یا ثبت نام</Typography>
               </Button>
               {/* <Button variant="text">پنل کاربری</Button> */}
             </Stack>
           </Stack>
           {/* </Container> */}
         </Stack>
-        <Stack
-          className="
+        {lastPart === "tour" || "entertainment" || "hotel" ? (
+          <Box
+            className="
+    relative
+    lg:hidden!
+    h-[100px]
+    w-full
+    bg-[#FF8C0B]
+    bg-[url('/images/header.png')]
+    bg-cover
+    bg-center
+    bg-no-repeat
+    bg-blend-overlay
+    z-[1300]
+    fixed!
+    top-0
+    left-0
+    right-0
+ 
+    xs-fullwidth
+  "
+          >
+            <Stack className="flex flex-col px-4! py-2! gap-2!">
+              <Stack className="relative z-10 flex items-center justify-between! flex-row!">
+                <img
+                  src="/images/headerlogo.png"
+                  alt="header logo"
+                  className="h-[50px]"
+                />
+                <Stack
+                  className="
+    flex 
+    flex-row-reverse!
+    items-center
+    gap-2
+    text-white
+    bg-white/20
+    backdrop-blur-md
+    rounded-xl
+    px-3
+    py-2
+  "
+                >
+                  <PhoneInTalkIcon />
+                  <Typography>021-93893839</Typography>
+                </Stack>
+              </Stack>
+              <Stack>
+                <Typography className="text-white! text-xs!">
+                  از دریا تا آسمان جـزیـره کـیـش تو رو صدا می‌زنن
+                </Typography>
+              </Stack>
+            </Stack>
+          </Box>
+        ) : (
+          <Stack
+            className="
     flex 
     items-center 
     justify-center
@@ -95,16 +155,17 @@ export default function Header({}) {
     border-b
     border-slate-200
   "
-        >
-          <Typography
-            className="text-base! font-medium!"
-            sx={{ lineHeight: "60px" }}
           >
-            سبد خرید
-          </Typography>
-        </Stack>
+            <Typography
+              className="text-base! font-medium!"
+              sx={{ lineHeight: "60px" }}
+            >
+              سبد خرید
+            </Typography>
+          </Stack>
+        )}
       </Stack>
-      <RegisterModal open={open} setOpen={setOpen}/>
+      <RegisterModal open={open} setOpen={setOpen} />
     </Container>
   );
 }

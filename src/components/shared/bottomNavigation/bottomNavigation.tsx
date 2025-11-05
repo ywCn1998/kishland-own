@@ -8,17 +8,24 @@ import {
   AccountCircleOutlined,
   CallOutlined,
 } from "@mui/icons-material";
+import { useRouter } from "next/navigation"; // 👈 برای ناوبری
 
 const items = [
-  { label: "خانه", icon: <HomeOutlined />, id: 0 },
-  { label: "سفرهای من", icon: <LuggageOutlined />, id: 1 },
-  { label: "سبد خرید", icon: <ShoppingBagOutlined />, id: 2 },
-  { label: "حساب کاربری", icon: <AccountCircleOutlined />, id: 3 },
-  { label: "تماس", icon: <CallOutlined />, id: 4 },
+  { label: "خانه", icon: <HomeOutlined />, id: 0, path: "/fa/tour" },
+  { label: "سفرهای من", icon: <LuggageOutlined />, id: 1, path: "/fa/entertainment" },
+  { label: "سبد خرید", icon: <ShoppingBagOutlined />, id: 2, path: "/fa/entertainment/reserve" },
+  { label: "حساب کاربری", icon: <AccountCircleOutlined />, id: 3, path: "/fa/panel" },
+  { label: "تماس", icon: <CallOutlined />, id: 4, path: "/fa/panel" },
 ];
 
 export default function MobileBottomNav() {
-  const [active, setActive] = useState<number>(2);
+  const [active, setActive] = useState<number>(0);
+  const router = useRouter(); 
+
+  const handleClick = (id: number, path: string) => {
+    setActive(id);
+    router.push(path); 
+  };
 
   return (
     <Paper
@@ -61,7 +68,7 @@ export default function MobileBottomNav() {
                 width: 70,
                 position: "relative",
               }}
-              onClick={() => setActive(item.id)}
+              onClick={() => handleClick(item.id, item.path)} 
             >
               {/* آیکون */}
               <Box

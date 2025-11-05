@@ -13,7 +13,7 @@ type CenteredGridProps = {
   childrenGridSIze?: number | object;
   flexDirection?: string;
   height?: number | string | object;
-  imgHeight?: string |number
+  imgHeight?: string |number | object;
 };
 
 export default function ImageAndText({

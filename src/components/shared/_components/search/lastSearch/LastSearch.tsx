@@ -75,7 +75,7 @@ export default function LastSearch({ hotel = false, data = [] }: LastSearchProps
         }}
         className="reveal-down md:hidden!"
       >
-        <ReusableSwiper slidePerViewXs={1.8} slideperviewMd={1.7} slidePerviewLg={5} spaceBetween={15} pagination={true} dots={false}>
+        <ReusableSwiper slidePerViewXs={1.8} slideperviewMd={1.7} slidePerviewLg={5} spaceBetween={5} pagination={true} dots={false}>
           {data.map((item, index) => (
             <Button
               key={index}
@@ -95,7 +95,7 @@ export default function LastSearch({ hotel = false, data = [] }: LastSearchProps
                   )}
                 </Box>
               ) : (
-                item.title
+              <Typography className="text-xs! text-nowrap!">{item.title}</Typography>
               )}
             </Button>
           ))}

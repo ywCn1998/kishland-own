@@ -21,7 +21,7 @@ export default function EconomyPackageSection() {
   };
   return (
     <>
-      <Stack className="flex! flex-row! bg-none! md:bg-[#F5F7FA]! mt-[-30]! md:mt-10! py-8! md:px-6! px-0! rounded-2xl! md:gap-5! gap-2! justify-center items-center">
+      <Stack className="flex! flex-row! bg-none! md:bg-[#F5F7FA]! mt-[-40]! md:mt-10! md:pb-8! pb-4! py-8! md:px-6! px-0! rounded-2xl! md:gap-5! gap-2! justify-center items-center">
         <Button
           variant="contained"
           className="w-4/12! text-white! reveal-down text-sm! md:text-base! text-nowrap! rounded-xl! md:rounded-2xl! font-medium!"
@@ -44,9 +44,9 @@ export default function EconomyPackageSection() {
           پکیج VIP
         </Button>
       </Stack>
-      <Stack mt={10}>
+      <Stack className="md:mt-14! mt-0!">
         <ImgTextGrid
-          imgHeight={500}
+          imgHeight={{xs :300 , lg : 500}}
           imgUrl="/images/acconamy.png"
           imgGridSIze={{ xs: 12, lg: 6 }}
           childrenGridSIze={{ xs: 12, lg: 6 }}
@@ -156,7 +156,7 @@ export default function EconomyPackageSection() {
             افراد مختلف خریداری کرد.
           </Stack>
         </ImgTextGrid>
-        <Box className="flex! md:hidden! flex-col! gap-4!">
+        <Box className="flex! md:hidden! flex-col! gap-4! mt-4!">
           <Button variant="contained" className="text-white! rounded-xl!" href="entertainment/list">رزرو پکیج</Button>
           <Button startIcon={<PhoneInTalkIcon/>} variant="outlined" className="text-black! rounded-xl!">دریافت مشاوره</Button>
         </Box>
