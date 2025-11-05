@@ -40,9 +40,9 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
             )}
             <MainTabs data={tabsData} />
 
-            <Stack className="w-full! flex! flex-row! w-full! gap-5 ">
+            <Stack className="w-full! flex! flex-row! gap-5 ">
                 <TicketCard />
-                <TicketCard /> 
+                <TicketCard />
             </Stack>
         </Container>
     );
