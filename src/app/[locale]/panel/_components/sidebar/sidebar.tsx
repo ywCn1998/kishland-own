@@ -34,7 +34,7 @@ const SideBarItems: ISideBarItem[] = [
     { title: "لیست مسافران", route: path("passengers/list"), icon: GroupsOutlined },
     { title: "علاقه‌مندی‌ها", route: path("favorites"), icon: FavoriteBorderOutlined },
     { title: "درخواست پشتیبانی", route: path("support"), icon: HeadsetMicOutlined },
-    { title: "خروج از حساب", route: "/logout", icon: LogoutOutlined },
+    { title: "خروج از حساب", route: "/fa/tour", icon: LogoutOutlined },
 ];
 
 export default function SideBar() {
