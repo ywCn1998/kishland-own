@@ -1,16 +1,26 @@
 "use client"
 import React, { createElement, isValidElement, useMemo, useState } from "react";
-import { Button, IconButton, Stack, SxProps, Tab, Tabs, Theme } from "@mui/material";
-import SortIcon from '@mui/icons-material/Sort';
+import {
+    Button,
+    IconButton,
+    Stack,
+    SxProps,
+    Tab,
+    Tabs,
+    Theme,
+} from "@mui/material";
+import SortIcon from "@mui/icons-material/Sort";
 
 type TabIcon = React.ReactNode | React.ComponentType<any>;
 
 type TabItem = {
     label: string;
-    icon?: TabIcon;           // can be <Icon /> or Icon
-    iconSx?: SxProps<Theme>;  // optional per-tab icon styling
+    icon?: TabIcon;
+    iconSx?: SxProps<Theme>;
     disabled?: boolean;
+    hideLabelOnMobile?: boolean; // ✅ NEW
 };
+
 
 export default function MainTabs({
     data,
@@ -20,17 +30,22 @@ export default function MainTabs({
     setChangeCardUi,
     sortByPrice,
     setSortByExpensive,
-    setSortByCheap
+    setSortByCheap,
+    setSortByPrice,
+    bgColor = "white",
+    icons = true, // ✅ NEW PROP: controls scroll navigation icons only
 }: {
     data: TabItem[];
     border?: boolean;
     tabStyle?: SxProps<Theme>;
-    changeCardUi?: boolean
-    setChangeCardUi?: (val: boolean) => void
-    sortByPrice?: boolean
-    setSortByExpensive?: (val: boolean) => void
-    setSortByCheap?: (val: boolean) => void
-    setSortByPrice?: (val: boolean) => void
+    changeCardUi?: boolean;
+    setChangeCardUi?: (val: boolean) => void;
+    sortByPrice?: boolean;
+    setSortByExpensive?: (val: boolean) => void;
+    setSortByCheap?: (val: boolean) => void;
+    setSortByPrice?: (val: boolean) => void;
+    bgColor?: string;
+    icons?: boolean;
 }) {
     const firstEnabledIndex = useMemo(
         () => Math.max(0, data.findIndex((t) => !t.disabled)),
@@ -41,7 +56,9 @@ export default function MainTabs({
 
     const renderIcon = (icon?: TabIcon) => {
         if (!icon) return undefined;
-        return isValidElement(icon) ? icon : createElement(icon as React.ComponentType<any>);
+        return isValidElement(icon)
+            ? icon
+            : createElement(icon as React.ComponentType<any>);
     };
 
     return (
@@ -52,34 +69,30 @@ export default function MainTabs({
                 setValue(v);
             }}
             variant="scrollable"
-            allowScrollButtonsMobile
+            allowScrollButtonsMobile={icons} // ✅ Arrows only show when icons=true
+            scrollButtons={icons ? "auto" : false} // ✅ Completely hide nav arrows
             sx={{
                 "& .MuiTabs-flexContainer": {
                     justifyContent: "flex-start",
                     gap: 2,
                     p: 1,
-                    backgroundColor: "white",
+                    backgroundColor: bgColor,
                     alignItems: "center",
                     minHeight: 60,
                 },
-                // default icon tweaks (can be overridden per Tab via iconSx)
-                "& .MuiTab-root .MuiTab-iconWrapper": {
-                    ml: 1,            // space between label and icon when iconPosition="end"
-                    "& svg": { fontSize: 18 },
-                },
                 mb: 2,
-                border: border ? "1px solid" : "none" ,
-                borderBottom : border ? "1px solid" : "1px solid",
+                border: border ? "1px solid" : "none",
+                borderBottom: border ? "1px solid" : "0",
                 borderColor: "divider",
                 borderRadius: border ? "14px" : 0,
-                position: "relative"
+                position: "relative",
             }}
         >
             {data.map((tab, index) => (
                 <Tab
                     key={index}
-                    label={tab.label}
-                    icon={renderIcon(tab.icon)}
+                    label={icons === false && tab.hideLabelOnMobile ? "" : tab.label}
+                    icon={renderIcon(tab.icon)} // ✅ always keep tab icons
                     iconPosition="end"
                     disabled={tab.disabled}
                     disableRipple={tab.disabled}
@@ -94,8 +107,7 @@ export default function MainTabs({
                                 cursor: "default",
                                 pointerEvents: "none",
                             },
-                            position: "absolute",
-                            // allow per-tab icon overrides
+                            // allow per-tab icon override styling
                             "& .MuiTab-iconWrapper": tab.iconSx as any,
                         },
                         StyleTab as any,
@@ -103,47 +115,51 @@ export default function MainTabs({
                     ]}
                 />
             ))}
-            {
-                changeCardUi && (
-                    <IconButton className="absolute! left-4!"
-                        onClick={() => {
-                            // @ts-ignore
-                            setChangeCardUi?.((prev) => !prev)
-                        }}
-                    >
-                        <SortIcon />
-                    </IconButton>
-                )
-            }
-            {
-                sortByPrice && (
-                    <Stack className="flex flex-row! h-full absolute! left-4!">
-                        <Button onClick={() => {
-                            // @ts-ignore
-                            setSortByCheap?.((prev) => !prev)
-                        }}
-                            variant="text" className="p-3!" sx={{ color: "text.secondary" }}>ارزان ترین</Button>
-                        <Button onClick={() => {
-                            // @ts-ignore
-                            setSortByExpensive?.((prev) => !prev)
-                        }}
-                            variant="text" className="p-3!" sx={{ color: "text.secondary" }}>گران ترین</Button>
-                    </Stack>
-                )
-            }
 
-        </Tabs >
+            {changeCardUi && (
+                <IconButton
+                    className="absolute! left-4!"
+                    // @ts-ignore
+                    onClick={() => setChangeCardUi?.((prev) => !prev)}
+                >
+                    <SortIcon />
+                </IconButton>
+            )}
+
+            {sortByPrice && (
+                <Stack className="flex flex-row! h-full absolute! left-4!">
+                    <Button
+                        // @ts-ignore
+                        onClick={() => setSortByCheap?.((prev) => !prev)}
+                        variant="text"
+                        className="p-3!"
+                        sx={{ color: "text.secondary" }}
+                    >
+                        ارزان ترین
+                    </Button>
+                    <Button
+                        // @ts-ignore
+                        onClick={() => setSortByExpensive?.((prev) => !prev)}
+                        variant="text"
+                        className="p-3!"
+                        sx={{ color: "text.secondary" }}
+                    >
+                        گران ترین
+                    </Button>
+                </Stack>
+            )}
+        </Tabs>
     );
 }
 
 const ORANGE = "var(--primary-500, #FF8C0B)";
 const StyleTab = {
     minHeight: 40,
-    px: 2,
+    px: { xs: 0, md: 2 },
     py: 0.5,
     color: "rgb(100 116 139);",
     fontWeight: 400,
-    fontSize: 16,
+    fontSize: { xs: 14, md: 16 },
     borderRadius: 2,
     alignSelf: "flex-end",
     position: "relative",
@@ -153,16 +169,16 @@ const StyleTab = {
         "&::after": {
             content: '""',
             position: "absolute",
-            insetInlineEnd: 0, // right in RTL
+            insetInlineEnd: 0,
             bottom: -10,
             height: 3,
             width: "80%",
             backgroundColor: ORANGE,
             borderRadius: 999,
-            transform: "translateX(10%)", // small offset like the screenshot
+            transform: "translateX(10%)",
         },
     },
     "&:hover": { backgroundColor: "transparent" },
     "&:focus": { backgroundColor: "transparent" },
     "&:active": { backgroundColor: "transparent", color: "rgb(100 116 139);" },
-};
+} as const;

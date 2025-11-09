@@ -36,15 +36,17 @@ export default function List(
     return (
         <Stack
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
-            className="mb-10!"
+            className="mb-1!"
         >
             <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 2 } }}>
-                <CategorySlider />
+                <Stack className="hidden! md:inline!">
+                    <CategorySlider />
 
-                {/* step 1 */}
-                <Stack gap={10}>
-                    <BannerSection />
-                    <BannerSection hasTitle={true} />
+                    {/* step 1 */}
+                    <Stack gap={10}>
+                        <BannerSection />
+                        <BannerSection hasTitle={true} />
+                    </Stack>
                 </Stack>
 
                 {/* step 2 */}
