@@ -9,7 +9,8 @@ interface IProp {
     onClick: () => void;
     btn_title: string;
     description?: string;
-    title_font?: string
+    title_font?: string;
+    className?: string;
 }
 
 
@@ -19,11 +20,12 @@ export default function ChanceCard({
     onClick,
     description,
     btn_title,
-    title_font = '20px'
+    title_font = '20px',
+    className,
 }: IProp) {
     return (
         <Stack
-            className="flex flex-col! items-center bg-[#F0F7FF] rounded-4xl mt-8 p-6"
+            className={`flex flex-col! items-center bg-[#F0F7FF] rounded-4xl mt-8 p-6 ${className}`}
         >
             <Image
                 src={img}

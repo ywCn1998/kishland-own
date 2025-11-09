@@ -30,6 +30,7 @@ import { AirCard } from "./_components/blitType/aircard";
 import {
   CategorySlider,
   ExtraFooterInformation,
+  MianBanner,
 } from "@/components/shared/_components";
 import { PingoCard } from "./_components/pingoCard";
 import FilterBox from "./_components/filterBox";
@@ -37,13 +38,10 @@ import EntertainmentDetailDialog from "./_components/detail";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
+import FilterContainer from "./_components/filterBox/_components/filterContainer";
 
-// { params }: { params: { locale: string } }
 export default function Home() {
-  // const { locale } = params;
-  // setRequestLocale(locale);
-  // const t = useTranslations();
-
   const [OpenMdl, setOpenMdl] = useState(false);
 
   const router = useRouter();
@@ -53,37 +51,17 @@ export default function Home() {
       style={{ display: "flex", flexDirection: "column" }}
       className="mb-10!"
     >
-      <Container maxWidth="xl" sx={{ marginBottom: 5 }}>
-        <Stack
-          className="mb-10"
-          display={"flex"}
-          flexDirection={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-        >
-          <Stack
-            display={"flex"}
-            flexDirection={"row"}
-            className="items-center gap-2 "
-          >
-            <Typography>صفحه اصلی /</Typography>
-            <Typography>تفریحات /</Typography>
-            <Typography>لیست تفریحات کیش</Typography>
-          </Stack>
-
-          <Stack
-            display={"flex"}
-            flexDirection={"row"}
-            className="items-center"
-          >
-            <Typography onClick={() => router.back()}>برگشت</Typography>
-            <KeyboardBackspaceOutlined />
-          </Stack>
+      <Container maxWidth="xl" sx={{ marginBottom: 5 }} disableGutters>
+        <Stack className="hidden! md:block!">
+          <BreadCrumbFa />
         </Stack>
-
-        <CategorySlider />
-
-        <Grid container>
+        <Stack className="md:hidden! flex! ">
+          <SubCategorySwiper />
+        </Stack>
+        <Stack className="md:p-6! p-0! md:mt-0! mt-4!">
+          <CategorySlider />
+        </Stack>
+        <Grid container className="hidden! md:flex!">
           <Grid
             className="pl-[120px]"
             size={{ md: 8 }}
@@ -107,31 +85,34 @@ export default function Home() {
             />
           </Grid>
         </Grid>
+        <Stack className="hidden! md:flex!">
+          <SubCategorySwiper />
+        </Stack>
 
-        <SubCategorySwiper />
-
-        <Stack className="mt-20 flex flex-row! items-center justify-between">
+        <Stack className="mt-20 md:flex! flex-row! items-center justify-between hidden!">
           <Typography>انتخاب هتل </Typography>
 
           <Typography variant="subtitle1">25 تفریح موجود</Typography>
         </Stack>
 
-        <Grid container className="mt-4" spacing={2}>
-          <Grid size={{ md: 3 }}>
-            <Stack className="border-1 border-slate-200  rounded-xl p-4">
-              <FilterBox />
-            </Stack>
+        <Grid container className="md:mt-4  mt-[-40] " spacing={2}>
+          <Grid size={{ md: 3 }} className="md:block! flex! flex-row! gap-4! md:p-0! p-6!">
+            <Grid className="md:hidden!">
+              <BlitType />
+            </Grid>
+            <Grid className="md:border-1 border-slate-200  rounded-xl md:p-4">
+              <FilterContainer />
+            </Grid>
           </Grid>
 
-          <Grid size={{ md: 9 }}>
+          <Grid size={{ md: 9 }} className="md:mt-0 mt-[-40]">
             <Grid size={{ md: 12 }} spacing={3} container>
-              <Grid size={{ md: 10.5 }}>
+              <Grid size={{ md: 10.5 }} className="hidden! md:block!">
                 <BlitType />
               </Grid>
-
               <Grid
                 size={{ md: 1.5 }}
-                className="border-1 border-slate-200 rounded-2xl   h-16  "
+                className="border-1 border-slate-200 rounded-2xl   h-16 hidden! md:block! "
               >
                 <Stack className="flex flex-row! h-full justify-center">
                   <IconButton>
@@ -145,17 +126,23 @@ export default function Home() {
               </Grid>
             </Grid>
 
-            <Grid size={{ md: 12 }} container spacing={2}>
+            <Grid size={12} container spacing={2} className="p-6! md:p-0!">
               <AirCard onClick={setOpenMdl} />
               <AirCard onClick={setOpenMdl} />
+              <MianBanner hasBannerInDesktop={false} />
               <AirCard onClick={setOpenMdl} />
               <AirCard onClick={setOpenMdl} />
-
+              <Stack>
+                <img
+                  src={"/images/entertainment/list/buytwo.png"}
+                  className="w-100! md:hidden!"
+                />
+              </Stack>
               <Grid
                 size={{ md: 12 }}
                 container
                 spacing={3}
-                className="bg-[#F0F7FF]! p-6! rounded-3xl "
+                className="bg-[#F0F7FF]! p-6! rounded-3xl hidden! md:flex!"
               >
                 <PingoCard
                   img="/images/entertainment/list/pang3.png"
@@ -191,7 +178,7 @@ export default function Home() {
               <Link href={"/fa/hotel/list"}>
                 <img
                   src={"/images/entertainment/list/banner.png"}
-                  className="w-full! rounded-2xl "
+                  className="w-full! rounded-2xl hidden! md:block!"
                 />
               </Link>
 
