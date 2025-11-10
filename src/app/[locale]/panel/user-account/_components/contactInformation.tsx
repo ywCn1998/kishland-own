@@ -21,7 +21,7 @@ export default function ContactInformation() {
             </Grid>
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره تماس ضروری (اختیاری)" />
+                <RHFTextInput name="birthDafy" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره تماس ضروری (اختیاری)" />
             </Grid>
 
 

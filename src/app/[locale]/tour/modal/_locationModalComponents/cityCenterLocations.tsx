@@ -14,9 +14,9 @@ export default function CityCenterLoactions() {
     const [activeId, setActiveId] = useState<number | null>(null);
 
     return (
-        <Container maxWidth="xl" sx={{mt: 3}}>
-            <Grid container maxHeight={450} spacing={0} >
-                <Grid size={7} maxHeight={450} sx={{ overflowY: "hidden" }}>
+        <Container maxWidth="xl" sx={{ mt: 3 }}>
+            <Grid container height={450} spacing={2} >
+                <Grid size={7} height={450} sx={{ overflowY: "hidden" }}>
                     <Stack sx={{ overflowY: "auto", height: "100%" }} gap={2}>
 
                         {data.map((item) => {
@@ -31,7 +31,7 @@ export default function CityCenterLoactions() {
                                     className="rounded-2xl! p-7! flex! w-full! cursor-pointer!"
                                     sx={{
                                         backgroundColor: isActive
-                                            ? "primary.100" 
+                                            ? "primary.50"
                                             : "background.paper",
                                         transition: "0.2s",
                                     }}
@@ -49,10 +49,10 @@ export default function CityCenterLoactions() {
                             );
                         })}
                     </Stack>
-
                 </Grid>
-                <Grid size={5}>
-                    <img src={"/images/"} />
+
+                <Grid size={5} height={450}>
+                    <img src={"/images/sample-map.png"} className="h-full! w-full! rounded-3xl!" />
                 </Grid>
             </Grid>
         </Container>

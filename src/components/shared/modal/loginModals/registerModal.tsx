@@ -9,8 +9,10 @@ import useSubmitPhoneLogin from "./hooks/useSubmitPhoneLogin";
 import RHFTextInput from "../../form/RHFTextInput";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 export default function RegisterModal({ open, setOpen }: ModalProps) {
   const { OnSubmit, methods } = useSubmitPhoneLogin();
+  const router = useRouter()
 
   return (
     <>
@@ -31,11 +33,16 @@ export default function RegisterModal({ open, setOpen }: ModalProps) {
           <FormProvider
             methods={methods}
             onSubmit={OnSubmit}
-            className="flex! flex-col! gap-6!"
+            className="flex! flex-col! gap-6! w-full! items-stretch!"
           >
-            <RHFTextInput name="userName" placeholder="نام و نام خانوادگی خود را وارد کنید" startIcon={<PersonOutlineOutlinedIcon />} />
+            <Stack className="w-full! items-stretch!">
+              <RHFTextInput name="userName" placeholder="نام و نام خانوادگی خود را وارد کنید" startIcon={<PersonOutlineOutlinedIcon />} />
+            </Stack>
           </FormProvider>
-          <Button variant="contained" className="w-full! py-6!" component={Link} href="/fa/panel/user-account" >
+          <Button variant="contained" className="w-full! py-6!" component={Link} href="/fa/panel/user-account" onClick={() => {
+            router.push("/fa/panel/user-account")
+            setOpen(false)
+          }}>
             <Typography className="text-white"> ورود </Typography>
           </Button>
         </Stack>

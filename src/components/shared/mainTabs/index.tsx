@@ -69,7 +69,7 @@ export default function MainTabs({
                 },
                 mb: 2,
                 border: border ? "1px solid" : "none" ,
-                borderBottom : border ? "1px solid" : "1px solid",
+                borderBottom : !border ? "1px solid" : "1px solid",
                 borderColor: "divider",
                 borderRadius: border ? "14px" : 0,
                 position: "relative"
