@@ -21,6 +21,7 @@ import {
 } from "./_components";
 import Image from "next/image";
 import Link from "next/link";
+import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
 
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },
@@ -32,6 +33,7 @@ export default function Home() {
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
+      <MobileHeaderTabs/>
       <Container maxWidth="xl">
         <Stack className="hidden! md:block!">
           <CategorySlider />

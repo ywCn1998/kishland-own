@@ -29,15 +29,15 @@ export default function PersonalInformation() {
             </Grid>
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
+                <RHFTextInput name="bwirtshDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
             </Grid>
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
+                <RHFTextInput name="birthsDway" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
             </Grid>
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
+                <RHFTextInput name="birtshDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
             </Grid>
 
             <Grid size={6}>

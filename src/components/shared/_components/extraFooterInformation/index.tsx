@@ -68,11 +68,11 @@ export default function ExtraFooterInformation({
         )
       }
 
-      <Stack mt={{ lg: 10, xs: 2 }} spacing={{ lg: 3, xs: 4 }} className="xs-fullwidth">
+      <Stack mt={{ lg: 10, xs: 2 }} spacing={{ lg: 3, xs: 4 }}>
         {
           hasHeader && (
             <>
-              <Typography className="text-slate-400! !text-sm lg:text-base! reveal-down">
+              <Typography className="text-slate-400! text-sm! lg:text-base! reveal-down leading-[20px]! md:leading-none!">
                 <span className="text-[#088DEF]">تور کیش،</span> تور کیش ارزان و تور
                 کیش لحظه آخری با بهترین قیمت ها شامل{" "}
                 <span className="text-[#088DEF]">
@@ -84,7 +84,7 @@ export default function ExtraFooterInformation({
               </Typography>
               <Stack spacing={{ lg: 2, xs: 4 }}>
                 <GoldenText
-                  textClass="!text-xl lg:text-4xl! font-semibold! reveal-down"
+                  textClass="!text-xl lg:text-4xl! font-semibold! reveal-down "
                   textColor="primary"
                   bgWidth="81%"
                   bgColor="orange"
@@ -96,7 +96,7 @@ export default function ExtraFooterInformation({
                   }
                 />
 
-                <Typography className="text-gray-900! !text-xs lg:text-base! reveal-down">
+                <Typography className="text-gray-900! text-sm! leading-[30px]! md:leading-none! md:text-base! reveal-down ">
                   جزیره کیش یکی از زیبا ترین جزیره های مرجانی در جهان است که همه ساله
                   پذیرای سیل عظیمی از گردشگران تور کیش چه از داخل کشور و چه از خارج
                   کشور است. جزیره کیش دارای مکان های تاریخی بسیاری می باشد که برخی از

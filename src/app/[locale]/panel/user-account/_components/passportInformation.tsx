@@ -17,15 +17,15 @@ export default function PassportInformation() {
 
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تولد به میلادی" />
+                <RHFTextInput name="birthsDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تولد به میلادی" />
             </Grid>
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="انقضا پاسپورت" />
+                <RHFTextInput name="birwthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="انقضا پاسپورت" />
             </Grid>
 
             <Grid size={6}>
-                <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره پاسپورت " />
+                <RHFTextInput name="birthfDay" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره پاسپورت " />
             </Grid>
 
             <Grid size={6}>

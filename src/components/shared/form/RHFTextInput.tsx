@@ -38,15 +38,9 @@ const RHFTextInput = ({
 }: IProps & TextFieldProps) => {
   const { control } = useFormContext();
   const [showPassword, setShowPassword] = useState(false);
-  const inputRef = useRef<HTMLInputElement | null>(null); // 👈 create a ref for focusing
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
-
-  const handlePlaceholderClick = () => {
-    inputRef.current?.focus(); // 👈 when clicked, focus input
-  };
+  const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
   return (
     <Controller
@@ -57,10 +51,15 @@ const RHFTextInput = ({
       render={({ field, fieldState: { error } }) => (
         <Stack gap={2} sx={{ width: "100%" }}>
           <TextField
-          fullWidth
-          id="fullWidth"
+            fullWidth
+            id="fullWidth"
             {...field}
             {...others}
+            sx={{
+              width: "100%",               // ✅ keep width fixed
+              "& .MuiInputBase-root": { width: "100%" },
+              ...others?.sx,
+            }}
             inputRef={(el) => {
               field.ref(el);
               inputRef.current = el;
@@ -71,6 +70,8 @@ const RHFTextInput = ({
             type={type === "password" && !showPassword ? "password" : "text"}
             disabled={disabled}
             autoFocus={autoFocus}
+            // ✅ native placeholder (disappears on type, doesn't take layout space)
+            placeholder={placeholder}
             label={
               label ? (
                 <Stack direction="row" alignItems="center" spacing={1}>
@@ -80,43 +81,20 @@ const RHFTextInput = ({
               ) : undefined
             }
             InputProps={{
-              startAdornment:
-                !field.value && (startIcon || placeholder) ? (
-                  <InputAdornment
-                    position="start"
+              // ✅ keep icon always; no placeholder here
+              startAdornment: startIcon ? (
+                <InputAdornment position="start">
+                  <Box
                     sx={{
-                      color: "text.disabled",
-                      cursor: "text",
+                      mr: 0.75,
+                      color: "#626E94",
+                      display: { xs: "none", lg: "block" },
                     }}
-                    onClick={handlePlaceholderClick} // 👈 focus input on click
                   >
-                    {startIcon && (
-                      <Box
-                        sx={{
-                          mr: 0.75,
-                          color: "#626E94",
-                          display: { xs: "none", lg: "block" },
-                        }}
-                      >
-                        {startIcon}
-                      </Box>
-                    )}
-                    {placeholder && (
-                      <Typography
-                        component="span"
-                        sx={{
-                          fontSize: 16,
-                          color: "#626E94",
-                          mr: 1.5,
-                          fontWeight: 300,
-                          userSelect: "none",
-                        }}
-                      >
-                        {placeholder}
-                      </Typography>
-                    )}
-                  </InputAdornment>
-                ) : null,
+                    {startIcon}
+                  </Box>
+                </InputAdornment>
+              ) : undefined,
               endAdornment:
                 type === "password" ? (
                   <InputAdornment position="end">
