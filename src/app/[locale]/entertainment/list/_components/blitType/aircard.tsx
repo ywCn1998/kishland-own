@@ -31,6 +31,7 @@ export function AirCard({ onClick }: { onClick: (val: boolean) => void }) {
             gap: 2,
           }}
           className="flex md:flex-row! flex-col!"
+          onClick={() => onClick(true)}
         >
           <img
             src={"/images/entertainment/list/jong.jpg"}

@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Container, Stack } from "@mui/material";
+import { Box, Button, Container, IconButton, Stack } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
@@ -14,11 +14,27 @@ import {
 } from "@mui/icons-material";
 import { useState } from "react";
 import RegisterModal from "../modal/loginModals/registerModal";
+import { useAtom } from "jotai";
+import {
+  headerBackIconAtom,
+  headerDateAtom,
+  headerLeftItemAtom,
+  headerTitleAtom,
+} from "@/store/atomHeader";
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { useRouter } from "next/navigation";
 
 export default function Header({}) {
+  const [headerTitle] = useAtom(headerTitleAtom);
+  const [backIcon] = useAtom(headerBackIconAtom);
+  const [date] = useAtom(headerDateAtom);
+  const [leftItem] = useAtom(headerLeftItemAtom);
+
   const path = location.pathname;
   const parts = path.split("/");
   const lastPart = parts.pop();
+  const router = useRouter();
 
   const [open, setOpen] = useState<boolean>(false);
   return (
@@ -82,7 +98,9 @@ export default function Header({}) {
           </Stack>
           {/* </Container> */}
         </Stack>
-        {lastPart === "tour" || "entertainment" || "hotel" ? (
+        {lastPart === "tour" ||
+        lastPart === "entertainment" ||
+        lastPart === "hotel" ? (
           <Box
             className="
     relative
@@ -140,10 +158,11 @@ export default function Header({}) {
           <Stack
             className="
     flex 
+    flex-row!
     items-center 
-    justify-center
+    justify-between
     lg:hidden!
-    h-[60px]
+    h-[80px]
     w-full
     bg-white
     z-[1300]
@@ -156,12 +175,18 @@ export default function Header({}) {
     border-slate-200
   "
           >
-            <Typography
-              className="text-base! font-medium!"
-              sx={{ lineHeight: "60px" }}
-            >
-              سبد خرید
-            </Typography>
+            <Stack className="flex! flex-row! items-center! gap-4!">
+              <Stack>
+                <IconButton onClick={()=>router.back()}>
+                  {backIcon ? <EastOutlinedIcon /> : <CloseOutlinedIcon />}
+                </IconButton>
+              </Stack>
+              <Stack className="flex! flex-col! gap-2!">
+                <Typography className="text-base! font-medium!">{headerTitle}</Typography>
+                <Typography className="text-sm! font-light!">{date}</Typography>
+              </Stack>
+            </Stack>
+            <Stack>{leftItem}</Stack>
           </Stack>
         )}
       </Stack>

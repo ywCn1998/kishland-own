@@ -35,13 +35,29 @@ import {
 import { PingoCard } from "./_components/pingoCard";
 import FilterBox from "./_components/filterBox";
 import EntertainmentDetailDialog from "./_components/detail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 import FilterContainer from "./_components/filterBox/_components/filterContainer";
+import { useAtom } from "jotai";
+import {
+  headerDateAtom,
+  headerLeftItemAtom,
+  headerTitleAtom,
+} from "@/store/atomHeader";
 
 export default function Home() {
+  const [, setHeaderTitle] = useAtom(headerTitleAtom);
+  const [, setDate] = useAtom(headerDateAtom);
+  const [, setLefItem] = useAtom(headerLeftItemAtom);
+
+  useEffect(() => {
+    setHeaderTitle("کشتی تفریحی امیر کبیر ");
+    setDate("4 فروردین 1404 ");
+    setLefItem(<ListAlt />);
+  }, []);
+
   const [OpenMdl, setOpenMdl] = useState(false);
 
   const router = useRouter();
@@ -96,7 +112,10 @@ export default function Home() {
         </Stack>
 
         <Grid container className="md:mt-4  mt-[-40] " spacing={2}>
-          <Grid size={{ md: 3 }} className="md:block! flex! flex-row! gap-4! md:p-0! p-6!">
+          <Grid
+            size={{ md: 3 }}
+            className="md:block! flex! flex-row! gap-4! md:p-0! p-6!"
+          >
             <Grid className="md:hidden!">
               <BlitType />
             </Grid>

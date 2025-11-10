@@ -27,6 +27,7 @@ import HotelFilters from "./_components/HotelFilters";
 import HotelReserveSection from "./_components/HotelReserveSection";
 import BlogCard from "@/components/shared/cards/blogCard";
 import HotelsCardSection from "./_components/HotelsCardSection";
+import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
 
 // { params }: { params: { locale: string } }
 export default async function Home() {
@@ -52,6 +53,7 @@ export default async function Home() {
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
+      <MobileHeaderTabs/>
       <Container maxWidth="xl" disableGutters sx={{ px: { xs: 0, sm: 2, md: 3 }, marginBottom: 5 }}>
         <CategorySlider />
         <Stack px={{ xs: 2, sm: 0 }}>
