@@ -6,6 +6,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Swiper, SwiperSlide } from "swiper/react";
 import DaysSwiper from "./_components/dateSlider";
 import SanseCard from "./_components/sanseCard";
+import RatingModal from "../../../modal/page";
+import { useState } from "react";
 type DayItem = {
     id: string;
     dateFa: string;   // e.g., "۲۳ فروردین"
@@ -46,6 +48,8 @@ export default function EntertainmentDetailDialog({
     open,
     onClose
 }: IProps) {
+
+    const [openM , setOpenM] = useState<boolean>(false)
     return (
         <Dialog
             fullWidth
@@ -223,7 +227,7 @@ export default function EntertainmentDetailDialog({
                             <Stack className="flex flex-col! justify-between" >
                                 <Stack className="flex flex-row! items-center justify-end gap-2">
 
-                                    <IconButton className="border-1! border-[#7E8AAB]!  ">
+                                    <IconButton className="border-1! border-[#7E8AAB]!  " onClick={()=>setOpenM(!openM)}>
                                         <FavoriteBorderOutlined />
                                     </IconButton>
 
@@ -231,6 +235,7 @@ export default function EntertainmentDetailDialog({
                                         <Share />
                                     </IconButton>
                                 </Stack>
+                                <RatingModal open={openM} setOpen={setOpenM}/>
 
 
 
