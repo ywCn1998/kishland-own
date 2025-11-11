@@ -48,7 +48,7 @@ const images = [
   "/images/lobby-4.png",
 ];
 
-export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasDetails?: boolean, isIntegrated?: boolean }) {
+export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelLocation }: { hasDetails?: boolean, isIntegrated?: boolean, isHotelLocation?: boolean }) {
   const visibleImages = images.slice(0, 4);
   const remainingCount = images.length - visibleImages.length;
   return (
@@ -242,18 +242,42 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasD
             </Stack>
           </Stack>
         </Grid>
+
       </Grid>
 
       {hasDetails && (
         <Stack gap={2}>
-          <Stack className="flex! flex-row! justify-between!" mt={4}>
-            <Stack className="flex! flex-row! gap-3!">
+          <Stack
+            className="flex! flex-row! justify-between!"
+            mt={4}
+          >
+            <Stack
+              sx={{
+                display: { xs: "grid", md: "flex" },     // Grid on mobile, flex on md+
+                gridTemplateColumns: { xs: "repeat(4, 1fr)", md: "none" },
+                gap: 2,
+              }}
+              className="flex-row! gap-3!"
+            >
               {services.map((item, index) => (
-                <Typography key={"services" + index} className="border-1! border-slate-200! rounded-lg! h-16! flex! items-center px-3!" color="text.secondary">{item}</Typography>
+                <Typography
+                  key={"services" + index}
+                  className="text-xs! md:text-base! text-center! border-1! border-slate-200! rounded-lg! h-16! flex! items-center px-3!"
+                  color="text.secondary"
+                >
+                  {item}
+                </Typography>
               ))}
             </Stack>
-            <Button sx={{ backgroundColor: "text.secondary" }} className="h-16! px-3! rounded-lg! text-white!">مشاهده کامل خدمات</Button>
+
+            <Button
+              sx={{ backgroundColor: "text.secondary" }}
+              className="h-16! px-3! rounded-lg! text-white! hidden! md:inline!"
+            >
+              مشاهده کامل خدمات
+            </Button>
           </Stack>
+
 
           <Typography className="text-start! leading-10!">
             هتل پنج ستاره کوروش کیش واقع در میدان پردیس در نوروز سال 1397 فعالیت خود را آغاز نمود. این هتل تازه تاسیس در 16 طبقه بنا و دارای 198 باب اتاق و سوئیت اقامتی لوکس با امکانات رفاهی مناسب می‌باشد. موقعیت مکانی هتل موجب دسترسی آسان به ساحل نیلگون خلیج فارس و مراکز خرید مهم جزیره زیبای کیش از جمله پردیس 1 و 2 گردیده است. هتل مجلل کوروش با پرسنلی آموزش دیده و مجرب فرصت میزبانی از شما را غنیمت شمرده و در تلاش اند اقامتی بیادماندنی را برای میهمانان عزیز رقم بزنند. لازم به ذکر است اتاق های رو به دریا تنها دارای چشم انداز دریا می‌باشند.
@@ -261,8 +285,8 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasD
 
           <Grid container spacing={3}>
             {checkTime.map((item, index) => (
-              <Grid size="grow" key={"ckeckTime" + index} >
-                <Stack className="border-1! border-slate-200! rounded-xl! h-28! flex! flex-col! justify-center! px-3! items-center! gap-4!">
+              <Grid size={{ xs: 12, md: "grow" }} key={"ckeckTime" + index} >
+                <Stack className="border-1! border-slate-200! rounded-xl! h-18! md:h-28! flex! flex-row-reverse! md:flex-col! justify-between! md:justify-center! px-3! items-center! gap-4!">
                   <Typography className="text-lg!" fontWeight={600}>{item?.text}</Typography>
                   <Typography className="" color="text.secondary">{item?.time}</Typography>
                 </Stack>

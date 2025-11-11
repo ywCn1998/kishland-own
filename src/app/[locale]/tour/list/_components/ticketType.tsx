@@ -4,22 +4,23 @@ import TextNumber from "@/components/shared/textNumber";
 import SortIcon from '@mui/icons-material/Sort';
 import TicketCard from "@/components/shared/cards/tour/ticketCard";
 import MainTabs from "@/components/shared/mainTabs";
+import TextIcon from "@/components/shared/textIcon";
 
 
 const tabsData = [
     {
-      label: "مرتب سازی",
-      icon: <SortIcon className="ml-1!" fontSize="small" />,
-      disabled: true,
-      hideLabelOnMobile: true // ✅ NEW
+        label: "مرتب سازی",
+        icon: <SortIcon className="ml-1!" fontSize="small" />,
+        disabled: true,
+        hideLabelOnMobile: true // ✅ NEW
     },
     { label: "بلیط هواپیما" },
     { label: "بلیط قطار" },
     { label: "بلیط اتوبوس" },
     { label: "پیشنهادی کیش لندیار" },
     { label: "چارتری" },
-  ];
-  
+];
+
 
 export default function TicketTypeSection({ isLocationModal = false }: { isLocationModal?: boolean }) {
     const theme = useTheme()
@@ -42,14 +43,14 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
                     </Stack>
                 ) : (
                     <Stack className="mb-10! py-3!" sx={{ backgroundColor: "background.paper" }}>
-                        <TextNumber className="px-3!" numberClassName="text-lg! h-[35px]! w-[35px]!" alignItems="start" number={2} text={
+                        <TextNumber className="px-3!" numberClassName="md:text-lg!" alignItems="start" number={2} text={
                             <Stack>
-                                <Typography className="font-semibold! text-lg! text-black! text-right! mb-2!">انتخاب بلیط</Typography>
-                                <Typography color="text.secondary" className=" text-sm! text-right! ">برای تور خود یکی از بلیط ها را انتخاب کنید</Typography>
+                                <Typography className="font-semibold! text-base! text-black! text-right! mb-2!">انتخاب بلیط</Typography>
+                                <Typography color="text.secondary" className=" text-xs! text-right! ">برای تور خود یکی از بلیط ها را انتخاب کنید</Typography>
                             </Stack>
                         } />
                         <Divider orientation="horizontal" variant="fullWidth" sx={{ my: 1 }} />
-                        <MainTabs border={false} data={tabsData} bgColor="background.paper" icons={false}/>
+                        <MainTabs border={false} data={tabsData} bgColor="background.paper" icons={false} />
                     </Stack>
                 )
             )}
@@ -57,7 +58,11 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
                 <MainTabs data={tabsData} />
             </Stack>
 
-            <Stack className="w-full! flex! flex-row! gap-5 ">
+
+            <Stack className="w-full! flex! flex-col! md:flex-row! gap-5 px-4! md:px-0!">
+                <Stack className="md:hidden!">
+                    <TextIcon className="text-lg! font-semibold!" text="بلیط رفت و برگشت هواپیما" startIcon={<img src="/images/airplaneicon.svg" className="w-8! h-8!" />} />
+                </Stack>
                 <TicketCard />
                 <TicketCard />
             </Stack>

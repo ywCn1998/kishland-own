@@ -60,7 +60,7 @@ export default function List(
                 </Stack>
 
 
-                <Stack mt={3}>
+                <Stack mt={{ xs: 0, md: 3 }} pt={{ xs: 3, md: 0 }} sx={{ backgroundColor: { xs: "background.paper", md: "white" } }}>
                     {/* tours */}
                     <ToursSection />
                 </Stack>

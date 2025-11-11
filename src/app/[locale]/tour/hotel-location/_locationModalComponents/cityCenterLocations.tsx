@@ -15,8 +15,12 @@ export default function CityCenterLoactions() {
 
     return (
         <Container maxWidth="xl" sx={{ mt: 3 }}>
-            <Grid container height={450} spacing={2} >
-                <Grid size={7} height={450} sx={{ overflowY: "hidden" }}>
+            <Grid container height={{ xs: 500, md: 450 }} spacing={{ xs: 0, md: 2 }} >
+                <Grid size={{ xs: 12, md: 5 }} className="md:hidden!" height={{ xs: 200, md: 450 }}>
+                    <img src={"/images/sample-map.png"} className="h-full! w-full! rounded-3xl!" />
+                </Grid>
+
+                <Grid size={{ xs: 12, md: 7 }} height={{ xs: 250, md: 450 }} sx={{ overflowY: "hidden" }}>
                     <Stack sx={{ overflowY: "auto", height: "100%" }} gap={2}>
 
                         {data.map((item) => {
@@ -37,21 +41,21 @@ export default function CityCenterLoactions() {
                                     }}
                                 >
                                     <Typography
-                                        className="text-lg!"
+                                        className="text-xs! md:text-lg!"
                                         sx={{ fontWeight: isActive ? 500 : 400 }}
                                     >
                                         {item.name}
                                     </Typography>
 
-                                    <Typography className="text-lg!">{item.area}</Typography>
-                                    <Typography className="text-lg!">{item.distance}</Typography>
+                                    <Typography className="text-xs! md:text-lg!">{item.area}</Typography>
+                                    <Typography className="text-xs! md:text-lg!">{item.distance}</Typography>
                                 </Stack>
                             );
                         })}
                     </Stack>
                 </Grid>
 
-                <Grid size={5} height={450}>
+                <Grid size={{ xs: 12, md: 5 }} className="hidden! md:flex!" height={{ xs: 250, md: 450 }}>
                     <img src={"/images/sample-map.png"} className="h-full! w-full! rounded-3xl!" />
                 </Grid>
             </Grid>

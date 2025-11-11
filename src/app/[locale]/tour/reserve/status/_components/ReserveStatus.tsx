@@ -2,7 +2,7 @@
 import {
     ExtraFooterInformation,
 } from "@/components/shared/_components";
-import { Button, Container, Stack, Typography } from "@mui/material";
+import { Button, Container, Divider, Stack, Typography } from "@mui/material";
 import React from "react";
 
 
@@ -17,6 +17,18 @@ import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 import Steps from "./steps";
+import Image from "next/image";
+import WifiOutlinedIcon from "@mui/icons-material/WifiOutlined";
+import LuggageOutlinedIcon from "@mui/icons-material/LuggageOutlined";
+import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
+import LocalCafeOutlinedIcon from "@mui/icons-material/LocalCafeOutlined";
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import ReusableSwiper from "@/components/shared/reusableSwiper";
+import BedroomParentIcon from '@mui/icons-material/BedroomParentOutlined';
+import TicketCard from "@/components/shared/cards/tour/ticketCard";
+import TourDetailsMobile from "../tourDetailsMobile";
+
 
 
 const steps = [
@@ -67,6 +79,24 @@ const steps = [
     },
 ];
 
+const userInfo = [
+    {
+        fullName: "علیرضا رودی",
+        nationalId: "۰۴۵۰۱۴۵۶۹۸",
+        birthDate: "۱۳۹۹/۰۴/۲۰",
+    },
+    {
+        fullName: "علیرضا رودی",
+        nationalId: "۰۴۵۰۱۴۵۶۹۸",
+        birthDate: "۱۳۹۹/۰۴/۲۰",
+    },
+    {
+        fullName: "علیرضا رودی",
+        nationalId: "۰۴۵۰۱۴۵۶۹۸",
+        birthDate: "۱۳۹۹/۰۴/۲۰",
+    }
+];
+
 
 export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isSuccess: boolean, code: number }) {
     const title = isSuccess ? <TextIcon className="text-black! text-lg! font-semibold!" text="رزرو با موفقیت انجام شد" startIcon={<CheckCircleIcon color="success" />} /> : <TextIcon className="text-black! text-lg! font-semibold!" text="رزرو با مشکل مواجه شده!" startIcon={<HighlightOffIcon color="error" />} />
@@ -75,8 +105,8 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
             style={{ display: "flex", flexDirection: "column", }}
             className="mb-10!"
         >
-
             <Container
+                className="hidden! md:block!"
                 maxWidth="xl"
                 sx={{
                     marginBottom: 5,
@@ -96,8 +126,9 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                     </Stack>
                 </Stack>
 
-                <Steps steps={steps} />
-
+                <Stack className="hidden! md:inline!">
+                    <Steps steps={steps} />
+                </Stack>
 
                 <Container maxWidth="lg">
                     <Stack className="border-1! border-slate-200! rounded-2xl! p-5! pt-2!">
@@ -134,6 +165,103 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                     />
                 </Stack>
             </Container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* responsive */}
+
+            <Stack className="md:hidden! px-4!">
+                <Stack sx={{ backgroundColor: "text.secondary" }} className="rounded-xl! p-4!">
+                    <Typography className="text-white! font-semibold! text-lg!">
+                        شماره بلیط: {code}
+                    </Typography>
+                    <Typography className="text-slate-300! text-sm!" mt={1.5}>
+                        22,000,000 تومان پرداخت موفق
+                    </Typography>
+                </Stack>
+
+                {/* ------------------------------------------------------ */}
+
+                <Stack className="border-1 border-slate-200! rounded-2xl! py-4! px-4!" mt={4}>
+                    <Typography className="text-center! text-2xl! font-semibold!" color="success.main">رزور موفق</Typography>
+                    <Divider orientation="horizontal" sx={{ my: 2 }} />
+
+                    <Stack className="w-full! h-[160px]! relative! rounded-xl">
+                        <Image alt="ship" src="/images/ship-view.png" fill />
+                    </Stack>
+                    <Stack className="flex! flex-row! justify-center! items-center! gap-7!" mt={2}>
+                        <WifiOutlinedIcon sx={{ fontSize: 22, color: "text.secondary" }} />
+                        <LuggageOutlinedIcon sx={{ fontSize: 22, color: "text.secondary" }} />
+                        <FlightOutlinedIcon sx={{ fontSize: 22, color: "text.secondary" }} />
+                        <LocalCafeOutlinedIcon sx={{ fontSize: 22, color: "text.secondary" }} />
+                        <LocalCafeOutlinedIcon sx={{ fontSize: 22, color: "text.secondary" }} />
+                    </Stack>
+
+                    <Stack className="flex! flex-row! justify-start! items-center!" mt={2}>
+                        <TextIcon startIcon={<FavoriteOutlinedIcon className="text-lg!" />} className="text-sm!" text="34 گردشگر پیشنهادمی کنند" sx={{ color: 'success.main' }} />
+                        <Divider orientation="vertical" className="h-7! bg-slate-200! mx-4!" />
+                        <TextIcon sx={{ color: "primary.100" }} startIcon={<StarOutlinedIcon />} text="4.9" className="ml-6!" />
+                    </Stack>
+
+                    <Stack className="flex! flex-col! gap-3!" mt={2}>
+                        <Typography className="font-semibold! text-xl!" mb={1}>
+                            تور ۴ روز هتل کوروش
+                        </Typography>
+                        <Typography color="text.secondary" className="text-xs! leading-6!">تور کیش از تهران با اقامت ۴ شب در هتل ۵ ستاره کوروش، همراه با بلیط رفت و برگشت هوایی و امکانات رفاهی لوکس.</Typography>
+                    </Stack>
+                    <ReusableSwiper
+                        dots={false}
+                        slidePerviewLg={9}
+                        slidePerViewXs={2.5}
+                        spaceBetween={10}
+                        pagination={true}
+                    >
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!" startIcon={<BedroomParentIcon />}>ترانسفر فرودگاهی (رایگان)</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!">شام و صبحانه</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!" startIcon={<WifiOutlinedIcon />}>اینترنت رایگان</Button>
+                    </ReusableSwiper>
+
+
+                    <Stack className="">
+                        <Stack className="flex! flex-row! justify-between! items-center" my={2}>
+                            <Typography fontSize={10} color="text.secondary"> قیمت هر نفر برای ۳ شب و ۲ روز</Typography>
+                            <Typography color="secondary.main" className="text-xl!" fontWeight={700}>850000 تومان</Typography>
+                        </Stack>
+                    </Stack>
+                </Stack>
+
+                {/* ------------------------------------------------------ */}
+                <Stack className="border-1 border-slate-200! rounded-2xl! py-4!" mt={4}>
+                    <Stack className="w-full! flex! flex-col! gap-5 px-4!">
+                        <TicketCard hasBought />
+                        <TicketCard canBuyTicket />
+                    </Stack>
+                </Stack>
+
+                {/* ------------------------------------------------------ */}
+                <Stack mt={2} spacing={2}>
+                    {
+                        userInfo.map((item, index) => (
+                            <TourDetailsMobile {...item} key={"tourdetailsmobile" + index} />
+                        ))
+                    }
+                </Stack>
+            </Stack>
         </div>
     );
 }

@@ -74,13 +74,14 @@ export default function MainTabs({
             sx={{
                 "& .MuiTabs-flexContainer": {
                     justifyContent: "flex-start",
-                    gap: 2,
-                    p: 1,
+                    gap: { xs: 0, md: 2 },
+                    p: { xs: 0, md: 1 },
+                    pt: { xs: .5, md: 0 },
                     backgroundColor: bgColor,
                     alignItems: "center",
-                    minHeight: 60,
+                    minHeight: { xs: 0, md: 60 },
                 },
-                mb: 2,
+                mb: { xs: 0, md: 2 },
                 border: border ? "1px solid" : "none",
                 borderBottom: border ? "1px solid" : "0",
                 borderColor: "divider",
@@ -125,6 +126,8 @@ export default function MainTabs({
                     <SortIcon />
                 </IconButton>
             )}
+
+            
 
             {sortByPrice && (
                 <Stack className="flex flex-row! h-full absolute! left-4!">

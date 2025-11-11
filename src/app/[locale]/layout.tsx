@@ -82,7 +82,7 @@ export default async function RootLayout({
                 }}
               />
               <RouteIO />
-              <Header />
+              {/* <Header /> */}
               <Stack component="main" sx={{ minHeight: "70vh" }} className="mt-28! md:mt-0!">
                 {children}
               </Stack>

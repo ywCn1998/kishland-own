@@ -122,16 +122,16 @@ export default function PeopleComments() {
     return (
         <Stack className="rounded-2xl! border-1! border-slate-200! p-4!">
             <Stack className="flex! flex-row! justify-between! items-center!">
-                <Typography className="font-semibold! text-3xl!">نظرات کاربران</Typography>
-                <Button variant="contained" startIcon={<AddCircleOutlineIcon />} className="rounded-xl! text-white!">افزودن دیدگاه جدید</Button>
+                <Typography className="font-bold! md:font-semibold! text-base! md:text-3xl!">نظرات کاربران</Typography>
+                <Button variant="contained" startIcon={<AddCircleOutlineIcon />} className="text-sm! p-3! md:text-base! rounded-lg! md:rounded-xl! text-white!">افزودن دیدگاه جدید</Button>
             </Stack>
 
             <Stack sx={{ backgroundColor: "background.paper" }} className="rounded-xl! px-4! py-6!" mt={3}>
                 <Grid container>
-                    <Grid size={4} pr={2} >
+                    <Grid className="hidden! md:flex!" size={{ xs: 12, md: 4 }} pr={2} >
                         <Stack className="w-full! h-full! relative!">
                             <VerticalDashedDivider
-                                className="absolute! left-0!"
+                                className="absolute! left-0! hidden! md:inline!"
                                 thickness={2}       // line width
                                 length={140}        // total height (px or "%")
                                 dash={6}            // dash height
@@ -159,10 +159,10 @@ export default function PeopleComments() {
                         </Stack>
                     </Grid>
 
-                    <Grid size={8}>
+                    <Grid size={{ xs: 12, md: 8 }}>
                         <Grid container columns={12} spacing={4}>
                             {/* Right column (first 3 items) */}
-                            <Grid size={6} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                            <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
                                 {hotelRatings.slice(0, 3).map((item) => {
                                     return (
                                         <Stack
@@ -205,7 +205,7 @@ export default function PeopleComments() {
                             </Grid>
 
                             {/* Left column (remaining items) */}
-                            <Grid size={6} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                            <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
                                 {hotelRatings.slice(3).map((item) => (
                                     <Stack
                                         key={item.title}
@@ -248,6 +248,37 @@ export default function PeopleComments() {
                         </Grid>
 
                     </Grid>
+
+                    <Grid className="md:hidden!" size={{ xs: 12, md: 4 }} pr={2} >
+                        <Stack className="w-full! h-full! relative!">
+                            <VerticalDashedDivider
+                                className="absolute! left-0! hidden! md:inline!"
+                                thickness={2}       // line width
+                                length={140}        // total height (px or "%")
+                                dash={6}            // dash height
+                                gap={6}             // space between dashes
+                                lineColor={"#e1e6f0"}
+                            />
+
+                            <Stack className="items-center! justify-center flex! flex-col! h-full! gap-5! mt-4!">
+                                <Stack className="flex! flex-row! gap-5! items-center">
+                                    <Typography className="font-semibold! text-sm! text-nowrap!">{hotelSummary.average + "/" + hotelSummary.max} از {hotelSummary.max}</Typography>
+                                    <TextIcon className="text-sm!" text={`پیشنهاد شده توسط ${hotelSummary.recommendedBy} کاربران`} sx={{ color: "success.main" }} startIcon={<FavoriteIcon className="text-lg!" />} />
+                                </Stack>
+                                <Stack className="flex! flex-row-reverse! gap-3! items-center!">
+                                    <Rating
+                                        // name="hover-feedback"
+                                        value={hotelSummary.stars}
+                                        precision={0.5}
+                                        readOnly
+                                        className="md:text-3xl!"
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} className="md:text-3xl!" />}
+                                    />
+                                    <Typography className="text-xs! md:text-lg! text-nowrap!" color="text.secondary">{`از مجموع ${hotelSummary.totalReviews} دیدگاه`}</Typography>
+                                </Stack>
+                            </Stack>
+                        </Stack>
+                    </Grid>
                 </Grid>
             </Stack>
 
@@ -277,7 +308,7 @@ function ReviewCard({ r }: { r: Review }) {
 
         >
             {/* Header: rating badge + title + like button */}
-            <Box className="flex items-start justify-between gap-3">
+            <Box className="flex flex-col! md:flex-row! items-start justify-between gap-3">
                 <Stack direction="row" spacing={1.5} className="items-center">
                     <Box
                         sx={{
@@ -287,29 +318,33 @@ function ReviewCard({ r }: { r: Review }) {
                             fontSize: 22,
                             textAlign: "center",
                         }}
-                        className="w-10! h-10! flex! items-center! justify-center! rounded-lg!"
+                        className="w-10! h-12! md:h-10! flex! items-center! justify-center! rounded-lg!"
                     >
                         {r.rating}
                     </Box>
-                    <Typography variant="h6" fontWeight={500}>
+
+                    <Typography className="text-base! md:text-xl!" fontWeight={500}>
+                        <Typography className="text-sm! md:hidden! mb-2!" color="text.secondary" fontWeight={500}>
+                            {r.name}
+                        </Typography>
                         {r.title}
                     </Typography>
                 </Stack>
 
                 <Stack
-                    className="flex! flex-row! justify-between! gap-5! items-center!"
+                    className="flex! flex-row-reverse! md:flex-row! justify-between! gap-5! items-center!"
                 >
-                    <Typography className="text-sm!" color="text.secondary" fontWeight={500}>
+                    <Typography className="text-sm! hidden! md:inline!" color="text.secondary" fontWeight={500}>
                         {r.name}
                     </Typography>
                     <Stack className="flex! flex-row! gap-5!" sx={{ backgroundColor: "#f7f9fc" }}>
-                        <Typography className="text-sm! rounded-lg! p-2!" color="text.secondary">
-                            {r.verified} <span className="px-2!">.</span> <span className="text-black!"> {r.nights}</span>
+                        <Typography className="text-xs! md:text-sm! rounded-lg! p-2! text-nowrap!" color="text.secondary">
+                            {r.verified} <span className="px-1! md:px-2!">.</span> <span className="text-black!"> {r.nights}</span>
                         </Typography>
                     </Stack>
 
 
-                    <Typography className="" color="text.secondary">
+                    <Typography className="text-xs! md:text-base!" color="text.secondary">
                         {r.date}
                     </Typography>
                 </Stack>
@@ -319,14 +354,14 @@ function ReviewCard({ r }: { r: Review }) {
 
 
             {/* Body */}
-            <Typography color="text.secondary" sx={{ mt: 2.5, lineHeight: 2 }}>
+            <Typography color="text.secondary" className="text-sm! md:text-base! leading-6! md:leading-8!" sx={{ mt: 2.5, lineHeight: 2 }}>
                 {r.review}
             </Typography>
 
 
             {/* admin reaction */}
             {r.adminMessage && (
-                <Stack className="h-[200px]! w-full! flex flex-row! mr-10!">
+                <Stack className="h-[200px]! w-full! hidden! md:flex! flex-row! mr-10!">
                     <Stack className="w-[10%]!">
                         <img src="/images/new/dash-review.svg" alt="" className="w-full! h-[50%] mt-4! mr-3!" />
                     </Stack>
@@ -352,6 +387,27 @@ function ReviewCard({ r }: { r: Review }) {
                     <Button variant="text" className="w-fit! p-0!" sx={{ color: '#626e94' }} endIcon={<ThumbUpAltOutlined fontSize="small" />}>{r.likes}</Button>
                 </Stack>
             </Stack>
+
+
+            {/* admin reaction */}
+            {r.adminMessage && (
+                <Stack className=" w-full!  flex! md:hidden! flex-row! gap-4!">
+                    <Stack className="">
+                        <img src="/images/new/dash-review-mobile.svg" alt="" className="w-full! h-[50%] mt-4! mr-1" />
+                    </Stack>
+                    <Stack className="flex! flex-col! w-[80%]! relative! mt-8 gap-2!">
+                        <Stack className="flex! flex-row! items-center! gap-2!">
+                            <Avatar src={""} variant="rounded" />
+                            <Typography fontWeight={500}>
+                                {r.adminName}
+                            </Typography>
+                        </Stack>
+                        <Typography className="text-sm! text-slate-400!">
+                            {r.adminMessage}
+                        </Typography>
+                    </Stack>
+                </Stack>
+            )}
         </Stack>
     );
 }
