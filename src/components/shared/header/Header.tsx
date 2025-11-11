@@ -1,17 +1,40 @@
 "use client";
-
-import { useState } from "react";
-import { Box, Button, Container, Stack } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 import { PhoneInTalkOutlined, LoginOutlined } from "@mui/icons-material";
 import RegisterModal from "../modal/loginModals/registerModal";
-import MobileHeaderRouter from "./mobileHeaderRouter";
+import { useAtom } from "jotai";
+import {
+  headerBackIconAtom,
+  headerDateAtom,
+  headerLeftItemAtom,
+  headerTitleAtom,
+} from "@/store/atomHeader";
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { PhoneInTalk } from "@mui/icons-material";
 
-export default function Header() {
-  const [open, setOpen] = useState(false);
+export default function Header({ }) {
+  const [headerTitle] = useAtom(headerTitleAtom);
+  const [backIcon] = useAtom(headerBackIconAtom);
+  const [date] = useAtom(headerDateAtom);
+  const [leftItem] = useAtom(headerLeftItemAtom);
+  const [open, setOpen] = useState(false)
+
+  // Safe pathname (keeps your logic, avoids SSR crash)
+  const path = typeof window !== "undefined" ? window.location.pathname : "";
+  const parts = path.split("/");
+  const lastPart = parts.pop() || "";
+  const router = useRouter();
+
+  const isLandingPage =
+    lastPart === "tour" ||
+    lastPart === "entertainment" ||
+    lastPart === "hotel";
 
   return (
     <Container maxWidth="xl">
@@ -70,9 +93,101 @@ export default function Header() {
             </Stack>
           </Stack>
         </Stack>
+        
+        {lastPart === "tour" ||
+          lastPart === "entertainment" ||
+          lastPart === "hotel" ? (
+          <Box
+            className="
+    relative
+    lg:hidden!
+    h-[100px]
+    w-full
+    bg-[#FF8C0B]
+    bg-[url('/images/header.png')]
+    bg-cover
+    bg-center
+    bg-no-repeat
+    bg-blend-overlay
+    z-[1300]
+    fixed!
+    top-0
+    left-0
+    right-0
+ 
+    xs-fullwidth
+  "
+          >
+            <Stack className="flex flex-col px-4! py-2! gap-2!">
+              <Stack className="relative z-10 flex items-center justify-between! flex-row!">
+                <img
+                  src="/images/headerlogo.png"
+                  alt="header logo"
+                  className="h-[50px]"
+                />
+                <Stack
+                  className="
+    flex 
+    flex-row-reverse!
+    items-center
+    gap-2
+    text-white
+    bg-white/20
+    backdrop-blur-md
+    rounded-xl
+    px-3
+    py-2
+  "
+                >
+                  <PhoneInTalk />
+                  <Typography>021-93893839</Typography>
+                </Stack>
+              </Stack>
+              <Stack>
+                <Typography className="text-white! text-xs!">
+                  از دریا تا آسمان جـزیـره کـیـش تو رو صدا می‌زنن
+                </Typography>
+              </Stack>
+            </Stack>
+          </Box>
+        ) : (
+          <Stack
+            className="
+    flex 
+    flex-row!
+    items-center 
+    justify-between
+    lg:hidden!
+    h-[80px]
+    w-full
+    bg-white
+    z-[1300]
+    px-4
+    fixed
+    top-0
+    left-0
+    right-0
+    border-b
+    border-slate-200
+  "
+          >
+            <Stack className="flex! flex-row! items-center! gap-4!">
+              <Stack>
+                <IconButton onClick={() => router.back()}>
+                  {backIcon ? <EastOutlinedIcon /> : <CloseOutlinedIcon />}
+                </IconButton>
+              </Stack>
+              <Stack className="flex! flex-col! gap-2!">
+                <Typography className="text-base! font-medium!">{headerTitle}</Typography>
+                <Typography className="text-sm! font-light!">{date}</Typography>
+              </Stack>
+            </Stack>
+            <Stack>{leftItem}</Stack>
+          </Stack>
+        )}
 
-        {/* ✅ Mobile Header (all routes, including landings) */}
-        <MobileHeaderRouter />
+        {/* 🔹 Spacer to offset fixed mobile header (mt logic inside Header) */}
+        <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : "h-[80px]"}`} />
       </Stack>
 
       <RegisterModal open={open} setOpen={setOpen} />

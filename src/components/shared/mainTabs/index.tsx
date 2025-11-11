@@ -127,7 +127,7 @@ export default function MainTabs({
                 </IconButton>
             )}
 
-            
+
 
             {sortByPrice && (
                 <Stack className="flex flex-row! h-full absolute! left-4!">

@@ -4,12 +4,12 @@ import { PingoCard } from "@/app/[locale]/entertainment/list/_components/pingoCa
 import { WindowOutlined, Menu } from "@mui/icons-material";
 import { Grid, IconButton, Stack } from "@mui/material";
 import { TourCard } from "./toursCard";
-import { MianBanner } from "@/components/shared/_components";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import MainTabs from "@/components/shared/mainTabs";
 import SortIcon from '@mui/icons-material/Sort';
 import SmallTourCard from "./toursCardResponsive";
 import ChanceCard from "@/app/[locale]/entertainment/list/_components/chanceCard";
+import FilterContainer from "@/app/[locale]/entertainment/list/_components/filterBox/_components/filterContainer";
+import MainBanner from "@/components/shared/_components/banner/mainBanner";
 
 export const sortTabsData = [
     { label: "5 ستاره" },
@@ -20,13 +20,20 @@ export const sortTabsData = [
 ];
 
 export default function ToursSection() {
+    const cards = [1, 2, 3]; // or your data array
 
     return (
         <Grid container className='md:mt-4' spacing={2}>
-            <Grid size={{ xs: 0, md: 3 }} sx={{ display: { xs: "none", md: "flex" } }}>
-                <Stack className="border-1 border-slate-200  rounded-xl p-4">
-                    <FilterBox />
-                </Stack>
+            <Grid
+                size={{ md: 3 }}
+                className="md:block! flex! flex-row! gap-2! md:p-0! px-5!"
+            >
+                <Grid className="md:hidden! w-9/12! md:w-auto!">
+                    <BlitType />
+                </Grid>
+                <Grid className="md:border-1 border-slate-200  rounded-xl md:p-4 w-3/12! md:w-auto!">
+                    <FilterContainer />
+                </Grid>
             </Grid>
 
             <Grid size={{ xs: 12, md: 9 }} >
@@ -74,14 +81,14 @@ export default function ToursSection() {
                     </Grid>
                     <Grid size={{ md: 12 }} container
                         spacing={3}
-                        className='rounded-3xl md:hidden!'                    >
+                        className='rounded-3xl md:hidden!'>
                         <SmallTourCard />
                         <SmallTourCard />
                         <SmallTourCard />
                     </Grid>
 
 
-                    <MianBanner />
+                    <MainBanner href="/fa/tour/list" />
 
                     <Grid size={{ md: 12 }} container
                         spacing={3}
@@ -99,7 +106,7 @@ export default function ToursSection() {
                         <SmallTourCard />
                         <SmallTourCard />
                     </Grid>
-                    
+
                     <Stack className="md:hidden! w-full!">
                         <ChanceCard
                             // className="flex! flex-col!"
@@ -131,7 +138,7 @@ export default function ToursSection() {
                     </Grid>
                     <Grid size={{ md: 12 }} mb={5} container
                         spacing={3}
-                        className='rounded-3xl md:hidden!'                    >
+                        className='rounded-3xl md:hidden!'>
                         <SmallTourCard />
                         <SmallTourCard />
                         <SmallTourCard />

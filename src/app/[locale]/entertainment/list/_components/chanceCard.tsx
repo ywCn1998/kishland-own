@@ -8,9 +8,10 @@ interface IProp {
     onClick?: () => void;
     btn_title: string;
     description?: string;
-    title_font?: string
     isToursSection?: boolean
     btnClassName?: string
+    title_font?: string;
+    className?: string;
 }
 
 export default function ChanceCard({

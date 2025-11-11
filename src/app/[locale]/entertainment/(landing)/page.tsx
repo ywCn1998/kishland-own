@@ -21,6 +21,8 @@ import {
 } from "./_components";
 import Image from "next/image";
 import Link from "next/link";
+import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
+import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
 
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },
@@ -32,6 +34,7 @@ export default function Home() {
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
+      <MobileHeaderTabs />
       <Container maxWidth="xl">
         <Stack className="hidden! md:block!">
           <CategorySlider />
@@ -45,23 +48,7 @@ export default function Home() {
 
           <LastSearch data={activityData} />
           <Stack className="mt-4! w-full! md:hidden!">
-            <Stack
-              className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!"
-              sx={{ backgroundColor: "secondary.50" }}
-            >
-              <img src="/images/chance.png" className="h-12! w-12!" alt="" />
-              <Stack className="flex! flex-col! gap-2!">
-                <Typography
-                  sx={{ fontWeight: 500, color: "secondary.main" }}
-                  className="text-base!"
-                >
-                  شانس <span className="text-black!">امروزتو امتحان کن</span>
-                </Typography>
-                <Typography color="text.secondary" className="text-xs!">
-                  هر روز یک گردونه شانس با کلی جایزه
-                </Typography>
-              </Stack>
-            </Stack>
+            <ChanceMobile />
           </Stack>
 
           <Stack className="mt-[20px]! md:mt-0!">

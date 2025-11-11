@@ -42,7 +42,7 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
                         </Stack>
                     </Stack>
                 ) : (
-                    <Stack className="mb-10! py-3!" sx={{ backgroundColor: "background.paper" }}>
+                    <Stack className="mb-10! pt-5!" sx={{ backgroundColor: "background.paper" }}>
                         <TextNumber className="px-3!" numberClassName="md:text-lg!" alignItems="start" number={2} text={
                             <Stack>
                                 <Typography className="font-semibold! text-base! text-black! text-right! mb-2!">انتخاب بلیط</Typography>
