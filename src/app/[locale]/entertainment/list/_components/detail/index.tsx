@@ -8,6 +8,7 @@ import DaysSwiper from "./_components/dateSlider";
 import SanseCard from "./_components/sanseCard";
 import RatingModal from "../../../modal/page";
 import { useState } from "react";
+import ShareModal from "@/components/shared/modal/shareModal/shareModal";
 type DayItem = {
     id: string;
     dateFa: string;   // e.g., "۲۳ فروردین"
@@ -50,6 +51,7 @@ export default function EntertainmentDetailDialog({
 }: IProps) {
 
     const [openM , setOpenM] = useState<boolean>(false)
+    const [share , setShare] = useState<boolean>(false)
     return (
         <Dialog
             fullWidth
@@ -231,11 +233,12 @@ export default function EntertainmentDetailDialog({
                                         <FavoriteBorderOutlined />
                                     </IconButton>
 
-                                    <IconButton className="border-1! border-[#7E8AAB]!  ">
+                                    <IconButton className="border-1! border-[#7E8AAB]!  " onClick={()=>setShare(!share)}>
                                         <Share />
                                     </IconButton>
                                 </Stack>
                                 <RatingModal open={openM} setOpen={setOpenM}/>
+                                <ShareModal open={share} setOpen={setShare}/>
 
 
 

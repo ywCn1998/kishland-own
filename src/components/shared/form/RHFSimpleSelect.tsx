@@ -9,6 +9,8 @@ import {
   FormHelperText,
 } from "@mui/material";
 import React from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 
 interface IProps {
   name: string;
@@ -27,7 +29,14 @@ export default function RHFSimpleSelect({ name, label, options }: IProps) {
         <FormControl fullWidth error={!!error}>
           {label && <InputLabel>{label}</InputLabel>}
 
-          <Select {...field} label={label} sx={{py:2}}>
+          <Select {...field} label={label} sx={{
+            py: 2, 
+            "& .MuiSelect-icon": {
+              color: "grey",
+              fontSize: "32px",
+            },
+          }} IconComponent={KeyboardArrowDownIcon}
+          >
             {options.map((item) => (
               <MenuItem key={item.value} value={item.value}>
                 {item.label}
