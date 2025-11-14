@@ -1,7 +1,5 @@
+"use client"
 import { Stack, Container, Typography, Rating, Button, IconButton, Grid } from "@mui/material";
-import { setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
-
 import {
     CategorySlider,
     ExtraFooterInformation,
@@ -22,11 +20,17 @@ import {
     AirportShuttle as AirportShuttleIcon,
     DirectionsCar as DirectionsCarIcon,
     Visibility as VisibilityIcon,
+    ListAlt,
 } from '@mui/icons-material';
 import ViewsOfHotel from "../../tour/(landing)/_components/ViewsOfHotelSection";
-import MainTabs from "@/components/shared/mainTabs";
+import { useAtom } from "jotai";
+import {
+    headerDateAtom,
+    headerLeftItemAtom,
+    headerTitleAtom,
+} from "@/store/atomHeader";
+import { useEffect } from "react";
 import Details from "./_components/details";
-import RoomsList from "./_components/roomsList";
 
 
 
@@ -42,21 +46,30 @@ const services = [
 
 
 export default function HotelDetails() {
-    
+    const [, setHeaderTitle] = useAtom(headerTitleAtom);
+    const [, setDate] = useAtom(headerDateAtom);
+    const [, setLefItem] = useAtom(headerLeftItemAtom);
+
+    useEffect(() => {
+        setHeaderTitle("کشتی تفریحی امیر کبیر ");
+        setDate("4 فروردین 1404 ");
+        setLefItem(<ListAlt />);
+    }, []);
+
     return (
         <Stack
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
             className="mb-10!"
         >
             <Container maxWidth="xl" sx={{ px: { xs: 0, md: 2 } }} >
-                <CategorySlider />
-
-                {/* step 1 */}
-                <Stack mb={4}>
-                    <HotelBannerSearchTicketSection nights="4" location="تور مشهد به کیش" startDate="2 تیر" endDate="6 تیر" peoplesNumber="2 بزرگسال" fromWhere="مشهد" />
+                <Stack className="hidden! md:block!">
+                    <CategorySlider />
                 </Stack>
 
-
+                {/* step 1 */}
+                <Stack mb={4} className="hidden! md:block!">
+                    <HotelBannerSearchTicketSection nights="4" location="تور مشهد به کیش" startDate="2 تیر" endDate="6 تیر" peoplesNumber="2 بزرگسال" fromWhere="مشهد" />
+                </Stack>
 
                 <Stack className="border-slate-200! border-1! px-10! py-6! rounded-2xl!">
                     <Stack className="flex! flex-row! justify-between!">
@@ -125,7 +138,7 @@ export default function HotelDetails() {
 
             </Container>
 
-            <ExtraFooterInformation honerOfColobrate={false} companies={false}/>
+            <ExtraFooterInformation honerOfColobrate={false} companies={false} />
         </Stack >
     );
 }

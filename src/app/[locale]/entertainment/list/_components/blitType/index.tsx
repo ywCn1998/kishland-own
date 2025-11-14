@@ -41,7 +41,7 @@ export function BlitType() {
         direction="row"
         alignItems="center"
         justifyContent="space-between"
-        className="border-1 border-slate-200 rounded-2xl h-16 md:mb-10! px-4! overflow-visible"
+        className="border-1 border-slate-200 rounded-2xl h-14 md:mb-10! px-4! overflow-visible bg-white! w-full!"
         sx={{
           borderColor: "#E1E6F0",
           gap: 2,
@@ -49,10 +49,7 @@ export function BlitType() {
       >
         {!isMobile && (
           <>
-            <Stack direction="row" alignItems="center" gap={1}>
-              <FormatLineSpacingIcon fontSize="small" color="disabled" />
-              <Typography color="textDisabled">مرتب‌سازی</Typography>
-            </Stack>
+
 
             <Tabs
               value={value}
@@ -69,12 +66,15 @@ export function BlitType() {
                   color: "text.disabled",
                   fontSize: "16px",
                   fontWeight: 400,
+                  backgroundColor: "white",
                 },
                 "& .Mui-selected": { color: "primary", fontWeight: 500 },
                 "& .MuiTabs-indicator": {
                   height: "1px",
                   borderRadius: "2px",
                   bottom: -8,
+                  backgroundColor: "white",
+
                 },
               }}
             >
@@ -100,7 +100,7 @@ export function BlitType() {
           >
             <Stack direction="row" alignItems="center" gap={0.8}>
               <FormatLineSpacingIcon fontSize="small" color="action" />
-              <Typography color="text.secondary" fontWeight={500} className="text-sm!">
+              <Typography color="text.secondary" fontWeight={500} className="text-xs!">
                 مرتب‌سازی
               </Typography>
             </Stack>
@@ -126,8 +126,8 @@ export function BlitType() {
               }}
             >
               {sortOptions.map((option, index) => (
-                <MenuItem key={index} value={index}>
-                  {option}
+                <MenuItem key={index} value={index} >
+                  <Typography sx={{ fontSize: 13, fontWeight: 500, mt: .4 }}>{option}</Typography>
                 </MenuItem>
               ))}
             </Select>

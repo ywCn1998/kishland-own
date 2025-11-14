@@ -46,6 +46,7 @@ import {
   headerLeftItemAtom,
   headerTitleAtom,
 } from "@/store/atomHeader";
+import MainBanner from "@/components/shared/_components/banner/mainBanner";
 
 export default function Home() {
   const [, setHeaderTitle] = useAtom(headerTitleAtom);
@@ -114,7 +115,7 @@ export default function Home() {
         <Grid container className="md:mt-4  mt-[-40] " spacing={2}>
           <Grid
             size={{ md: 3 }}
-            className="md:block! flex! flex-row! gap-4! md:p-0! p-6!"
+            className="md:block! flex! flex-row! gap-2! md:p-0! p-5!"
           >
             <Grid className="md:hidden!">
               <BlitType />
@@ -148,7 +149,7 @@ export default function Home() {
             <Grid size={12} container spacing={2} className="p-6! md:p-0!">
               <AirCard onClick={setOpenMdl} />
               <AirCard onClick={setOpenMdl} />
-              <MianBanner hasBannerInDesktop={false} />
+              <MainBanner hasBannerInDesktop={false} href="/fa/entertainment/list"/>
               <AirCard onClick={setOpenMdl} />
               <AirCard onClick={setOpenMdl} />
               <Stack>

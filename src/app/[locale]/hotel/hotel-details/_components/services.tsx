@@ -1,9 +1,6 @@
 "use client"
-import ShowMoreButton from "@/components/shared/showMoreButton";
-import { Button, Grid, Stack, Typography } from "@mui/material";
-import { useState } from "react";
-import RoomsList from "./roomsList";
-import CityCenterLoactions from "@/app/[locale]/tour/modal/_locationModalComponents/cityCenterLocations";
+import { Grid, Stack, Typography } from "@mui/material";
+import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_locationModalComponents/cityCenterLocations";
 import {
     Person,
     LocalTaxi,
@@ -156,7 +153,7 @@ export default function HotelServices() {
             </Stack>
 
 
-      
+
         </Stack>
     )
 }

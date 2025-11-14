@@ -33,14 +33,17 @@ export default function FilterContainer() {
       {/* دکمه باز کردن فیلتر */}
       <Button
         variant="outlined"
-        startIcon={<FilterAltOutlined fontSize="large"/>}
+        startIcon={<FilterAltOutlined fontSize="large" />}
         onClick={() => setOpen(true)}
+        className="h-14! w-full"
         sx={{
           color: "text.secondary",
-          px:3,
-          py: 2,
-          fontWeight: 400,  
-          borderRadius : 2,
+          // px: 2,
+          // py: 2.2,
+          fontWeight: 400,
+          borderRadius: 1.5,
+          fontSize: 14,
+          backgroundColor: "white"
         }}
       >
         فیلتر
