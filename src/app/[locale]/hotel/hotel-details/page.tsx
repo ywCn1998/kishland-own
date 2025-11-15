@@ -31,6 +31,7 @@ import {
 } from "@/store/atomHeader";
 import { useEffect } from "react";
 import Details from "./_components/details";
+import TextNumber from "@/components/shared/textNumber";
 
 
 
@@ -41,8 +42,6 @@ const services = [
     { label: "ترنسفر فرودگاهی (رایگان)", icon: <AirportShuttleIcon color="primary" /> },
     { label: "ترنسفر راه‌آهن (رایگان)", icon: <DirectionsCarIcon color="primary" /> },
 ];
-
-
 
 
 export default function HotelDetails() {
@@ -71,8 +70,17 @@ export default function HotelDetails() {
                     <HotelBannerSearchTicketSection nights="4" location="تور مشهد به کیش" startDate="2 تیر" endDate="6 تیر" peoplesNumber="2 بزرگسال" fromWhere="مشهد" />
                 </Stack>
 
+                <Stack className="w-full! flex! flex-row! md:hidden! items-center! justify-between! mb-5! py-4" sx={{ backgroundColor: "background.paper" }}>
+                    <TextNumber className="px-3!" numberClassName="md:text-lg!" alignItems="start" number={2} text={
+                        <Stack>
+                            <Typography className="font-semibold! text-base! text-black! text-right! mb-2!">انتخاب محل اقامت</Typography>
+                            <Typography color="text.secondary" className=" text-xs! text-right! ">از بین اتاق های هتل کوروش اتاق اقامتی خود را انتخاب کنید</Typography>
+                        </Stack>
+                    } />
+                </Stack>
+
                 <Stack className="border-slate-200! border-1! px-10! py-6! rounded-2xl!">
-                    <Stack className="flex! flex-row! justify-between!">
+                    <Stack className="flex! flex-col-reverse! md:flex-row! justify-between!">
                         <Stack className="flex! flex-col! gap-4! pt-4! ">
                             <Typography className="text-3xl! font-bold!">هتل بین المللی کیش
                             </Typography>
@@ -94,13 +102,9 @@ export default function HotelDetails() {
                             </Stack>
                         </Stack>
 
-                        <Stack className="flex! flex-row! gap-2! items-start!">
-                            <Typography
-                                variant="button"
-                                className="rounded-lg p-3 bg-[#FFE5E5]  text-nowrap! text-center text-[#FA5050]"
-                            >
-                                تا 25 % تخفیف
-                            </Typography>
+                        <Stack className="flex! flex-col! md:flex-row! gap-2! items-start!">
+                            <Stack>
+                            </Stack>
                             {/* <TextIcon text=" تا 25 % تخفیف" className="flex! items-center! px-3! font-semibold! rounded-lg h-12! bg-[#FFE5E5]! w-full text-center text-[#FA5050]!" /> */}
                             <Typography
                                 variant="button"
@@ -137,6 +141,7 @@ export default function HotelDetails() {
                 <Details />
 
             </Container>
+
 
             <ExtraFooterInformation honerOfColobrate={false} companies={false} />
         </Stack >

@@ -48,6 +48,20 @@ export default async function RootLayout({
   params,
   children,
 }: RootLayoutProps) {
+
+
+  const path = typeof window !== "undefined" ? window.location.pathname : "";
+  const parts = path.split("/");
+  const lastPart = parts.pop() || "";
+  const isLandingPage =
+    lastPart === "tour" ||
+    lastPart === "entertainment" ||
+    lastPart === "hotel";
+
+  console.log("is?", isLandingPage);
+
+
+
   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -91,7 +105,9 @@ export default async function RootLayout({
               </Stack>
               <Footer />
             </Stack>
-            <MobileBottomNav />
+            {isLandingPage && (
+              <MobileBottomNav />
+            )}
           </NextIntlClientProvider>
         </MuiProvider>
       </Box>
