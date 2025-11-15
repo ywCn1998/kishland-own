@@ -30,7 +30,6 @@ import { AirCard } from "./_components/blitType/aircard";
 import {
   CategorySlider,
   ExtraFooterInformation,
-  MianBanner,
 } from "@/components/shared/_components";
 import { PingoCard } from "./_components/pingoCard";
 import FilterBox from "./_components/filterBox";
