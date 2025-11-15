@@ -32,7 +32,7 @@ import {
 } from "@mui/material";
 import DaysSwiper from "./_components/dateSlider";
 import SanseCard from "./_components/sanseCard";
-import RatingModal from "../../../modal/page";
+import RatingModal from "../../../modal";
 import ShareModal from "@/components/shared/modal/shareModal/shareModal";
 import CategoryDetailCards from "../../../(landing)/categories/_components/categoryDetailCards";
 import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_locationModalComponents/cityCenterLocations";

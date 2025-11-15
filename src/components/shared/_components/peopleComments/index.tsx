@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { ThumbUpAltOutlined, ThumbDownAltOutlined } from "@mui/icons-material";
 import RecommendIcon from "@mui/icons-material/Recommend";
-import RatingModal from "@/app/[locale]/entertainment/modal/page";
+import RatingModal from "@/app/[locale]/entertainment/modal";
 
 
 const hotelRatings = [
