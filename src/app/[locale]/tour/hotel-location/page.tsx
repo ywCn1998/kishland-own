@@ -16,6 +16,10 @@ import SmallListCard from "@/components/shared/cards/hotel/smallListCard";
 import SmallRoomCard from "@/components/shared/cards/tour/roomCardResponsive";
 import BedroomParentIcon from '@mui/icons-material/BedroomParentOutlined';
 import WifiOutlinedIcon from '@mui/icons-material/WifiOutlined';
+import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottomBotton";
+import Image from "next/image";
+import Link from "next/link";
+import ReserveButtonWithModal from "./reserveModal";
 
 
 export default function LocationHotel() {
@@ -102,6 +106,20 @@ export default function LocationHotel() {
 
                     </Stack>
                 </Stack>
+
+                <FixedBottomButton className="flex! flex-col!">
+                    <Stack className="flex! flex-row! items-center! justify-between! w-full!" mb={2}>
+                        <div className="flex! flex-row! items-center! gap-2!">
+                            <div className={`w-7! h-7! relative`}>
+                                <Image src="/images/phone-message.png" alt="s" fill />
+                            </div>
+                            <Typography color="text.secondary" className="text-sm!">ارتباط با پشتیبانی</Typography>
+                        </div>
+                        <Typography component={Link} href={"#"} color="secondary" className="text-base!" fontWeight={500}>03939848392</Typography>
+                    </Stack>
+                    {/* <Button className="text-white! w-full" variant="contained">رزرو و ثبت اطلاعات</Button> */}
+                    <ReserveButtonWithModal room={2} />
+                </FixedBottomButton>
 
             </Container>
 
