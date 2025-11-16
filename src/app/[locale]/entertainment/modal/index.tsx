@@ -35,9 +35,8 @@ interface Props {
 }
 
 const RatingModal = ({
-    open,
+    open,                              
     setOpen,
-
     onClose,
 }: Props) => {
     const CloseHandle = () => setOpen(!open);
@@ -69,7 +68,6 @@ const RatingModal = ({
     }
 
 
-
     return (
         <Dialog
             open={open}
@@ -86,7 +84,7 @@ const RatingModal = ({
                 },
             }}
         >
-            <FormProvider methods={methods} onSubmit={OnSubmit} className=" flex! flex-col! justify-between! h-screen!  ">
+            <FormProvider methods={methods} onSubmit={OnSubmit} className=" flex! flex-col! justify-between! h-screen! ">
                 <Grid container className="flex! flex-row! " spacing={6}>
                     <Grid size={4} className="flex! flex-col! ">
                         <Typography className="text-xl! font-medium!">

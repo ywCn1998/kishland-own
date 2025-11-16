@@ -42,7 +42,6 @@ import { CommonQuestions, OfferBanner } from "@/components/shared/_components";
 import SansList from "./_components/sansList";
 import LearnMore from "./_components/learnMore";
 import PeopleComments from "@/components/shared/_components/peopleComments";
-import YouMayLoveSection from "@/app/[locale]/tour/reserve/_components/youMayLoveSection";
 
 type DayItem = {
   id: string;

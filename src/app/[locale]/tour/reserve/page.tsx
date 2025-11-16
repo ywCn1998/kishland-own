@@ -9,8 +9,8 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
 
-import YouMayLoveSection from "./_components/youMayLoveSection";
-import ReserveStepper from "./_components/reseeveStepper/reserveStepper";
+import YouMayLoveSection from "../../entertainment/reserve/_components/youMayLoveSection";
+import ReserveStepper from "./_components/reseeveStepper/reserveStepperTour";
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 
 const steps = [
@@ -94,7 +94,7 @@ export default function Home() {
         <Stack className="mt-[10px] ">
           <ReserveStepper steps={steps} />
         </Stack>
-        <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth" >
+        <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal hidden! md:block!" >
           <Container maxWidth="xl" >
             <OfferBanner
               responsiveCaption="بهترین ها را در کیش میسازیم برای شما"
