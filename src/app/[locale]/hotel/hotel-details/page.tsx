@@ -79,66 +79,105 @@ export default function HotelDetails() {
                     } />
                 </Stack>
 
-                <Stack className="border-slate-200! border-1! px-10! py-6! rounded-2xl!">
-                    <Stack className="flex! flex-col-reverse! md:flex-row! justify-between!">
-                        <Stack className="flex! flex-col! gap-4! pt-4! ">
-                            <Typography className="text-3xl! font-bold!">هتل بین المللی کیش
+                <Stack className="border-1! border-slate-200! px-4! md:px-10! py-4! md:py-6! rounded-2xl!">
+                    <Stack className="flex! flex-col-reverse! md:flex-row! justify-between! gap-4!">
+                        <Stack className="flex! flex-col! gap-3! md:gap-4! pt-4! ">
+                            <Typography className="text-xl! md:text-3xl! font-bold!">هتل بین المللی کیش
                             </Typography>
-                            <Stack className="flex! flex-row! gap-6! items-center!">
+                            <Stack className="flex! flex-col! md:flex-row! gap-3! md:gap-6! items-start! md:items-center!">
                                 <Stack className="flex! flex-row! items-center! gap-2!">
                                     <Rating
                                         name="hover-feedback"
                                         value={5}
                                         precision={0.5}
+                                        size="small"
+                                        sx={{ "& .MuiRating-icon": { fontSize: { xs: "1rem", md: "1.5rem" } } }}
                                         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                     />
-                                    <Typography color="primary.main" className="text-sm!">هتل 5 ستاره</Typography>
+                                    <Typography color="primary.main" className="text-xs! md:text-sm!">هتل 5 ستاره</Typography>
                                 </Stack>
-                                <TextIcon endIcon={<StarsIcon color="success" className="text-xl!" />} className="text-sm!" sx={{ color: "text.secondary" }} text="(32 نظر) 4.8/5" />
+                                <TextIcon endIcon={<StarsIcon color="success" className="text-lg! md:text-xl!" />} className="text-xs! md:text-sm!" sx={{ color: "text.secondary" }} text="(32 نظر) 4.8/5" />
                             </Stack>
-                            <Stack className="flex! flex-row! gap-3! items-center">
-                                <TextIcon className="text-sm!" text="تقاطع بلوار سنایی و بلوار دریا" startIcon={<LocationPinIcon color="error" className="text-xl!" />} />
-                                <Button className="text-xs! p-0!" color="secondary" variant="text" endIcon={<KeyboardBackspaceIcon />}>مسیریابی</Button>
+                            <Stack className="flex! flex-col! md:flex-row! gap-2! md:gap-3! items-start! md:items-center!">
+                                <TextIcon className="text-xs! md:text-sm!" text="تقاطع بلوار سنایی و بلوار دریا" startIcon={<LocationPinIcon color="error" className="text-lg! md:text-xl!" />} />
+                                <Button className="text-xs! p-0! md:text-xs!" color="secondary" variant="text" endIcon={<KeyboardBackspaceIcon />}>مسیریابی</Button>
                             </Stack>
                         </Stack>
 
-                        <Stack className="flex! flex-col! md:flex-row! gap-2! items-start!">
+                        <Stack className="flex! flex-row! md:flex-col! gap-2! items-center! md:items-start!">
                             <Stack>
                             </Stack>
                             {/* <TextIcon text=" تا 25 % تخفیف" className="flex! items-center! px-3! font-semibold! rounded-lg h-12! bg-[#FFE5E5]! w-full text-center text-[#FA5050]!" /> */}
                             <Typography
                                 variant="button"
-                                className="rounded-lg p-3 w-full text-center text-white!"
+                                className="rounded-lg p-2! md:p-3! w-full! md:w-auto! text-center! text-white! text-xs! md:text-base!"
                                 sx={{ backgroundColor: "#13D397" }}
                             >
                                 خیلی خوب
                             </Typography>
 
-                            <IconButton className="border-1! border-slate-200! rounded-lg! h-12! w-12!">
-                                <FavoriteBorderIcon />
+                            <IconButton className="border-1! border-slate-200! rounded-lg! h-10! w-10! md:h-12! md:w-12!">
+                                <FavoriteBorderIcon className="text-lg! md:text-xl!" />
                             </IconButton>
-                            <IconButton className="border-1! border-slate-200! rounded-lg! h-12! w-12!">
-                                <ShareIcon />
+                            <IconButton className="border-1! border-slate-200! rounded-lg! h-10! w-10! md:h-12! md:w-12!">
+                                <ShareIcon className="text-lg! md:text-xl!" />
                             </IconButton>
                         </Stack>
                     </Stack>
 
 
-                    <Grid container spacing={1.5} mt={3} mb={5}>
+                    <Grid container spacing={1.5} mt={3} mb={5} className="hidden! md:flex!">
                         {services.map((item, index) => (
-                            <Grid size="grow">
-                                <Button sx={{ backgroundColor: "white" }} className="h-16! rounded-lg! p-0! w-full! border-1! border-slate-200! text-black! " startIcon={item.icon}>{item.label}</Button>
+                            <Grid size="grow" key={"service" + index}>
+                                <Button sx={{ backgroundColor: "white" }} className="h-16! rounded-lg! p-0! w-full! border-1! border-slate-200! text-black! text-sm!" startIcon={item.icon}>{item.label}</Button>
                             </Grid>
                         ))}
                         <Grid size="grow">
-                            <Button sx={{ backgroundColor: "text.secondary" }} className="h-16! rounded-lg! text-white! p-0! w-full!">مشاهده کامل خدمات</Button>
+                            <Button sx={{ backgroundColor: "text.secondary" }} className="h-16! rounded-lg! text-white! p-0! w-full! text-sm!">مشاهده کامل خدمات</Button>
                         </Grid>
                     </Grid>
+                    <Stack className="flex! flex-col! md:hidden! gap-3!" mt={3} mb={5}>
+                        <Stack
+                            sx={{
+                                display: "grid",
+                                gridTemplateColumns: "repeat(2, 1fr)",
+                                gap: 1.5,
+                            }}
+                        >
+                            {services.map((item, index) => (
+                                <Button
+                                    key={"service" + index}
+                                    sx={{ backgroundColor: "white" }}
+                                    className="h-14! rounded-lg! p-0! w-full! border-1! border-slate-200! text-black! text-xs!"
+                                    startIcon={item.icon}
+                                >
+                                    {item.label}
+                                </Button>
+                            ))}
+                        </Stack>
 
-                    <ViewsOfHotel />
+                        <Button
+                            sx={{ backgroundColor: "text.secondary" }}
+                            className="h-14! px-3! rounded-lg! text-white! w-full! text-xs!"
+                        >
+                            مشاهده کامل خدمات
+                        </Button>
+                    </Stack>
+
+                    <Stack className="hidden! md:block!">
+                        <ViewsOfHotel />
+                    </Stack>
+                    <Stack className="md:hidden!">
+                        <ViewsOfHotel isHotelLocation isIntegrated hasDetails={true} />
+                    </Stack>
                 </Stack>
 
-                <Details />
+                <Stack className="hidden! md:block!">
+                    <Details />
+                </Stack>
+                <Stack className="md:hidden!">
+                    <Details isMobile={true} />
+                </Stack>
 
             </Container>
 

@@ -20,6 +20,7 @@ import FormProvider from "@/providers/FormProvider";
 import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
 import useSearch from "../_hook/useSearch";
 import { RoomCard } from "@/components/shared/cards/tour/roomCard";
+import RoomCardDetailsResponsive from "@/components/shared/cards/tour/roomCardDetailsResponsive";
 import TextIcon from "@/components/shared/textIcon";
 import WarningIcon from '@mui/icons-material/Warning';
 // import ChooseTicketSlider from "@/components/shared/_components/chooseTicketSlider";
@@ -47,11 +48,11 @@ export default function RoomsList() {
     const isMd = useMediaQuery(theme.breakpoints.up("md"));
     return (
         <>
-            <Stack className="border-1! border-slate-200! p-8! rounded-2xl!">
-                <Stack className="flex! flex-col! gap-4!" mb={5}>
-                    <Stack className="flex! flex-row! justify-between! items-center">
-                        <Typography className="text-3xl! font-semibold!">لیست اتاق ها</Typography>
-                        <Typography className="" color="text.secondary">{30} اتاق خالی موجود</Typography>
+            <Stack className="border-1! border-slate-200! p-8! rounded-2xl!" sx={{ p: { xs: 4, md: 8 } }}>
+                <Stack className="flex! flex-col! gap-3! md:gap-4!" mb={5}>
+                    <Stack className="flex! flex-col! md:flex-row! justify-between! items-start! md:items-center! gap-2! md:gap-0!">
+                        <Typography className="text-xl! md:text-3xl! font-semibold!">لیست اتاق ها</Typography>
+                        <Typography className="text-sm! md:text-base!" color="text.secondary">{30} اتاق خالی موجود</Typography>
                     </Stack>
                     <FormProvider methods={methods}>
                         <Grid container spacing={3} className="flex flex-row-reverse! ">
@@ -61,8 +62,8 @@ export default function RoomsList() {
                                 spacing={3}
                                 className=" reveal"
                             >
-                                <Stack className="flex! flex-row! gap-5!">
-                                    <Stack className="w-9/12 border-2! border-slate-200! p-1! rounded-2xl! flex flex-col md:flex-row bg-white reveal">
+                                <Stack className="flex! flex-col! md:flex-row! gap-3! md:gap-5!">
+                                    <Stack className="w-full! md:w-9/12! border-2! border-slate-200! p-1! rounded-2xl! flex flex-col md:flex-row bg-white reveal">
                                         <Grid container  >
                                             <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                                                 <Box sx={{ minWidth: 120, p: 1 }}>
@@ -106,7 +107,7 @@ export default function RoomsList() {
                                         </Grid>
 
                                     </Stack>
-                                    <Box sx={{ minWidth: 120, p: 2, fontSize: 20 }} className="border-2 border-slate-200! rounded-2xl! w-3/12!">
+                                    <Box sx={{ minWidth: 120, p: 2, fontSize: 20 }} className="border-2 border-slate-200! rounded-2xl! w-full! md:w-3/12!">
                                         <RHFSelect
                                             name="sort"
                                             label="مرتب سازی"
@@ -125,23 +126,34 @@ export default function RoomsList() {
 
 
 
-                <Stack className="" gap={2}>
+                <Stack className="hidden! md:block!" gap={2}>
                     <RoomCard />
                     <RoomCard />
                     <RoomCard />
                     <RoomCard />
                 </Stack>
+                <Stack className="md:hidden!" spacing={2}>
+                    <RoomCardDetailsResponsive />
+                    <RoomCardDetailsResponsive />
+                    <RoomCardDetailsResponsive />
+                    <RoomCardDetailsResponsive />
+                </Stack>
 
 
 
                 {/* selected room */}
-                <Stack className="border-1! border-slate-200! p-5! rounded-2xl!" mt={2}>
-                    <TextIcon className="border-1! rounded-xl p-4! w-full! text-sm! mb-5!" sx={{ borderColor: "error.main", color: "error.main", backgroundColor: "error.200" }} startIcon={<WarningIcon className="text-xl! ml-3!" />} text="این اتاق در تاریخ انتخابی شما خدمات ارائه نمیدهد و قیمت مشخصی ندارد. به منظور رزرو این اتاق تارخ خود را تغییر دهید." />
-                    <RoomCard borderLess={true} />
+                <Stack className="border-1! border-slate-200! p-5! rounded-2xl!" mt={2} sx={{ p: { xs: 3, md: 5 } }}>
+                    <TextIcon className="border-1! rounded-xl p-4! w-full! text-sm! mb-5!" sx={{ borderColor: "error.main", color: "error.main", backgroundColor: "error.200", p: { xs: 3, md: 4 }, fontSize: { xs: "0.75rem", md: "0.875rem" }, mb: { xs: 4, md: 5 } }} startIcon={<WarningIcon sx={{ fontSize: { xs: "1.125rem", md: "1.25rem" }, ml: { xs: 2, md: 3 } }} />} text="این اتاق در تاریخ انتخابی شما خدمات ارائه نمیدهد و قیمت مشخصی ندارد. به منظور رزرو این اتاق تارخ خود را تغییر دهید." />
+                    <Stack className="hidden! md:block!">
+                        <RoomCard borderLess={true} />
+                    </Stack>
+                    <Stack className="md:hidden!">
+                        <RoomCardDetailsResponsive borderLess={true} />
+                    </Stack>
                     <ChooseTicketSlider perView={5} data={cardData} hasStep={false} />
-                    <Stack className="flex! flex-row! gap-4! w-full!" mt={2}>
-                        <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg!" sx={{ color: "primary", borderColor: "primary.main" }}>لیست انتظار </Button>
-                        <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg! border-slate-400! text-black!" >تغییر تاریخ رزرو</Button>
+                    <Stack className="flex! flex-row! gap-4! w-full!" mt={2} sx={{ flexDirection: { xs: "column", md: "row" }, gap: { xs: 3, md: 4 } }}>
+                        <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg!" sx={{ color: "primary", borderColor: "primary.main", fontSize: { xs: "1rem", md: "1.125rem" } }}>لیست انتظار </Button>
+                        <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg! border-slate-400! text-black!" sx={{ fontSize: { xs: "1rem", md: "1.125rem" } }} >تغییر تاریخ رزرو</Button>
                     </Stack>
 
                 </Stack>

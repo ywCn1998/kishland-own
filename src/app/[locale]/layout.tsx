@@ -58,10 +58,6 @@ export default async function RootLayout({
     lastPart === "entertainment" ||
     lastPart === "hotel";
 
-  console.log("is?", isLandingPage);
-
-
-
   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
