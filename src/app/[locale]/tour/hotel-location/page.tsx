@@ -35,7 +35,7 @@ export default function LocationHotel() {
     ]
     return (
         <>
-            <Container maxWidth="xl">
+            <Container maxWidth="xl" sx={{ mt: 2 }}>
                 <Stack >
                     <Stack className="hidden! md:inline!">
                         <TourCard isLocationModal={true} />
@@ -54,14 +54,14 @@ export default function LocationHotel() {
                         </Stack>
 
                         <CustomAccordion title={<Typography className="text-lg!" fontWeight={500}>لیست اتاق ها <span className="text-slate-500! text-sm!">(مبنای قیمت 1نفر/1شب می باشد)</span></Typography>}>
-                            <Stack sx={{ background: "#f5f7fa" }} className="py-4! rounded-2xl! mt-5 px-4! gap-5! hidden! md:block!">
+                            <Stack sx={{ background: "#f5f7fa" }} className="py-4! rounded-2xl! mt-5 px-4! gap-5! hidden! md:block!" spacing={2}>
                                 <RoomCard isSelected={true} />
                                 <RoomCard />
                                 <RoomCard />
                                 <Button
                                     // onClick={() => onClick!(true)}
                                     sx={{ bgcolor: "bg.primary" }}
-                                    variant="contained" className="text-white! rounded-xl! w-[300px]! self-end! mt-4!">
+                                    variant="contained" className="text-white! rounded-xl! w-[300px]! self-end!">
                                     <Typography className="text-lg! py-1! font-semibold!" variant="button">رزرو و ثبت اطلاعات</Typography>
                                 </Button>
                             </Stack>
@@ -103,7 +103,6 @@ export default function LocationHotel() {
                         <Stack mb={15}>
                             <PeopleComments />
                         </Stack>
-
                     </Stack>
                 </Stack>
 

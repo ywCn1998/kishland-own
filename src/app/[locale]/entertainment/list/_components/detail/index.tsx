@@ -43,7 +43,7 @@ import SansList from "./_components/sansList";
 import LearnMore from "./_components/learnMore";
 import PeopleComments from "@/components/shared/_components/peopleComments";
 
-type DayItem = {
+export type DayItem = {
   id: string;
   dateFa: string;
   nameFa: string;

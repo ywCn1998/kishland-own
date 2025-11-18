@@ -35,7 +35,7 @@ export default function Home() {
       className="mb-10!"
     >
       <MobileHeaderTabs />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" disableGutters className="md:px-6! px-0! ">
         <Stack className="hidden! md:block!">
           <CategorySlider />
         </Stack>
@@ -44,7 +44,9 @@ export default function Home() {
         </Stack>
 
         <Stack spacing={10} className="md:mt-8! mt-2!">
-          <SearchTabSection />
+          <Stack className="px-4! md:px-0!">
+            <SearchTabSection />
+          </Stack>
 
           <LastSearch data={activityData} />
           <Stack className="mt-4! w-full! md:hidden!">
@@ -53,7 +55,6 @@ export default function Home() {
 
           <Stack className="mt-[20px]! md:mt-0!">
             <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!" />
-
           </Stack>
         </Stack>
 
@@ -82,12 +83,11 @@ export default function Home() {
         </Box>
 
         {/* discounded tours */}
-        <Stack className="hidden! md:block!">
+        <Stack className="">
           <DicountedEntertainmentSection />
-
         </Stack>
 
-        <Stack className="mt-[-120]! md:mt-0!">
+        <Stack className=" md:mt-0!">
           <BuyOneGetTwoSection />
 
           {/* banner */}
@@ -149,7 +149,11 @@ export default function Home() {
             <CommonQuestions />
           </Box>
           <Box className=" md:hidden!">
-            <CommonQuestions responsive={true} hasTItle={false} hasFooter={false} />
+            <CommonQuestions
+              responsive={true}
+              hasTItle={false}
+              hasFooter={false}
+            />
           </Box>
           <CommentSlider />
         </Container>

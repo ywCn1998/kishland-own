@@ -14,6 +14,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Discount from "@/app/[locale]/entertainment/reserve/_components/cart/discount";
 import CustomAccordion from "@/components/shared/collapse/collapse";
 import { SelectedTourCard } from "@/components/shared/cards/tour/selectedTourCard";
+import PassengerDetails from "../cart/passengerDetails";
+import TourDetails from "../../status/_components/tourDetails";
+import TourDetailsReserve from "../cart/tourDetailsReserve";
+import ReserveStatus from "../../status/_components/ReserveStatus";
+import TicketDetailsReserve from "../cart/ticketDetailsReserve";
 
 interface IStep {
   title: string;
@@ -230,29 +235,13 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
           <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
             <HowToPay />
             <Discount />
-            <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-5">
-              <CustomAccordion
-                title={"مشخصات هتل "}
-                titleClass="text-xl!"
-                defaultExpanded={true}
-              >
-                <Stack className="mt-4!">
-                  <SelectedTourCard />
-                </Stack>
-              </CustomAccordion>
-            </Stack>
+            <PassengerDetails/>
+            <TourDetailsReserve/>
+            <TicketDetailsReserve/>
           </Stack>
         )}
         {activeStep === 2 && (
-          <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
-            <TextNumber
-              number={3}
-              text="نگاهی دوباره به وضعیت تور"
-              className="!"
-            />
-            <Step3 />
-            <PriceCard isReserveTour={true} />
-          </Stack>
+            <ReserveStatus isSuccess={true} code={1234}/>
         )}
       </Stack>
     </>

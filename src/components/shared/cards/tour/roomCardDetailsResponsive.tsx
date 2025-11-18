@@ -1,4 +1,4 @@
-import { Stack, Typography, Button, Divider } from "@mui/material";
+import { Stack, Typography, Divider } from "@mui/material";
 import TextIcon from "../../textIcon";
 import PersonIcon from '@mui/icons-material/Person';
 import TimerIcon from '@mui/icons-material/Timer';
@@ -7,6 +7,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MessageIcon from '@mui/icons-material/Message';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import MobileRoomDrawer from "@/app/[locale]/hotel/hotel-details/_components/mobileRoomDrawer";
 
 export default function RoomCardDetailsResponsive({
     onClick,
@@ -75,17 +76,10 @@ export default function RoomCardDetailsResponsive({
                 </Stack>
             </Stack>
 
-            <Stack className="flex! flex-row-reverse! items-center! gap-2!  justify-between!">
-                <Button
-                    onClick={() => onClick?.(true)}
-                    sx={{ bgcolor: isSelected ? 'text.secondary' : "bg.primary" }}
-                    variant="contained"
-                    fullWidth
-                    className="text-white! rounded-xl! mt-2! w-1/2! py-5!">
-                    <Typography className="font-normal! text-sm!" variant="button">
-                        {isSelected ? "اتاق انتخاب شده" : "انتخاب اتاق"}
-                    </Typography>
-                </Button>
+            <Stack className="flex! flex-row-reverse! items-center! gap-2! justify-between!">
+                {/* <Stack className="w-full!"> */}
+                <MobileRoomDrawer isSelected={isSelected} onSelect={onClick} />
+                {/* </Stack> */}
                 <Stack className="flex! flex-col! items-center! gap-2!">
                     <Typography className="text-center! line-through! text-sm!" color="text.secondary">
                         {oldPrice} تومان

@@ -26,21 +26,10 @@ import WarningIcon from '@mui/icons-material/Warning';
 // import ChooseTicketSlider from "@/components/shared/_components/chooseTicketSlider";
 import { useState } from "react";
 import ShowMoreButton from "@/components/shared/showMoreButton";
-import ChooseTicketSlider from "@/components/shared/_components/chooseTicketSlider";
+import DaysSwiper from "@/app/[locale]/entertainment/list/_components/detail/_components/dateSlider";
+import { DayItem } from "@/app/[locale]/entertainment/list/_components/detail";
 
-
-const cardData = [
-    { date: "۱۶ فروردین", price: "7.2" },
-    { date: "۱۴ فروردین", price: "11.3" },
-    { date: "۱۳ فروردین", price: "14.8", color: "red" },
-    { date: "۱۲ فروردین", price: "7.7", color: "green" },
-    { date: "۱۱ فروردین", price: "10.1" },
-    { date: "۱۱ فروردین", price: "10.1" },
-    { date: "۱۱ فروردین", price: "10.1" },
-
-];
-
-export default function RoomsList() {
+export default function RoomsList({ days }: { days: DayItem[] }) {
     const { methods, OnSubmit } = useSearch();
     const [openMore, setOpenMore] = useState(false)
 
@@ -48,8 +37,8 @@ export default function RoomsList() {
     const isMd = useMediaQuery(theme.breakpoints.up("md"));
     return (
         <>
-            <Stack className="border-1! border-slate-200! p-8! rounded-2xl!" sx={{ p: { xs: 4, md: 8 } }}>
-                <Stack className="flex! flex-col! gap-3! md:gap-4!" mb={5}>
+            <Stack className="md:border-1! border-slate-200! rounded-2xl!" sx={{ p: { xs: 2, md: 8 } }}>
+                <Stack className="flex! flex-col! gap-3! md:gap-4!" mb={2}>
                     <Stack className="flex! flex-col! md:flex-row! justify-between! items-start! md:items-center! gap-2! md:gap-0!">
                         <Typography className="text-xl! md:text-3xl! font-semibold!">لیست اتاق ها</Typography>
                         <Typography className="text-sm! md:text-base!" color="text.secondary">{30} اتاق خالی موجود</Typography>
@@ -62,11 +51,11 @@ export default function RoomsList() {
                                 spacing={3}
                                 className=" reveal"
                             >
-                                <Stack className="flex! flex-col! md:flex-row! gap-3! md:gap-5!">
+                                <Stack className="flex! flex-col! md:flex-row! gap-3!">
                                     <Stack className="w-full! md:w-9/12! border-2! border-slate-200! p-1! rounded-2xl! flex flex-col md:flex-row bg-white reveal">
                                         <Grid container  >
                                             <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
-                                                <Box sx={{ minWidth: 120, p: 1 }}>
+                                                <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
                                                         name="startDate"
                                                         label="تاریخ ورود"
@@ -76,10 +65,10 @@ export default function RoomsList() {
                                                     />
                                                 </Box>
                                             </Grid>
-                                            <Divider orientation="vertical" sx={{ display: { xs: "hidden", md: "block" }, }} flexItem variant="middle" />
+                                            <Divider orientation="vertical" sx={{ display: { xs: "none", md: "block" }, }} flexItem variant="middle" />
 
                                             <Grid size="grow">
-                                                <Box sx={{ minWidth: 120, p: 1 }}>
+                                                <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
                                                         name="endDate"
                                                         label={isMd ? "تاریخ خروج" : "تاریخ رفت و برگشت"}
@@ -89,11 +78,11 @@ export default function RoomsList() {
                                                     />
                                                 </Box>
                                             </Grid>
-                                            <Divider orientation="vertical" sx={{ display: { xs: "hidden", md: "block" }, }} flexItem variant="middle" />
-                                            <Divider orientation="horizontal" sx={{ display: { xs: "block", md: "hidden" }, }} flexItem variant="middle" />
+                                            <Divider orientation="vertical" flexItem variant="middle" />
+                                            {/* <Divider orientation="horizontal" sx={{ display: { xs: "block", md: "hidden" }, }} flexItem variant="middle" /> */}
 
                                             <Grid size="grow">
-                                                <Box sx={{ minWidth: 120, p: 1 }} >
+                                                <Box sx={{ minWidth: 10, p: 1, pb: 0 }} >
                                                     <RHFSelect
                                                         name="number"
                                                         isSelect={false}
@@ -107,7 +96,7 @@ export default function RoomsList() {
                                         </Grid>
 
                                     </Stack>
-                                    <Box sx={{ minWidth: 120, p: 2, fontSize: 20 }} className="border-2 border-slate-200! rounded-2xl! w-full! md:w-3/12!">
+                                    <Box sx={{ minWidth: 10, p: 2, pb: 0, fontSize: 20 }} className="border-2 border-slate-200! rounded-2xl! w-full! md:w-3/12!">
                                         <RHFSelect
                                             name="sort"
                                             label="مرتب سازی"
@@ -126,7 +115,7 @@ export default function RoomsList() {
 
 
 
-                <Stack className="hidden! md:block!" gap={2}>
+                <Stack className="hidden! md:block!" spacing={2}>
                     <RoomCard />
                     <RoomCard />
                     <RoomCard />
@@ -150,10 +139,13 @@ export default function RoomsList() {
                     <Stack className="md:hidden!">
                         <RoomCardDetailsResponsive borderLess={true} />
                     </Stack>
-                    <ChooseTicketSlider perView={5} data={cardData} hasStep={false} />
+                    {/* <ChooseTicketSlider perView={5} data={cardData} hasStep={false} /> */}
+                    <DaysSwiper items={days} />
+
+
                     <Stack className="flex! flex-row! gap-4! w-full!" mt={2} sx={{ flexDirection: { xs: "column", md: "row" }, gap: { xs: 3, md: 4 } }}>
-                        <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg!" sx={{ color: "primary", borderColor: "primary.main", fontSize: { xs: "1rem", md: "1.125rem" } }}>لیست انتظار </Button>
-                        <Button variant="outlined" className="rounded-lg! border-1! w-full! text-lg! border-slate-400! text-black!" sx={{ fontSize: { xs: "1rem", md: "1.125rem" } }} >تغییر تاریخ رزرو</Button>
+                        <Button variant="outlined" className="rounded-lg! text-nowrap! border-1! w-full! text-base! md:text-lg!" sx={{ color: "primary", borderColor: "primary.main" }}>لیست انتظار </Button>
+                        <Button variant="outlined" className="rounded-lg! text-nowrap! border-1! w-full! text-base! md:text-lg! border-slate-400! text-black!" >تغییر تاریخ رزرو</Button>
                     </Stack>
 
                 </Stack>

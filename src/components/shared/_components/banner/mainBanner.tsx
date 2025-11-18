@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import Link from "next/link";
 
-export default function MainBanner({ hasBannerInMobile = true, hasBannerInDesktop = true, href, heightInDesktop = "320px", heightInMobile = "200px" }: { hasBannerInMobile?: boolean, hasBannerInDesktop?: boolean, href: string, heightInDesktop?: string, heightInMobile?: string }) {
+export default function MainBanner({ hasBannerInMobile = true, hasBannerInDesktop = true, href, heightInDesktop = "300px", heightInMobile = "200px" }: { hasBannerInMobile?: boolean, hasBannerInDesktop?: boolean, href: string, heightInDesktop?: string, heightInMobile?: string }) {
   return (
     <Stack component={Link} href={href}>
       {
