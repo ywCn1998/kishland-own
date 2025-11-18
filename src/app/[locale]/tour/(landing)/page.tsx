@@ -58,8 +58,9 @@ export default function Home() {
 
         {/* پیشنهادات لحظه ایی */}
         <Stack className="w-full! flex! flex-col-reverse! md:flex-col">
-          <ViewsOfHotelSection />
-
+          <Container maxWidth={"xl"}>
+            <ViewsOfHotelSection />
+          </Container>
           <Stack className="bg-slate-100 md:bg-white mx-0! my-5! md:my-0!">
             <Container maxWidth="xl" className="mx-auto!">
               {/* <Stack className="hidden! md:block!"> */}
@@ -69,10 +70,7 @@ export default function Home() {
                 title={" پیشنهادات لحظه ای"}
                 buttonText={"مشاهده لیست پیشنهادات ها"}
                 href="/fa/tour/list"
-              // captionClass="block! text-xs! sm:text-base md:text-xl"
               />
-
-              {/* </Stack> */}
 
             </Container>
 
@@ -83,7 +81,6 @@ export default function Home() {
               disableGutters>
               <TourSuggestionSlider />
             </Container>
-
           </Stack>
         </Stack>
 

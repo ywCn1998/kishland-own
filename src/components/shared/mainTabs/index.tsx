@@ -25,6 +25,7 @@ type TabItem = {
 export default function MainTabs({
     data,
     border = true,
+    borderBottom = false,
     tabStyle,
     changeCardUi,
     setChangeCardUi,
@@ -34,9 +35,11 @@ export default function MainTabs({
     setSortByPrice,
     bgColor = "white",
     icons = true, // ✅ NEW PROP: controls scroll navigation icons only
+    IconsInMobile = false
 }: {
     data: TabItem[];
     border?: boolean;
+    borderBottom?: boolean;
     tabStyle?: SxProps<Theme>;
     changeCardUi?: boolean;
     setChangeCardUi?: (val: boolean) => void;
@@ -46,6 +49,7 @@ export default function MainTabs({
     setSortByPrice?: (val: boolean) => void;
     bgColor?: string;
     icons?: boolean;
+    IconsInMobile?: boolean;
 }) {
     const firstEnabledIndex = useMemo(
         () => Math.max(0, data.findIndex((t) => !t.disabled)),
@@ -69,23 +73,24 @@ export default function MainTabs({
                 setValue(v);
             }}
             variant="scrollable"
-            allowScrollButtonsMobile={icons} // ✅ Arrows only show when icons=true
+            allowScrollButtonsMobile={IconsInMobile} // ✅ Arrows only show when icons=true
             scrollButtons={icons ? "auto" : false} // ✅ Completely hide nav arrows
             sx={{
                 "& .MuiTabs-flexContainer": {
                     justifyContent: "flex-start",
-                    gap: { xs: 0, md: 2 },
-                    p: { xs: 0, md: 1 },
+                    gap: 2,
+                    pb: { xs: 0, md: 1 },
                     pt: { xs: .5, md: 0 },
+                    px: { xs: 2, md: 1 },
                     backgroundColor: bgColor,
                     alignItems: "center",
                     minHeight: { xs: 0, md: 60 },
                 },
                 mb: { xs: 0, md: 2 },
-                border: border ? "1px solid" : "none",
-                borderBottom: border ? "1px solid" : "0",
+                border: (border && !borderBottom) ? "1px solid" : "none",
+                borderBottom: borderBottom ? "1px solid" : "0",
                 borderColor: "divider",
-                borderRadius: border ? "14px" : 0,
+                borderRadius: (border && !borderBottom) ? "14px" : 0,
                 position: "relative",
             }}
         >

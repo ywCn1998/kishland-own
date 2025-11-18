@@ -14,7 +14,7 @@ export default function CityCenterLoactions() {
     const [activeId, setActiveId] = useState<number | null>(null);
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 3 }}>
+        <Container maxWidth="xl" sx={{ mt: 3 }} disableGutters>
             <Grid container height={{ xs: 500, md: 450 }} spacing={{ xs: 0, md: 2 }} >
                 <Grid size={{ xs: 12, md: 5 }} className="md:hidden!" height={{ xs: 200, md: 450 }}>
                     <img src={"/images/sample-map.png"} className="h-full! w-full! rounded-3xl!" />

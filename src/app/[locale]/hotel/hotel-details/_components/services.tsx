@@ -101,7 +101,7 @@ export default function HotelServices() {
 
 
     return (
-        <Stack className="border-1 border-slate-200! p-8! rounded-2xl" mt={5} sx={{ p: { xs: 4, md: 8 } }}>
+        <Stack className="md:border-1 border-slate-200! rounded-2xl" mt={5} sx={{ p: { xs: 2, md: 8 } }}>
             <Typography className="text-xl! md:text-3xl! font-semibold!" mb={4}>اطلاعات  و امکانات هتل </Typography>
 
             <Stack className="border-1 border-slate-200! px-4! py-8! rounded-xl" sx={{ px: { xs: 3, md: 4 }, py: { xs: 6, md: 8 } }}>

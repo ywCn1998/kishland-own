@@ -44,7 +44,7 @@ import LearnMore from "./_components/learnMore";
 import PeopleComments from "@/components/shared/_components/peopleComments";
 import YouMayLoveSection from "@/app/[locale]/tour/reserve/_components/youMayLoveSection";
 
-type DayItem = {
+export type DayItem = {
   id: string;
   dateFa: string;
   nameFa: string;
