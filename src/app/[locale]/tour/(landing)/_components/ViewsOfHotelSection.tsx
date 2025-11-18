@@ -55,7 +55,7 @@ const primaryImages = [
 const additionalGalleryImages: string[] | undefined = [
   "/images/building.png",
   "/images/file1.png",
-  "/images/file2.png",
+  "/images/blog1.png",
   "/images/float4.png",
   "/images/float2.png",
 ];
