@@ -3,27 +3,30 @@ import { Components, Theme } from "@mui/material/styles";
 const ButtonComponents: Components<Theme> = {
   MuiButton: {
     styleOverrides: {
-      outlined: {
+      outlined: ({ ownerState, theme }) => ({
         borderColor: "#E1E6F0",
-        color: "#black",
-        "&:hover": {
-          // borderColor: '#CBD5E1', // optional hover state
-          // backgroundColor: 'transparent',
-        },
+        color: "black",
         borderRadius: "15px",
-        fontWeight: "400 ",
+        fontWeight: 400,
         boxShadow: "none",
-      },
-      // root: ({ theme, ownerState }) => ({
-      //   ...(ownerState.variant === 'text' && {
-      //     color: theme.palette.common.black,
-      //     '&:hover': {
-      //       color: theme.palette.primary.main,
-      //       backgroundColor: 'transparent'
-      //     },
-      //     transition: 'color 0.3s ease'
-      //   })
-      // }),
+        ...(ownerState.color === "error" && {
+          borderColor: theme.palette.error.main,
+          color: theme.palette.error.main,
+          "&:hover": {
+          borderColor: theme.palette.error.main,
+            backgroundColor: "#FDECEC",
+          },
+        }),
+        ...(ownerState.color === "info" && {
+          borderColor: theme.palette.info.main,
+          color: theme.palette.info.main,
+          "&:hover": {
+            borderColor: theme.palette.info.dark,
+            backgroundColor: "#E7F3FF",
+          },
+        }),
+      }),
+
       sizeMedium: ({ theme }) => ({
         padding: theme.spacing(2, 3),
         borderRadius: 18,
@@ -40,7 +43,7 @@ const ButtonComponents: Components<Theme> = {
           fontSize: "20px",
           padding: theme.spacing(2, 3),
         },
-   
+
 
         "&:hover": {},
       }),

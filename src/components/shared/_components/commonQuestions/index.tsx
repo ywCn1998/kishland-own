@@ -92,7 +92,7 @@ export default function CommonQuestions({
           <AccordionDetails className="p-0">
             <div className="w-full mx-auto rounded-b-lg">
               {faqs.map((faq, idx) => (
-                <div key={idx}>
+                <div key={idx + "fraqs"}>
                   <CollapseItem
                     costumIcon={true}
                     title={faq.title}
@@ -111,7 +111,7 @@ export default function CommonQuestions({
           {faqs.map((faq, idx) => (
             <>
               <CollapseItem
-                key={idx}
+                key={idx + "fraqs2"}
                 title={faq.title}
                 description={faq.description}
               />

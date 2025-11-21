@@ -48,6 +48,16 @@ export default async function RootLayout({
   params,
   children,
 }: RootLayoutProps) {
+
+
+  const path = typeof window !== "undefined" ? window.location.pathname : "";
+  const parts = path.split("/");
+  const lastPart = parts.pop() || "";
+  const isLandingPage =
+    lastPart === "tour" ||
+    lastPart === "entertainment" ||
+    lastPart === "hotel";
+
   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -83,12 +93,17 @@ export default async function RootLayout({
               />
               <RouteIO />
               <Header />
-              <Stack component="main" sx={{ minHeight: "70vh" }} className="mt-28! md:mt-0!">
+              <Stack
+                component="main"
+                className={`min-h-[70vh]`}
+              >
                 {children}
               </Stack>
               <Footer />
             </Stack>
-            <MobileBottomNav />
+            {isLandingPage && (
+              <MobileBottomNav />
+            )}
           </NextIntlClientProvider>
         </MuiProvider>
       </Box>

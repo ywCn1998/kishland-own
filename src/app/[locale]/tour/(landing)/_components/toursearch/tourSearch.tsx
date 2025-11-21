@@ -40,7 +40,7 @@ export default function TourSearch({ activePage = "tour" }) {
                 variant={activePage === "tour" ? "contained" : "outlined"}
                 className="font-normal! reveal"
                 startIcon={<BusinessCenterIcon />}
-                href="/fa/tour/modal"
+                href="/fa/tour/hotel-location"
               >
                 تور ها
               </Button>

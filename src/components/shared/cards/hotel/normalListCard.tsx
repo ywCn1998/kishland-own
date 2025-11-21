@@ -30,12 +30,12 @@ export default function NormalListCard({ isWide, isOfferCard = false }: { isWide
                     className="border-1! border-slate-200! "
                 >
                     {/* Media area */}
-                    <Box sx={{ p: 0.5, height: 240 }}>
+                    <Box sx={{ p: 0.5, height: { xs: 250, md: 240 } }}>
                         {/* Put spacing on wrapper instead of image padding */}
                         <Box sx={{ height: "100%", position: "relative", borderRadius: 1.5, overflow: "hidden", m: 1.2 }}>
                             <Image src={"/images/building1.png"} alt="building" fill />
                             <Stack className="items-center! text-white! bg-[#FA5050] self-start p-3 rounded-lg flex flex-row! gap-2 z-10! absolute! bottom-2! right-2!">
-                                {!isOfferCard && <UilFire className="text-white!"/>}
+                                {!isOfferCard && <UilFire className="text-white!" />}
                                 <Typography className="text-sm!">
                                     {isOfferCard ? "پیشنهاد ویژه" : "پیشنهاد ویژه کیش لندیار"}
                                 </Typography>
@@ -81,7 +81,7 @@ export default function NormalListCard({ isWide, isOfferCard = false }: { isWide
                                 </Stack>
                             )}
                         </Stack>
-                        <div className="half-circle-divider">
+                        <div className="half-circle-divider hidden! md:flex!">
                             <span className="half-circle left bg-[#e1e6f0]! w-3!"></span>
                             {/* <hr className="text-[#e1e6f0]! bg-[#e1e6f0]!" /> */}
                             <Divider orientation="horizontal" className="text-[#e1e6f0]! bg-[#e1e6f0]!" />
@@ -92,7 +92,7 @@ export default function NormalListCard({ isWide, isOfferCard = false }: { isWide
                         <Typography
                             variant="button"
                             fontWeight={isOfferCard ? 500 : 700}
-                            className={`rounded-lg py-2 ${isOfferCard ? "bg-white! border-1! border-[#FA5050]! " : "bg-[#FFE5E5]"} w-full text-center text-[#FA5050]`}
+                            className={`mt-5! md:mt-0! rounded-lg py-2 ${isOfferCard ? "bg-white! border-1! border-[#FA5050]! " : "bg-[#FFE5E5]"} w-full text-center text-[#FA5050]`}
                         >
                             تا 25 % تخفیف
                         </Typography>

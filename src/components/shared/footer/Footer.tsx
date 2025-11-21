@@ -124,9 +124,9 @@ export function Footer() {
 
   const handleChange =
     (panelIndex: number) =>
-    (_event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panelIndex : false);
-    };
+      (_event: React.SyntheticEvent, isExpanded: boolean) => {
+        setExpanded(isExpanded ? panelIndex : false);
+      };
 
   return (
     <Stack
@@ -143,7 +143,7 @@ export function Footer() {
         marginX: "auto",
         borderRadius: 2, // optional if you want rounded edges
         // bgcolor: "#fff", // white card look
-        mb : {xs : 15 , lg : 0}
+        mb: { xs: 15, lg: 0 }
       }}
     >
       <Container maxWidth="xl">
@@ -345,10 +345,10 @@ export function Footer() {
           alignItems="center"
           justifyContent="center"
           gap={2}
-          pb={{lg : 3 , xs : 10}}
+          pb={{ lg: 3, xs: 10 }}
           mt={2}
         >
-          <CopyrightOutlinedIcon className=" text-slate-400!"/>
+          <CopyrightOutlinedIcon className=" text-slate-400!" />
           <Typography className="!text-xs  text-slate-400! leading-loose!">
             کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
             پیاده سازی توسط تیم IT کیشلندیار
@@ -362,10 +362,10 @@ export function Footer() {
 const FooterLinkSection = ({
   value,
 }: // type
-{
-  value: string;
-  type: "phone" | "email" | "address" | "link";
-}) => {
+  {
+    value: string;
+    type: "phone" | "email" | "address" | "link";
+  }) => {
   return (
     <Stack className=" w-full  flex-row! gap-2 ">
       {/* <PhoneOutlined /> */}

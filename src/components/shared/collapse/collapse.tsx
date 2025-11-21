@@ -28,7 +28,6 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
 
   return (
     <Accordion
-
       expanded={expanded}
       onChange={(_, isExpanded) => setExpanded(isExpanded)}
       disableGutters

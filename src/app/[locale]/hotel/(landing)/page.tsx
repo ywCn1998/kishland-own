@@ -11,7 +11,6 @@ import {
   ExtraFooterInformation,
   LastSearch,
   MainBlog,
-  MianBanner,
   OfferBanner,
   WhyKishLand,
 } from "@/components/shared/_components";
@@ -27,6 +26,9 @@ import HotelFilters from "./_components/HotelFilters";
 import HotelReserveSection from "./_components/HotelReserveSection";
 import BlogCard from "@/components/shared/cards/blogCard";
 import HotelsCardSection from "./_components/HotelsCardSection";
+import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
+import MainBanner from "@/components/shared/_components/banner/mainBanner";
+import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
 
 // { params }: { params: { locale: string } }
 export default async function Home() {
@@ -52,6 +54,7 @@ export default async function Home() {
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
+      <MobileHeaderTabs />
       <Container maxWidth="xl" disableGutters sx={{ px: { xs: 0, sm: 2, md: 3 }, marginBottom: 5 }}>
         <CategorySlider />
         <Stack px={{ xs: 2, sm: 0 }}>
@@ -92,13 +95,7 @@ export default async function Home() {
           </Stack>
 
           <Stack className=" md:hidden! px-4 sm:px-0! mt-4" >
-            <Stack className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!" sx={{ backgroundColor: "secondary.50" }}>
-              <img src="/images/chance.png" className="h-12! w-12!" alt="" />
-              <Stack className="flex! flex-col! gap-2!">
-                <Typography sx={{ fontWeight: 500, color: "secondary.main" }} className="text-base!">شانس <span className="text-black!">امروزتو امتحان کن</span></Typography>
-                <Typography color="text.secondary" className="text-xs!">هر روز یک گردونه شانس با کلی جایزه</Typography>
-              </Stack>
-            </Stack>
+            <ChanceMobile />
           </Stack>
 
           <Stack className="pr-4! sm:pr-0!">
@@ -154,7 +151,7 @@ export default async function Home() {
         </Stack>
 
         <Stack maxWidth="xl" sx={{ mt: 5, width: "100%" }} className="reveal">
-          <MianBanner />
+          <MainBanner href="/fa/hotel/list" />
         </Stack>
         <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth !hidden lg:!flex mt-10">
           <Container maxWidth="xl" className="mx-auto!">

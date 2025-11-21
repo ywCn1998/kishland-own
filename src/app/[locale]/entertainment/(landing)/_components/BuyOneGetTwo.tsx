@@ -62,7 +62,7 @@ const BuyOneGetTwoSection = () => {
 
         <Stack className="w-full! flex! flex-row! gap-8! reveal" mt={2}>
           <Button
-            className="w-6/12 text-black! rounded-xl! text-lg! reveal hidden! md:block!"
+            className="w-6/12 text-black! rounded-xl! text-lg! reveal hidden! md:block! text-nowrap!"
             variant="outlined"
             startIcon={<AdbIcon />}
           >

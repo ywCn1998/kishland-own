@@ -37,8 +37,8 @@ function DayCard({
             className="cursor-pointer select-none"
             sx={{
                 gap: 2,
-                px: 6,
-                py: 2.5,
+                px: { xs: 3, md: 6 },
+                py: { xs: 1, md: 2.5 },
                 borderRadius: 2,
                 bgcolor: selected ? CREAM : 'transparent',
                 outline: selected ? `3px solid ${ORANGE}` : 'none',
@@ -55,7 +55,7 @@ function DayCard({
             <Typography
                 sx={{
                     fontWeight: 700,
-                    fontSize: 18,
+                    fontSize: { xs: 14, md: 18 },
                     color: item.isWeekend ? RED : '#0B1A2A',
                 }}
             >
