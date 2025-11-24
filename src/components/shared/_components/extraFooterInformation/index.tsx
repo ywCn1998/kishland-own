@@ -64,7 +64,7 @@ export default function ExtraFooterInformation({
       )}
       {
         hotels && (
-          <HotelsList className="bg-white! px-0!"/>
+          <HotelsList className="bg-white! px-0!" />
         )
       }
 

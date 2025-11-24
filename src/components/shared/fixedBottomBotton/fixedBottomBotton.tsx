@@ -4,9 +4,10 @@ import { ReactNode } from "react";
 interface FixedBottomButtonProps {
     children: ReactNode;
     className?: string
+    py?: number
 }
 
-export default function FixedBottomButton({ children, className }: FixedBottomButtonProps) {
+export default function FixedBottomButton({ children, className, py = 2.5 }: FixedBottomButtonProps) {
     return (
         <Paper
             sx={{
@@ -23,7 +24,7 @@ export default function FixedBottomButton({ children, className }: FixedBottomBu
                 width: "100%",
                 boxShadow: "0 -4px 12px rgba(0, 0, 0, 0.18)",
                 px: 2,
-                py: 2.5,
+                py: py,
             }}
             elevation={0}
         >

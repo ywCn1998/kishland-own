@@ -1,13 +1,6 @@
 "use client";
 import {
   AccessTimeOutlined,
-  CloudCircle,
-  LocationOn,
-  LocationOnOutlined,
-  MapOutlined,
-  PinOutlined,
-  Search,
-  WhatshotOutlined,
 } from "@mui/icons-material";
 import { Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import HotelClassIcon from "@mui/icons-material/HotelClass";
@@ -21,7 +14,7 @@ export function AirCard({ onClick }: { onClick: (val: boolean) => void }) {
       <Stack
         alignItems={"center"}
         // reveal
-        className="flex w-full flex-col border-1 border-slate-200 rounded-2xl   p-4"
+        className="flex w-full flex-col border-1 border-slate-200 rounded-2xl   p-4 bg-white!"
       >
         <Stack
           alignItems={"center"}
@@ -52,8 +45,8 @@ export function AirCard({ onClick }: { onClick: (val: boolean) => void }) {
                   </Typography>
                 </Stack>
                 <Stack className="text-white! bg-[#FA5050] self-start p-2 md:p-3 rounded-lg flex flex-row! gap-2 items-center!">
-                  <UilFire className="text-sm! md:text-base!" />
-                  <Typography className="text-sm! md:text-base!">
+                  <UilFire className="w-auto! h-auto!" />
+                  <Typography className="text-xs! md:text-base!">
                     پیشنهاد ویژه کیش لندیار
                   </Typography>
                 </Stack>

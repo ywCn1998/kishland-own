@@ -19,6 +19,7 @@ import RevealObserver from "@/components/shared/RevealObserver";
 import MobileBottomNav from "@/components/shared/bottomNavigation/bottomNavigation";
 import RouteIO from "../_route-io";
 import NextTopLoader from "nextjs-toploader";
+import { headers } from "next/headers";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -49,14 +50,16 @@ export default async function RootLayout({
   children,
 }: RootLayoutProps) {
 
-
-  const path = typeof window !== "undefined" ? window.location.pathname : "";
-  const parts = path.split("/");
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const parts = pathname.split("/");
   const lastPart = parts.pop() || "";
   const isLandingPage =
     lastPart === "tour" ||
     lastPart === "entertainment" ||
-    lastPart === "hotel";
+    lastPart === "hotel" ||
+    lastPart === "panel";
+
 
   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
