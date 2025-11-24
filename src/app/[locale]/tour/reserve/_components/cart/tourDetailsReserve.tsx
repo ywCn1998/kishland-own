@@ -93,13 +93,13 @@ export default function TourDetailsReserve() {
           spaceBetween={10}
           pagination={true}
         >
-          <Button
+          {/* <Button
             variant="outlined"
             className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!"
             startIcon={<BedroomParentOutlinedIcon />}
           >
             ترانسفر فرودگاهی (رایگان)
-          </Button>
+          </Button> */}
           <Button
             variant="outlined"
             className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!"

@@ -37,7 +37,6 @@ export default function HotelDetailsCart({
   discount?: boolean;
 }) {
   const [selected, setSelected] = useState<string>("online");
-  console.log(selected);
 
   return (
     <Stack

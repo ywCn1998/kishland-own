@@ -4,3 +4,7 @@ export const headerTitleAtom = atom<string>("");
 export const headerBackIconAtom = atom<boolean>(true);
 export const headerDateAtom = atom<string | null>();
 export const headerLeftItemAtom = atom<any>()
+
+
+
+export const hasFooterResponsive = atom<boolean>(true);

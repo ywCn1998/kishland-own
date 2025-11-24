@@ -81,7 +81,7 @@ export default function MainTabs({
                     gap: 2,
                     pb: { xs: 0, md: 1 },
                     pt: { xs: .5, md: 0 },
-                    px: { xs: 2, md: 1 },
+                    px: { xs: 0, md: 1 },
                     backgroundColor: bgColor,
                     alignItems: "center",
                     minHeight: { xs: 0, md: 60 },
@@ -102,6 +102,7 @@ export default function MainTabs({
                     iconPosition="end"
                     disabled={tab.disabled}
                     disableRipple={tab.disabled}
+                    className="text-base! md:text-lg!"
                     sx={[
                         {
                             textWrap: "nowrap",
@@ -131,7 +132,6 @@ export default function MainTabs({
                     <SortIcon />
                 </IconButton>
             )}
-
 
 
             {sortByPrice && (

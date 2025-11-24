@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
   useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { PhoneOutlined } from "@mui/icons-material";
 import Image from "next/image";
@@ -26,6 +27,8 @@ import BackpackOutlinedIcon from "@mui/icons-material/BackpackOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
+import { useAtom } from "jotai";
+import { hasFooterResponsive } from "@/store/atomHeader";
 const footerSections = [
   {
     title: "خدمات کیشلندیار",
@@ -119,7 +122,9 @@ const footerSections = [
 export function Footer() {
   const theme = useTheme();
   const t = useTranslations("Footer");
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  const [footer] = useAtom(hasFooterResponsive);
   const [expanded, setExpanded] = useState<number | false>(false);
 
   const handleChange =
@@ -127,6 +132,10 @@ export function Footer() {
       (_event: React.SyntheticEvent, isExpanded: boolean) => {
         setExpanded(isExpanded ? panelIndex : false);
       };
+
+  if (isMobile && !footer) {
+    return null;
+  }
 
   return (
     <Stack

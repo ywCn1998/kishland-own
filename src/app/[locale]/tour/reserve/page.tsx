@@ -91,7 +91,7 @@ export default function Home() {
           </Stack>
 
         </Stack>
-        <Stack className="mt-[10px] ">
+        <Stack className="md:mt-[10px]! mt-0! ">
           <ReserveStepper steps={steps} />
         </Stack>
         <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal hidden! md:block!" >
@@ -108,7 +108,7 @@ export default function Home() {
             <YouMayLoveSection />
           </Stack>
         </Stack>
-        <Stack sx={{ mt: -10 }}>
+        <Stack sx={{ mt : {xs : 2 , lg : -10} }}>
           <ExtraFooterInformation
             honerOfColobrate={false}
             moreToRead={true}

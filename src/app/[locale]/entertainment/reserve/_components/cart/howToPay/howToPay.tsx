@@ -20,7 +20,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function HowToPay({ discount = false }: { discount?: boolean }) {
   const [selected, setSelected] = useState<string>("online");
-  console.log(selected);
 
   return (
     <Stack
