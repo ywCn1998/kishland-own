@@ -7,7 +7,7 @@ export default function FavoriteHotels() {
     return (
         <Grid container spacing={2.5}>
             {items.map((_, index) => (
-                <Grid key={index} size={4}>
+                <Grid key={index} size={{xs:12, md:4}}>
                     <FavoriteHotelCard
                         isTicketTemplate={index % 3 === 1}
                     />

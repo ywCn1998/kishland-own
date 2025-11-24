@@ -20,11 +20,11 @@ const items = [
 
 export default function MobileBottomNav() {
   const [active, setActive] = useState<number>(0);
-  const router = useRouter(); 
+  const router = useRouter();
 
   const handleClick = (id: number, path: string) => {
     setActive(id);
-    router.push(path); 
+    router.push(path);
   };
 
   return (
@@ -68,7 +68,7 @@ export default function MobileBottomNav() {
                 width: 70,
                 position: "relative",
               }}
-              onClick={() => handleClick(item.id, item.path)} 
+              onClick={() => handleClick(item.id, item.path)}
             >
               {/* آیکون */}
               <Box

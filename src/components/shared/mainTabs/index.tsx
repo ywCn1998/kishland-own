@@ -35,7 +35,11 @@ export default function MainTabs({
     setSortByPrice,
     bgColor = "white",
     icons = true, // ✅ NEW PROP: controls scroll navigation icons only
-    IconsInMobile = false
+    IconsInMobile = false,
+    activeTabBorderColor, // ✅ NEW PROP: color for active tab border bottom
+    value: controlledValue, // ✅ NEW PROP: controlled value
+    onChange, // ✅ NEW PROP: onChange handler
+    iconPosition = "end" // ✅ NEW PROP: icon position (start or end)
 }: {
     data: TabItem[];
     border?: boolean;
@@ -50,13 +54,18 @@ export default function MainTabs({
     bgColor?: string;
     icons?: boolean;
     IconsInMobile?: boolean;
+    activeTabBorderColor?: string; // ✅ NEW PROP
+    value?: number; // ✅ NEW PROP: controlled value
+    onChange?: (event: React.SyntheticEvent, newValue: number) => void; // ✅ NEW PROP
+    iconPosition?: "start" | "end"; // ✅ NEW PROP
 }) {
     const firstEnabledIndex = useMemo(
         () => Math.max(0, data.findIndex((t) => !t.disabled)),
         [data]
     );
 
-    const [value, setValue] = useState(firstEnabledIndex);
+    const [internalValue, setInternalValue] = useState(firstEnabledIndex);
+    const value = controlledValue !== undefined ? controlledValue : internalValue;
 
     const renderIcon = (icon?: TabIcon) => {
         if (!icon) return undefined;
@@ -65,13 +74,19 @@ export default function MainTabs({
             : createElement(icon as React.ComponentType<any>);
     };
 
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        if (data[newValue]?.disabled) return;
+        if (onChange) {
+            onChange(event, newValue);
+        } else {
+            setInternalValue(newValue);
+        }
+    };
+
     return (
         <Tabs
             value={value}
-            onChange={(_, v) => {
-                if (data[v]?.disabled) return;
-                setValue(v);
-            }}
+            onChange={handleChange}
             variant="scrollable"
             allowScrollButtonsMobile={IconsInMobile} // ✅ Arrows only show when icons=true
             scrollButtons={icons ? "auto" : false} // ✅ Completely hide nav arrows
@@ -80,8 +95,8 @@ export default function MainTabs({
                     justifyContent: "flex-start",
                     gap: 2,
                     pb: { xs: 0, md: 1 },
-                    pt: { xs: .5, md: 0 },
-                    px: { xs: 0, md: 1 },
+                    pt: { xs: 0.5, md: 0 },
+                    px: { xs: 2, md: 1 },
                     backgroundColor: bgColor,
                     alignItems: "center",
                     minHeight: { xs: 0, md: 60 },
@@ -92,6 +107,9 @@ export default function MainTabs({
                 borderColor: "divider",
                 borderRadius: (border && !borderBottom) ? "14px" : 0,
                 position: "relative",
+                "& .MuiTabs-scrollButtons": {
+                    display: IconsInMobile ? "flex" : "none",
+                },
             }}
         >
             {data.map((tab, index) => (
@@ -99,7 +117,7 @@ export default function MainTabs({
                     key={index}
                     label={icons === false && tab.hideLabelOnMobile ? "" : tab.label}
                     icon={renderIcon(tab.icon)} // ✅ always keep tab icons
-                    iconPosition="end"
+                    iconPosition={iconPosition}
                     disabled={tab.disabled}
                     disableRipple={tab.disabled}
                     className="text-base! md:text-lg!"
@@ -117,7 +135,7 @@ export default function MainTabs({
                             // allow per-tab icon override styling
                             "& .MuiTab-iconWrapper": tab.iconSx as any,
                         },
-                        StyleTab as any,
+                        createStyleTab(activeTabBorderColor) as any,
                         tabStyle as any,
                     ]}
                 />
@@ -161,7 +179,8 @@ export default function MainTabs({
 }
 
 const ORANGE = "var(--primary-500, #FF8C0B)";
-const StyleTab = {
+
+const createStyleTab = (activeTabBorderColor?: string) => ({
     minHeight: 40,
     px: { xs: 0, md: 2 },
     py: 0.5,
@@ -173,7 +192,7 @@ const StyleTab = {
     position: "relative",
     "& .MuiTab-iconWrapper": { ml: 0.5 },
     "&.Mui-selected": {
-        color: ORANGE,
+        color: activeTabBorderColor || ORANGE,
         "&::after": {
             content: '""',
             position: "absolute",
@@ -181,7 +200,7 @@ const StyleTab = {
             bottom: -10,
             height: 3,
             width: "80%",
-            backgroundColor: ORANGE,
+            backgroundColor: activeTabBorderColor || ORANGE,
             borderRadius: 999,
             transform: "translateX(10%)",
         },
@@ -189,4 +208,4 @@ const StyleTab = {
     "&:hover": { backgroundColor: "transparent" },
     "&:focus": { backgroundColor: "transparent" },
     "&:active": { backgroundColor: "transparent", color: "rgb(100 116 139);" },
-} as const;
+} as const);

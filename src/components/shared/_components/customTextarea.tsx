@@ -80,8 +80,8 @@ export default function LiteRichEditor({
           <IconButton size="small" onClick={() => cmd("justifyCenter")}><FormatAlignCenter fontSize="small" /></IconButton>
           <IconButton size="small" onClick={() => cmd("justifyLeft")}><FormatAlignLeft fontSize="small" /></IconButton>
 
-          <IconButton size="small" onClick={() => cmd("insertUnorderedList")}><FormatListBulleted fontSize="small" /></IconButton>
-          <IconButton size="small" onClick={() => cmd("insertOrderedList")}><FormatListNumbered fontSize="small" /></IconButton>
+          {/* <IconButton size="small" onClick={() => cmd("insertUnorderedList")}><FormatListBulleted fontSize="small" /></IconButton> */}
+          {/* <IconButton size="small" onClick={() => cmd("insertOrderedList")}><FormatListNumbered fontSize="small" /></IconButton> */}
 
           <Divider orientation="vertical" flexItem sx={{ mx: 0.5 }} />
 

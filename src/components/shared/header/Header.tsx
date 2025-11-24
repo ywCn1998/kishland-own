@@ -30,6 +30,8 @@ export default function Header({ }) {
   const parts = path.split("/");
   const lastPart = parts.pop() || "";
   const router = useRouter();
+  // const pathname = usePathname();
+  console.log("lastPart", lastPart);
 
   const isLandingPage =
     lastPart === "tour" ||
@@ -93,7 +95,7 @@ export default function Header({ }) {
             </Stack>
           </Stack>
         </Stack>
-        
+
         {lastPart === "tour" ||
           lastPart === "entertainment" ||
           lastPart === "hotel" ? (
@@ -150,12 +152,12 @@ export default function Header({ }) {
               </Stack>
             </Stack>
           </Box>
-        ) : (
+        ) : lastPart == "panel" ? null : (
           <Stack
             className="
     flex 
     flex-row!
-    items-center 
+    items-center!
     justify-between
     lg:hidden!
     h-[80px]
@@ -178,8 +180,8 @@ export default function Header({ }) {
                   {backIcon ? <EastOutlinedIcon /> : <CloseOutlinedIcon />}
                 </IconButton>
               </Stack>
-              <Stack className="flex! flex-col! gap-2!">
-                <Typography className="text-base! font-medium!">{headerTitle}</Typography>
+              <Stack className="flex! flex-col! gap-2! justify-center! items-center!">
+                <Typography className="text-base! font-medium! mt-2!">{headerTitle}</Typography>
                 <Typography className="text-sm! font-light!">{date}</Typography>
               </Stack>
             </Stack>
@@ -187,8 +189,7 @@ export default function Header({ }) {
           </Stack>
         )}
 
-        {/* 🔹 Spacer to offset fixed mobile header (mt logic inside Header) */}
-        <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : "h-[80px]"}`} />
+        <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : lastPart === "panel" ? "h-[0px]" : "h-[80px]"}`} />
       </Stack>
 
       <RegisterModal open={open} setOpen={setOpen} />

@@ -26,7 +26,7 @@ const aboutItems = [
 
 export default function AboutSection() {
   return (
-    <Grid container mt={{lg : 10 , xs : 2}} spacing={2} className="!flex !flex-col lg:!flex-row xs-fullwidth">
+    <Grid container mt={{ lg: 10, xs: 2 }} spacing={2} className="!flex !flex-col lg:!flex-row xs-fullwidth">
       {aboutItems.map((item, i) => (
         <InformationCard
           key={i}
@@ -35,7 +35,7 @@ export default function AboutSection() {
           description={item.description}
         />
       ))}
-            <Divider className="lg:!hidden mt-5! mx-4!"/>
+      <Divider className="lg:!hidden mt-5! mx-4!" />
 
     </Grid>
   );

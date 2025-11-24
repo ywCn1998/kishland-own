@@ -3,8 +3,11 @@ import { Button, Typography, Stack } from "@mui/material";
 import { useParams, useRouter } from "next/navigation";
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import { DeleteOutlineOutlined, LocalSeeOutlined, AccountBalanceWalletOutlined, KeyboardArrowLeftOutlined, PersonOutlined, CreditCardOutlined, LanguageOutlined, PhoneOutlined } from '@mui/icons-material';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PersonalInformation from "./_components/personalInformation";
+import { headerTitleAtom } from "@/store/atomHeader";
+import { useAtom } from "jotai";
+import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottomBotton";
 
 
 const tabs = [
@@ -32,9 +35,14 @@ export default function passengerDetails() {
     const { id } = useParams()
     const [activeTab, setActiveTab] = useState("personal");
     const router = useRouter()
+    const [, setHeaderTitle] = useAtom(headerTitleAtom);
+
+    useEffect(() => {
+        setHeaderTitle("جزئیات مسافر");
+    }, []);
     return (
         <Stack>
-            <Stack className="border-1! border-slate-200! py-4 px-6! rounded-2xl! flex! flex-row! justify-between! items-center!">
+            <Stack className="hidden! md:flex! border-1! border-slate-200! py-4 px-6! rounded-2xl! flex-row! justify-between! items-center!">
                 <Typography className="font-semibold! text-base!">
                     {/* جزئیات سفارش {id} */}
                     جزئیات مسافر قاسم سبحانی
@@ -44,7 +52,7 @@ export default function passengerDetails() {
                 </Button>
             </Stack>
 
-            <Stack className="flex! flex-row! gap-6 items-center! w-full!" mt={3}>
+            <Stack className="hidden! md:flex! flex-row! gap-6 items-center! w-full!" mt={3}>
                 {
                     tabs?.map((tab) => (
                         <>
@@ -64,8 +72,13 @@ export default function passengerDetails() {
                     ))
                 }
             </Stack>
-            <Stack className="w-full! border-1! border-slate-200! rounded-2xl! p-4!" mt={3}>
+            <Stack className="w-full! md:border-1! border-slate-200! rounded-2xl! p-4! mt-2! md:mt-6!">
                 {tabs.find((tab) => tab.id === activeTab)?.component}
+            </Stack>
+            <Stack className="md:hidden!">
+                <FixedBottomButton py={2}>
+                    <Button className="w-full! text-base! text-white! py-5!" variant="contained" sx={{ backgroundColor: "primary.main" }}>ذخیره تغییرات</Button>
+                </FixedBottomButton>
             </Stack>
         </Stack>
     )

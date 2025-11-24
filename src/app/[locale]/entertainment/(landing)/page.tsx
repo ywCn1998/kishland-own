@@ -106,7 +106,6 @@ export default function Home() {
 
         <Box className="mt-10! md:mt-0!">
           <OfferBanner
-            bgColor="white"
             caption="این بار این سفر واست خاطره میشه ..."
             responsiveCaption="این بار این سفر واست خاطره میشه ..."
             title={"پکیج دلخواهت رو انتخاب کن "}
