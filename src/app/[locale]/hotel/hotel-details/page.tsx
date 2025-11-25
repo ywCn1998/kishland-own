@@ -197,7 +197,7 @@ export default function HotelDetails() {
             </Container>
 
 
-            <ExtraFooterInformation honerOfColobrate={false} companies={false} />
+            <ExtraFooterInformation honerOfColobrate={false} companies={false}  />
         </Stack >
     );
 }

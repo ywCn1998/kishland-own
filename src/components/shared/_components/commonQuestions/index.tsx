@@ -97,15 +97,12 @@ export default function CommonQuestions({
             id="faq-header"
           >
             <p className="font-semibold text-2xl!">سوالات متداول</p>
-
-          
-          
           </AccordionSummary>
           {isAboutUs && (
-              <Stack className="mb-5! mt-2! md:hidden!">
-                <CategoryTabs />
-              </Stack>
-            )}
+            <Stack className="mb-5! mt-2! md:hidden!">
+              <CategoryTabs />
+            </Stack>
+          )}
           <Divider className="mt-4!" />
 
           <AccordionDetails className="p-0">

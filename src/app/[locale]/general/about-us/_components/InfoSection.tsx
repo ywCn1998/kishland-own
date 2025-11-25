@@ -65,7 +65,7 @@ export default function InfoSection() {
 }
 
 
-function InformationCard({
+export function InformationCard({
   image,
   title,
   description,

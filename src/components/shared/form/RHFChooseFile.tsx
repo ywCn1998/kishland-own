@@ -11,7 +11,7 @@ import {
   Tooltip,
   SxProps,
 } from "@mui/material";
-import { CloudUpload, Close, Download } from "@mui/icons-material";
+import { CloudUploadOutlined, Close, Download } from "@mui/icons-material";
 
 export default function RHFUploadButton({
   name,
@@ -109,7 +109,7 @@ export default function RHFUploadButton({
             <Stack direction="row" alignItems="center" gap={1.25}>
               <Button
                 variant="outlined"
-                startIcon={<CloudUpload />}
+                startIcon={<CloudUploadOutlined />}
                 onClick={openPicker}
                 disabled={disabled}
                 className={className}
