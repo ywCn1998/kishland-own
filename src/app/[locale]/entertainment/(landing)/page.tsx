@@ -22,6 +22,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
+import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
 
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },
@@ -33,8 +34,8 @@ export default function Home() {
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
       className="mb-10!"
     >
-      <MobileHeaderTabs/>
-      <Container maxWidth="xl">
+      <MobileHeaderTabs />
+      <Container maxWidth="xl" disableGutters className="md:px-6! px-0! ">
         <Stack className="hidden! md:block!">
           <CategorySlider />
         </Stack>
@@ -43,32 +44,17 @@ export default function Home() {
         </Stack>
 
         <Stack spacing={10} className="md:mt-8! mt-2!">
-          <SearchTabSection />
+          <Stack className="px-4! md:px-0!">
+            <SearchTabSection />
+          </Stack>
 
           <LastSearch data={activityData} />
           <Stack className="mt-4! w-full! md:hidden!">
-            <Stack
-              className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!"
-              sx={{ backgroundColor: "secondary.50" }}
-            >
-              <img src="/images/chance.png" className="h-12! w-12!" alt="" />
-              <Stack className="flex! flex-col! gap-2!">
-                <Typography
-                  sx={{ fontWeight: 500, color: "secondary.main" }}
-                  className="text-base!"
-                >
-                  شانس <span className="text-black!">امروزتو امتحان کن</span>
-                </Typography>
-                <Typography color="text.secondary" className="text-xs!">
-                  هر روز یک گردونه شانس با کلی جایزه
-                </Typography>
-              </Stack>
-            </Stack>
+            <ChanceMobile />
           </Stack>
 
           <Stack className="mt-[20px]! md:mt-0!">
             <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!" />
-
           </Stack>
         </Stack>
 
@@ -97,12 +83,11 @@ export default function Home() {
         </Box>
 
         {/* discounded tours */}
-        <Stack className="hidden! md:block!">
+        <Stack className="">
           <DicountedEntertainmentSection />
-
         </Stack>
 
-        <Stack className="mt-[-120]! md:mt-0!">
+        <Stack className=" md:mt-0!">
           <BuyOneGetTwoSection />
 
           {/* banner */}
@@ -121,7 +106,6 @@ export default function Home() {
 
         <Box className="mt-10! md:mt-0!">
           <OfferBanner
-            bgColor="white"
             caption="این بار این سفر واست خاطره میشه ..."
             responsiveCaption="این بار این سفر واست خاطره میشه ..."
             title={"پکیج دلخواهت رو انتخاب کن "}
@@ -164,7 +148,11 @@ export default function Home() {
             <CommonQuestions />
           </Box>
           <Box className=" md:hidden!">
-            <CommonQuestions responsive={true} hasTItle={false} hasFooter={false} />
+            <CommonQuestions
+              responsive={true}
+              hasTItle={false}
+              hasFooter={false}
+            />
           </Box>
           <CommentSlider />
         </Container>

@@ -1,13 +1,16 @@
 "use client"
 
-import { Button, Stack } from "@mui/material"
+import { Box, Button, Stack } from "@mui/material"
 import Image from "next/image"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FestivalOutlinedIcon from '@mui/icons-material/FestivalOutlined';
 import SailingOutlinedIcon from '@mui/icons-material/SailingOutlined';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FavoriteHotels from "./_components/favoriteHotels";
+import { headerTitleAtom } from "@/store/atomHeader";
+import { useAtom } from "jotai";
+import MainTabs from "@/components/shared/mainTabs";
 
 const tabs = [
     {
@@ -39,15 +42,20 @@ const tabs = [
 
 export default function Favorites() {
     const [activeTab, setActiveTab] = useState("hotel");
+    const [, setHeaderTitle] = useAtom(headerTitleAtom);
+
+    useEffect(() => {
+        setHeaderTitle("علاقه مندی ها");
+    }, []);
 
     return (
         <Stack maxWidth={"xl"}>
-            <Stack className="w-full! relative! h-[150px]!">
+            <Stack className="hidden! md:block! w-full! relative! h-[150px]!">
                 <Image alt="banner" src={`/images/panel/history-banner.png`} fill />
             </Stack>
 
 
-            <Stack className="flex! flex-row! gap-6 items-center! w-full!" mt={3}>
+            <Stack className="hidden! md:flex! flex-row! gap-6 items-center! w-full!" mt={3}>
                 {
                     tabs?.map((tab) => (
                         <>
@@ -67,7 +75,29 @@ export default function Favorites() {
                     ))
                 }
             </Stack>
-            <Stack className="w-full!" mt={3}>
+            <Box className="md:hidden!">
+                <MainTabs
+                    data={tabs}
+                    border={false}
+                    borderBottom={true}
+                    icons={true}
+                    IconsInMobile={false}
+                    bgColor="white"
+                    activeTabBorderColor="#000"
+                    iconPosition="start"
+                    value={tabs.findIndex(t => t.id === activeTab)}
+                    onChange={(_, v) => setActiveTab(tabs[v].id)}
+                    tabStyle={{
+                        fontSize: 14,
+                        px: 0,
+                        py: 2,
+                        "&.Mui-selected": {
+                            color: "#000",
+                        },
+                    }}
+                />
+            </Box>
+            <Stack className="w-full! md:mt-6! py-5 md:py-0 px-4! md:px-0!" sx={{ backgroundColor: { xs: "background.paper", md: "white" } }}>
                 {tabs.find((tab) => tab.id === activeTab)?.component}
             </Stack>
         </Stack>

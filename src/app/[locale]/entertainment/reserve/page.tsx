@@ -34,7 +34,7 @@ export default function Home() {
         <BreadCrumbFa/>
         
         </Stack>
-        <Stack className="mt-[-58px] ">
+        <Stack className="md:mt-[-58px]! mt-0! ">
           <ReserveStepper />
         </Stack>
         <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth !hidden lg:!flex" >

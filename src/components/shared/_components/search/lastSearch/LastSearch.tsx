@@ -26,7 +26,7 @@ export default function LastSearch({ hotel = false, data = [] }: LastSearchProps
           </Typography>
         </Stack>
 
-        <Button startIcon={<DeleteIcon className="text-slate-400!" />} className="hidden! md:block!">
+        <Button startIcon={<DeleteIcon className="text-slate-400!" />} className="hidden! md:flex!">
           <Typography className="reveal text-slate-400! reveal-down">حذف تاریخچه</Typography>
         </Button>
       </Stack>
@@ -75,7 +75,7 @@ export default function LastSearch({ hotel = false, data = [] }: LastSearchProps
         }}
         className="reveal-down md:hidden!"
       >
-        <ReusableSwiper slidePerViewXs={1.8} slideperviewMd={1.7} slidePerviewLg={5} spaceBetween={5} pagination={true} dots={false}>
+        <ReusableSwiper slidePerViewXs={1.8} slideperviewMd={1.7} slidePerviewLg={5} spaceBetween={0} pagination={true} dots={false}>
           {data.map((item, index) => (
             <Button
               key={index}

@@ -7,14 +7,17 @@ interface TourCardProps {
   title: string;
   startDate: string;
   endDate: string;
+  index?: number;
 }
 
-export function TourCard({ image, title, startDate, endDate }: TourCardProps) {
+export function TourCard({ image, title, startDate, endDate, index = 0 }: TourCardProps) {
+  const isEven = index % 2 === 0;
+  
   return (
     <Grid size={3} className="flex flex-col gap-6! h-full cursor-pointer">
       {/* Image */}
       <Stack
-        className="relative h-9/12 w-full overflow-hidden rounded-2xl"
+        className={`relative w-full overflow-hidden rounded-2xl ${isEven ? 'h-9/12' : 'h-7/12'}`}
         sx={{
           "& img": {
             transition: "transform 0.4s ease-in-out",
@@ -33,8 +36,8 @@ export function TourCard({ image, title, startDate, endDate }: TourCardProps) {
       </Stack>
 
       {/* Content */}
-      <Stack className="h-3/12 w-full">
-        <Typography className="text-xl! font-semibold! mb-3! reveal-down">
+      <Stack className={`w-full ${isEven ? 'h-3/12' : 'h-5/12'}`}>
+        <Typography className="md:text-2xl! text-lg! font-semibold! mb-3! reveal-down">
           {title}
         </Typography>
 

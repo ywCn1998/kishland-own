@@ -77,7 +77,7 @@ export default function ReserveStepper() {
           width: { lg: "100%", xs: "100dvw" },
           overflow: "hidden",
           mb: 4,
-          mt: { xs: "115px", lg: 0 },
+          mt: { xs: 0, lg: 0 },
           display: {
             xs: activeStep === 0 ? "none" : "flex",
             lg: "flex",

@@ -17,42 +17,32 @@ import {
   CommentSlider,
   CommonQuestions,
   ExtraFooterInformation,
-  MianBanner,
   OfferBanner,
   WhyKishLand,
   LastSearch,
 } from "@/components/shared/_components";
-import GoldenText from "@/components/shared/_components/GoldenText";
 import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
+import MainBanner from "@/components/shared/_components/banner/mainBanner";
+import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
+
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },
   { title: "کشتی امیرکبیر کیش" },
 ];
 export default function Home() {
-  // const { locale } = params;
 
-  // setRequestLocale(locale);
-
-  // const t = useTranslations();
   return (
     <Stack
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
-      className="mb-10!"
     >
-      <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 2 } }}>
+      <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 3 } }} disableGutters>
         <CategorySlider />
         <Stack className="px-4 md:px-0 bg-white"><TourSearchSection /></Stack>
         <Stack className="hidden! md:block!">
           <LastSearch data={activityData} />
         </Stack>
         <Stack className="mt-3! px-4! md:hidden!" >
-          <Stack className="flex! flex-row! gap-3! items-center! rounded-xl! py-3!" sx={{ backgroundColor: "secondary.50" }}>
-            <img src="/images/chance.png" className="h-12! w-12!" alt="" />
-            <Stack className="flex! flex-col! gap-2!">
-              <Typography sx={{ fontWeight: 500, color: "secondary.main" }} className="text-base!">شانس <span className="text-black!">امروزتو امتحان کن</span></Typography>
-              <Typography color="text.secondary" className="text-xs!">هر روز یک گردونه شانس با کلی جایزه</Typography>
-            </Stack>
-          </Stack>
+          <ChanceMobile />
         </Stack>
 
       </Container>
@@ -67,10 +57,11 @@ export default function Home() {
 
         {/* پیشنهادات لحظه ایی */}
         <Stack className="w-full! flex! flex-col-reverse! md:flex-col">
-          <ViewsOfHotelSection />
-
-          <Stack className="bg-slate-100 md:bg-white mx-0! my-5! md:my-0!">
-            <Container maxWidth="xl" className="mx-auto!">
+          <Container maxWidth={"xl"}>
+            <ViewsOfHotelSection />
+          </Container>
+          <Stack className="bg-slate-100 md:bg-[white] mx-0! my-5! md:my-0!">
+            <Container maxWidth="xl" className="mx-auto! md:bg-[#F0F7FF]! bg-none!  rounded-3xl!">
               {/* <Stack className="hidden! md:block!"> */}
               <OfferBanner
                 caption=" این تور های رو از دست نده ..."
@@ -78,20 +69,14 @@ export default function Home() {
                 title={" پیشنهادات لحظه ای"}
                 buttonText={"مشاهده لیست پیشنهادات ها"}
                 href="/fa/tour/list"
-              // captionClass="block! text-xs! sm:text-base md:text-xl"
               />
 
-              {/* </Stack> */}
-
             </Container>
 
-            <Container maxWidth="xl" className="mx-auto!" sx={{
-              px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
-              pl: { xs: 2 }
-            }}
-              disableGutters>
+            <Stack>
               <TourSuggestionSlider />
-            </Container>
+            </Stack>
+
 
           </Stack>
         </Stack>
@@ -105,7 +90,7 @@ export default function Home() {
 
       <Container maxWidth="xl" sx={{ mt: 7 }}>
         <Stack className=" hidden! md:block!">
-          <MianBanner />
+          <MainBanner href="/fa/tour/list" />
         </Stack>
         <TravelNowPayTomarrow />
       </Container>

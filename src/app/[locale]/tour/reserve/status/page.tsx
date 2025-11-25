@@ -7,8 +7,7 @@ import { KeyboardBackspaceOutlined } from "@mui/icons-material";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
 
-import YouMayLoveSection from "../_components/youMayLoveSection";
-import ReserveStepper from "../_components/reseeveStepper/reserveStepper";
+import ReserveStepper from "../_components/reseeveStepper/reserveStepperTour";
 
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";

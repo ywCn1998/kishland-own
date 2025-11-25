@@ -19,6 +19,7 @@ import RevealObserver from "@/components/shared/RevealObserver";
 import MobileBottomNav from "@/components/shared/bottomNavigation/bottomNavigation";
 import RouteIO from "../_route-io";
 import NextTopLoader from "nextjs-toploader";
+import { headers } from "next/headers";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -48,6 +49,18 @@ export default async function RootLayout({
   params,
   children,
 }: RootLayoutProps) {
+
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const parts = pathname.split("/");
+  const lastPart = parts.pop() || "";
+  const isLandingPage =
+    lastPart === "tour" ||
+    lastPart === "entertainment" ||
+    lastPart === "hotel" ||
+    lastPart === "panel";
+
+
   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -83,12 +96,17 @@ export default async function RootLayout({
               />
               <RouteIO />
               <Header />
-              <Stack component="main" sx={{ minHeight: "70vh" }} className="mt-28! md:mt-0!">
+              <Stack
+                component="main"
+                className={`min-h-[70vh]`}
+              >
                 {children}
               </Stack>
               <Footer />
             </Stack>
-            <MobileBottomNav />
+            {isLandingPage && (
+              <MobileBottomNav />
+            )}
           </NextIntlClientProvider>
         </MuiProvider>
       </Box>

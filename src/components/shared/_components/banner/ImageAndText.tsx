@@ -13,7 +13,8 @@ type CenteredGridProps = {
   childrenGridSIze?: number | object;
   flexDirection?: string;
   height?: number | string | object;
-  imgHeight?: string |number | object;
+  imgHeight?: string | number | object;
+  spacing?: number;
 };
 
 export default function ImageAndText({
@@ -23,14 +24,17 @@ export default function ImageAndText({
   imgGridSIze = 4,
   childrenGridSIze = 8,
   flexDirection = "row",
-  height = 500,imgHeight = 500
+  height = 500,
+  imgHeight = 500,
+  spacing = 0
 }: CenteredGridProps) {
   return (
     <Grid
       container
-      sx={{ height, position: "relative", flexDirection : {xs : "column-reverse" , lg : flexDirection} }}
+      sx={{ height, position: "relative", flexDirection: { xs: "column-reverse", lg: flexDirection } }}
       alignItems="center"
       justifyContent="center"
+      spacing={spacing}
     >
       {/* Left side */}
       <Grid

@@ -1,35 +1,52 @@
 "use client";
-import { Box, Button, Container, Stack } from "@mui/material";
+import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
-// import { useTranslations } from 'next-intl';
-import { getTranslations } from "next-intl/server";
-import Typography from "@mui/material/Typography";
-import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
-import {
-  PhoneInTalkOutlined,
-  LoginOutlined,
-  Widgets,
-} from "@mui/icons-material";
-import { useState } from "react";
+import { PhoneInTalkOutlined, LoginOutlined } from "@mui/icons-material";
 import RegisterModal from "../modal/loginModals/registerModal";
+import { useAtom } from "jotai";
+import {
+  headerBackIconAtom,
+  headerDateAtom,
+  headerLeftItemAtom,
+  headerTitleAtom,
+} from "@/store/atomHeader";
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { PhoneInTalk } from "@mui/icons-material";
 
-export default function Header({}) {
-  const path = location.pathname;
+export default function Header({ }) {
+  const [headerTitle] = useAtom(headerTitleAtom);
+  const [backIcon] = useAtom(headerBackIconAtom);
+  const [date] = useAtom(headerDateAtom);
+  const [leftItem] = useAtom(headerLeftItemAtom);
+  const [open, setOpen] = useState(false)
+
+  // Safe pathname (keeps your logic, avoids SSR crash)
+  const path = typeof window !== "undefined" ? window.location.pathname : "";
   const parts = path.split("/");
-  const lastPart = parts.pop();
+  const lastPart = parts.pop() || "";
+  const router = useRouter();
+  // const pathname = usePathname();
+  console.log("lastPart", lastPart);
 
-  const [open, setOpen] = useState<boolean>(false);
+  const isLandingPage =
+    lastPart === "tour" ||
+    lastPart === "entertainment" ||
+    lastPart === "hotel";
+
   return (
     <Container maxWidth="xl">
-      <Stack className="lg:!py-8  " sx={{ boxShadow: "none" }}>
+      <Stack className="lg:!py-8" sx={{ boxShadow: "none" }}>
+        {/* ✅ Desktop Header (static) */}
         <Stack
           component="header"
           alignItems={"center"}
-          className="border-1 border-slate-200 rounded-lg bg-white! !hidden  lg:flex!"
+          className="border-1 border-slate-200 rounded-lg bg-white! hidden! lg:flex!"
         >
-          {/* <Container maxWidth="xl" sx={{ height: "100%" }}> */}
           <Stack
             sx={{ height: "100%", width: "100%", py: 2 }}
             flexDirection="row"
@@ -46,7 +63,6 @@ export default function Header({}) {
                   height={100}
                   width={100}
                   style={{
-                    // maxWidth: '100%',
                     maxHeight: "100%",
                     height: "100%",
                     objectFit: "contain",
@@ -57,6 +73,7 @@ export default function Header({}) {
                 <Navbar />
               </Stack>
             </Stack>
+
             <Stack flexDirection="row" alignItems="center" gap={3}>
               <Button
                 variant="contained"
@@ -69,20 +86,19 @@ export default function Header({}) {
               <Button
                 variant="outlined"
                 startIcon={<LoginOutlined />}
-                sx={{
-                  color: "text.primary",
-                }}
+                sx={{ color: "text.primary" }}
                 className="px-10! h-[55px]!"
-                onClick={() => setOpen(!open)}
+                onClick={() => setOpen(true)}
               >
                 <Typography className="text-base!">ورود یا ثبت نام</Typography>
               </Button>
-              {/* <Button variant="text">پنل کاربری</Button> */}
             </Stack>
           </Stack>
-          {/* </Container> */}
         </Stack>
-        {lastPart === "tour" || "entertainment" || "hotel" ? (
+
+        {lastPart === "tour" ||
+          lastPart === "entertainment" ||
+          lastPart === "hotel" ? (
           <Box
             className="
     relative
@@ -125,7 +141,7 @@ export default function Header({}) {
     py-2
   "
                 >
-                  <PhoneInTalkIcon />
+                  <PhoneInTalk />
                   <Typography>021-93893839</Typography>
                 </Stack>
               </Stack>
@@ -136,14 +152,15 @@ export default function Header({}) {
               </Stack>
             </Stack>
           </Box>
-        ) : (
+        ) : lastPart == "panel" ? null : (
           <Stack
             className="
     flex 
-    items-center 
-    justify-center
+    flex-row!
+    items-center!
+    justify-between
     lg:hidden!
-    h-[60px]
+    h-[80px]
     w-full
     bg-white
     z-[1300]
@@ -156,15 +173,25 @@ export default function Header({}) {
     border-slate-200
   "
           >
-            <Typography
-              className="text-base! font-medium!"
-              sx={{ lineHeight: "60px" }}
-            >
-              سبد خرید
-            </Typography>
+
+            <Stack className="flex! flex-row! items-center! gap-4!">
+              <Stack>
+                <IconButton onClick={() => router.back()}>
+                  {backIcon ? <EastOutlinedIcon /> : <CloseOutlinedIcon />}
+                </IconButton>
+              </Stack>
+              <Stack className="flex! flex-col! gap-2! justify-center! items-center!">
+                <Typography className="text-base! font-medium! mt-2!">{headerTitle}</Typography>
+                <Typography className="text-sm! font-light!">{date}</Typography>
+              </Stack>
+            </Stack>
+            <Stack>{leftItem}</Stack>
           </Stack>
         )}
+
+        <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : lastPart === "panel" ? "h-[0px]" : "h-[80px]"}`} />
       </Stack>
+
       <RegisterModal open={open} setOpen={setOpen} />
     </Container>
   );

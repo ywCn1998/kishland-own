@@ -9,7 +9,7 @@ import TextNumber from "@/components/shared/textNumber";
 
 export default function BannerSearchTicketSection({ hasTitle }: { hasTitle?: boolean }) {
     return (
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" disableGutters>
             {
                 hasTitle && <TextNumber text="جستجو تور مورد نظر" number={1} className="mb-4!"/>
             }

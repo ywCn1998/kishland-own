@@ -22,7 +22,7 @@ export default function TotalResponsive({
         boxShadow: 3,
         backgroundColor: "white",
         position: "fixed",
-        bottom: 75,
+        bottom: 0,
         left: 0,
         zIndex: 1200,
         display: { lg: "none", xs: "flex" },

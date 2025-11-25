@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
   useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { PhoneOutlined } from "@mui/icons-material";
 import Image from "next/image";
@@ -26,6 +27,8 @@ import BackpackOutlinedIcon from "@mui/icons-material/BackpackOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
+import { useAtom } from "jotai";
+import { hasFooterResponsive } from "@/store/atomHeader";
 const footerSections = [
   {
     title: "خدمات کیشلندیار",
@@ -119,14 +122,20 @@ const footerSections = [
 export function Footer() {
   const theme = useTheme();
   const t = useTranslations("Footer");
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  const [footer] = useAtom(hasFooterResponsive);
   const [expanded, setExpanded] = useState<number | false>(false);
 
   const handleChange =
     (panelIndex: number) =>
-    (_event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panelIndex : false);
-    };
+      (_event: React.SyntheticEvent, isExpanded: boolean) => {
+        setExpanded(isExpanded ? panelIndex : false);
+      };
+
+  if (isMobile && !footer) {
+    return null;
+  }
 
   return (
     <Stack
@@ -138,25 +147,24 @@ export function Footer() {
         alignItems: "center",
         // maxWidth: "1440px", // keep it centered and not too wide
         // borderTop: "1px solid #ddd",
-        boxShadow: "0 12px 24px -12px rgba(18,38,63,.18)",
+        mb: { xs: 4, lg: 0 },
         paddingTop: { xs: 0, lg: 7 },
         marginX: "auto",
         borderRadius: 2, // optional if you want rounded edges
-        // bgcolor: "#fff", // white card look
-        mb : {xs : 15 , lg : 0}
+        // bgcolor: "#fff", // white card loo
       }}
     >
       <Container maxWidth="xl">
         <Stack
           flexDirection={{ xs: "column", lg: "row" }}
           alignItems="center"
-          justifyContent="center"
+          justifyContent="space-between"
           mx={"auto"}
           gap={{ lg: 20, xs: 0 }}
         >
           <Grid
             container
-            spacing={10}
+            spacing={14}
             justifyContent={"end"}
             className="hidden! lg:!flex"
           >
@@ -345,10 +353,10 @@ export function Footer() {
           alignItems="center"
           justifyContent="center"
           gap={2}
-          pb={{lg : 3 , xs : 10}}
+          pb={{ lg: 3, xs: 10 }}
           mt={2}
         >
-          <CopyrightOutlinedIcon className=" text-slate-400!"/>
+          <CopyrightOutlinedIcon className=" text-slate-400!" />
           <Typography className="!text-xs  text-slate-400! leading-loose!">
             کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
             پیاده سازی توسط تیم IT کیشلندیار
@@ -362,10 +370,10 @@ export function Footer() {
 const FooterLinkSection = ({
   value,
 }: // type
-{
-  value: string;
-  type: "phone" | "email" | "address" | "link";
-}) => {
+  {
+    value: string;
+    type: "phone" | "email" | "address" | "link";
+  }) => {
   return (
     <Stack className=" w-full  flex-row! gap-2 ">
       {/* <PhoneOutlined /> */}

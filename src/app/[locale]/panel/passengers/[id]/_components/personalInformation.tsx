@@ -11,27 +11,27 @@ export default function PersonalInformation() {
     return (
         <FormProvider onSubmit={OnSubmit} methods={methods}>
             <Grid container spacing={2}>
-                <Grid size={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <RHFTextInput name="firstName" startIcon={<PersonOutlineOutlinedIcon />} placeholder="نام" />
                 </Grid>
 
-                <Grid size={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <RHFTextInput name="lastName" startIcon={<PersonOutlineOutlinedIcon />} placeholder="نام خانوادگی" />
                 </Grid>
 
-                <Grid size={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
                 </Grid>
 
-                <Grid size={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="کد ملی" />
                 </Grid>
 
-                <Grid size={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="جنسیت" />
                 </Grid>
 
-                <Grid size={6}>
+                <Grid size={{ xs: 12, md: 6 }} className="hidden! md:block!">
                     <Button type="submit" sx={{ width: "100%", color: "white", height: "100%", fontWeight: 500, fontSize: 18 }} variant="contained"> ذخیره تغییرات</Button>
                 </Grid>
             </Grid>

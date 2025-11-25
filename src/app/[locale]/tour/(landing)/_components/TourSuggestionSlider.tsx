@@ -22,7 +22,7 @@ export default async function TourSuggestionSlider() {
         }}
         className="reveal-down"
       >
-        <ReusableSwiper slidePerViewXs={1.4} slidePerviewLg={5} spaceBetween={20} pagination={true}>
+        <ReusableSwiper slidePerViewXs={1.4} slidePerviewLg={6} spaceBetween={20} pagination={true}>
           {Array(10)
             .fill(null)
             .map((_, i) => (

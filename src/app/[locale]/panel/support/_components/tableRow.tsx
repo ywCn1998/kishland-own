@@ -20,14 +20,14 @@ export const statuses = {
 };
 
 
-const statusColors: Record<string, string> = {
+export const statusColors: Record<string, string> = {
     pending: "primary.main", // strong red → error
     answered: "secondary.main", // same for consistency
     closed: "text.secondary", // orange → waiting
 };
 
 
-const statusBackground: Record<string, string> = {
+export const statusBackground: Record<string, string> = {
     pending: "primary.50", // strong red → error
     answered: "secondary.50", // same for consistency
     closed: "background.paper", // orange → waiting

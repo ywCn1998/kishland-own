@@ -10,6 +10,7 @@ import {
 import Question from "./_components/question";
 import GoldenText from "../GoldenText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CategoryTabs from "./_components/CategoryTabs";
 
 const faqs = [
   {
@@ -45,38 +46,48 @@ export default function CommonQuestions({
   hasTItle = true,
   hasFooter = true,
   responsive = false,
+  isAboutUs = false,
 }: {
   hasTItle?: boolean;
   hasFooter?: boolean;
   responsive?: boolean;
+  isAboutUs?: boolean;
 }) {
   return (
-    <Stack>
-      {hasTItle && (
-        <Stack
-          className="flex! flex-col! justify-center! items-center! "
-          mt={10}
-          mb={5}
-          spacing={2}
-        >
-          <Typography className="text-slate-400! text-lg!">
-            شاید جواب سوالت اینجا باشه
-          </Typography>
-          <GoldenText
-            textClass="text-5xl! font-bold!"
-            text={
-              <>
-                <span className="text-black!">پر تکرارترین </span> سوالات{" "}
-                <span className="text-black!">متداول شما</span>
-              </>
-            }
-            bgColor="orange"
-            textColor="primary"
-            bgColorSx={{ left: 20, bottom: -10 }}
-            bgWidth="93% "
-          />
-        </Stack>
-      )}
+    <Stack >
+      <Stack className={`${isAboutUs ? "bg-[#F5F7FA]! rounded-2xl! " : ""}`}>
+        {hasTItle && (
+          <Stack
+            className="flex! flex-col! justify-center! items-center! "
+            mt={10}
+            mb={5}
+            spacing={2}
+          >
+            <Typography className="text-slate-400! text-lg!">
+              شاید جواب سوالت اینجا باشه
+            </Typography>
+            <GoldenText
+              textClass="text-5xl! font-bold!"
+              text={
+                <>
+                  <span className="text-black!">پر تکرارترین </span> سوالات{" "}
+                  <span className="text-black!">متداول شما</span>
+                </>
+              }
+              bgColor="orange"
+              textColor="primary"
+              bgColorSx={{ left: 20, bottom: -10 }}
+              bgWidth="93% "
+            />
+          </Stack>
+        )}
+
+        {isAboutUs && (
+          <Stack className="px-4! mb-6! hidden! md:block!">
+            <CategoryTabs />
+          </Stack>
+        )}
+      </Stack>
 
       {responsive ? (
         <Accordion className=" rounded-lg border-none!" defaultExpanded>
@@ -87,12 +98,17 @@ export default function CommonQuestions({
           >
             <p className="font-semibold text-2xl!">سوالات متداول</p>
           </AccordionSummary>
+          {isAboutUs && (
+            <Stack className="mb-5! mt-2! md:hidden!">
+              <CategoryTabs />
+            </Stack>
+          )}
           <Divider className="mt-4!" />
 
           <AccordionDetails className="p-0">
             <div className="w-full mx-auto rounded-b-lg">
               {faqs.map((faq, idx) => (
-                <div key={idx}>
+                <div key={idx + "fraqs"}>
                   <CollapseItem
                     costumIcon={true}
                     title={faq.title}
@@ -111,7 +127,7 @@ export default function CommonQuestions({
           {faqs.map((faq, idx) => (
             <>
               <CollapseItem
-                key={idx}
+                key={idx + "fraqs2"}
                 title={faq.title}
                 description={faq.description}
               />

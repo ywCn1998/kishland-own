@@ -13,7 +13,12 @@ export default function middleware(req: NextRequest) {
   }
 
   // Let next-intl handle locale routing for everything else
-  return intl(req);
+  const response = intl(req);
+  
+  // Add pathname to headers for server components
+  response.headers.set("x-pathname", req.nextUrl.pathname);
+  
+  return response;
 }
 
 // Make sure middleware runs on "/" and localized paths

@@ -1,5 +1,6 @@
 import { Container, Typography, Stack, Grid, Button } from "@mui/material";
 import BlogCard from "../../../../../components/shared/cards/blogCard";
+import ViewsGalleryStrip from "./ViewsGalleryStrip";
 
 const services = [
   "لابی",
@@ -39,20 +40,33 @@ const checkTime = [
   }
 ]
 
-const images = [
-  "/images/lobby-3.png",
-  "/images/lobby-hotel.png",
+const primaryImages = [
+  "/images/hotel-bathroom.png",
   "/images/hotel-pool.png",
+  "/images/kourosh-hotel.png",
+  "/images/hotel-view.png",
+  "/images/lobby-hotel.png",
   "/images/lobby-2.png",
-  "/images/hotel-room.png",
+  "/images/bathroom-2.png",
+  "/images/lobby-3.png",
   "/images/lobby-4.png",
 ];
 
-export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasDetails?: boolean, isIntegrated?: boolean }) {
-  const visibleImages = images.slice(0, 4);
-  const remainingCount = images.length - visibleImages.length;
+const additionalGalleryImages: string[] | undefined = [
+  "/images/building.png",
+  "/images/file1.png",
+  "/images/blog1.png",
+  "/images/float4.png",
+  "/images/float2.png",
+];
+
+const galleryImages = Array.from(
+  new Set([...primaryImages, ...additionalGalleryImages!])
+);
+
+export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelLocation }: { hasDetails?: boolean, isIntegrated?: boolean, isHotelLocation?: boolean }) {
   return (
-    <Container maxWidth="xl" sx={{ marginBottom: "10px", mx: "auto" }}>
+    <Container disableGutters maxWidth="xl" sx={{ marginBottom: "10px", mx: "auto" }}>
       <Grid
         container
         spacing={2}
@@ -78,53 +92,12 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasD
 
 
                     {/* ------------------------------------- */}
-
-                    <Stack className="absolute! bottom-6! px-6! w-full! z-10!">
-                      <Stack className="bg-white! h-20! rounded-full! flex! flex-row! gap-2.5! p-2.5!">
-                        {visibleImages.map((img, index) => {
-                          const isFirst = index === 0;
-                          const isLast = index === visibleImages.length - 1;
-
-                          // If it's the last visible item and there are more images
-                          if (isLast && remainingCount > 0) {
-                            return (
-                              <Stack
-                                key={img}
-                                className={`relative! h-full! w-3/12! overflow-hidden! rounded-r-md! rounded-l-4xl! group! cursor-pointer!`}
-                              >
-                                <img
-                                  src={img}
-                                  alt=""
-                                  className="w-full! h-full! object-cover! transition-transform! rounded-r-md! duration-[400ms]! ease-in-out! group-hover:scale-[1.15]"
-                                />
-                                <Stack className="hover:font-bold! absolute! inset-0! bg-[#0000008F]! flex! items-center! justify-center! text-white! text-xl! font-medium! select-none!">
-                                  {remainingCount}+
-                                </Stack>
-                              </Stack>
-                            );
-                          }
-
-                          // Regular image
-                          return (
-                            <Stack
-                              key={img}
-                              className={`h-full! w-3/12! overflow-hidden! cursor-pointer! ${isFirst
-                                ? "rounded-l-md! rounded-r-4xl!"
-                                : isLast
-                                  ? "rounded-r-md! rounded-l-4xl!"
-                                  : "rounded-md!"
-                                }`}
-                            >
-                              <img
-                                src={img}
-                                alt=""
-                                className="w-full! h-full! object-cover! transition-transform! duration-[400ms]! ease-in-out! hover:scale-[1.15]"
-                              />
-                            </Stack>
-                          );
-                        })}
+                    {additionalGalleryImages?.length! >= 1 && (
+                      <Stack className="absolute! bottom-6! px-6! w-full! z-10!">
+                        <ViewsGalleryStrip images={galleryImages} additionalImages={additionalGalleryImages! as any} />
                       </Stack>
-                    </Stack>
+                    )}
+
 
 
                     {/* ------------------------------------- */}
@@ -242,27 +215,51 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true }: { hasD
             </Stack>
           </Stack>
         </Grid>
+
       </Grid>
 
       {hasDetails && (
         <Stack gap={2}>
-          <Stack className="flex! flex-row! justify-between!" mt={4}>
-            <Stack className="flex! flex-row! gap-3!">
+          <Stack
+            className="flex! flex-row! justify-between!"
+            mt={4}
+          >
+            <Stack
+              sx={{
+                display: { xs: "grid", md: "flex" },     // Grid on mobile, flex on md+
+                gridTemplateColumns: { xs: "repeat(4, 1fr)", md: "none" },
+                gap: 2,
+              }}
+              className="flex-row! gap-3!"
+            >
               {services.map((item, index) => (
-                <Typography key={"services" + index} className="border-1! border-slate-200! rounded-lg! h-16! flex! items-center px-3!" color="text.secondary">{item}</Typography>
+                <Typography
+                  key={"services" + index}
+                  className="text-xs! md:text-base! text-center! border-1! border-slate-200! rounded-lg! h-16! flex! items-center px-3!"
+                  color="text.secondary"
+                >
+                  {item}
+                </Typography>
               ))}
             </Stack>
-            <Button sx={{ backgroundColor: "text.secondary" }} className="h-16! px-3! rounded-lg! text-white!">مشاهده کامل خدمات</Button>
+
+            <Button
+              sx={{ backgroundColor: "text.secondary" }}
+              className="h-16! px-3! rounded-lg! text-white! hidden! md:inline!"
+            >
+              مشاهده کامل خدمات
+            </Button>
           </Stack>
 
-          <Typography className="text-start! leading-10!">
+
+          <Typography className="text-start! leading-10! text-sm! hidden! md:inline!">
             هتل پنج ستاره کوروش کیش واقع در میدان پردیس در نوروز سال 1397 فعالیت خود را آغاز نمود. این هتل تازه تاسیس در 16 طبقه بنا و دارای 198 باب اتاق و سوئیت اقامتی لوکس با امکانات رفاهی مناسب می‌باشد. موقعیت مکانی هتل موجب دسترسی آسان به ساحل نیلگون خلیج فارس و مراکز خرید مهم جزیره زیبای کیش از جمله پردیس 1 و 2 گردیده است. هتل مجلل کوروش با پرسنلی آموزش دیده و مجرب فرصت میزبانی از شما را غنیمت شمرده و در تلاش اند اقامتی بیادماندنی را برای میهمانان عزیز رقم بزنند. لازم به ذکر است اتاق های رو به دریا تنها دارای چشم انداز دریا می‌باشند.
           </Typography>
 
           <Grid container spacing={3}>
             {checkTime.map((item, index) => (
-              <Grid size="grow" key={"ckeckTime" + index} >
-                <Stack className="border-1! border-slate-200! rounded-xl! h-28! flex! flex-col! justify-center! px-3! items-center! gap-4!">
+              <Grid size={{ xs: 12, md: "grow" }} key={"ckeckTime" + index} >
+                <Stack className="border-1! border-slate-200! rounded-xl! h-18! md:h-28! flex! flex-row-reverse! md:flex-col! justify-between! md:justify-center! px-3! items-center! gap-4!">
                   <Typography className="text-lg!" fontWeight={600}>{item?.text}</Typography>
                   <Typography className="" color="text.secondary">{item?.time}</Typography>
                 </Stack>

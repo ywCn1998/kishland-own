@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import Banner from "@/components/shared/_components/banner/mianBanner";
+import Banner from "@/components/shared/_components/banner/mainBanner";
 import GoldenText from "@/components/shared/_components/GoldenText";
 
 const TravelNowPayTomarrow = () => {

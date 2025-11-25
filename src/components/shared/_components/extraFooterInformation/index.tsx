@@ -64,15 +64,15 @@ export default function ExtraFooterInformation({
       )}
       {
         hotels && (
-          <HotelsList className="bg-white! px-0!"/>
+          <HotelsList className="bg-white! px-0!" />
         )
       }
 
-      <Stack mt={{ lg: 10, xs: 2 }} spacing={{ lg: 3, xs: 4 }}>
+      <Stack mt={{ lg: companies ? 10 : 5, xs: 2 }} spacing={{ lg: 3, xs: 4 }}>
         {
           hasHeader && (
             <>
-              <Typography className="text-slate-400! text-sm! lg:text-base! reveal-down leading-[20px]! md:leading-none!">
+              <Typography className="text-slate-400! text-sm! lg:text-base! reveal-down leading-[20px]! md:leading-[30px]!">
                 <span className="text-[#088DEF]">تور کیش،</span> تور کیش ارزان و تور
                 کیش لحظه آخری با بهترین قیمت ها شامل{" "}
                 <span className="text-[#088DEF]">
@@ -96,7 +96,11 @@ export default function ExtraFooterInformation({
                   }
                 />
 
-                <Typography className="text-gray-900! text-sm! leading-[30px]! md:leading-none! md:text-base! reveal-down ">
+<<<<<<< HEAD
+                <Typography className="text-gray-900! text-sm! leading-[30px]! md:leading-[30px]! md:text-base! reveal-down ">
+=======
+                <Typography className="text-gray-900! text-sm! leading-[30px]! md:text-base! reveal-down ">
+>>>>>>> 377438c5ad5eaad3c5cabd56bdef7c74fbfb98c6
                   جزیره کیش یکی از زیبا ترین جزیره های مرجانی در جهان است که همه ساله
                   پذیرای سیل عظیمی از گردشگران تور کیش چه از داخل کشور و چه از خارج
                   کشور است. جزیره کیش دارای مکان های تاریخی بسیاری می باشد که برخی از

@@ -167,7 +167,7 @@ export function TourCard({
                                 </Typography>
                                 <Button
                                     onClick={() => onClick!(true)}
-                                    variant="contained" fullWidth className="text-white! px-2! text-sm!" href={isLocationModal ? "/fa/tour/reserve" : "/fa/tour/modal"}>
+                                    variant="contained" fullWidth className="text-white! px-2! text-sm!" href={isLocationModal ? "/fa/tour/reserve" : "/fa/tour/hotel-location"}>
                                     {isLocationModal ? "انتخاب اتاق" : "خرید تور با این هتل"}
                                 </Button>
                             </Stack>

@@ -37,7 +37,7 @@ export default function TicketCard({
   canBuyTicket,
   ticketType,
   hasBought,
-  isTicketShape,
+  isTicketShape = false,
   ticketNumber = "۵۵۴۸۷۴۱",
   tripLabel = "بلیط رفت",
 }: TicketCardProps) {
@@ -66,19 +66,33 @@ export default function TicketCard({
       <Stack className="flex! flex-row! justify-between! items-center! w-full! mt-7! h-fit! relative!">
         <Stack className="flex! flex-col! gap-3! w-full! justify-between!">
           <Stack className="flex! flex-row! justify-between!">
-            <Typography className="text-3xl!">18:55</Typography>
-            <Typography className="text-3xl!">17:25</Typography>
+            <Typography className="text-xl! font-semibold! md:font-normal! md:text-3xl!">18:55</Typography>
+            <Typography className="text-xl! font-semibold! md:font-normal! md:text-3xl!">17:25</Typography>
           </Stack>
 
           <img
             src="/images/plane-dash.png"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7/12 h-9!"
+            className="hidden! md:inline! absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7/12 h-9!"
             alt="plane path"
           />
 
+          {tripLabel === "بلیط رفت" ? (
+            <img
+              src="/images/go-plane-dash.svg"
+              className="md:hidden! absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6/12 h-9!"
+              alt="plane path"
+            />
+          ) : (
+            <img
+              src="/images/back-plane-dash.svg"
+              className="md:hidden! absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6/12 h-9!"
+              alt="plane path"
+            />
+          )}
+
           <Stack className="flex! flex-row! justify-between!">
-            <TextIcon text="مشهد (MHD)" className="text-xl!" startIcon={<NorthWestIcon />} />
-            <TextIcon text="تهران (THR)" className="text-xl!" startIcon={<NorthEastIcon />} />
+            <TextIcon text="مشهد (MHD)" className="md:text-xl!" startIcon={<NorthWestIcon />} />
+            <TextIcon text="تهران (THR)" className="md:text-xl!" startIcon={<NorthEastIcon />} />
           </Stack>
         </Stack>
       </Stack>
@@ -145,20 +159,20 @@ export default function TicketCard({
             // bgcolor: (t) => (t.palette.secondary as any)?.[50] ?? t.palette.secondary.light,
             // px: 2,
             pb: 1,
-            pt:2.25,
+            pt: 2.25,
             borderBottomLeftRadius: "16px",
             borderBottomRightRadius: "16px",
             mt: -2, // bring it closer to dots; tweak as needed
           }}
         >
           <Stack direction="row" alignItems="center" spacing={1.25}>
-         
 
-            <Button variant="text" className="p-0! text-lg!" sx={{color: "primary.400"}} endIcon={<LocalActivityOutlinedIcon sx={{ color: "primary.400", fontSize: 22 }} />}> {tripLabel}</Button>
+
+            <Button variant="text" className="p-0! md:text-lg!" sx={{ color: "primary.400" }} endIcon={<LocalActivityOutlinedIcon sx={{ color: "primary.400", fontSize: { xs: 16, md: 22 } }} />}> {tripLabel}</Button>
 
           </Stack>
 
-          <Typography sx={{ color: "text.secondary", fontWeight: 600, fontSize: 18 }}>
+          <Typography sx={{ color: "text.secondary", fontWeight: 600, fontSize: { xs: 14, md: 18 } }}>
             <Box component="span" sx={{ color: "text.secondary", fontWeight: 600 }}>
               شماره بلیط :
             </Box>{" "}
@@ -167,31 +181,31 @@ export default function TicketCard({
         </Box>
       ) : (
         // Original price/actions section
-        <Stack className="flex! flex-row! justify-between!">
-          <Stack className="flex! flex-row! gap-3!">
-            <Typography className="text-xl! font-semibold! text-slate-500!">
-              {`2,500,000 تومان`} <span className="text-base! font-normal!"> / نفری</span>
+        <Stack className="flex! flex-row! justify-between! items-center!">
+          <Stack className="flex! flex-row! md:gap-3! gap-1! items-center!">
+            <Typography className="text-sm! md:text-xl! font-semibold! text-slate-500! text-nowrap!">
+              {`2,500,000 تومان`} <span className="text-xs! md:text-base! font-normal!"> / نفری</span>
             </Typography>
             <Chip
               label="10%-"
               sx={{
                 borderRadius: "9999px",
-                fontSize: "12px",
+                fontSize: { xs: 9, md: 12 },
                 py: 0.5,
                 backgroundColor: "#f0f7ff",
                 color: "#088def",
                 fontWeight: 600,
-                height: 25,
+                height: { xs: 20, md: 25 },
               }}
             />
           </Stack>
 
-          {hasBought ? (
-            <Button variant="text" endIcon={<AddIcon className="text-xl!" />} color="secondary" className="p-1!">
+          {!hasBought ? (
+            <Button variant="text" endIcon={<AddIcon className="md:text-xl!" />} color="secondary" className="text-xs! text-nowrap! md:text-base! p-1!">
               انتخاب این بلیط
             </Button>
           ) : (
-            <Button variant="text" endIcon={<FilterListIcon />} className="p-1! text-red-500!">
+            <Button variant="text" endIcon={<FilterListIcon />} className="text-xs! md:text-base text-nowrap! p-1! text-red-500!">
               تغییر بلیط رفت
             </Button>
           )}

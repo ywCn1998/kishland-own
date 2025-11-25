@@ -21,7 +21,8 @@ interface Props {
   showIcon?: boolean;
   closeText?: string;
   bgImage?: string;
-  onClose?: ()=>void;
+  onClose?: () => void;
+  p?: number;
 }
 
 const BaseModal = ({
@@ -35,6 +36,7 @@ const BaseModal = ({
   closeText = "برگشت",
   bgImage,
   onClose,
+  p = 5,
 }: Props) => {
   const CloseHandle = () => setOpen(!open);
 
@@ -55,14 +57,14 @@ const BaseModal = ({
       <Box
         sx={{
           backgroundImage: bgImage ? `url(${bgImage})` : "none",
-          backgroundSize: "cover", 
+          backgroundSize: "cover",
           backgroundPosition: "center",
-          
+
           width: "100%",
           height: "100%",
         }}
       >
-        <Box sx={{ p: 5 }}>
+        <Box sx={{ p: p || 5 }}>
           <Stack
             direction="row-reverse"
             alignItems="center"
@@ -80,12 +82,12 @@ const BaseModal = ({
               }}
               onClick={onClose ? onClose : CloseHandle}
             >
-              <Typography variant="body2">{closeText}</Typography>
+              <Typography className="text-sm! md:text-base!">{closeText}</Typography>
               <ArrowBackIcon fontSize="small" />
             </Button>
-          
-            
-            <Typography variant="h6" sx={{ display: "flex", alignItems: "center" }}>
+
+
+            <Typography className="text-lg! md:text-xl!" sx={{ display: "flex", alignItems: "center" }}>
               {showIcon && <Person sx={{ mr: 1, mb: "2px" }} />}
               {title}
             </Typography>
