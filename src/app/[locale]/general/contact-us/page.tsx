@@ -1,21 +1,15 @@
 import { Container, Stack } from "@mui/material";
 import {
-    CommentSlider,
     CommonQuestions,
     ExtraFooterInformation,
-    MainBlog,
 } from "@/components/shared/_components";
 import {
-    InfoSection,
     HeroSection,
-    FromBeginningSection,
-    StatsShowcase,
-    HonorsSection,
-    KishFamilySection,
+    ContactUsFormSection,
 } from "./_components";
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 
-export default function AboutUsPage() {
+export default function ContactUsPage() {
     return (
         <Stack
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
@@ -23,28 +17,21 @@ export default function AboutUsPage() {
         >
             <Container
                 maxWidth="xl"
+                disableGutters
                 sx={{ px: { xs: 2, md: 3 }, marginBottom: { xs: 5, md: 10 } }}
             >
-                <BreadCrumbFa />
-
-                <Stack spacing={{ xs: 5, md: 8 }} mt={{ xs: 4, md: 8 }}>
-                    <HeroSection />
-                    <StatsShowcase />
-                    <Stack className="md:my-40! my-10!">
-                        <FromBeginningSection />
-                    </Stack>
-                    <InfoSection />
+                <Stack className="hidden! md:block!">
+                    <BreadCrumbFa />
                 </Stack>
-
-                <HonorsSection />
+                <Stack spacing={{ xs: 5, md: 12 }} mt={{ xs: 4, md: 8 }}>
+                    <HeroSection />
+                    <ContactUsFormSection />
+                </Stack>
             </Container>
 
-            <Stack className="mt-5!">
-                <KishFamilySection />
-            </Stack>
 
             <Container maxWidth="xl" disableGutters>
-                <Stack className="hidden! md:block!" mt={{ xs: 6, md: 12 }}>
+                <Stack className="hidden! md:block!" mt={{ xs: 6, md: 8 }}>
                     <CommonQuestions isAboutUs={true} />
                 </Stack>
                 <Stack className="md:hidden!" mt={{ xs: 4, md: 8 }}>

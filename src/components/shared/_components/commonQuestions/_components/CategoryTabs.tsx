@@ -47,11 +47,10 @@ export default function CategoryTabs({
           <Button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
-            className={`rounded-xl! w-full! text-base! md:text-lg! whitespace-nowrap! transition-all! ${
-              isActive
+            className={`rounded-xl! w-full! text-base! md:text-lg! whitespace-nowrap! transition-all! ${isActive
                 ? "bg-[#088DEF]! text-white!"
                 : "bg-white! text-black!"
-            }`}
+              }`}
             sx={{
               minWidth: "fit-content",
               textTransform: "none",
