@@ -147,25 +147,24 @@ export function Footer() {
         alignItems: "center",
         // maxWidth: "1440px", // keep it centered and not too wide
         // borderTop: "1px solid #ddd",
-        boxShadow: "0 12px 24px -12px rgba(18,38,63,.18)",
+        mb: { xs: 4, lg: 0 },
         paddingTop: { xs: 0, lg: 7 },
         marginX: "auto",
         borderRadius: 2, // optional if you want rounded edges
-        // bgcolor: "#fff", // white card look
-        mb: { xs: 15, lg: 0 }
+        // bgcolor: "#fff", // white card loo
       }}
     >
       <Container maxWidth="xl">
         <Stack
           flexDirection={{ xs: "column", lg: "row" }}
           alignItems="center"
-          justifyContent="center"
+          justifyContent="space-between"
           mx={"auto"}
           gap={{ lg: 20, xs: 0 }}
         >
           <Grid
             container
-            spacing={10}
+            spacing={14}
             justifyContent={"end"}
             className="hidden! lg:!flex"
           >

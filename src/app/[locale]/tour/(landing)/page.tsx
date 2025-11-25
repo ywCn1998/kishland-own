@@ -34,9 +34,8 @@ export default function Home() {
   return (
     <Stack
       style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
-      className="mb-10!"
     >
-      <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 2 } }}>
+      <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 3 } }} disableGutters>
         <CategorySlider />
         <Stack className="px-4 md:px-0 bg-white"><TourSearchSection /></Stack>
         <Stack className="hidden! md:block!">
@@ -61,8 +60,8 @@ export default function Home() {
           <Container maxWidth={"xl"}>
             <ViewsOfHotelSection />
           </Container>
-          <Stack className="bg-slate-100 md:bg-white mx-0! my-5! md:my-0!">
-            <Container maxWidth="xl" className="mx-auto!">
+          <Stack className="bg-slate-100 md:bg-[white] mx-0! my-5! md:my-0!">
+            <Container maxWidth="xl" className="mx-auto! md:bg-[#F0F7FF]! bg-none!  rounded-3xl!">
               {/* <Stack className="hidden! md:block!"> */}
               <OfferBanner
                 caption=" این تور های رو از دست نده ..."
@@ -74,13 +73,11 @@ export default function Home() {
 
             </Container>
 
-            <Container maxWidth="xl" className="mx-auto!" sx={{
-              px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
-              pl: { xs: 2 }
-            }}
-              disableGutters>
+            <Stack>
               <TourSuggestionSlider />
-            </Container>
+            </Stack>
+
+
           </Stack>
         </Stack>
 

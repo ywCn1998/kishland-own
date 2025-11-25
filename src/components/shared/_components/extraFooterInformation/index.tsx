@@ -72,7 +72,7 @@ export default function ExtraFooterInformation({
         {
           hasHeader && (
             <>
-              <Typography className="text-slate-400! text-sm! lg:text-base! reveal-down leading-[20px]! md:leading-none!">
+              <Typography className="text-slate-400! text-sm! lg:text-base! reveal-down leading-[20px]! md:leading-[30px]!">
                 <span className="text-[#088DEF]">تور کیش،</span> تور کیش ارزان و تور
                 کیش لحظه آخری با بهترین قیمت ها شامل{" "}
                 <span className="text-[#088DEF]">
@@ -96,7 +96,7 @@ export default function ExtraFooterInformation({
                   }
                 />
 
-                <Typography className="text-gray-900! text-sm! leading-[30px]! md:leading-none! md:text-base! reveal-down ">
+                <Typography className="text-gray-900! text-sm! leading-[30px]! md:leading-[30px]! md:text-base! reveal-down ">
                   جزیره کیش یکی از زیبا ترین جزیره های مرجانی در جهان است که همه ساله
                   پذیرای سیل عظیمی از گردشگران تور کیش چه از داخل کشور و چه از خارج
                   کشور است. جزیره کیش دارای مکان های تاریخی بسیاری می باشد که برخی از

@@ -33,7 +33,7 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                     </Stack>
                 } />
 
-                <Stack className="md:hidden! bg-white! mt-4!">
+                <Stack className="hidden! md:flex! bg-white! mt-4!">
                     <ReusableSwiper
                         pagination={true}
                         dots={false}

@@ -146,7 +146,7 @@ const LatestToursSection = ({ umbrella = true, titles = true, isHotel = false }:
           <ReusableSwiper slidePerViewXs={1.4} slideperviewMd={4} slidePerviewLg={4} spaceBetween={20} pagination={true}>
             {tours.map((tour, index) => (
               <Stack className="h-[350px]! md:h-[600px]!">
-                <TourCard key={index} {...tour} />
+                <TourCard key={index} {...tour} index={index} />
               </Stack>
             ))}
           </ReusableSwiper>

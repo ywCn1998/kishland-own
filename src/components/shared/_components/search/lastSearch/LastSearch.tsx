@@ -26,7 +26,7 @@ export default function LastSearch({ hotel = false, data = [] }: LastSearchProps
           </Typography>
         </Stack>
 
-        <Button startIcon={<DeleteIcon className="text-slate-400!" />} className="hidden! md:block!">
+        <Button startIcon={<DeleteIcon className="text-slate-400!" />} className="hidden! md:flex!">
           <Typography className="reveal text-slate-400! reveal-down">حذف تاریخچه</Typography>
         </Button>
       </Stack>

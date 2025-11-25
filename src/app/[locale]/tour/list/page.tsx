@@ -54,13 +54,12 @@ export default function List(
             style={{ display: "flex", flexDirection: "column", overflowX: "hidden" }}
             className="mb-1!"
         >
-            <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 2 } }}>
+            <Container maxWidth="xl" sx={{ marginBottom: 0, px: { xs: 0, md: 3 } }}>
                 <Stack className="hidden! md:inline!">
                     <CategorySlider />
 
                     {/* step 1 */}
                     <Stack gap={0}>
-                        <BannerSection />
                         <BannerSection hasTitle={true} />
                     </Stack>
                 </Stack>
