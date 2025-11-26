@@ -2,128 +2,174 @@
 
 import * as React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { DatePicker } from "@mui/x-date-pickers";
-import type { ComponentProps } from "react";
-import type { TextFieldProps, StackProps } from "@mui/material";
-import { Stack } from "@mui/material";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFnsJalali } from "@mui/x-date-pickers/AdapterDateFnsJalali";
-import { faIR } from "date-fns-jalali/locale/fa-IR";
 
-type MUIDatePickerProps = Omit<
-  ComponentProps<typeof DatePicker>,
-  "value" | "onChange" | "label"
->;
+import { Dialog, DialogContent } from "@mui/material";
+import { Stack, Switch } from "@mui/material";
 
-export interface RHFDatePickerProps extends MUIDatePickerProps {
+import { toJalaali } from "jalaali-js";
+
+import {
+  DayPicker as GregorianDayPicker,
+  type DateRange,
+} from "react-day-picker";
+import {
+  DayPicker as PersianDayPicker,
+  getDateLib,
+} from "react-day-picker/persian";
+
+import "react-day-picker/dist/style.css";
+
+
+
+function formatJalali(date: Date) {
+  const j = toJalaali(date);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${j.jy}/${pad(j.jm)}/${pad(j.jd)}`;
+}
+
+export interface RHFRangePickerProps {
   name: string;
-  label?: string | React.ReactNode;
-  helperComponenet?: React.JSX.Element;
-  textFieldProps?: TextFieldProps;
-  stackProps?: StackProps;
-  /** match RHFSelect header label icons */
+  label?: React.ReactNode;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+  helperComponent?: React.ReactNode;
 }
 
-function toDate(value: unknown): Date | null {
-  if (!value) return null;
-  if (value instanceof Date && !isNaN(value.getTime())) return value;
-  const d = new Date(value as any);
-  return isNaN(d.getTime()) ? null : d;
-}
-
-export default function RHFDatePicker({
+export default function RHF2MonthRangePicker({
   name,
   label,
-  helperComponenet,
-  textFieldProps,
-  stackProps,
   startIcon,
   endIcon,
-  format = "yyyy/MM/dd", // Jalali-friendly display
-  ...pickerProps
-}: RHFDatePickerProps) {
+  helperComponent,
+}: RHFRangePickerProps) {
   const { control } = useFormContext();
+  const [open, setOpen] = React.useState(false);
+  const [isJalali, setIsJalali] = React.useState(false); 
+
+  const persianDateLib = React.useMemo(() => getDateLib(), []);
 
   return (
-    <LocalizationProvider
-      dateAdapter={AdapterDateFnsJalali}
-      adapterLocale={faIR}
-    >
-      <Controller
-        name={name}
-        control={control}
-        render={({ field, fieldState }) => (
-          <Stack
-            gap={1.2}
-            {...stackProps}
-            sx={{ width: "100%", ...stackProps?.sx }}
-          >
-            <DatePicker
-              {...pickerProps}
-              value={toDate(field.value)}
-              onChange={(newValue) => field.onChange(newValue ?? null)}
-              format={format}
-              slotProps={{
-                textField: {
-                  
-                  label: (
-                    <span className="inline-flex items-center gap-2 text-[#5b667f]">
-                      {startIcon}
-                      <span>{label}</span>
-                      {endIcon}
+    <Controller
+      name={name}
+      control={control}
+      render={({ field, fieldState }) => {
+        const range: DateRange | undefined = field.value;
+
+        const displayText = React.useMemo(() => {
+          if (!range?.from || !range?.to) return "انتخاب بازه";
+
+          if (isJalali) {
+            const fromText = formatJalali(range.from);
+            const toText = formatJalali(range.to);
+            return `${fromText} → ${toText}`;
+          }
+          const fromText = range.from.toLocaleDateString("fa-IR");
+          const toText = range.to.toLocaleDateString("fa-IR");
+          return `${fromText} → ${toText}`;
+        }, [range, isJalali, persianDateLib]);
+
+        const error = fieldState.error?.message;
+
+        const handleSelect = (newRange: DateRange | undefined) => {
+          field.onChange(newRange);
+        };
+
+        const today = new Date();
+
+        return (
+          <Stack gap={1}>
+            <div
+              className={`flex items-center justify-between rounded-lg border p-3 cursor-pointer ${error ? "border-red-400" : "border-gray-300"
+                }`}
+              onClick={() => setOpen(true)}
+            >
+              <span className="flex items-center gap-2 text-[#5b667f]">
+                {startIcon}
+                {label && <span>{label}</span>}
+                {endIcon}
+              </span>
+
+              <span className="text-sm text-gray-700">{displayText}</span>
+            </div>
+
+            {error && (
+              <span className="text-xs text-red-500 pt-0.5">{error}</span>
+            )}
+
+            {helperComponent}
+
+            {/* Popup calendar */}
+            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md">
+              <DialogContent>
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="text-lg font-medium">
+                    {isJalali ? "تقویم شمسی" : "تقویم میلادی"}
+                  </span>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">
+                      {isJalali ? "شمسی" : "میلادی"}
                     </span>
-                  ),
-                  InputLabelProps: { shrink: true },
-                  variant: "standard",
-                  fullWidth: true,
-                  error: !!fieldState.error,
-                  helperText: fieldState.error?.message || "",
-                  // ✅ key line: turn off underline on the Input component
-                  InputProps: { disableUnderline: true },
+                    <Switch
+                      checked={isJalali}
+                      onChange={() => setIsJalali((prev) => !prev)}
+                      size="small"
+                    />
+                  </div>
+                </div>
 
-                  sx: {
-                    pt: 0.7,
-                    // Target the actual Input (not InputBase)
-                    "& .MuiInput-root": {
-                  direction: "rtl",          // 👈 makes the text run right-to-left
+                {isJalali ? (
+                  <PersianDayPicker
+                    mode="range"
+                    numberOfMonths={2}
+                    selected={range}
+                    onSelect={handleSelect}
+                  />
+                ) : (
+                  <GregorianDayPicker
+                    mode="range"
+                    numberOfMonths={2}
+                    selected={range}
+                    onSelect={handleSelect}
+                  />
+                )}
 
-                      textAlign: "right",
-                      "&:before, &:after": { borderBottom: "0 !important" },
-                      "&:hover:not(.Mui-disabled):before": {
-                        borderBottom: "0 !important",
-                      },
-                    },
-                    // your typography
-                    "& .MuiInputBase-input": {
-                      fontWeight: 500,
-                      // fontSize: 15,
-                    },
-                    ...(textFieldProps?.sx || {}),
-                  },
-                  ...textFieldProps,
-                },
-                openPickerButton: {
-                  sx: {
-                    "&:hover, &:active, &:focus": {
-                      backgroundColor: "transparent",
-                    },
-                  },
-                },
-                desktopPaper: {
-                  sx: {
-                    backgroundColor: "#f5f7ff", // 💡 background of the calendar popper
-                    borderRadius: 2,
-                  },
-                },
-              }}
-            />
+                <div className="mt-4 flex items-center justify-between">
+                  <button
+                    type="button"
+                    className="text-sm text-blue-600"
+                    onClick={() =>
+                      field.onChange({ from: today, to: today } as DateRange)
+                    }
+                  >
+                    برو به امروز
+                  </button>
 
-            {helperComponenet}
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      className="rounded-lg bg-gray-200 px-4 py-2 text-sm"
+                      onClick={() =>
+                        field.onChange({ from: undefined, to: undefined })
+                      }
+                    >
+                      ریست
+                    </button>
+
+                    <button
+                      type="button"
+                      className="rounded-lg bg-blue-600 px-4 py-2 text-sm text-white"
+                      onClick={() => setOpen(false)}
+                    >
+                      تایید
+                    </button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </Stack>
-        )}
-      />
-    </LocalizationProvider>
+        );
+      }}
+    />
   );
 }
