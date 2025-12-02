@@ -96,11 +96,7 @@ export default function ExtraFooterInformation({
                   }
                 />
 
-<<<<<<< HEAD
-                <Typography className="text-gray-900! text-sm! leading-[30px]! md:leading-[30px]! md:text-base! reveal-down ">
-=======
                 <Typography className="text-gray-900! text-sm! leading-[30px]! md:text-base! reveal-down ">
->>>>>>> 377438c5ad5eaad3c5cabd56bdef7c74fbfb98c6
                   جزیره کیش یکی از زیبا ترین جزیره های مرجانی در جهان است که همه ساله
                   پذیرای سیل عظیمی از گردشگران تور کیش چه از داخل کشور و چه از خارج
                   کشور است. جزیره کیش دارای مکان های تاریخی بسیاری می باشد که برخی از
