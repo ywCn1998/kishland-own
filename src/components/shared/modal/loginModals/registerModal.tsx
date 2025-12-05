@@ -14,6 +14,57 @@ export default function RegisterModal({ open, setOpen }: ModalProps) {
   const { OnSubmit, methods } = useSubmitPhoneLogin();
   const router = useRouter()
 
+
+
+
+
+  // --------------------------------------------------------------- sample to call api after you get verify code and enter that call ClientAuthUtils.storeAuthResponse(response)
+  // to save access token and refresh on cookie
+  /**
+    * Initialize React Hook Form with Zod validation for login.
+    * Sets up default values and error handling for phone number and password fields.
+    */
+  // const methods = useForm<ILoginParams>({
+  //   defaultValues: {
+  //     password: '',
+  //     phone_number: ''
+  //   },
+  //   resolver: zodResolver(loginSchema)
+  // })
+
+  // const {
+  //   handleSubmit,
+  //   control,
+  //   formState: { errors }
+  // } = methods
+
+  /**
+   * Login mutation using UserAuthAPI.
+   * On success, stores tokens and user info, then redirects to the panel.
+   */
+  // const loginMutation = UserAuthAPI.login({
+  //   onSuccess: (response: ILoginResponse) => {
+  //     // Store auth response in cookies
+  //     ClientAuthUtils.storeAuthResponse(response)
+
+  //     // Redirect to panel
+  //     router.push('/panel')
+  //   }
+  // })
+
+  /**
+   * Handles form submission by triggering the login mutation with form data.
+   */
+  // const onSubmit = handleSubmit((data: ILoginParams) => {
+  //   loginMutation.mutate(data)
+  // })
+
+
+
+
+
+
+
   return (
     <>
       <BaseModal
