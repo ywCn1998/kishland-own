@@ -106,13 +106,13 @@ export default function TourSearch({ activePage = "tour" }) {
 
                 <Grid size="grow">
                   <Box sx={{ minWidth: 120, p: 2 }}>
-                    <RHFDatePicker
+                    {/* <RHFDatePicker
                       name="startDate"
                       label="تاریخ ورود"
                       startIcon={
                         <BusinessCenterIcon sx={{ color: "primary.main" }} />
                       }
-                    />
+                    /> */}
                   </Box>
                 </Grid>
 
