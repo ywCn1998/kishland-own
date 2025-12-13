@@ -13,6 +13,8 @@ export const phoneNumberSchema = z
       message: 'لطفا یک شماره موبایل صحیح وارد نمایید'
    })
 
+export const usernameSchema = z.string().min(4, 'نام کاربری نمی‌تواند خالی باشد.')
+
 export const optionalPhoneNumberSchema = z
    .string()
    .optional()
@@ -78,6 +80,7 @@ export const optionalEmailSchema = z
 // Profile Common Fields
 // ========================================
 
+export const nameSchema = z.string().min(1, 'نام و نام خانوادگی الزامی است')
 export const firstNameSchema = z.string().min(1, 'نام الزامی است')
 export const lastNameSchema = z.string().min(1, 'نام خانوادگی الزامی است')
 export const genderSchema = z.enum(['ML', 'FL'])

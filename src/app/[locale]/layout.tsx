@@ -1,7 +1,7 @@
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import MuiProvider from "@/providers/MuiProvider";
+import ClientProviders from "@/providers/ClientProviders";
 import type { Metadata } from "next";
 import "../globals.css";
 import "../../components/animationsStyles/index.css";
@@ -69,6 +69,7 @@ export default async function RootLayout({
   setRequestLocale(locale);
   return (
     <html dir={"rtl"} lang={locale}>
+
       <Box
         component="body"
         className={`${lahzeh.variable} ${lexend.variable} relative! hero-bg`}
@@ -78,7 +79,7 @@ export default async function RootLayout({
             <Image src="/images/main-header.png" alt="main-header" fill />
           </div>
         </div>
-        <MuiProvider>
+        <ClientProviders>
           <NextIntlClientProvider>
             <NextTopLoader
               color="#C8A456"   // ← gold like your theme
@@ -108,7 +109,7 @@ export default async function RootLayout({
               <MobileBottomNav />
             )}
           </NextIntlClientProvider>
-        </MuiProvider>
+        </ClientProviders>
       </Box>
     </html>
   );

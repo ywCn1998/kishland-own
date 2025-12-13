@@ -24,7 +24,7 @@ import RHFSimpleSelect from "@/components/shared/form/RHFSimpleSelect";
 import HotelClassOutlinedIcon from '@mui/icons-material/HotelClassOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
-import LoginPhoneModal from "@/components/shared/modal/loginModals/loginPhoneModal";
+import LoginPhoneModal from "@/components/shared/modal/authModals/OTPLogin/loginPhoneModal";
 import TravelFirstModal from "@/components/shared/modal/commentsModals/travelFirstModal";
 import SuccessModal from "@/components/shared/modal/commentsModals/failOrSuccessModal";
 

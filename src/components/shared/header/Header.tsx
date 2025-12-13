@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 import { PhoneInTalkOutlined, LoginOutlined } from "@mui/icons-material";
-import RegisterModal from "../modal/loginModals/registerModal";
 import { useAtom } from "jotai";
 import {
   headerBackIconAtom,
@@ -17,7 +16,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PhoneInTalk } from "@mui/icons-material";
-import LoginPhoneModal from "../modal/loginModals/loginPhoneModal";
+import LoginPhoneModal from "../modal/authModals/OTPLogin/loginPhoneModal";
 
 export default function Header({ }) {
   const [headerTitle] = useAtom(headerTitleAtom);
@@ -192,8 +191,8 @@ export default function Header({ }) {
 
         <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : lastPart === "panel" ? "h-[0px]" : "h-[80px]"}`} />
       </Stack>
+
       <LoginPhoneModal open={open} setOpen={setOpen} />
-      {/* <RegisterModal open={open} setOpen={setOpen} /> */}
     </Container>
   );
 }

@@ -8,7 +8,7 @@ import {
   AccountCircleOutlined,
   CallOutlined,
 } from "@mui/icons-material";
-import { useRouter } from "next/navigation"; // 👈 برای ناوبری
+import { useRouter } from "next/navigation";
 
 const items = [
   { label: "خانه", icon: <HomeOutlined />, id: 0, path: "/fa/tour" },
