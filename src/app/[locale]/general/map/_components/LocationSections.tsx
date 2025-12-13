@@ -1,6 +1,6 @@
-import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_locationModalComponents/cityCenterLocations";
-import CategoryTabs from "@/components/shared/_components/commonQuestions/_components/CategoryTabs";
-import GoldenText from "@/components/shared/_components/GoldenText";
+import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_components/cityCenterLocations";
+import CategoryTabs from "@/components/shared/ui/commonQuestions/_components/CategoryTabs";
+import GoldenText from "@/components/shared/ui/GoldenText";
 import { Stack, Typography } from "@mui/material";
 
 export default function LocationSections() {

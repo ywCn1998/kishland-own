@@ -6,18 +6,18 @@ import Step1 from "./step1";
 import PriceCard from "@/components/shared/cards/cart/PriceCard";
 import Step3 from "./step3";
 import TextNumber from "@/components/shared/textNumber";
-import HowToPay from "@/app/[locale]/entertainment/reserve/_components/cart/howToPay/howToPay";
+import HowToPay from "@/components/shared/cart/howToPay/howToPay";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Discount from "@/app/[locale]/entertainment/reserve/_components/cart/discount";
+import Discount from "@/components/shared/cart/discount";
 import CustomAccordion from "@/components/shared/collapse/collapse";
 import { SelectedTourCard } from "@/components/shared/cards/tour/selectedTourCard";
 import PassengerDetails from "../cart/passengerDetails";
 import TourDetails from "../../status/_components/tourDetails";
 import TourDetailsReserve from "../cart/tourDetailsReserve";
-import ReserveStatus from "../../status/_components/ReserveStatus";
+import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 import TicketDetailsReserve from "../cart/ticketDetailsReserve";
 
 interface IStep {

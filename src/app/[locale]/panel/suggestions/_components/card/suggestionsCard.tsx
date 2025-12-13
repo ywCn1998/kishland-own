@@ -12,7 +12,7 @@ import TextIcon from "@/components/shared/textIcon";
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import WordTooltip from "@/components/shared/_components/wordTooltip";
+import WordTooltip from "@/components/shared/ui/wordTooltip";
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import BedroomParentIcon from '@mui/icons-material/BedroomParentOutlined';
 import WifiOutlinedIcon from '@mui/icons-material/WifiOutlined';

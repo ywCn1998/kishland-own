@@ -1,9 +1,0 @@
-export { default as CategorySlider } from "./Sliders/CategorySlider";
-export { default as CommentSlider } from "./Sliders/commentSlider";
-export { default as ImageAndText } from "./banner/ImageAndText";
-export { default as OfferBanner } from "./banner/OfferBanner";
-export { default as MainBlog } from "./blogs";
-export { default as CommonQuestions } from "./commonQuestions";
-export { default as ExtraFooterInformation } from "./extraFooterInformation";
-export { default as LastSearch } from "./search/lastSearch/LastSearch";
-export { default as WhyKishLand } from "./whyKishland";

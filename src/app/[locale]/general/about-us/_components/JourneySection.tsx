@@ -1,4 +1,4 @@
-import GoldenText from "@/components/shared/_components/GoldenText";
+import GoldenText from "@/components/shared/ui/GoldenText";
 import { Box, Stack, Typography } from "@mui/material";
 
 const milestones = [

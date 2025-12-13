@@ -3,7 +3,7 @@ import { Container } from '@mui/material'
 import React from 'react'
 import CompareBanner from './_components/compareBanner'
 import DataGrid from './_components/dataGrid'
-import { ExtraFooterInformation } from '@/components/shared/_components'
+import { ExtraFooterInformation } from '@/components/shared/ui'
 
 export default function Home() {
     return (

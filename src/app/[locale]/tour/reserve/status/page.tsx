@@ -2,7 +2,7 @@
 import {
   ExtraFooterInformation,
   OfferBanner,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import { KeyboardBackspaceOutlined } from "@mui/icons-material";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
@@ -20,7 +20,7 @@ import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
-import ReserveStatus from "./_components/ReserveStatus";
+import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 
 
 const steps = [

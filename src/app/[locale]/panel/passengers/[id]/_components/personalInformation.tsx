@@ -4,7 +4,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import RHFSelect from "@/components/shared/form/RHFSelect";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import FormProvider from "@/providers/FormProvider";
-import usePassenger from "../_hook/usePassenger";
+import usePassenger from "../hooks/usePassenger";
 
 export default function PersonalInformation() {
     const { OnSubmit, methods } = usePassenger()

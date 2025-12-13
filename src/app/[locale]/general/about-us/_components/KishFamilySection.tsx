@@ -1,7 +1,7 @@
 "use client";
 import { Box, Stack, Typography, Card, CardContent, Avatar, Container, Divider, IconButton } from "@mui/material";
 import ReusableSwiper from "@/components/shared/reusableSwiper";
-import GoldenText from "@/components/shared/_components/GoldenText";
+import GoldenText from "@/components/shared/ui/GoldenText";
 import { styled } from "@mui/material/styles";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";

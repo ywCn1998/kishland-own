@@ -3,7 +3,7 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 import { FormHelperText, Stack } from "@mui/material";
-import LiteRichEditor, { LiteRichEditorProps } from "../_components/customTextarea";
+import LiteRichEditor, { LiteRichEditorProps } from "../ui/customTextarea";
 
 type RHFLiteRichEditorProps = LiteRichEditorProps & {
     name: string;

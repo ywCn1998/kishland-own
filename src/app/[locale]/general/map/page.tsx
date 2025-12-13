@@ -1,7 +1,7 @@
 import { Container, Stack } from "@mui/material";
 import {
     ExtraFooterInformation,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import {
     ExploreSection,
     HeroSection,

@@ -1,5 +1,5 @@
 "use client";
-import ImgTextGrid from "@/components/shared/_components/banner/ImageAndText";
+import ImgTextGrid from "@/components/shared/ui/banner/ImageAndText";
 import {
   Box,
   Button,

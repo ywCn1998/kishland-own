@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { Container, Grid } from "@mui/material";
 import SideBar from "./_components/sidebar/sidebar";
-import { ExtraFooterInformation } from "@/components/shared/_components";
+import { ExtraFooterInformation } from "@/components/shared/ui";
 
 export default function PanelLayout({ children }: { children: ReactNode }) {
     return (

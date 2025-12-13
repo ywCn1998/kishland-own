@@ -3,7 +3,7 @@ import { Stack, Container } from "@mui/material";
 
 import {
     CategorySlider,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import { BannerSection } from "./_components";
 import TicketTypeSection from "./_components/ticketType";
 import ChooseTicketSection from "./_components/chooseTicket";

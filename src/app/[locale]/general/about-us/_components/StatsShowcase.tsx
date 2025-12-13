@@ -1,4 +1,4 @@
-import AboutSection from "@/components/shared/_components/extraFooterInformation/_components/information";
+import AboutSection from "@/components/shared/ui/extraFooterInformation/_components/information";
 import { Box, Typography, Stack, Grid } from "@mui/material";
 import Image from "next/image";
 

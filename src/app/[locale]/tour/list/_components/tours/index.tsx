@@ -9,7 +9,7 @@ import SortIcon from '@mui/icons-material/Sort';
 import SmallTourCard from "./toursCardResponsive";
 import ChanceCard from "@/app/[locale]/entertainment/list/_components/chanceCard";
 import FilterContainer from "@/app/[locale]/entertainment/list/_components/filterBox/_components/filterContainer";
-import MainBanner from "@/components/shared/_components/banner/mainBanner";
+import MainBanner from "@/components/shared/ui/banner/mainBanner";
 
 export const sortTabsData = [
     { label: "5 ستاره" },

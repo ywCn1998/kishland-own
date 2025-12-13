@@ -1,4 +1,4 @@
-import GoldenText from "@/components/shared/_components/GoldenText";
+import GoldenText from "@/components/shared/ui/GoldenText";
 import { Grid, Typography } from "@mui/material";
 import Image from "next/image";
 

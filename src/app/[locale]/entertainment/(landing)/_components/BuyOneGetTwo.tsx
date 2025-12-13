@@ -2,7 +2,7 @@ import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import AdbIcon from "@mui/icons-material/Adb";
-import GoldenText from "@/components/shared/_components/GoldenText";
+import GoldenText from "@/components/shared/ui/GoldenText";
 
 const BuyOneGetTwoSection = () => {
   return (

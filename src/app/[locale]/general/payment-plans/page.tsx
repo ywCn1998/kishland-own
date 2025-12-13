@@ -1,7 +1,7 @@
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 import { Container, Stack } from "@mui/material";
 import { HeroSection, StepByStepSection } from "./_components";
-import { CommonQuestions, ExtraFooterInformation } from "@/components/shared/_components";
+import { CommonQuestions, ExtraFooterInformation } from "@/components/shared/ui";
 
 export default function PaymentPlansPage() {
     return (

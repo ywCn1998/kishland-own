@@ -1,16 +1,16 @@
 import { Stack, Container, Typography, Button } from "@mui/material";
 import {
     CommonQuestions,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import { TourCard } from "../list/_components/tours/toursCard";
 import TicketTypeSection from "../list/_components/ticketType";
 import CustomAccordion from "@/components/shared/collapse/collapse";
 import { RoomCard } from "@/components/shared/cards/tour/roomCard";
-import Question from "@/components/shared/_components/commonQuestions/_components/question";
-import CityCenterLoactions from "./_locationModalComponents/cityCenterLocations";
+import Question from "@/components/shared/ui/commonQuestions/_components/question";
+import CityCenterLoactions from "./_components/cityCenterLocations";
 import ViewsOfHotel from "../(landing)/_components/ViewsOfHotelSection";
-import PeopleComments from "@/components/shared/_components/peopleComments";
-import RulesOfHotel from "@/components/shared/_components/rolesOfHotel";
+import PeopleComments from "@/components/shared/ui/peopleComments";
+import RulesOfHotel from "@/components/shared/ui/rules";
 import ChooseRoomCardResponsive from "../list/_components/tours/chooseRoomCardResponsive";
 import SmallListCard from "@/components/shared/cards/hotel/smallListCard";
 import SmallRoomCard from "@/components/shared/cards/tour/roomCardResponsive";
@@ -19,7 +19,7 @@ import WifiOutlinedIcon from '@mui/icons-material/WifiOutlined';
 import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottomBotton";
 import Image from "next/image";
 import Link from "next/link";
-import ReserveButtonWithModal from "./reserveModal";
+import ReserveButtonWithModal from "@/components/shared/modal/reserveModal/reserveModal";
 
 
 export default function LocationHotel() {

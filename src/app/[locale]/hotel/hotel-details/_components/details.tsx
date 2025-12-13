@@ -5,8 +5,8 @@ import { Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 import RoomsList from "./roomsList";
 import HotelServices from "./services";
-import RulesOfHotel from "@/components/shared/_components/rolesOfHotel";
-import PeopleComments from "@/components/shared/_components/peopleComments";
+import RulesOfHotel from "@/components/shared/ui/rules";
+import PeopleComments from "@/components/shared/ui/peopleComments";
 import CartTotal from "./cartTotal";
 import { DayItem } from "@/app/[locale]/entertainment/list/_components/detail";
 

@@ -1,5 +1,5 @@
 import { Grid, Stack, Typography, Button, Box } from "@mui/material";
-import GoldenText from "@/components/shared/_components/GoldenText";
+import GoldenText from "@/components/shared/ui/GoldenText";
 import Link from "next/link";
 import AdbIcon from "@mui/icons-material/Adb";
 

@@ -1,6 +1,6 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import { OfferBanner } from "@/components/shared/_components";
+import { OfferBanner } from "@/components/shared/ui";
 import ReusableSwiper from "@/components/shared/reusableSwiper";
 
 const certificates = [

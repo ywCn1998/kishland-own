@@ -2,14 +2,14 @@
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 import { Container, Stack } from "@mui/material";
 import React from "react";
-import YouMayLoveSection from "../../entertainment/reserve/_components/youMayLoveSection";
+import YouMayLoveSection from "@/components/shared/sections/recommendations/youMayLoveSection";
 import {
   ExtraFooterInformation,
   OfferBanner,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import ReserveStepper from "./_components/reserveStepper";
 import HideFooterClient from "@/components/shared/footer/hideFooterClient";
-import TotalResponsive from "../../entertainment/reserve/_components/cart/totalResponsive";
+import TotalResponsive from "@/components/shared/cart/totalResponsive";
 
 
 export default function Home() {

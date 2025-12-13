@@ -1,12 +1,12 @@
 import {
   ExtraFooterInformation,
   OfferBanner,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import { KeyboardBackspaceOutlined } from "@mui/icons-material";
 import { Container, Stack, Typography } from "@mui/material";
 import React from "react";
 
-import YouMayLoveSection from "./_components/youMayLoveSection";
+import YouMayLoveSection from "@/components/shared/sections/recommendations/youMayLoveSection";
 import ReserveStepper from "./_components/reseeveStepper/reserveStepper";
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 

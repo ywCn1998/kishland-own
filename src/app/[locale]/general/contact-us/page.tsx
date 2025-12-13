@@ -2,7 +2,7 @@ import { Container, Stack } from "@mui/material";
 import {
     CommonQuestions,
     ExtraFooterInformation,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import {
     HeroSection,
     ContactUsFormSection,

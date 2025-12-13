@@ -4,7 +4,7 @@ import {
     CommonQuestions,
     ExtraFooterInformation,
     MainBlog,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import {
     InfoSection,
     HeroSection,

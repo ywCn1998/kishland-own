@@ -1,4 +1,4 @@
-import { ImageAndText } from '@/components/shared/_components'
+import { ImageAndText } from '@/components/shared/ui'
 import { Button, Stack, Typography } from '@mui/material'
 import React from 'react'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';

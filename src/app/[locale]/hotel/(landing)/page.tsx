@@ -13,7 +13,7 @@ import {
   MainBlog,
   OfferBanner,
   WhyKishLand,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import {
   LastToursSection,
   ReserveSection,
@@ -27,8 +27,8 @@ import HotelReserveSection from "./_components/HotelReserveSection";
 import BlogCard from "@/components/shared/cards/blogCard";
 import HotelsCardSection from "./_components/HotelsCardSection";
 import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
-import MainBanner from "@/components/shared/_components/banner/mainBanner";
-import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
+import MainBanner from "@/components/shared/ui/banner/mainBanner";
+import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
 
 // { params }: { params: { locale: string } }
 export default async function Home() {

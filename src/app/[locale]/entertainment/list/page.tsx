@@ -30,7 +30,7 @@ import { AirCard } from "./_components/blitType/aircard";
 import {
   CategorySlider,
   ExtraFooterInformation,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import { PingoCard } from "./_components/pingoCard";
 import FilterBox from "./_components/filterBox";
 import EntertainmentDetailDialog from "./_components/detail";
@@ -45,7 +45,7 @@ import {
   headerLeftItemAtom,
   headerTitleAtom,
 } from "@/store/atomHeader";
-import MainBanner from "@/components/shared/_components/banner/mainBanner";
+import MainBanner from "@/components/shared/ui/banner/mainBanner";
 
 export default function Home() {
   const [, setHeaderTitle] = useAtom(headerTitleAtom);

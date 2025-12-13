@@ -20,7 +20,7 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import SportsRugbyIcon from "@mui/icons-material/SportsRugby";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
-import useSearch from "./_hook/useSearch";
+import useSearch from "./hooks/useSearch";
 import FormProvider from "@/providers/FormProvider";
 import RHFSelect from "@/components/shared/form/RHFSelect";
 

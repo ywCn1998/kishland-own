@@ -1,7 +1,7 @@
 import {
   ExtraFooterInformation,
   OfferBanner,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import { KeyboardBackspaceOutlined } from "@mui/icons-material";
 import { Container, Stack, Typography } from "@mui/material";
 import React from "react";
@@ -9,7 +9,7 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
 
-import YouMayLoveSection from "../../entertainment/reserve/_components/youMayLoveSection";
+import YouMayLoveSection from "@/components/shared/sections/recommendations/youMayLoveSection";
 import ReserveStepper from "./_components/reseeveStepper/reserveStepperTour";
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
 

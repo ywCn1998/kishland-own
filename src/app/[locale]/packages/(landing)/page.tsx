@@ -1,4 +1,4 @@
-import { CategorySlider, CommentSlider, CommonQuestions, ExtraFooterInformation, MainBlog } from '@/components/shared/_components'
+import { CategorySlider, CommentSlider, CommonQuestions, ExtraFooterInformation, MainBlog } from '@/components/shared/ui'
 import { Container } from '@mui/material'
 import React from 'react'
 import PackageHeroSection from './_components/packageHeroSection'
