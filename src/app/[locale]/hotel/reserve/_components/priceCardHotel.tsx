@@ -10,7 +10,7 @@ import TextIcon from "@/components/shared/textIcon";
 import Link from "next/link";
 import CancelModal from "@/components/shared/_components/cancelModal.tsx/cancelModal";
 import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
-import LoginPhoneModal from "@/components/shared/modal/loginModals/loginPhoneModal";
+import LoginPhoneModal from "@/components/shared/modal/authModals/OTPLogin/loginPhoneModal";
 import ShareModal from "@/components/shared/modal/shareModal/shareModal";
 import SuccessModal from "@/components/shared/modal/commentsModals/failOrSuccessModal";
 import CartModal from "@/components/shared/modal/cartModal/cartModal";

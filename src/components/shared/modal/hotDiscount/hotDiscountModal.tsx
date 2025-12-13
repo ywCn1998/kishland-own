@@ -18,9 +18,10 @@ export default function HotDiscountModal() {
         closeText="بستن"
         showIcon={false}
         fullWidth={false}
+        
       >
-        <Stack className="items-center gap-5!">
-          <img src={"/images/modals/hotdis.png"} className="w-full! h-[200px]! md:h-100!" />
+        <Stack className="items-center gap-5! h-full!">
+          <img src={"/images/modals/hotdis.png"} className="w-full! h-[200px]! md:h-[300px]!" />
           <Stack className="flex! flex-row! items-center! ">
             <Typography className="text-nowrap! text-xl! md:text-4xl! font-[750]! ">تخفیفات</Typography>
             <Typography className="text-nowrap! text-xl! md:text-4xl! font-[750]! text-red-400">داغ </Typography>
