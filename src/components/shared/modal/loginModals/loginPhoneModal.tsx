@@ -19,7 +19,7 @@ export default function LoginPhoneModal({
   image,
   description,
 }: ModalProps) {
-  const { OnSubmit, methods } = useSubmitPhoneLogin();
+  const { OnSubmitCode , OnSubmitPhone , methods } = useSubmitPhoneLogin();
   const [code, setCode] = useState<boolean>(false);
   const error = true;
   const handleSubmitPhone = () => {
@@ -36,10 +36,11 @@ export default function LoginPhoneModal({
       {code === false ? (
         <BaseModal
           open={open}
+          maxWidth="sm"
           setOpen={setOpen}
           title={title ? title : " ورود/ ثبت نام "}
           closeText="برگشت"
-          fullWidth={false}
+          fullWidth={true}
           showIcon={false}
         >
           <Stack className="items-center gap-5!">
@@ -62,20 +63,24 @@ export default function LoginPhoneModal({
             </Typography>
             <FormProvider
               methods={methods}
-              onSubmit={OnSubmit}
-              className="flex! flex-col! gap-6!"
+              onSubmit={OnSubmitPhone}
+              className="flex! flex-col! gap-6! w-full!"
             >
               <RHFTextInput
                 name="phone"
                 placeholder="شماره همراه خود را وارد کنید "
                 startIcon={<PhoneAndroidOutlinedIcon />}
+                fullWidth={true}
+                sx={{
+                  width: "100%",
+                }}
               />
             </FormProvider>
             <Button
               variant="contained"
               className="w-full! py-6!"
               size="medium"
-              onClick={() => handleSubmitPhone()}
+              onClick={() => OnSubmitPhone()}
             >
               <Typography className="text-white">دریافت کد </Typography>
             </Button>
@@ -117,7 +122,7 @@ export default function LoginPhoneModal({
             </Box>
             <FormProvider
               methods={methods}
-              onSubmit={OnSubmit}
+              onSubmit={OnSubmitCode}
               className="flex! flex-col! gap-6!"
             >
               <RHFTextInput

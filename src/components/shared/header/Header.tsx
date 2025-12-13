@@ -17,6 +17,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PhoneInTalk } from "@mui/icons-material";
+import LoginPhoneModal from "../modal/loginModals/loginPhoneModal";
 
 export default function Header({ }) {
   const [headerTitle] = useAtom(headerTitleAtom);
@@ -191,8 +192,8 @@ export default function Header({ }) {
 
         <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : lastPart === "panel" ? "h-[0px]" : "h-[80px]"}`} />
       </Stack>
-
-      <RegisterModal open={open} setOpen={setOpen} />
+      <LoginPhoneModal open={open} setOpen={setOpen} />
+      {/* <RegisterModal open={open} setOpen={setOpen} /> */}
     </Container>
   );
 }

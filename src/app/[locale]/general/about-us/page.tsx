@@ -25,7 +25,9 @@ export default function AboutUsPage() {
                 maxWidth="xl"
                 sx={{ px: { xs: 2, md: 3 }, marginBottom: { xs: 5, md: 10 } }}
             >
-                <BreadCrumbFa />
+                <Stack className="hidden! md:block!">
+                    <BreadCrumbFa />
+                </Stack>
 
                 <Stack spacing={{ xs: 5, md: 8 }} mt={{ xs: 4, md: 8 }}>
                     <HeroSection />

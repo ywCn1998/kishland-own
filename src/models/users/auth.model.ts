@@ -27,6 +27,8 @@ export interface AuthRole {
 
 export type ILoginParams = z.infer<typeof loginSchema>
 export type ILoginResult = {
+   phone: string
+   code: string
    access: string
    refresh: string
    username: string

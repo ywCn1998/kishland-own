@@ -71,7 +71,7 @@ export function InformationCard({
   description,
 }: any) {
   return (
-    <Stack className="flex-col! lg:!gap-4  gap-2! h-fit!">
+    <Stack className="flex-col! lg:!gap-4  gap-2! h-fit! border-1! border-slate-200! rounded-2xl! p-4! px-8!">
       <Grid className="!flex items-center flex-col! lg:!gap-4  gap-4! h-fit!">
         <Stack className="relative! h-12! w-12! reveal">
           <Image src={image} alt={title} fill />
