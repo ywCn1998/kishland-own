@@ -32,7 +32,7 @@ export default function CategoryTabs({
     <Stack
       direction="row"
       spacing={2}
-      className="overflow-x-auto! md:justify-center! md:items-center! gap-2! w-full! px-4!"
+      className="overflow-x-auto! md:justify-center! md:items-center! gap-0! w-full! px-4!"
       sx={{
         "&::-webkit-scrollbar": {
           display: "none",
@@ -49,7 +49,7 @@ export default function CategoryTabs({
             onClick={() => handleTabClick(tab.id)}
             className={`rounded-xl! w-full! text-base! md:text-lg! whitespace-nowrap! transition-all! ${isActive
                 ? "bg-[#088DEF]! text-white!"
-                : "bg-white! text-black!"
+                : "bg-[#F5F7FA]! text-black!"
               }`}
             sx={{
               minWidth: "fit-content",

@@ -1,7 +1,6 @@
 "use client";
 import { Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import AdbIcon from "@mui/icons-material/Adb";
 import { useAtom } from "jotai";
 import { headerTitleAtom } from "@/store/atomHeader";
 import { useEffect } from "react";

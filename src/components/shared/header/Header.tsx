@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 import { PhoneInTalkOutlined, LoginOutlined } from "@mui/icons-material";
-import LoginPhoneModal from "../../auth/authModals/login/loginPhoneModal";
+import LoginPhoneModal from "@/components/auth/authModals/login/loginPhoneModal";
 import { useAtom } from "jotai";
 import {
   headerBackIconAtom,

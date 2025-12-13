@@ -38,9 +38,9 @@ export default function StepByStepSection() {
                 </Typography>
             </Stack>
 
-                <Grid container>
+                <Grid container spacing={2} className="mt-8!">
                     {step.map((item, index) => (
-                        <Grid size={{ xs: 12, md: 3 }} key={index + "StepByStep"}>
+                        <Grid size={{ xs: 12, md: 3 }} key={index + "StepByStep"} >
                             <InformationCard image={item.image} title={item.title} description={item.description} />
                         </Grid>
                     ))}

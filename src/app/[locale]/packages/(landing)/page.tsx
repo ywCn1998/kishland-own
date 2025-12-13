@@ -4,6 +4,7 @@ import React from 'react'
 import PackageHeroSection from './_components/packageHeroSection'
 import CompanyCards from './_components/companyCards'
 import PackageChooseHero from './_components/packageChooseHero'
+import FavouritePackages from './_components/favouritePackages'
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         <CategorySlider/>
         <PackageHeroSection/>
         <CompanyCards/>
+        <FavouritePackages/>
         {/* <PackageList/> */}
         <PackageChooseHero/>
         <img src='/images/package/watchbanner.png' alt='package choose hero' className='w-full! h-full! object-cover! mt-20!'/>
