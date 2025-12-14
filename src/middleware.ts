@@ -100,7 +100,12 @@ export function middleware(request: NextRequest) {
   }
 
   // Allow the request to continue
-  return NextResponse.next()
+  const response = NextResponse.next()
+  
+  // Add pathname to headers for server components
+  response.headers.set("x-pathname", pathname)
+  
+  return response
 }
 
 // Configure which routes the middleware should run on

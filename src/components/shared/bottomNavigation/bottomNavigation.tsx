@@ -12,10 +12,10 @@ import { useRouter } from "next/navigation";
 
 const items = [
   { label: "خانه", icon: <HomeOutlined />, id: 0, path: "/fa/tour" },
-  { label: "سفرهای من", icon: <LuggageOutlined />, id: 1, path: "/fa/entertainment" },
+  { label: "سفرهای من", icon: <LuggageOutlined />, id: 1, path: "/fa/panel/history" },
   { label: "سبد خرید", icon: <ShoppingBagOutlined />, id: 2, path: "/fa/entertainment/reserve" },
   { label: "حساب کاربری", icon: <AccountCircleOutlined />, id: 3, path: "/fa/panel" },
-  { label: "تماس", icon: <CallOutlined />, id: 4, path: "/fa/panel" },
+  { label: "تماس", icon: <CallOutlined />, id: 4, path: "/fa/contact-us" },
 ];
 
 export default function MobileBottomNav() {

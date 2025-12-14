@@ -26,7 +26,7 @@ export default async function TourSuggestionSlider() {
           {Array(10)
             .fill(null)
             .map((_, i) => (
-              <TourOfferCard />
+              <TourOfferCard key={i + "tourOfferCard"} />
             ))}
         </ReusableSwiper>
       </Box>

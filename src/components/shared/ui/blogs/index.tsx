@@ -163,7 +163,8 @@ export default async function MainBlogs() {
           {images.slice(0, 4).map((item, i) => (
             // <div key={i} className="w-full! h-6/12!">
             <BlogCard
-              imageUrl={"/images/blog1.png"}
+              key={i + "blogCard"}
+              imageUrl={item.imageUrl}
               description={item.description}
               height="100%"
               dateText="۲۷ اسفند ۱۴۰۳، ۱۴:۱۴"

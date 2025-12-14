@@ -125,14 +125,13 @@ export default function CommonQuestions({
       ) : (
         <div className="w-full! mx-auto bg-white  rounded-lg ">
           {faqs.map((faq, idx) => (
-            <>
+            <div  key={idx + "fraqs2"}>
               <CollapseItem
-                key={idx + "fraqs2"}
                 title={faq.title}
                 description={faq.description}
               />
               <Divider className="text-gray-50! bg-gray-50!" />
-            </>
+            </div>
           ))}
         </div>
       )}
