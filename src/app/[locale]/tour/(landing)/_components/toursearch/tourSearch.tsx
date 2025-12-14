@@ -219,7 +219,7 @@ export default function TourSearch({ activePage = "tour" }) {
                       name="startDate"
                       label="تاریخ رفت"
                       startIcon={
-                        <BusinessCenterIcon sx={{ color: "primary.main" }} />
+                        <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small"/>
                       }
                     />
                   </Box>
@@ -237,7 +237,7 @@ export default function TourSearch({ activePage = "tour" }) {
                       name="endDate"
                       label={isMd ? "تاریخ برگشت" : "تاریخ رفت و برگشت"}
                       startIcon={
-                        <BusinessCenterIcon sx={{ color: "primary.main" }} />
+                        <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small"/>
                       }
                     />
                   </Box>

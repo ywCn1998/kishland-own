@@ -14,7 +14,7 @@ import {
 import { PhoneOutlined } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -121,7 +121,7 @@ const footerSections = [
 
 export function Footer() {
   const theme = useTheme();
-  const t = useTranslations("Footer");
+
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const [footer] = useAtom(hasFooterResponsive);

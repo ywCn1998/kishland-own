@@ -574,3 +574,7 @@ body {
 .is-visible.animate-slide-in-left {
   animation-play-state: running;
 }
+
+.rdp-day_button {
+  color: var(--primary-500);
+}

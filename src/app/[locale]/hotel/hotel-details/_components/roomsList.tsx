@@ -54,10 +54,26 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                 <Stack className="flex! flex-col! md:flex-row! gap-3!">
                                     <Stack className="w-full! md:w-9/12! border-2! border-slate-200! p-1! rounded-2xl! flex flex-col md:flex-row bg-white reveal">
                                         <Grid container  >
+                                            {/* فیلد موبایل - نمایش ترکیبی */}
+                                            <Grid size={12} sx={{ display: { xs: "block", md: "none" } }}>
+                                                <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
+                                                    <RHFDatePicker
+                                                        name="startDate"
+                                                        endDateName="endDate"
+                                                        label="تاریخ رفت و برگشت"
+                                                        startIcon={
+                                                            <BusinessCenterIcon sx={{ color: "primary.main" }} />
+                                                        }
+                                                    />
+                                                </Box>
+                                            </Grid>
+
+                                            {/* فیلدهای دسکتاپ */}
                                             <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
                                                         name="startDate"
+                                                        endDateName="endDate"
                                                         label="تاریخ ورود"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />
@@ -67,11 +83,12 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                             </Grid>
                                             <Divider orientation="vertical" sx={{ display: { xs: "none", md: "block" }, }} flexItem variant="middle" />
 
-                                            <Grid size="grow">
+                                            <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
                                                         name="endDate"
-                                                        label={isMd ? "تاریخ خروج" : "تاریخ رفت و برگشت"}
+                                                        startDateName="startDate"
+                                                        label="تاریخ خروج"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />
                                                         }
