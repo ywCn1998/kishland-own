@@ -1,7 +1,7 @@
 "use client"
 import { Typography, Container, useMediaQuery, useTheme, Stack, Box, Button, Divider, Avatar } from "@mui/material";
 import { redirect } from "next/navigation";
-import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
+import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
 import {
     PersonOutline,
     ReceiptLongOutlined,

@@ -7,8 +7,8 @@ import { Box, Grid, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import Link from "next/link";
 import ReusableSwiper from "@/components/shared/reusableSwiper";
-import MainBanner from "@/components/shared/_components/banner/mainBanner";
-import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
+import MainBanner from "@/components/shared/ui/banner/mainBanner";
+import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
 
 const tabsData = [
   {

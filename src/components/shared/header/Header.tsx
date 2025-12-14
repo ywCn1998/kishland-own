@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 import { PhoneInTalkOutlined, LoginOutlined } from "@mui/icons-material";
-import RegisterModal from "../modal/loginModals/registerModal";
+import LoginPhoneModal from "@/components/auth/authModals/login/loginPhoneModal";
 import { useAtom } from "jotai";
 import {
   headerBackIconAtom,
@@ -192,7 +192,7 @@ export default function Header({ }) {
         <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : lastPart === "panel" ? "h-[0px]" : "h-[80px]"}`} />
       </Stack>
 
-      <RegisterModal open={open} setOpen={setOpen} />
+      <LoginPhoneModal open={open} setOpen={setOpen} />
     </Container>
   );
 }

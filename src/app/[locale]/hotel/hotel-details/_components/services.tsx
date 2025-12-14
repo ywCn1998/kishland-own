@@ -1,6 +1,6 @@
 "use client"
 import { Grid, Stack, Typography } from "@mui/material";
-import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_locationModalComponents/cityCenterLocations";
+import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_components/cityCenterLocations";
 import {
     Person,
     LocalTaxi,
@@ -10,7 +10,7 @@ import {
     PresentToAll,
 } from '@mui/icons-material';
 import TextIcon from "@/components/shared/textIcon";
-import RulesOfHotel from "@/components/shared/_components/rolesOfHotel";
+import RulesOfHotel from "@/components/shared/ui/rules";
 
 export const hotelFacilities = [
     {

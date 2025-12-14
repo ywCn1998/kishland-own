@@ -5,8 +5,8 @@ import {
     CategorySlider,
     CommonQuestions,
     ExtraFooterInformation,
-} from "@/components/shared/_components";
-import HotelBannerSearchTicketSection from "@/components/shared/_components/banner/hotelBannerSearchTicket";
+} from "@/components/shared/ui";
+import HotelBannerSearchTicketSection from "@/components/shared/ui/banner/hotelBannerSearchTicket";
 import ListSection from "./_components/listSection";
 import FilterBox from "../../entertainment/list/_components/filterBox";
 import HotelCategory from "./_components/hotelCategory";

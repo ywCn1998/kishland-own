@@ -3,8 +3,8 @@ import { Stack, Container, Typography, Rating, Button, IconButton, Grid, Box } f
 import {
     CategorySlider,
     ExtraFooterInformation,
-} from "@/components/shared/_components";
-import HotelBannerSearchTicketSection from "../../../../components/shared/_components/banner/hotelBannerSearchTicket";
+} from "@/components/shared/ui";
+import HotelBannerSearchTicketSection from "@/components/shared/ui/banner/hotelBannerSearchTicket";
 import TextIcon from "@/components/shared/textIcon";
 
 import {

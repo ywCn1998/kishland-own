@@ -1,5 +1,5 @@
 import React from "react";
-import ParentDetails from "../cart/parentDetails";
+import ParentDetails from "@/components/shared/cart/parentDetails";
 import YourCart from "../cart/yourCart";
 import PriceCard from "../cart/PriceCard";
 import { Grid, Stack } from "@mui/material";

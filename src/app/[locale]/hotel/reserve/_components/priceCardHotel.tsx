@@ -3,14 +3,14 @@
 import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
-import TotalResponsive from "@/app/[locale]/entertainment/reserve/_components/cart/totalResponsive";
+import TotalResponsive from "@/components/shared/cart/totalResponsive";
 import SingleBedIcon from '@mui/icons-material/SingleBed';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import TextIcon from "@/components/shared/textIcon";
 import Link from "next/link";
-import CancelModal from "@/components/shared/_components/cancelModal.tsx/cancelModal";
+import CancelModal from "@/components/shared/modal/cancelModal";
 import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
-import LoginPhoneModal from "@/components/shared/modal/loginModals/loginPhoneModal";
+import LoginPhoneModal from "@/components/auth/authModals/login/loginPhoneModal";
 import ShareModal from "@/components/shared/modal/shareModal/shareModal";
 import SuccessModal from "@/components/shared/modal/commentsModals/failOrSuccessModal";
 import CartModal from "@/components/shared/modal/cartModal/cartModal";

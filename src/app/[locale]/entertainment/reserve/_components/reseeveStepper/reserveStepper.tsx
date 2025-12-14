@@ -5,7 +5,7 @@ import { Box, Stack, Typography, Button, Grid } from "@mui/material";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
-import EmptyCartSection from "../cart/emptyCartSection";
+import EmptyCartSection from "@/components/shared/cart/emptyCartSection";
 import Step1 from "./step1";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -186,6 +186,7 @@ export default function ReserveStepper() {
       <Stack className="!hidden lg:block!">
         {activeStep === 0 ? (
           <EmptyCartSection
+            variant="entertainment"
             onNext={() =>
               setActiveStep((prev) => Math.min(prev + 1, steps.length - 1))
             }
@@ -209,6 +210,7 @@ export default function ReserveStepper() {
       <Stack className=" lg:hidden!">
          {activeStep === 0 ? (
           <EmptyCartSection
+            variant="entertainment"
             onNext={() =>
               setActiveStep((prev) => Math.min(prev + 1, steps.length - 1))
             }

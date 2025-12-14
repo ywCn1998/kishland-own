@@ -32,16 +32,16 @@ import {
 } from "@mui/material";
 import DaysSwiper from "./_components/dateSlider";
 import SanseCard from "./_components/sanseCard";
-import RatingModal from "../../../modal";
+import { RatingModal } from "@/components/shared/modal/ratingModal";
 import ShareModal from "@/components/shared/modal/shareModal/shareModal";
 import CategoryDetailCards from "../../../(landing)/categories/_components/categoryDetailCards";
-import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_locationModalComponents/cityCenterLocations";
-import RulesOfHotel from "@/components/shared/_components/rolesOfHotel";
-import { entertainmentRules } from "@/components/shared/_components/rolesOfHotel/entertainmentRules";
-import { CommonQuestions, OfferBanner } from "@/components/shared/_components";
+import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_components/cityCenterLocations";
+import RulesOfHotel from "@/components/shared/ui/rules";
+import { entertainmentRules } from "@/components/shared/ui/rules/entertainmentRules";
+import { CommonQuestions, OfferBanner } from "@/components/shared/ui";
 import SansList from "./_components/sansList";
 import LearnMore from "./_components/learnMore";
-import PeopleComments from "@/components/shared/_components/peopleComments";
+import PeopleComments from "@/components/shared/ui/peopleComments";
 
 export type DayItem = {
   id: string;

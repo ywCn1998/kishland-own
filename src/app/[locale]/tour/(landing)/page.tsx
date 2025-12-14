@@ -20,10 +20,10 @@ import {
   OfferBanner,
   WhyKishLand,
   LastSearch,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import HotDiscountModal from "@/components/shared/modal/hotDiscount/hotDiscountModal";
-import MainBanner from "@/components/shared/_components/banner/mainBanner";
-import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
+import MainBanner from "@/components/shared/ui/banner/mainBanner";
+import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
 
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },

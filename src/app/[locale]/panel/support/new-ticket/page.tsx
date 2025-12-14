@@ -6,7 +6,7 @@ import RHFTextInput from "@/components/shared/form/RHFTextInput";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import FormProvider from "@/providers/FormProvider";
-import useTicket from "./_hook/useTicket";
+import useTicket from "./hooks/useTicket";
 import RHFTextarea from "@/components/shared/form/RHFTextarea";
 import { useState } from "react";
 import RHFUploadButton from "@/components/shared/form/RHFChooseFile";

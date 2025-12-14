@@ -1,5 +1,5 @@
-import { ImageAndText } from "@/components/shared/_components";
-import GoldenText from "@/components/shared/_components/GoldenText";
+import { ImageAndText } from "@/components/shared/ui";
+import GoldenText from "@/components/shared/ui/GoldenText";
 import { Typography } from "@mui/material";
 
 export default function BodyIntroSection() {

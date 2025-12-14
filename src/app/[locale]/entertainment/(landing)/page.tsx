@@ -9,7 +9,7 @@ import {
   MainBlog,
   OfferBanner,
   WhyKishLand,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import {
   BodyIntroSection,
   BestExperienceBannerSection,
@@ -22,7 +22,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
-import ChanceMobile from "@/components/shared/_components/banner/chanceMobile";
+import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
 
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },

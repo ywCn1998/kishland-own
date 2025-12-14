@@ -1,9 +1,5 @@
 'use client'
-import { AccessTimeOutlined, CloudCircle, LocationOn, LocationOnOutlined, MapOutlined, PinOutlined, Search, WhatshotOutlined } from "@mui/icons-material";
 import { Button, Divider, Grid, Stack, Typography } from "@mui/material";
-
-// @ts-ignore
-import { UilFire, UilMapMarker } from '@iconscout/react-unicons';
 import TextIcon from "../../textIcon";
 import PersonIcon from '@mui/icons-material/Person';
 import TimerIcon from '@mui/icons-material/Timer';
@@ -11,7 +7,6 @@ import BedIcon from '@mui/icons-material/Bed';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MessageIcon from '@mui/icons-material/Message';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export function RoomCard({
     onClick,

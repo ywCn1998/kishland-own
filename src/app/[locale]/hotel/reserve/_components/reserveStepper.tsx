@@ -7,7 +7,7 @@ import ResponsivePassengerDetails from "./responsivePassemgerDetails";
 import PriceCardHotel from "./priceCardHotel";
 import HotelDetailsCart from "./HotelDetailsCart";
 import TextNumber from "@/components/shared/textNumber";
-import HowToPay from "@/app/[locale]/entertainment/reserve/_components/cart/howToPay/howToPay";
+import HowToPay from "@/components/shared/cart/howToPay/howToPay";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
@@ -15,11 +15,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LateHotel from "./lateHotel";
 import { useAtom } from "jotai";
 import { hasFooterResponsive } from "@/store/atomHeader";
-import Discount from "@/app/[locale]/entertainment/reserve/_components/cart/discount";
-import PassengerDetails from "@/app/[locale]/tour/reserve/_components/cart/passengerDetails";
-import TourDetailsReserve from "@/app/[locale]/tour/reserve/_components/cart/tourDetailsReserve";
-import TicketDetailsReserve from "@/app/[locale]/tour/reserve/_components/cart/ticketDetailsReserve";
-import ReserveStatus from "@/app/[locale]/tour/reserve/status/_components/ReserveStatus";
+import Discount from "@/components/shared/cart/discount";
+import PassengerDetails from "@/components/shared/cart/passengerDetails";
+import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
+import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
+import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 
 interface IStep {
   title: string;

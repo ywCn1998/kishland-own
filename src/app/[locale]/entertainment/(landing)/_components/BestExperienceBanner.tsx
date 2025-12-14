@@ -1,9 +1,9 @@
-import ImgTextGrid from "@/components/shared/_components/banner/ImageAndText";
+import ImgTextGrid from "@/components/shared/ui/banner/ImageAndText";
 import { Button, Stack, Typography } from "@mui/material";
 import MessageIcon from "@mui/icons-material/Message";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import StadiumIcon from "@mui/icons-material/Stadium";
-import GoldenText from "@/components/shared/_components/GoldenText";
+import GoldenText from "@/components/shared/ui/GoldenText";
 
 export default function BestExprienceBannerSection() {
   return (

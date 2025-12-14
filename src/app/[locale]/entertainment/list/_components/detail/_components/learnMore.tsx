@@ -9,7 +9,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_locationModalComponents/cityCenterLocations";
+import CityCenterLoactions from "@/app/[locale]/tour/hotel-location/_components/cityCenterLocations";
 import CategoryDetailCards from "@/app/[locale]/entertainment/(landing)/categories/_components/categoryDetailCards";
 
 export interface ImageGalleryItem {

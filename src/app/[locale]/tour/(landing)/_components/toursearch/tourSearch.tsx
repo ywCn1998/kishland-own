@@ -17,7 +17,7 @@ import SportsRugbyIcon from "@mui/icons-material/SportsRugby";
 import RHFSelect from "@/components/shared/form/RHFSelect";
 import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
 import FormProvider from "@/providers/FormProvider";
-import useSearch from "./_hook/useSearch";
+import useSearch from "./hooks/useSearch";
 
 export default function TourSearch({ activePage = "tour" }) {
   const { methods, OnSubmit } = useSearch();

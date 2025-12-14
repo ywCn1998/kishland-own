@@ -2,7 +2,7 @@ import React from "react";
 import BaseModal from "../BaseModal";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { ModalProps } from "@/interface/@types";
-import GoldenText from "../../_components/GoldenText";
+import GoldenText from "../../ui/GoldenText";
 
 export default function TravelFirstModal({ open, setOpen }: ModalProps) {
     return (

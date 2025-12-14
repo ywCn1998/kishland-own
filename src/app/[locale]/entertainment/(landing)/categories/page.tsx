@@ -19,7 +19,7 @@ import CategorySwiper from "../../list/_components/category";
 import {
   CategorySlider,
   ExtraFooterInformation,
-} from "@/components/shared/_components";
+} from "@/components/shared/ui";
 import FilterBox from "../../list/_components/filterBox";
 import { BlitType } from "../../list/_components/blitType";
 import { AirCard } from "../../list/_components/blitType/aircard";

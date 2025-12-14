@@ -53,6 +53,8 @@ body {
   --primary-800: #022431;
   --primary-900: #021d27;
   --secondary-500: #088def;
+  --secondary-100: #E1E6F0;
+  --secondary-200: #F5F7FA;
 }
 
 .text-secondary-500 {

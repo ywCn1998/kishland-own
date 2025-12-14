@@ -2,13 +2,13 @@
 import { Avatar, Box, Button, Container, Grid, Stack, Typography, useMediaQuery, useTheme, IconButton } from "@mui/material";
 import SideBar from "../_components/sidebar/sidebar";
 import FormProvider from "@/providers/FormProvider";
-import useAccount from "./_hook/useAccount";
+import useAccount from "./hooks/useAccount";
 import TextIcon from "@/components/shared/textIcon";
 import { DeleteOutlineOutlined, LocalSeeOutlined, AccountBalanceWalletOutlined, KeyboardArrowLeftOutlined, PersonOutlined, CreditCardOutlined, LanguageOutlined, PhoneOutlined } from '@mui/icons-material';
 
 import { useState, useEffect } from "react";
 import PersonalInformation from "./_components/personalInformation";
-import { ExtraFooterInformation } from "@/components/shared/_components";
+import { ExtraFooterInformation } from "@/components/shared/ui";
 import ContactInformation from "./_components/contactInformation";
 import PassportInformation from "./_components/passportInformation";
 import BankAccountInformation from "./_components/bankAccountInformation";

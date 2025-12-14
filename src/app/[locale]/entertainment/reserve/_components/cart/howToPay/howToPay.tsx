@@ -13,9 +13,9 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import PayOnline from "./cards/payOnlineCard";
-import PayLoan from "./cards/payLoans";
-import PayWallet from "./cards/payWallet";
+import PayOnline from "@/components/shared/cart/howToPay/cards/payOnlineCard";
+import PayLoan from "@/components/shared/cart/howToPay/cards/payLoans";
+import PayWallet from "@/components/shared/cart/howToPay/cards/payWallet";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function HowToPay({ discount = false }: { discount?: boolean }) {

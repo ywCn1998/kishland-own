@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { ButtonBase, Stack } from "@mui/material";
-import ImageGalleryDialog from "@/components/shared/_components/ImageGalleryDialog";
+import ImageGalleryDialog from "@/components/shared/ui/ImageGalleryDialog";
 
 interface ViewsGalleryStripProps {
     images: string[];
