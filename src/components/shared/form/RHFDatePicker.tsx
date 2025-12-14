@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { Button, Dialog, DialogContent} from "@mui/material";
+import { Button, Dialog, DialogContent } from "@mui/material";
 import { Stack, Switch } from "@mui/material";
 
 import { toJalaali } from "jalaali-js";
@@ -22,14 +22,24 @@ import "react-day-picker/dist/style.css";
 
 
 
-function formatJalali(date: Date) {
+function formatJalali(input?: unknown) {
+  if (!input) return "";
+
+  const date =
+    input instanceof Date ? input : new Date(input as any);
+
+  if (isNaN(date.getTime())) return "";
+
   const j = toJalaali(date);
   const pad = (n: number) => String(n).padStart(2, "0");
+
   return `${j.jy}/${pad(j.jm)}/${pad(j.jd)}`;
 }
 
 export interface RHFRangePickerProps {
-  name: string;
+  startName: string;
+  endName: string;
+  isStart?: boolean;
   label?: React.ReactNode;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -37,41 +47,48 @@ export interface RHFRangePickerProps {
 }
 
 export default function RHF2MonthRangePicker({
-  name,
+  startName,
+  endName,
+  isStart,
   label,
   startIcon,
   endIcon,
   helperComponent,
 }: RHFRangePickerProps) {
-  const { control } = useFormContext();
+  const { control, setValue, watch } = useFormContext();
   const [open, setOpen] = React.useState(false);
   const [isJalali, setIsJalali] = React.useState(true);
-  const [fromDate, setFromDate] = React.useState<Date | undefined>(undefined);
-  const [toDate, setToDate] = React.useState<Date | undefined>(undefined);
 
   const persianDateLib = React.useMemo(() => getDateLib(), []);
   const defaultClassNames = getDefaultClassNames();
 
 
+  const fromDate = watch(startName);
+  const toDate = watch(endName);
+
+
   return (
     <Controller
-      name={name}
+      name={startName || endName}
       control={control}
       render={({ field, fieldState }) => {
         const range: DateRange | undefined = field.value;
 
         // همگام‌سازی state با field.value
-        React.useEffect(() => {
-          if (range?.from) {
-            setFromDate(range.from);
-          }
-          if (range?.to) {
-            setToDate(range.to);
-          }
-        }, [range]);
+        // React.useEffect(() => {
+        //   if (range?.from) {
+        //     setFromDate(range.from);
+        //   }
+        //   if (range?.to) {
+        //     setToDate(range.to);
+        //   }
+        // }, [range]);
 
         const displayText = React.useMemo(() => {
-          if (!fromDate || !toDate) return "انتخاب بازه";
+          const isValidFromDate = fromDate && fromDate instanceof Date;
+          const isValidToDate = toDate && toDate instanceof Date;
+          
+          if (!isValidFromDate || !isValidToDate) return "انتخاب بازه";
 
           if (isJalali) {
             const fromText = formatJalali(fromDate);
@@ -85,26 +102,39 @@ export default function RHF2MonthRangePicker({
 
         const error = fieldState.error?.message;
 
-        const handleSelect = (newRange: DateRange | undefined) => {
-          if (newRange?.from) {
-            setFromDate(newRange.from);
+        const handleSelect = (range?: DateRange) => {
+          if (range?.from) {
+            setValue(startName, range.from, { shouldDirty: true });
           }
-          if (newRange?.to) {
-            setToDate(newRange.to);
-          }
-          field.onChange(newRange);
-        };
 
-        // ساخت range از state برای نمایش در calendar
-        const rangeFromState: DateRange | undefined = React.useMemo(() => {
-          return {
-            from: fromDate,
-            to: toDate,
-          };
+          if (range?.to) {
+            setValue(endName, range.to, { shouldDirty: true });
+          }
+        };
+        const selectedRange: DateRange | undefined = React.useMemo(() => {
+          let from: Date | undefined = undefined;
+          let to: Date | undefined = undefined;
+          if (fromDate) {
+            if (fromDate instanceof Date && !isNaN(fromDate.getTime())) {
+              from = fromDate;
+            } else if (typeof fromDate === 'string') {
+              from = undefined;
+            }
+          }
+
+          if (toDate) {
+            if (toDate instanceof Date && !isNaN(toDate.getTime())) {
+              to = toDate;
+            } else if (typeof toDate === 'string') {
+      
+              to = undefined;
+            }
+          }
+          
+          return { from, to };
         }, [fromDate, toDate]);
 
         const today = new Date();
-console.log(fromDate, "deded" , toDate);
         return (
           <Stack gap={1}>
             <div
@@ -118,8 +148,16 @@ console.log(fromDate, "deded" , toDate);
                 {endIcon}
               </span>
             </div>
-            <span className="text-sm! text-gray-700! cursor-pointer! hidden! md:block! " onClick={() => setOpen(true)}>{name === "startDate" && fromDate ? fromDate.toLocaleDateString("fa-IR") : name === "endDate" && toDate ? toDate.toLocaleDateString("fa-IR") : displayText}</span>
-            <span className="text-sm! text-gray-700! cursor-pointer! md:hidden! block! " onClick={() => setOpen(true)}>{displayText}</span>
+            <span className="text-base! cursor-pointer! hidden! md:block! " onClick={() => setOpen(true)}>
+              {isStart 
+                ? (fromDate 
+                  ? (isJalali ? formatJalali(fromDate) : (fromDate instanceof Date ? fromDate.toLocaleDateString("fa-IR") : new Date(fromDate).toLocaleDateString("fa-IR")))
+                  : displayText)
+                : (toDate 
+                  ? (isJalali ? formatJalali(toDate) : (toDate instanceof Date ? toDate.toLocaleDateString("fa-IR") : new Date(toDate).toLocaleDateString("fa-IR")))
+                  : displayText)}
+            </span>
+            <span className="text-base! cursor-pointer! md:hidden! block! " onClick={() => setOpen(true)}>{displayText}</span>
             {error && (
               <span className="text-xs text-red-500 pt-0.5">{error}</span>
             )}
@@ -149,13 +187,13 @@ console.log(fromDate, "deded" , toDate);
                   <PersianDayPicker
                     mode="range"
                     numberOfMonths={2}
-                    selected={rangeFromState}
+                    selected={selectedRange}
                     onSelect={handleSelect}
                     disabled={{ before: today }}
-                    classNames={ {
+                    classNames={{
                       today: `text-[var(--primary-500)]!`,
                       chevron: `${defaultClassNames.chevron} fill-[var(--primary-500)]!`,
-                      selected: `bg-orange-100!`,
+                      selected: `bg-orange-50! `,
                       range_start: `bg-orange-400! text-white! font-bold! rounded-full!`,
                       range_end: `bg-orange-400! text-white! font-bold! rounded-full!`,
                       disabled: `text-gray-300! `,
@@ -165,13 +203,13 @@ console.log(fromDate, "deded" , toDate);
                   <GregorianDayPicker
                     mode="range"
                     numberOfMonths={2}
-                    selected={rangeFromState}
+                    selected={selectedRange}
                     onSelect={handleSelect}
                     disabled={{ before: today }}
-                    classNames={ {
+                    classNames={{
                       today: `text-[var(--primary-500)]!`,
                       chevron: `${defaultClassNames.chevron} fill-[var(--primary-500)]!`,
-                      selected: `bg-orange-100!`,
+                      selected: `bg-orange-50!`,
                       range_start: `bg-orange-400! text-white! font-bold! rounded-full!`,
                       range_end: `bg-orange-400! text-white! font-bold! rounded-full!`,
                       disabled: `text-gray-300! `,
@@ -186,9 +224,9 @@ console.log(fromDate, "deded" , toDate);
                     color="primary"
                     className="text-sm"
                     onClick={() => {
-                      setFromDate(today);
-                      setToDate(today);
-                      field.onChange({ from: today, to: today } as DateRange);
+                      setValue(startName, today);
+                      setValue(endName, today);
+                      // field.onChange({ from: today, to: today } as DateRange);
                     }}
                   >
                     برو به امروز
@@ -201,9 +239,9 @@ console.log(fromDate, "deded" , toDate);
                       color="primary"
                       className="rounded-lg! text-sm! px-4! py-2!"
                       onClick={() => {
-                        setFromDate(undefined);
-                        setToDate(undefined);
-                        field.onChange({ from: undefined, to: undefined });
+                        setValue(startName, undefined);
+                        setValue(endName, undefined);
+                        // field.onChange({ from: undefined, to: undefined });
                       }}
                     >
                       ریست

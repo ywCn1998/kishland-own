@@ -89,7 +89,8 @@ export default function MobileRoomDrawer({ isSelected, onSelect }: DrawerButtonP
                                     <Grid size={6}>
                                         <Box sx={{ minWidth: 10 }}>
                                             <RHFDatePicker
-                                                name="startDate"
+                                                startName="startDate"
+                                                endName="endDate"
                                                 label="تاریخ ورود"
                                                 startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
                                             />
@@ -98,7 +99,8 @@ export default function MobileRoomDrawer({ isSelected, onSelect }: DrawerButtonP
                                     <Grid size={6}>
                                         <Box sx={{ minWidth: 10 }}>
                                             <RHFDatePicker
-                                                name="endDate"
+                                                startName="startDate"
+                                                endName="endDate"
                                                 label="تاریخ رفت و برگشت"
                                                 startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
                                             />
