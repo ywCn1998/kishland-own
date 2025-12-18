@@ -35,7 +35,6 @@ export function Navbar() {
         spacing={0}
       >
         {navbarItems.map((item, i) => (
-          <>
             <li key={item.href} className="flex flex-row gap-10 ">
               <Typography
                 component={Link}
@@ -53,7 +52,6 @@ export function Navbar() {
                 <Divider orientation="vertical" flexItem />
               )}
             </li>
-          </>
         ))}
       </Stack>
     </nav>

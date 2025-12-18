@@ -226,7 +226,7 @@ export default function Page() {
                         </Typography>
                     </Stack>
                     <Typography className="text-xs! text-[#9CA3AF]! text-center!" sx={{ fontFamily: "var(--font-lahzeh)" }}>
-                        سریع میر طراحی و پیاده سازی توسط تیم ۱۳ کیش خندیار
+                        سریع میر طراحی و پیاده سازی توسط تیم ۱۳ کیش لندیار
                     </Typography>
                 </Stack>
             </Stack>

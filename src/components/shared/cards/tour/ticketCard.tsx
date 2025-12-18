@@ -29,7 +29,11 @@ type TicketCardProps = {
   isTicketShape?: boolean;
   /** footer fields (used when isTicketShape) */
   ticketNumber?: string;
-  tripLabel?: "بلیط رفت" | "بلیط برگشت"
+  tripLabel?: "بلیط رفت" | "بلیط برگشت";
+  /** If true: adds blur overlay and shows custom button */
+  isDisabled?: boolean;
+  /** Custom button to show on overlay when isDisabled is true */
+  overlayButton?: React.ReactNode;
 };
 
 export default function TicketCard({
@@ -40,6 +44,8 @@ export default function TicketCard({
   isTicketShape = false,
   ticketNumber = "۵۵۴۸۷۴۱",
   tripLabel = "بلیط رفت",
+  isDisabled = false,
+  overlayButton,
 }: TicketCardProps) {
   return (
     <Stack
@@ -213,7 +219,7 @@ export default function TicketCard({
       )}
 
       {/* Overlay (blur) */}
-      {isFade && (
+      {(isFade || isDisabled) && (
         <Box
           sx={{
             position: "absolute",
@@ -224,18 +230,23 @@ export default function TicketCard({
             justifyContent: "center",
             backdropFilter: "blur(7px)",
             WebkitBackdropFilter: "blur(7px)",
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
           }}
         >
-          <Button
-            disabled={canBuyTicket}
-            startIcon={<AddIcon className="text-xl!" />}
-            variant="outlined"
-            color="secondary"
-            className="rounded-lg! h-[60px]! text-base! font-semibold!"
-            sx={{ backgroundColor: "white" }}
-          >
-            {ticketType}
-          </Button>
+          {isDisabled && overlayButton ? (
+            overlayButton
+          ) : (
+            <Button
+              disabled={canBuyTicket}
+              startIcon={<AddIcon className="text-xl!" />}
+              variant="outlined"
+              color="secondary"
+              className="rounded-lg! h-[60px]! text-base! font-semibold!"
+              sx={{ backgroundColor: "white" }}
+            >
+              {ticketType}
+            </Button>
+          )}
         </Box>
       )}
     </Stack>

@@ -52,8 +52,10 @@ export default async function RootLayout({
 
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "";
-  const parts = pathname.split("/");
-  const lastPart = parts.pop() || "";
+  // Remove trailing slashes and split
+  const cleanPath = pathname.replace(/\/$/, "");
+  const parts = cleanPath.split("/").filter(Boolean);
+  const lastPart = parts[parts.length - 1] || "";
   const isLandingPage =
     lastPart === "tour" ||
     lastPart === "entertainment" ||
@@ -96,7 +98,7 @@ export default async function RootLayout({
                 }}
               />
               <RouteIO />
-              <Header />
+              <Header/>
               <Stack
                 component="main"
                 className={`min-h-[70vh]`}

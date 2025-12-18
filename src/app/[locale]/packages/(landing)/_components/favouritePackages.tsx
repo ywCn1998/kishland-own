@@ -115,6 +115,7 @@ export default function FavouritePackages() {
             </Stack>
             {/* Boxes that change based on active tab */}
             {activeTab === 0 && <EchonomyPackage/>}
+       
         </div>
     )
 }

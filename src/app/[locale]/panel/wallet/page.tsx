@@ -19,6 +19,8 @@ import { useAtom } from "jotai";
 import { headerTitleAtom } from "@/store/atomHeader";
 import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottomBotton";
 import DownloadIcon from '@mui/icons-material/Download';
+import ChargeWalletModal from "@/components/shared/modal/walletModals/chargeWalletModal";
+import WithdrawModal from "@/components/shared/modal/walletModals/withdrawModal";
 
 const headCells: ITableHeadCell[] = [
     {
@@ -150,7 +152,14 @@ const tabItemsForMainTabs = tabItems.map((tab) => ({
 export default function Wallet() {
     const [activeTab, setActiveTab] = useState(1); // Start with "واریز" (deposit) tab
     const [, setHeaderTitle] = useAtom(headerTitleAtom);
-
+    const [openChargeWalletModal, setOpenChargeWalletModal] = useState(false);
+    const [openWithdrawModal, setOpenWithdrawModal] = useState(false);
+    const handleOpenChargeWalletModal = () => {
+        setOpenChargeWalletModal(!openChargeWalletModal);
+    };
+    const handleOpenWithdrawModal = () => {
+        setOpenWithdrawModal(!openWithdrawModal);
+    };
     useEffect(() => {
         setHeaderTitle("کیف پول");
     }, []);
@@ -174,8 +183,8 @@ export default function Wallet() {
                 </Stack>
 
                 <Stack className="flex! flex-col! md:flex-row! gap-2! md:gap-8! w-full!" mt={2}>
-                    <Button className="w-full! text-sm! md:text-lg! py-5! md:py-3! text-white! rounded-2xl md:rounded-xl! md:rounded-2xl!" variant="contained" startIcon={<AccountBalanceWalletOutlinedIcon className="text-xl! md:text-3xl!" />}>افزایش موجودی کیف پول</Button>
-                    <Button className="w-full! text-sm! md:text-base! py-5! md:py-3! text-black! rounded-2xl md:rounded-xl! md:rounded-2xl!" sx={{ fontWeight: 300 }} variant="outlined" startIcon={<CreditScoreOutlinedIcon className="text-xl! md:text-2xl!" />}>برداشت از کیف پول</Button>
+                    <Button className="w-full! text-sm! md:text-lg! py-5! md:py-3! text-white! rounded-2xl md:rounded-xl! md:rounded-2xl!" variant="contained" startIcon={<AccountBalanceWalletOutlinedIcon className="text-xl! md:text-3xl!" />} onClick={handleOpenChargeWalletModal}>افزایش موجودی کیف پول</Button>
+                    <Button className="w-full! text-sm! md:text-base! py-5! md:py-3! text-black! rounded-2xl md:rounded-xl! md:rounded-2xl!" sx={{ fontWeight: 300 }} variant="outlined" startIcon={<CreditScoreOutlinedIcon className="text-xl! md:text-2xl!" />} onClick={handleOpenWithdrawModal}>برداشت از کیف پول</Button>
                 </Stack>
             </Stack>
 
@@ -265,6 +274,8 @@ export default function Wallet() {
                     <Button className="w-full! text-base! text-black! py-6!" startIcon={<DownloadIcon className="text-2xl!" />} variant="outlined">دانلود اکسل تراکنش</Button>
                 </FixedBottomButton>
             </Stack>
+            <ChargeWalletModal open={openChargeWalletModal} setOpen={setOpenChargeWalletModal} />
+            <WithdrawModal open={openWithdrawModal} setOpen={setOpenWithdrawModal} />
         </Container>
     )
 }
@@ -314,7 +325,6 @@ function TransactionCard({
                     {payDate}
                 </Typography>
             </Stack>
-
 
         </Stack>
     );

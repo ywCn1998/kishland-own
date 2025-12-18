@@ -19,6 +19,7 @@ import TourDetails from "../../status/_components/tourDetails";
 import TourDetailsReserve from "../cart/tourDetailsReserve";
 import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 import TicketDetailsReserve from "../cart/ticketDetailsReserve";
+import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
 
 interface IStep {
   title: string;
@@ -244,6 +245,7 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
             <ReserveStatus isSuccess={true} code={1234}/>
         )}
       </Stack>
+      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333"/>
     </>
   );
 }
