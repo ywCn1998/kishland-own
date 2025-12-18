@@ -34,7 +34,6 @@ export default async function EntertainmentCard({
   price?: string;
   dicountedPrice?: string;
 }) {
-  // product prop حاوی اطلاعات یک محصول است
   return (
     <Card
       sx={{
@@ -51,8 +50,7 @@ export default async function EntertainmentCard({
       className="border-1! border-slate-200! reveal"
     >
       {/* Media area */}
-      <Box sx={{ position: "relative", flex: "0 0 52%" /* ~208px of 400 */ }}>
-        {/* Put spacing on wrapper instead of image padding */}
+      <Box sx={{ position: "relative", flex: "0 0 52%" }}>
         <Box
           sx={{
             height: "90%",
@@ -78,7 +76,7 @@ export default async function EntertainmentCard({
       {/* Content area */}
       <CardContent
         sx={{
-          flex: 1, // takes remaining space
+          flex: 1,
           pt: 1,
           px: 0,
           display: "flex",
@@ -92,7 +90,7 @@ export default async function EntertainmentCard({
             <div className="flex! flex-row! justify-between! items-center! gap-1!">
               <Rating
                 className="!text-lg lg:text-xl! "
-                defaultValue={3} // ⭐⭐⭐☆☆
+                defaultValue={3}
               />
               <span className="text-slate-400 text-xs lg:text-sm!">
                 {rating}

@@ -105,10 +105,10 @@ export default function DiscountedEntertainmentSection() {
       {/* responsive */}
       <Grid
         container
-        height= {430}
+        height={430}
         sx={{
           bgcolor: "#FFF2D3",
-          paddingY: 2 ,
+          paddingY: 2,
           px: { xs: 0, lg: 3 },
           pr: { xs: 0, lg: 3 },
           borderRadius: { xs: "none", lg: 2 },

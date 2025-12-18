@@ -1,26 +1,19 @@
-  import Card from "@mui/material/Card";
-  import CardContent from "@mui/material/CardContent";
-  import CardMedia from "@mui/material/CardMedia";
-  import Typography from "@mui/material/Typography";
-  import IconButton from "@mui/material/IconButton";
-  import Box from "@mui/material/Box";
-  import Chip from "@mui/material/Chip";
-  import StarIcon from "@mui/icons-material/Star";
-  import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-  import Divider from "@mui/material/Divider";
-  import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
-  // 2. -------- کامپوننت کارت محصول (با قابلیت دریافت Props) --------
-  export default async function TourOfferCard() {
-    // product prop حاوی اطلاعات یک محصول است
-    return (
-      <Card
+export default async function TourOfferCard() {
+  return (
+    <Card
       sx={{
         width: "100%",
         // height: 400,
         display: "flex",
         flexDirection: "column",
-        overflow: "hidden",          // clip zoomed image
+        overflow: "hidden",
         borderRadius: 1.3,
         boxShadow: 0,
         background: "white",
@@ -30,8 +23,7 @@
       className="border-1! border-slate-200! "
     >
       {/* Media area */}
-      <Box sx={{ position: "relative", flex: "0 0 52%" /* ~208px of 400 */ }}>
-        {/* Put spacing on wrapper instead of image padding */}
+      <Box sx={{ position: "relative", flex: "0 0 52%" }}>
         <Box sx={{ height: "90%", borderRadius: 2, overflow: "hidden", m: 1.2 }}>
           <CardMedia
             component="img"
@@ -82,5 +74,5 @@
         </div>
       </CardContent>
     </Card>
-    );
-  }
+  );
+}

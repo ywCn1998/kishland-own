@@ -95,9 +95,9 @@ export function middleware(request: NextRequest) {
   }
 
   // If user is not authenticated and trying to access protected routes, redirect to login
-  if (!authenticated && isProtectedRoute(pathname)) {
-    return NextResponse.redirect(new URL('/', request.url))
-  }
+  // if (!authenticated && isProtectedRoute(pathname)) {
+  //   return NextResponse.redirect(new URL('/', request.url))
+  // }
 
   // Allow the request to continue
   return NextResponse.next()
