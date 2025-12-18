@@ -9,6 +9,8 @@ import { RateBar } from "@/components/shared/ratebar";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import TextIcon from "@/components/shared/textIcon";
 import BedroomParentIcon from '@mui/icons-material/BedroomParent';
+import ChangeRoomDrawer from "../changeRoomDrawer";
+import { useState } from "react";
 
 interface IProps {
     onClick?: (val: boolean) => void
@@ -19,6 +21,8 @@ export function TourCard({
     onClick,
     isLocationModal = false
 }: IProps) {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
     return (
         <Grid size={{ md: 12 }}  >
             <Stack
@@ -31,7 +35,7 @@ export function TourCard({
                     display={'flex'} flexDirection={'row'}
                     alignItems={'center'} sx={{
                         position: 'relative',
-                        width: '100%',      
+                        width: '100%',
                         gap: 2,
                         height: "255px"
                     }}>
@@ -57,7 +61,7 @@ export function TourCard({
                                     پیشنهاد ویژه کیش لندیار
                                 </Button>
                                 {!isLocationModal && (
-                                    <Button className="bg-slate-500! text-white! h-10! rounded-lg! text-sm!" variant="contained">
+                                    <Button onClick={handleOpen} className="bg-slate-500! text-white! h-10! rounded-lg! text-sm!" variant="contained">
                                         تغییر تایپ اتاق
                                     </Button>
                                 )}
@@ -180,7 +184,7 @@ export function TourCard({
 
 
 
-
+                <ChangeRoomDrawer open={open} setOpen={setOpen} />
             </Stack>
         </Grid>
     )

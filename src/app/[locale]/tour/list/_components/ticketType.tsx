@@ -5,6 +5,8 @@ import SortIcon from '@mui/icons-material/Sort';
 import TicketCard from "@/components/shared/cards/tour/ticketCard";
 import MainTabs from "@/components/shared/mainTabs";
 import TextIcon from "@/components/shared/textIcon";
+import { useState } from "react";
+import ChangeBliteDrawer from "./changeBlite";
 
 
 const tabsData = [
@@ -25,6 +27,8 @@ const tabsData = [
 export default function TicketTypeSection({ isLocationModal = false }: { isLocationModal?: boolean }) {
     const theme = useTheme()
     const mdUp = useMediaQuery(theme.breakpoints.up("md"));
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
     return (
         <Container maxWidth="xl"
             sx={{
@@ -38,7 +42,7 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
 
                         <Stack className="w-full! flex! flex-row! items-center! justify-between! mb-5!">
                             <TextNumber number={2} text="انتخاب نوع بلیط" />
-                            <Button variant="contained" sx={{ backgroundColor: "secondary.main", color: "white", px: 6, height: 50 }}>تغییر بلیط</Button>
+                            <Button onClick={handleOpen} variant="contained" sx={{ backgroundColor: "secondary.main", color: "white", px: 6, height: 50 }}>تغییر بلیط</Button>
                         </Stack>
                     </Stack>
                 ) : (
@@ -66,6 +70,7 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
                 <TicketCard />
                 <TicketCard />
             </Stack>
+            <ChangeBliteDrawer open={open} setOpen={setOpen} />
         </Container>
     );
 }

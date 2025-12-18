@@ -69,7 +69,8 @@ export default function HotelBannerSearchTicketSection({ location, fromWhere, st
                                         <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                                             <Box sx={{ minWidth: 120, p: 1 }}>
                                                 <RHFDatePicker
-                                                    name="startDate"
+                                                    startName="startDate"
+                                                    endName="endDate"
                                                     label="تاریخ ورود"
                                                     startIcon={
                                                         <BusinessCenterIcon sx={{ color: "primary.main" }} />
@@ -82,7 +83,8 @@ export default function HotelBannerSearchTicketSection({ location, fromWhere, st
                                         <Grid size="grow">
                                             <Box sx={{ minWidth: 120, p: 1 }}>
                                                 <RHFDatePicker
-                                                    name="endDate"
+                                                    startName="startDate"
+                                                    endName="endDate"
                                                     label={isMd ? "تاریخ خروج" : "تاریخ رفت و برگشت"}
                                                     startIcon={
                                                         <BusinessCenterIcon sx={{ color: "primary.main" }} />

@@ -199,7 +199,7 @@ export default function PayLoan() {
             })}
           </Grid>
         </AccordionDetails>
-      </Accordion>
+      </Accordion>``
 
       <LoanDrawer
         open={openDrawer}
