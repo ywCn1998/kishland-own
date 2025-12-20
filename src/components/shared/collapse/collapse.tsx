@@ -37,6 +37,7 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
         border: "none",
         borderRadius: 0,
         "&:before": { display: "none" },
+        backgroundColor: "transparent",
       }}
     >
       {/* Header */}

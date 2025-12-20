@@ -5,7 +5,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 export default function PackageHeroSection() {
   return (
-    <div className='reveal-down'>
+    <div className='reveal-down mt-4! md:mt-0! hidden! md:block!'>
       <ImageAndText
         imgUrl="/images/package/package.png"
         imgAlt="Package hero"

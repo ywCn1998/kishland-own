@@ -3,8 +3,6 @@
 import { Button, Divider, Grid, Stack, Typography, Container, useMediaQuery, useTheme, IconButton, Box } from "@mui/material";
 import { useParams, useRouter } from "next/navigation";
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
-import CloseIcon from '@mui/icons-material/Close';
-import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import BlogCard from "@/components/shared/cards/blogCard";
 import TextIcon from "@/components/shared/textIcon";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -268,7 +266,7 @@ export default function HistoryDetails() {
                         <Button className="w-full! text-base! text-black! py-6!" variant="outlined" startIcon={<LocalPrintshopIcon className="text-2xl!" />}>چاپ بلیط</Button>
                     </FixedBottomButton>
                 </Stack>
-                </Stack>
+            </Stack>
         </Container>
     );
 }

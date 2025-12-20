@@ -62,3 +62,8 @@ export default function EmptyCartSection({ onNext, variant = "entertainment" }: 
   );
 }
 
+
+
+
+
+

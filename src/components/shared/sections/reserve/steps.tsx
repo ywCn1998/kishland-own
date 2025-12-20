@@ -1,8 +1,17 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Steps({ steps }: { steps: any[] }) {
+export interface IStep {
+    title: string;
+    description?: string;
+    iconPast?: ReactNode;
+    iconActive?: ReactNode;
+    iconFuture?: ReactNode;
+    mt?: number;
+}
+
+export default function Steps({ steps, isTicketPage, mt }: { steps: IStep[], isTicketPage?: boolean, mt?: string }) {
     const [activeStep, setActiveStep] = useState<number>(2);
     return (
         <Stack
@@ -17,7 +26,7 @@ export default function Steps({ steps }: { steps: any[] }) {
                 width: { lg: "100%", xs: "100dvw" },
                 overflow: "hidden",
                 mb: 4,
-                mt: { xs: "115px", lg: 0 },
+                mt: { xs: mt ? mt : "115px", lg: 0 },
                 display: {
                     xs: activeStep === 0 ? "none" : "flex",
                     lg: "flex",
@@ -48,7 +57,8 @@ export default function Steps({ steps }: { steps: any[] }) {
                             sx={{
                                 minWidth: { xs: "fit-content", lg: 80 },
                                 flexShrink: 0,
-                                flexDirection: { xs: "row", lg: "column" },
+                                flexDirection: { xs: "row", lg: isTicketPage ? "row" : "column" },
+                                gap: isTicketPage ? 1 : 0,
                             }}
                         >
                             <Box>

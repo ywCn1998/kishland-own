@@ -7,6 +7,8 @@ import {
   IconButton,
   InputAdornment,
   Box,
+  Typography,
+  Button,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useRef, useState } from "react";
@@ -19,6 +21,8 @@ export interface IProps {
   helperComponenet?: React.JSX.Element;
   controllerKey?: string;
   defaultValue?: any;
+  placeholderSuffix?: string;
+  quickAmountButtons?: number[];
 }
 
 const RHFTextInput = ({
@@ -33,6 +37,8 @@ const RHFTextInput = ({
   controllerKey,
   autoFocus,
   defaultValue,
+  placeholderSuffix,
+  quickAmountButtons,
   ...others
 }: IProps & TextFieldProps) => {
   const { control } = useFormContext();
@@ -47,7 +53,14 @@ const RHFTextInput = ({
       name={name}
       control={control}
       defaultValue={defaultValue ?? ""}
-      render={({ field, fieldState: { error } }) => (
+      render={({ field, fieldState: { error } }) => {
+        const handleQuickAmountClick = (amount: number) => {
+          const currentValue = field.value ? parseFloat(field.value.toString().replace(/,/g, '')) || 0 : 0;
+          const newValue = currentValue + amount;
+          field.onChange(newValue.toString());
+        };
+
+        return (
         <Stack gap={2} sx={{ width: "100%" }}>
           <TextField
             fullWidth
@@ -94,19 +107,53 @@ const RHFTextInput = ({
                   </Box>
                 </InputAdornment>
               ) : undefined,
-              endAdornment:
-                type === "password" ? (
-                  <InputAdornment position="end">
-                    <IconButton onClick={togglePasswordVisibility} edge="end">
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ) : null,
+              endAdornment: (placeholderSuffix || type === "password") ? (
+                <InputAdornment position="end">
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    {placeholderSuffix && (
+                      <Typography
+                        sx={{
+                          fontSize: "1rem",
+                          ml : 1,
+                        }}
+                      >
+                        {placeholderSuffix}
+                      </Typography>
+                    )}
+                    {type === "password" && (
+                      <IconButton onClick={togglePasswordVisibility} edge="end" size="small">
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    )}
+                  </Stack>
+                </InputAdornment>
+              ) : null,
             }}
           />
+          {quickAmountButtons && quickAmountButtons.length > 0 && (
+            <Stack direction="row" spacing={1} sx={{ flexWrap: "nowrap", gap: 1 }}>
+              {quickAmountButtons.map((amount, index) => (
+                <Button
+                  key={index}
+                  variant="contained"
+                  color="inherit"
+                  size="small"
+                  onClick={() => handleQuickAmountClick(amount)}
+                  sx={{
+                    px: 1,
+                    py: 1,
+                  }}
+                  className="w-1/5! text-base! text-slate-600!"
+                >
+                  {amount.toLocaleString()}
+                </Button>
+              ))}
+            </Stack>
+          )}
           {helperComponenet}
         </Stack>
-      )}
+        );
+      }}
     />
   );
 };

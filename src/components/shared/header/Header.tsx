@@ -152,7 +152,57 @@ export default function Header({ }) {
               </Stack>
             </Stack>
           </Box>
-        ) : lastPart == "panel" ? null : (
+        ) : lastPart == "panel" ? null : lastPart == "packages" ? <Box
+          className="
+relative
+lg:hidden!
+h-[100px]
+w-full
+bg-[#088DEF]
+bg-[url('/images/header.png')]
+bg-cover
+bg-center
+bg-no-repeat
+bg-blend-overlay
+z-[1300]
+fixed!
+top-0
+left-0
+right-0
+
+xs-fullwidth
+"
+        >
+          <Stack className="flex flex-col px-4! py-2! gap-2!">
+            <Stack className="relative z-10 flex items-center justify-between! flex-row!">
+              <Typography className="text-xs! text-white! ">
+              این بار سفر برات خاطره میشه 
+              </Typography>
+              <Stack
+                className="
+flex 
+flex-row-reverse!
+items-center
+gap-2
+text-white
+bg-white/20
+backdrop-blur-md
+rounded-xl
+px-3
+py-2
+"
+              >
+                <PhoneInTalk />
+                <Typography>021-93893839</Typography>
+              </Stack>
+            </Stack>
+            <Stack>
+              <Typography className="text-white! text-lg! font-semibold!">
+              پکیج دلخواهت رو انتخاب کن
+              </Typography>
+            </Stack>
+          </Stack>
+        </Box> : (
           <Stack
             className="
     flex 

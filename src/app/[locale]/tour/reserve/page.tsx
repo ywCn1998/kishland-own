@@ -108,7 +108,7 @@ export default function Home() {
             <YouMayLoveSection />
           </Stack>
         </Stack>
-        <Stack sx={{ mt : {xs : 2 , lg : -10} }}>
+        <Stack sx={{ mt: { xs: 2, lg: -10 } }}>
           <ExtraFooterInformation
             honerOfColobrate={false}
             moreToRead={true}
@@ -116,6 +116,7 @@ export default function Home() {
           />
         </Stack>
       </Container>
+      
     </div>
   );
 }

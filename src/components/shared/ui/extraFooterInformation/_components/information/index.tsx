@@ -10,12 +10,12 @@ const aboutItems = [
   {
     image: "/images/phone-number.png",
     title: "شماره تماس و مشاوره",
-    description: "051 567 8725 | 051 567 8725",
+    description: "0515678725 | 0515678725",
   },
   {
     image: "/images/message.png",
     title: "واتس اپ و ارسال پیامک",
-    description: "0939 838 4994",
+    description: "09398384994",
   },
   {
     image: "/images/email.png",
@@ -36,7 +36,6 @@ export default function AboutSection() {
         />
       ))}
       <Divider className="lg:!hidden mt-5! mx-4!" />
-
     </Grid>
   );
 }

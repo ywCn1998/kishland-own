@@ -58,8 +58,8 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                             <Grid size={12} sx={{ display: { xs: "block", md: "none" } }}>
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
-                                                        name="startDate"
-                                                        endDateName="endDate"
+                                                        startName="startDate"
+                                                        endName="endDate"
                                                         label="تاریخ رفت و برگشت"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />
@@ -72,8 +72,8 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                             <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
-                                                        name="startDate"
-                                                        endDateName="endDate"
+                                                        startName="startDate"
+                                                        endName="endDate"
                                                         label="تاریخ ورود"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />
@@ -86,8 +86,8 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                             <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
-                                                        name="endDate"
-                                                        startDateName="startDate"
+                                                        startName="startDate"
+                                                        endName="endDate"
                                                         label="تاریخ خروج"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />

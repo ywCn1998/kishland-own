@@ -13,18 +13,27 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { FilterAltOutlined, Close } from "@mui/icons-material";
 import FilterBox from "..";
+import TourFilters from "@/components/shared/tourFilters";
 
 const Transition = React.forwardRef(function Transition(props: any, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
+interface filterContainerProps {
+  isTour ?: boolean;
+}
 
-export default function FilterContainer() {
+
+export default function FilterContainer({ isTour = false}: filterContainerProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
 
   if (!isMobile) {
+   if(isTour) {
+    return <TourFilters />;
+   } else {
     return <FilterBox />;
+   }
   }
 
   // ✅ در موبایل: دکمه و دیالوگ
@@ -100,7 +109,7 @@ export default function FilterContainer() {
             maxHeight: "75vh",
           }}
         >
-          <FilterBox />
+          {!isTour ? <TourFilters /> : <FilterBox />}
         </DialogContent>
       </Dialog>
     </Stack>

@@ -20,6 +20,7 @@ import PassengerDetails from "@/components/shared/cart/passengerDetails";
 import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
 import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
 import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
+import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
 
 interface IStep {
   title: string;
@@ -253,6 +254,7 @@ export default function ReserveStepper() {
           </Stack>
         )}
       </Stack>
+      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333"/>
     </>
   );
 }

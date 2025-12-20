@@ -33,8 +33,8 @@ export default function SearchTabs() {
   return (
     <Box
       sx={{
-       
-        bgcolor: {xs : "none" , lg :"background.paper"},
+
+        bgcolor: { xs: "none", lg: "background.paper" },
         border: "1px solid",
         borderColor: "divider",
         borderRadius: 3,
@@ -132,8 +132,8 @@ function InputsGrid() {
 
   return (
     <FormProvider methods={methods}>
-      <Grid container spacing={3} sx={{ direction: "ltr" , display : "flex" , flexDirection : {xs : "column" , lg : "row"} }}>
-        <Grid size="grow" sx={{borderRight: {lg : "1px solid" , xs : "none"}}} className="border-slate-300!">
+      <Grid container spacing={3} sx={{ direction: "ltr", display: "flex", flexDirection: { xs: "column", lg: "row" } }}>
+        <Grid size="grow" sx={{ borderRight: { lg: "1px solid", xs: "none" } }} className="border-slate-300!">
           {/* <RHFSelect
             startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
             label="تاریخ ورود"
@@ -142,21 +142,21 @@ function InputsGrid() {
           >
             <MenuItem value="مشهد">04 فروردین 1404</MenuItem>
           </RHFSelect> */}
-          <RHFDatePicker name="date" label="تاریخ ورود" startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}/>
+          <RHFDatePicker startName="startDate" endName="endDate" label="تاریخ ورود" startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />} />
         </Grid>
-                <Divider className="md:hidden!"/>
+        <Divider className="md:hidden!" />
 
-        <Grid size="grow" sx={{borderRight: {lg : "1px solid" , xs : "none"}}} className="border-slate-300!">
+        <Grid size="grow" sx={{ borderRight: { lg: "1px solid", xs: "none" } }} className="border-slate-300!">
           <RHFSelect
             startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
             label="دسته بندی"
             name="category"
-            // isSelect={false}
+          // isSelect={false}
           >
             <MenuItem value="کشتی های تفریحی">کشتی های تفریحی </MenuItem>
           </RHFSelect>
         </Grid>
-        <Divider className="md:hidden!"/>
+        <Divider className="md:hidden!" />
         <Grid size="grow">
           <RHFSelect
             startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
@@ -168,7 +168,7 @@ function InputsGrid() {
           </RHFSelect>
         </Grid>
         <Grid
-          size={{xs : 12 , lg : 1.5}}
+          size={{ xs: 12, lg: 1.5 }}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -183,7 +183,7 @@ function InputsGrid() {
               px: 3,
               py: 1.2,
               color: "white",
-              width : "100%",
+              width: "100%",
             }}
             href="/fa/tour/list"
           >
