@@ -125,7 +125,8 @@ export default function TourSearch({ activePage = "tour" }) {
                 <Grid size="grow">
                   <Box sx={{ minWidth: 120, p: 2 }}>
                     <RHFDatePicker
-                      name="endDate"
+                      startName="startDate"
+                      endName="endDate"
                       label="تاریخ خروج"
                       startIcon={
                         <BusinessCenterIcon sx={{ color: "primary.main" }} />
@@ -216,7 +217,9 @@ export default function TourSearch({ activePage = "tour" }) {
                 <Grid size="grow" sx={{ display: { xs: "none", md: "block" } }}>
                   <Box sx={{ minWidth: 120, p: 2 }}>
                     <RHFDatePicker
-                      name="startDate"
+                      startName="startDate"
+                      endName="endDate"
+                      isStart={true}
                       label="تاریخ رفت"
                       startIcon={
                         <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small"/>
@@ -234,8 +237,10 @@ export default function TourSearch({ activePage = "tour" }) {
                 <Grid size="grow">
                   <Box sx={{ minWidth: 120, p: 2 }}>
                     <RHFDatePicker
-                      name="endDate"
+                      startName="startDate"
+                      endName="endDate"
                       label={isMd ? "تاریخ برگشت" : "تاریخ رفت و برگشت"}
+                      isStart={false}
                       startIcon={
                         <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small"/>
                       }
