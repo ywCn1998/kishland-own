@@ -11,10 +11,10 @@ import {
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import FormProvider from "@/providers/FormProvider";
+import { Controller, useFormContext } from "react-hook-form";
 import useSubmitLoan from "./hooks/useSubmitLoan";
 import RHFTextInput from "../../form/RHFTextInput";
 import RHFSingleRadioGroup from "../../form/RHFRadio";
-import RHFToggleButtonGroup from "../../form/RHFToggleButtonGroup";
 import InfoIcon from "@mui/icons-material/Info";
 import { Banks } from "@/components/shared/cart/howToPay/cards/payLoans";
 
@@ -37,13 +37,29 @@ export default function LoanDrawer({ bank, open, setOpen }: drawerProps) {
   };
 
   return (
-    <Drawer anchor="right" open={open}>
-      <Stack className="w-[40dvw]! p-8! py-6!">
-        <Stack className="flex! justify-between! items-center! flex-row! ">
-          <Button onClick={handleClose}>
-            <CloseIcon />
+    <Drawer 
+      anchor="right" 
+      open={open}
+      PaperProps={{
+        sx: {
+          zIndex: 1400,
+        },
+      }}
+      ModalProps={{
+        sx: {
+          zIndex: 1400,
+        },
+      }}
+    >
+      <Stack className="md:w-[40dvw]! sm:w-[70dvw]! w-full! p-8! py-6!">
+        <Stack className="flex! justify-between! items-center! flex-row! py-4!">
+          <Button onClick={handleClose} className="py-2!  border-1! border-slate-600! " variant="outlined" size="small">
+            <CloseIcon fontSize="small"/>
           </Button>
-          <Typography>افزایش موجودی</Typography>
+          <Typography className="text-lg! font-bold!">افزایش موجودی</Typography>
+          <Typography>
+
+          </Typography>
         </Stack>
         <Divider />
         <Grid
@@ -156,30 +172,53 @@ export default function LoanDrawer({ bank, open, setOpen }: drawerProps) {
               </Stack>
               <Stack className="mt-6! gap-4!">
                 <Typography>انتخاب تعداد اقساط</Typography>
-                <RHFToggleButtonGroup
+                <Controller
                   name="length"
-                  options={[
-                    { value: 1, label: "یکساله" },
-                    { value: 6, label: "شش ماهه" },
-                    { value: 3, label: "سه ماهه" },
-                  ]}
+                  control={methods.control}
+                  render={({ field }) => (
+                    <Stack direction="row" spacing={1.5} sx={{ width: {xs: "100%", md: "50%"} }}>
+                      {[
+                        { value: 1, label: "یکساله" },
+                        { value: 6, label: "شش ماهه" },
+                        { value: 3, label: "سه ماهه" },
+                      ].map((option) => (
+                        <Button
+                          key={option.value}
+                          onClick={() => field.onChange(option.value)}
+                          variant={field.value === option.value ? "contained" : "outlined"}
+                          size="medium"
+                          className="text-sm!"
+                          sx={{
+                            flex: 1,
+                            borderRadius: 2,
+                            backgroundColor: field.value === option.value ? "#088DEF" : "transparent",
+                            color: field.value === option.value ? "#fff" : "#000",
+                            px: 1,
+                            py: 2,
+                          }}
+                        >
+                          {option.label}
+                        </Button>
+                      ))}
+                    </Stack>
+                  )}
                 />
               </Stack>
               <Box>
-                <Stack className="flex-row! items-center justify-between py-8 mt-6!" >
-                  <Typography className="text-slate-400 text-lg!">هزینه رزرو</Typography>
+                <Stack className="flex-row! items-center justify-between py-6 mt-6!" >
+                  <Typography className="text-slate-400 md:text-lg! text-baes!">هزینه رزرو</Typography>
                   <Typography className="text-lg! text-slate-400 font-medium!">۱۲,000,000 ت</Typography>
                 </Stack>
                 <Divider />
-                <Stack className="flex-row! items-center justify-between py-8">
-                  <Typography className="text-slate-400 text-lg!">مبلغ محاسبه شده بر اساس خرید قسطی </Typography>
-                  <Typography className="text-xl! font-medium!"> ۱۳,0۳0,000 ت</Typography>
+                <Stack className="flex-row! items-center justify-between py-6">
+                  <Typography className="text-slate-400 md:text-lg! text-base! ">مبلغ محاسبه شده بر اساس خرید قسطی </Typography>
+                  <Typography className="md:text-xl! text-base! font-medium! text-nowrap!"> ۱۳,0۳0,000 ت</Typography>
                 </Stack>
               </Box>
             </Stack>
           )}
-          <Grid className="flex! flex-row! items-center gap-4! mt-8!">
-            <Button className="w-[50%] text-black!" variant="outlined" >انصراف</Button>
+          <Grid className="flex! flex-row! items-center gap-4! mt-8! sticky! bottom-0!">
+            <Button className="w-[50%] text-black! bg-slate-100!" variant="outlined" >انصراف</Button>
             <Button className="w-[50%] text-white!" variant="contained"> تایید</Button>
           </Grid>
         </FormProvider>

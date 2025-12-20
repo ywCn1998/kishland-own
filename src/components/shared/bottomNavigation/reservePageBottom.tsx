@@ -26,7 +26,7 @@ export default function ReservePageBottom({ step, setStep, totalPrice, maxStep =
         <>
             {step < maxStep ? (
                 <Stack
-                    className="fixed! bottom-0! left-0! right-0! p-4! bg-white! z-10000! flex! flex-row! gap-4! md:hidden! justify-between! items-center! "
+                    className="fixed! bottom-0! left-0! right-0! p-4! bg-white! z-1000! flex! flex-row! gap-4! md:hidden! justify-between! items-center! "
                     sx={{
                         boxShadow: "0px -4px 16px 0px rgba(20, 43, 77, 0.10), 0px -1.6px 4.4px 0px rgba(20, 43, 77, 0.03)"
                     }}

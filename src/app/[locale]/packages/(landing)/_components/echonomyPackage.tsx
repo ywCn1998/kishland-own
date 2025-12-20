@@ -3,6 +3,7 @@ import { ImageAndText } from '@/components/shared/ui'
 import GoldenText from '@/components/shared/ui/GoldenText'
 import { Stack, Typography } from '@mui/material'
 import React from 'react'
+import EchoPackageDetails from './echopackageDetails'
 
 export default function EchonomyPackage() {
     return (
@@ -23,6 +24,7 @@ export default function EchonomyPackage() {
                 </Stack>
             </ImageAndText>
             <CategoryDetailCards />
+            <EchoPackageDetails/>
 
 
 

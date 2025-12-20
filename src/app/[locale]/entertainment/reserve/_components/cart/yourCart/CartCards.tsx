@@ -132,75 +132,75 @@ export default function CartCards() {
                   تومان
                 </Typography>
               </Grid>
-              <Grid
-                display={{ xs: "none", lg: "flex" }}
-                alignItems={"center"}
-                gap={4}
-              >
-                <Button
-                  variant="contained"
-                  color="inherit"
-                  onClick={() => handlePlus(index)}
-                  sx={{
-                    bgcolor: "#F5F7FA",
-                    minWidth: 40,
-                    minHeight: 40,
-                    height: 32,
-                    padding: "4px 8px",
-                    fontWeight: 500,
-                    borderRadius: 1,
-                    border: "solid 1px #E1E6F0",
-                    textTransform: "none",
-                  }}
+                <Grid
+                  display={{ xs: "none", lg: "flex" }}
+                  alignItems={"center"}
+                  gap={4}
                 >
-                  <AddOutlinedIcon />
-                </Button>
-                <Typography variant="body2" fontWeight={500}>
-                  {counts[index]}
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="inherit"
-                  sx={{
-                    bgcolor: "#F5F7FA",
-                    minWidth: 40,
-                    minHeight: 40,
-                    height: 32,
-                    padding: "4px 8px",
-                    fontWeight: 500,
-                    borderRadius: 1,
-                    border: "solid 1px #E1E6F0",
-                    textTransform: "none",
-                  }}
-                  onClick={() => handleMinus(index)}
-                  disabled={counts[index] === 1}
-                >
-                  <RemoveOutlinedIcon />
-                </Button>
-              </Grid>
-              <Stack
-                sx={{
-                  display: { xs: "flex", lg: "none" },
-                  flexDirection: "row",
-                  bgcolor: "#F5F7FA",
-                  gap: 2,
-                  p: 1,
-                  borderRadius: 1,
-                  alignItems: "center",
-                }}
-              >
-                <Grid onClick={() => handlePlus(index)}>
-                  <AddOutlinedIcon fontSize="small" />
-                </Grid>
-                <Grid>
+                  <Button
+                    variant="contained"
+                    color="inherit"
+                    onClick={() => handlePlus(index)}
+                    sx={{
+                      bgcolor: "#F5F7FA",
+                      minWidth: 40,
+                      minHeight: 40,
+                      height: 32,
+                      padding: "4px 8px",
+                      fontWeight: 500,
+                      borderRadius: 1,
+                      border: "solid 1px #E1E6F0",
+                      textTransform: "none",
+                    }}
+                  >
+                    <AddOutlinedIcon />
+                  </Button>
                   <Typography variant="body2" fontWeight={500}>
                     {counts[index]}
                   </Typography>
+                  <Button
+                    variant="contained"
+                    color="inherit"
+                    sx={{
+                      bgcolor: "#F5F7FA",
+                      minWidth: 40,
+                      minHeight: 40,
+                      height: 32,
+                      padding: "4px 8px",
+                      fontWeight: 500,
+                      borderRadius: 1,
+                      border: "solid 1px #E1E6F0",
+                      textTransform: "none",
+                    }}
+                    onClick={() => handleMinus(index)}
+                    disabled={counts[index] === 1}
+                  >
+                    <RemoveOutlinedIcon />
+                  </Button>
                 </Grid>
-                <Grid onClick={() => handleMinus(index)}>
-                  <RemoveOutlinedIcon fontSize="small" />
-                </Grid>
-              </Stack>
+                <Stack
+                  sx={{
+                    display: { xs: "flex", lg: "none" },
+                    flexDirection: "row",
+                    bgcolor: "#F5F7FA",
+                    gap: 2,
+                    p: 1,
+                    borderRadius: 1,
+                    alignItems: "center",
+                  }}
+                >
+                  <Grid onClick={() => handlePlus(index)}>
+                    <AddOutlinedIcon fontSize="small" />
+                  </Grid>
+                  <Grid>
+                    <Typography variant="body2" fontWeight={500}>
+                      {counts[index]}
+                    </Typography>
+                  </Grid>
+                  <Grid onClick={() => handleMinus(index)}>
+                    <RemoveOutlinedIcon fontSize="small" />
+                  </Grid>
+                </Stack>
             </Grid>
           </Stack>
         ))}
