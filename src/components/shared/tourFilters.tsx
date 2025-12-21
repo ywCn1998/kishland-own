@@ -19,7 +19,7 @@ import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DeleteOutline } from "@mui/icons-material";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
-import CollapseSelect from "@/app/[locale]/entertainment/list/_components/filterBox/_components/CollapseSelect";
+import CollapseSelect from "@/app/[locale]/(main)/entertainment/list/_components/filterBox/_components/CollapseSelect";
 
 
 const enterns = [

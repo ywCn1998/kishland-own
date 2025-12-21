@@ -42,17 +42,27 @@ export function RoomCard({
                                 <Typography className="text-2xl! font-semibold!">اتاق استاندارد با یک تخت دو نفره با دید رو به جزیره </Typography>
 
                                 <TextIcon startIcon={<LocalOfferIcon className="text-base!" />} text="تا 25 % تخفیف"
-                                    className="w-fit! rounded-lg px-5 py-3! bg-[#FFE5E5] text-center font-normal! text-sm!"
+                                    className="w-fit! rounded-lg lg:px-5 lg:py-3! py-2! px-2! bg-[#FFE5E5] text-center font-normal! text-sm!"
                                     sx={{ color: "#FA5050" }}
                                 />
                             </Stack>
 
-                            <Stack className="flex! flex-row! justify-between! items-center">
-                                <TextIcon text="2 نفر + 1" startIcon={<PersonIcon />} />
-                                <TextIcon text="صبحانه" startIcon={<TimerIcon />} />
-                                <TextIcon text="1 تخت دو نفره" startIcon={<BedIcon />} />
-                                <TextIcon text="1 شب / 2,500,000 تومان" />
-                            </Stack>
+                            {/* <Stack className="flex! flex-row! justify-between! items-center"> */}
+                            <Grid container>
+                                <Grid size={{ xs: 6, lg: 3 }}>
+                                    <TextIcon text="2 نفر + 1" startIcon={<PersonIcon />} />
+                                </Grid>
+                                <Grid size={{ xs: 6, lg: 3 }}>
+                                    <TextIcon text="صبحانه" startIcon={<TimerIcon />} />
+                                </Grid>
+                                <Grid size={{ xs: 6, lg: 3 }}>
+                                    <TextIcon text="1 تخت دو نفره" startIcon={<BedIcon />} />
+                                </Grid>
+                                <Grid size={{ xs: 6, lg: 3 }}>
+                                    <TextIcon text="1 شب / 2,500,000 تومان" />
+                                </Grid>
+                            </Grid>
+                            {/* </Stack>/ */}
                             <Stack className="flex! flex-row! justify-end! items-center gap-4!">
                                 <TextIcon text="لیست نظرات این اتاق" startIcon={<MessageIcon />} sx={{ color: "secondary.main" }} />
                                 <TextIcon text="تقویم قیمتی" startIcon={<CalendarMonthIcon />} sx={{ color: "secondary.main" }} />
@@ -86,10 +96,10 @@ export function RoomCard({
                                     قیمت برای <Typography component={"span"} className="text-sm!" color="primary">3 نفر</Typography>
                                 </Typography>
 
-                                <Typography className="text-center line-through text-xl!" color="text.secondary">
+                                <Typography className="text-center line-through text-lg! xl:text-xl!" color="text.secondary">
                                     8,800,000 تومان
                                 </Typography>
-                                <Typography variant="body2" className="text-center font-bold! text-2xl!">
+                                <Typography variant="body2" className="text-center font-bold! text-xl! xl:text-2xl!">
                                     8,500,000 تومان
                                 </Typography>
                             </Stack>
@@ -99,8 +109,8 @@ export function RoomCard({
                                     <Button
                                         onClick={() => onClick!(true)}
                                         sx={{ bgcolor: isSelected ? 'text.secondary' : "bg.primary" }}
-                                        variant="contained" fullWidth className="text-white! rounded-xl!">
-                                        <Typography className="font-normal!" variant="button">{isSelected ? "اتاق انتخاب شده" : "اتاق انتخاب شده"}</Typography>
+                                        variant="contained" fullWidth className="text-white! rounded-xl! py-2! md:py-3! lg:px-3! ">
+                                        <Typography className="font-normal! text-nowrap! text-xs! md:text-sm! xl:text-base!" variant="button">{isSelected ? "اتاق انتخاب شده" : "اتاق انتخاب شده"}</Typography>
                                     </Button>
                                 </Stack>
                             )}

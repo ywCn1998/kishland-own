@@ -6,9 +6,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import "../../components/animationsStyles/index.css";
 import { lahzeh, lexend } from "@/theme/fonts";
-import { Box, Stack } from "@mui/material";
-import Header from "@/components/shared/header/Header";
-import { Footer } from "@/components/shared/footer";
+import { Box } from "@mui/material";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "../../../i18n/routing";
 import { notFound } from "next/navigation";
@@ -16,9 +14,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
 import Image from "next/image";
 import RevealObserver from "@/components/shared/RevealObserver";
-import MobileBottomNav from "@/components/shared/bottomNavigation/bottomNavigation";
 import RouteIO from "../_route-io";
 import NextTopLoader from "nextjs-toploader";
+import LayoutWrapper from "./layoutWrapper";
 import { headers } from "next/headers";
 
 export async function generateStaticParams() {
@@ -52,15 +50,8 @@ export default async function RootLayout({
 
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "";
-  // Remove trailing slashes and split
-  const cleanPath = pathname.replace(/\/$/, "");
-  const parts = cleanPath.split("/").filter(Boolean);
-  const lastPart = parts[parts.length - 1] || "";
-  const isLandingPage =
-    lastPart === "tour" ||
-    lastPart === "entertainment" ||
-    lastPart === "hotel" ||
-    lastPart === "panel";
+
+  const isAuthRoute = pathname?.startsWith('/fa/auth')
 
 
   const { locale } = params;
@@ -74,13 +65,15 @@ export default async function RootLayout({
 
       <Box
         component="body"
-        className={`${lahzeh.variable} ${lexend.variable} relative! hero-bg`}
+        className={`${lahzeh.variable} ${lexend.variable} relative!`}
       >
-        <div className="absolute! top-0! w-full! " style={{ zIndex: -10 }}>
-          <div className="relative! w-full! h-100! !hidden lg:!block">
-            <Image src="/images/main-header.png" alt="main-header" fill />
+        {!isAuthRoute && (
+          <div className="absolute! top-0! w-full! " style={{ zIndex: -10 }}>
+            <div className="relative! w-full! h-100! !hidden lg:!block">
+              <Image src="/images/main-header.png" alt="main-header" fill />
+            </div>
           </div>
-        </div>
+        )}
         <ClientProviders>
           <NextIntlClientProvider>
             <NextTopLoader
@@ -88,28 +81,16 @@ export default async function RootLayout({
               height={4}
               showSpinner={false}
             />
-            <Stack className="z-20!">
-              <RevealObserver
-                options={{
-                  threshold: 0.15,
-                  rootMargin: "0px 0px -10% 0px",
-                  staggerStepMs: 80,
-                  visibleClass: "is-visible",
-                }}
-              />
-              <RouteIO />
-              <Header/>
-              <Stack
-                component="main"
-                className={`min-h-[70vh]`}
-              >
-                {children}
-              </Stack>
-              <Footer />
-            </Stack>
-            {isLandingPage && (
-              <MobileBottomNav />
-            )}
+            <RevealObserver
+              options={{
+                threshold: 0.15,
+                rootMargin: "0px 0px -10% 0px",
+                staggerStepMs: 80,
+                visibleClass: "is-visible",
+              }}
+            />
+            <RouteIO />
+            <LayoutWrapper>{children}</LayoutWrapper>
           </NextIntlClientProvider>
         </ClientProviders>
       </Box>
