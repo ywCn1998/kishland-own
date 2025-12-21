@@ -20,6 +20,7 @@ export default function EchoPackageDetails() {
     <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth !hidden lg:!flex" >
       <Container maxWidth="xl" >
         <OfferBanner
+        copyBtn ={true}
           caption="این پکیج شامل 4 تفریح میباشد."
           title="امکانات پکیج اکونومی"
           buttonText="دریافت مشاوره"
@@ -35,14 +36,14 @@ export default function EchoPackageDetails() {
         </Stack>
         <Grid container spacing={4} className="mt-6! flex! flex-row! items-center! ">
           <Grid size={6} className="flex! flex-col! gap-3! ">
-            <Stack className='bg-white! border-1! border-slate-200! p-4! rounded-xl! flex! flex-row! justify-between! items-center! '>
+            <Stack className='bg-white! border-1! border-slate-200! p-4!  rounded-xl! flex! flex-row! justify-between! items-center! '>
               {/* <CartCards /> */}
-              <Stack className='flex! flex-col! items-start!'>
-                <Typography>
+              <Stack className='flex! flex-col! items-start! justify-between! gap-4!'>
+                <Typography className='font-semibold! text-lg!'>
                 پکیج اکونومی شامل 4 تفریح
                 </Typography>
                 <Stack className='flex! flex-row! gap-1! items-center! '> 
-                  <Typography>
+                  <Typography className='text-sm! ' color='primary'>
                   3,050,000
                   </Typography>
                   <Typography>
@@ -138,7 +139,7 @@ export default function EchoPackageDetails() {
             </Button>
             <Button variant='contained' color='secondary'>
               افزودن به سبد و ادامه خرید
-            </Button>
+            </Button> 
           </Grid>
         </Grid>
       </Stack>

@@ -1,5 +1,6 @@
 import { Button, Container, Typography, Stack } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 export default function OfferBanner({
   caption,
@@ -10,6 +11,7 @@ export default function OfferBanner({
   href,
   classNameButton,
   isFullWidth = true,
+  copyBtn = false,
 }: {
   responsiveCaption?: string;
   caption?: string;
@@ -19,7 +21,19 @@ export default function OfferBanner({
   href?: string;
   classNameButton?: string;
   isFullWidth?: boolean;
+  copyBtn?: boolean;
 }) {
+   const copyPageLink = async (): Promise<boolean> => {
+    try {
+      const url = window.location.href;
+      await navigator.clipboard.writeText(url);
+      return true; // موفقیت
+    } catch (error) {
+      console.error("Copy failed:", error);
+      return false; // خطا
+    }
+  };
+  
   return (
     // <Container maxWidth="xl">
     <Stack
@@ -37,16 +51,23 @@ export default function OfferBanner({
         </Typography>
       </div>
       <div>
-        <Button
-          endIcon={
-            <KeyboardBackspaceIcon className="text-gray-600! reveal-down" />
-          }
-          variant="outlined"
-          className="!hidden lg:!flex border-1 border-black! bg-white! text-black! py-4! reveal-down"
-          href={href}
-        >
-          {buttonText}
-        </Button>
+        <Stack className="flex! flex-row! items-center! gap-4!">
+          <Button
+            endIcon={
+              <KeyboardBackspaceIcon className="text-gray-600! reveal-down" />
+            }
+            variant="outlined"
+            className="!hidden lg:!flex border-1 border-black! bg-white! text-black! py-4! reveal-down"
+            href={href}
+          >
+            {buttonText}
+          </Button>
+          {copyBtn &&
+            <Button onClick={copyPageLink} className="border-1! border-orange-400! bg-orange-100!">
+              <ContentCopyIcon color="primary"/>
+            </Button>}
+        </Stack>
+
         <Button
           endIcon={
             <KeyboardBackspaceIcon className="text-slate-400! reveal-down" />
