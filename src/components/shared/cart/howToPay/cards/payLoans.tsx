@@ -82,7 +82,7 @@ export default function PayLoan() {
             </Typography>
           </Stack>
 
-          <Grid display={"flex"} gap={{ xs: 1, lg: 3 }} mr={2}>
+          <Grid display={"flex"} gap={{ xs: 1, lg: 3 }} mr={{xs: 0, lg: 2}}>
             {Banks.map((bank, index) => (
               <Stack
                 key={index}
@@ -120,7 +120,7 @@ export default function PayLoan() {
         <AccordionDetails>
           <Grid
             display="flex"
-            flexDirection="row-reverse"
+            flexDirection={{ xs: "column", md: "row-reverse" }}
             gap={{ xs: 1, lg: 3 }}
           >
             {Banks.map((bank, index) => {
@@ -129,7 +129,7 @@ export default function PayLoan() {
                 <Grid
                   key={index}
                   size={12 / Banks.length}
-                  gap={2}
+                  gap={{xs: 1, md: 2}}
                   onClick={() => handleSelect(bank)}
                   sx={{
                     border: isSelected
@@ -199,7 +199,7 @@ export default function PayLoan() {
             })}
           </Grid>
         </AccordionDetails>
-      </Accordion>``
+      </Accordion>
 
       <LoanDrawer
         open={openDrawer}

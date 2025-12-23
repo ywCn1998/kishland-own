@@ -18,6 +18,7 @@ import RHFSelect from "@/components/shared/form/RHFSelect";
 import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
 import FormProvider from "@/providers/FormProvider";
 import useSearch from "./hooks/useSearch";
+import RHFSingleDatePicker from "@/components/shared/form/RHFSingleDatePicker";
 
 export default function TourSearch({ activePage = "tour" }) {
   const { methods, OnSubmit } = useSearch();
@@ -77,7 +78,71 @@ export default function TourSearch({ activePage = "tour" }) {
                 تفریحات
               </Button>
             </Grid>
+            {activePage === "fun" && (
+              <Grid
+                size={12}
+                spacing={3}
+                className="flex flex-col md:flex-row bg-white rounded-lg reveal"
+              >
+                <Grid size="grow">
+                  <Box sx={{ minWidth: 120, p: 2, fontSize: 20 }}>
+                    <RHFSingleDatePicker name="startDate" label=" تاریخ ورود" icon={<BusinessCenterIcon sx={{ color: "primary.main" }} />} />
+                  </Box>
+                </Grid>
 
+                <Divider
+                  orientation={isMd ? "vertical" : "horizontal"}
+                  flexItem
+                  variant="middle"
+                />
+
+                <Grid size="grow">
+                  <Box sx={{ minWidth: 120, p: 2 }}>
+                    <RHFSelect name="category"
+                      label="دسته بندی"
+                      startIcon={<BusinessCenterIcon />}
+                      defaultValue="ship">
+                      <MenuItem value="ship">
+                        کشتی های تفریحی
+                      </MenuItem>
+                    </RHFSelect>
+                  </Box>
+                </Grid>
+
+                <Divider
+                  orientation={isMd ? "vertical" : "horizontal"}
+                  flexItem
+                  variant="middle"
+                />
+
+                <Grid size="grow">
+                  <Box sx={{ minWidth: 120, p: 2 }}>
+                    <RHFSelect
+                      name="type"
+                      label="نوع تفریح"
+                      startIcon={<BusinessCenterIcon />}
+                    >
+                      <MenuItem value="amirkabir">
+                      کشتی تفریحی امیرکبیر
+                      </MenuItem>
+                    </RHFSelect>
+                  </Box>
+                </Grid>
+
+                <div className="w-full md:w-1/12 flex justify-center items-center mb-2 md:mb-0 px-2 md:px-0">
+                  <IconButton
+                    className="w-full md:w-14 md:h-14 h-16 "
+                    sx={{ bgcolor: "primary.main", borderRadius: 1 }}
+                    href="/fa/hotel/list"
+                  >
+                    <Typography className="text-white pl-1 text-lg text-extralight md:hidden">
+                      بزن بریم
+                    </Typography>
+                    <SearchIcon className="text-white" />
+                  </IconButton>
+                </div>
+              </Grid>
+            )}
             {activePage === "hotel" && (
               <Grid
                 size={12}
@@ -106,13 +171,15 @@ export default function TourSearch({ activePage = "tour" }) {
 
                 <Grid size="grow">
                   <Box sx={{ minWidth: 120, p: 2 }}>
-                    {/* <RHFDatePicker
-                      name="startDate"
+                    <RHFDatePicker
+                      startName="startDate"
+                      endName="endDate"
+                      isStart={true}
                       label="تاریخ ورود"
                       startIcon={
                         <BusinessCenterIcon sx={{ color: "primary.main" }} />
                       }
-                    /> */}
+                    />
                   </Box>
                 </Grid>
 
@@ -222,7 +289,7 @@ export default function TourSearch({ activePage = "tour" }) {
                       isStart={true}
                       label="تاریخ رفت"
                       startIcon={
-                        <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small"/>
+                        <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small" />
                       }
                     />
                   </Box>
@@ -242,7 +309,7 @@ export default function TourSearch({ activePage = "tour" }) {
                       label={isMd ? "تاریخ برگشت" : "تاریخ رفت و برگشت"}
                       isStart={false}
                       startIcon={
-                        <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small"/>
+                        <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small" />
                       }
                     />
                   </Box>

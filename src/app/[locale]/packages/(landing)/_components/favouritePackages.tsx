@@ -51,7 +51,7 @@ export default function FavouritePackages() {
     };
 
     return (
-        <div>
+        <div className='mt-12!'>
             <Stack className="bg-[#F5F7FA]! rounded-2xl! px-2! py-8!">
                 <Stack
                     className="flex! flex-col! justify-center! items-center! "
