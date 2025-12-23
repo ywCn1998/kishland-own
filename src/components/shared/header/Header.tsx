@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 import { PhoneInTalkOutlined, LoginOutlined } from "@mui/icons-material";
-import LoginPhoneModal from "@/components/auth/authModals/login/loginPhoneModal";
+import LoginPhoneModal from "@/app/[locale]/(client-area)/auth/(desktop)/login/loginPhoneModal";
 import { useAtom } from "jotai";
 import {
   headerBackIconAtom,
@@ -176,7 +176,7 @@ xs-fullwidth
           <Stack className="flex flex-col px-4! py-2! gap-2!">
             <Stack className="relative z-10 flex items-center justify-between! flex-row!">
               <Typography className="text-xs! text-white! ">
-              این بار سفر برات خاطره میشه 
+                این بار سفر برات خاطره میشه
               </Typography>
               <Stack
                 className="
@@ -198,7 +198,7 @@ py-2
             </Stack>
             <Stack>
               <Typography className="text-white! text-lg! font-semibold!">
-              پکیج دلخواهت رو انتخاب کن
+                پکیج دلخواهت رو انتخاب کن
               </Typography>
             </Stack>
           </Stack>
@@ -209,11 +209,11 @@ py-2
     flex-row!
     items-center!
     justify-between
-    lg:hidden!
+    md:hidden!
     h-[80px]
     w-full
     bg-white
-    z-[1300]
+    z-[1100]
     px-4
     fixed
     top-0

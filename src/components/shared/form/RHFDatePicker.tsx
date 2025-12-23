@@ -87,7 +87,7 @@ export default function RHF2MonthRangePicker({
         const displayText = React.useMemo(() => {
           const isValidFromDate = fromDate && fromDate instanceof Date;
           const isValidToDate = toDate && toDate instanceof Date;
-          
+
           if (!isValidFromDate || !isValidToDate) return "انتخاب بازه";
 
           if (isJalali) {
@@ -126,11 +126,11 @@ export default function RHF2MonthRangePicker({
             if (toDate instanceof Date && !isNaN(toDate.getTime())) {
               to = toDate;
             } else if (typeof toDate === 'string') {
-      
+
               to = undefined;
             }
           }
-          
+
           return { from, to };
         }, [fromDate, toDate]);
 
@@ -149,11 +149,11 @@ export default function RHF2MonthRangePicker({
               </span>
             </div>
             <span className="text-base! cursor-pointer! hidden! md:block! " onClick={() => setOpen(true)}>
-              {isStart 
-                ? (fromDate 
+              {isStart
+                ? (fromDate
                   ? (isJalali ? formatJalali(fromDate) : (fromDate instanceof Date ? fromDate.toLocaleDateString("fa-IR") : new Date(fromDate).toLocaleDateString("fa-IR")))
                   : displayText)
-                : (toDate 
+                : (toDate
                   ? (isJalali ? formatJalali(toDate) : (toDate instanceof Date ? toDate.toLocaleDateString("fa-IR") : new Date(toDate).toLocaleDateString("fa-IR")))
                   : displayText)}
             </span>
@@ -165,13 +165,13 @@ export default function RHF2MonthRangePicker({
 
             {/* Popup calendar */}
             <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md">
-              <DialogContent>
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="text-lg font-medium">
+              <DialogContent className="p-3! sm:p-5!">
+                <div className="mb-3 flex items-center! justify-between!">
+                  <span className="text-lg font-medium calender-title">
                     {isJalali ? "تقویم شمسی" : "تقویم میلادی"}
                   </span>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center! gap-2">
                     <span className="text-sm">
                       {isJalali ? "شمسی" : "میلادی"}
                     </span>

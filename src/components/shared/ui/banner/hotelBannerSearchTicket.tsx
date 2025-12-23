@@ -21,7 +21,7 @@ export default function HotelBannerSearchTicketSection({ location, fromWhere, st
     const [searchBar, setSearchBar] = useState(false);
 
     const theme = useTheme();
-    const isMd = useMediaQuery(theme.breakpoints.up("md"));
+    const isMd = useMediaQuery(theme.breakpoints.up("md"), { noSsr: true });
 
     const { methods, OnSubmit } = useSearch();
 
@@ -115,11 +115,12 @@ export default function HotelBannerSearchTicketSection({ location, fromWhere, st
                             <IconButton
                                 className="w-full md:w-14 md:h-14 h-16 "
                                 sx={{ bgcolor: "primary.main", borderRadius: 1 }}
+                                onClick={() => setSearchBar(true)}
                             >
                                 <Typography className="text-white pl-1 text-lg text-extralight md:hidden ">بزن بریم</Typography>
-                                <IconButton onClick={() => setSearchBar(true)}>
+                                {/* <IconButton > */}
                                     <SearchIcon className="text-white" />
-                                </IconButton>
+                                {/* </IconButton> */}
                             </IconButton>
                         </Stack>
                     </FormProvider>
