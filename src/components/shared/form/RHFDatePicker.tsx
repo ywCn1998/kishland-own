@@ -67,35 +67,6 @@ export default function RHF2MonthRangePicker({
   const fromDate = watch(startName);
   const toDate = watch(endName);
 
-  const CustomDayContent = (props: any) => {
-    const date: Date = props.day.date;
-
-    const isToday =
-      new Date().toDateString() === date.toDateString();
-
-    return (
-      <div className="relative flex items-center justify-center">
-        <span>{date.getDate()}</span>
-
-        {isToday && (
-          <span
-            className="
-              absolute
-              -bottom-2
-              text-[10px]
-              font-bold
-              text-orange-500
-              whitespace-nowrap
-            "
-          >
-            امروز
-          </span>
-        )}
-      </div>
-    );
-  };
-
-
   return (
     <Controller
       name={startName || endName}

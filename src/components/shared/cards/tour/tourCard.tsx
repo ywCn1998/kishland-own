@@ -5,14 +5,16 @@ import UpgradeIcon from "@mui/icons-material/Upgrade";
 interface TourCardProps {
   image: string;
   title: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   index?: number;
+  sell?: boolean;
+  price?: string;
 }
 
-export function TourCard({ image, title, startDate, endDate, index = 0 }: TourCardProps) {
+export function TourCard({ image, title, startDate, price , endDate, index = 0, sell = false }: TourCardProps) {
   const isEven = index % 2 === 0;
-  
+
   return (
     <Grid size={3} className="flex flex-col gap-6! h-full cursor-pointer">
       {/* Image */}
@@ -35,8 +37,7 @@ export function TourCard({ image, title, startDate, endDate, index = 0 }: TourCa
         />
       </Stack>
 
-      {/* Content */}
-      <Stack className={`w-full ${isEven ? 'h-3/12' : 'h-5/12'}`}>
+      {!sell ? <Stack className={`w-full ${isEven ? 'h-3/12' : 'h-5/12'}`}>
         <Typography className="md:text-2xl! text-lg! font-semibold! mb-3! reveal-down">
           {title}
         </Typography>
@@ -49,7 +50,21 @@ export function TourCard({ image, title, startDate, endDate, index = 0 }: TourCa
             {endDate} <UpgradeIcon />
           </span>
         </div>
-      </Stack>
+      </Stack> : <Stack className={`w-full ${isEven ? 'h-3/12' : 'h-5/12'}`}>
+        <Typography className="md:text-2xl! text-lg! font-semibold! mb-3! reveal-down">
+          {title}
+        </Typography>
+
+        <div className="flex flex-row justify-between items-center! ">
+          <Typography className="text-sm text-slate-400 flex items-center gap-1 reveal-down">
+          شروع قیمت از
+          </Typography>
+          <span className="text-lg! font-bold!  gap-1 reveal-down" color="secondary">
+            {price} تومان
+          </span>
+        </div>
+      </Stack>}
+
     </Grid>
   );
 }

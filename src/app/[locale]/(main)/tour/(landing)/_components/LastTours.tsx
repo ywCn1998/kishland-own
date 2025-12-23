@@ -39,6 +39,34 @@ const tours = [
   },
 ];
 
+const hotels = [
+  {
+    image: "/images/building1.png",
+    title: "هتل شایان کیش",
+    price: "8,397,000 ",
+    height: "full",
+  },
+  {
+    image: "/images/building2.png",
+    title: "هتل آرامش کیش",
+    price: "1,573,333 ",
+    height: "10/12",
+  },
+  {
+    image: "/images/building1.png",
+    title: "هتل شایان کیش",
+    price: "8,397,000 ",
+    height: "full",
+  },
+  {
+    image: "/images/building2.png",
+    title: "هتل آرامش کیش",
+    price: "1,573,333 ",
+    height: "10/12",
+  },
+]
+
+
 interface lastTour {
   umbrella?: boolean;
   titles?: boolean;
@@ -144,11 +172,16 @@ const LatestToursSection = ({ umbrella = true, titles = true, isHotel = false }:
           className="reveal-down"
         >
           <ReusableSwiper slidePerViewXs={1.4} slideperviewMd={4} slidePerviewLg={4} spaceBetween={20} pagination={true}>
-            {tours.map((tour, index) => (
-              <Stack className="h-[350px]! md:h-[600px]!">
-                <TourCard key={index} {...tour} index={index} />
-              </Stack>
-            ))}
+            {isHotel ?(hotels.map((hotel , index)=>(
+              <TourCard key={index} {...hotel} index={index} sell={true} /> 
+            ))) : (
+              tours.map((tour, index) => (
+                <Stack className="h-[350px]! md:h-[600px]!">
+                  <TourCard key={index} {...tour} index={index} />
+                </Stack>
+              ))
+            )}
+
           </ReusableSwiper>
         </Box>
       </Container>
