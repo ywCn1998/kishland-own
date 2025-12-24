@@ -12,7 +12,7 @@ interface TourCardProps {
   price?: string;
 }
 
-export function TourCard({ image, title, startDate, price , endDate, index = 0, sell = false }: TourCardProps) {
+export function TourCard({ image, title, startDate, price , endDate, index = 0, sell  }: TourCardProps) {
   const isEven = index % 2 === 0;
 
   return (
@@ -59,9 +59,9 @@ export function TourCard({ image, title, startDate, price , endDate, index = 0, 
           <Typography className="text-sm text-slate-400 flex items-center gap-1 reveal-down">
           شروع قیمت از
           </Typography>
-          <span className="text-lg! font-bold!  gap-1 reveal-down" color="secondary">
+          <Typography className="text-lg! font-bold!  gap-1 reveal-down" color="secondary">
             {price} تومان
-          </span>
+          </Typography>
         </div>
       </Stack>}
 

@@ -19,6 +19,7 @@ import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
 import FormProvider from "@/providers/FormProvider";
 import useSearch from "./hooks/useSearch";
 import RHFSingleDatePicker from "@/components/shared/form/RHFSingleDatePicker";
+import RHFPassengerPicker from "@/components/shared/form/RHFPassengerPicker";
 
 export default function TourSearch({ activePage = "tour" }) {
   const { methods, OnSubmit } = useSearch();
@@ -123,7 +124,7 @@ export default function TourSearch({ activePage = "tour" }) {
                       startIcon={<BusinessCenterIcon />}
                     >
                       <MenuItem value="amirkabir">
-                      کشتی تفریحی امیرکبیر
+                        کشتی تفریحی امیرکبیر
                       </MenuItem>
                     </RHFSelect>
                   </Box>
@@ -210,15 +211,9 @@ export default function TourSearch({ activePage = "tour" }) {
 
                 <Grid size="grow">
                   <Box sx={{ minWidth: 120, p: 2 }}>
-                    <RHFSelect
-                      name="countAndRoom"
-                      label="مسافران و تعداد اتاق"
-                      startIcon={<BusinessCenterIcon />}
-                    >
-                      <MenuItem value="1room2adult">
-                        1 اتاق - 2 بزرگسال
-                      </MenuItem>
-                    </RHFSelect>
+                    <RHFPassengerPicker name="passengers" label="مسافران و تعداد اتاق" startIcon={
+                      <BusinessCenterIcon sx={{ color: "primary.main" }} />
+                    } />
                   </Box>
                 </Grid>
 
