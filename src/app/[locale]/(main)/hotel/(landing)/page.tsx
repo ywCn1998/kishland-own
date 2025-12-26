@@ -183,7 +183,7 @@ export default async function Home() {
           <CommonQuestions responsive={true} hasTItle={false} hasFooter={false} />
         </Stack>
 
-        <Stack className="hidden! md:block">
+        <Stack className="hidden! md:block!">
           <CommonQuestions responsive={true} />
         </Stack>
 

@@ -10,6 +10,7 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  Button,
 } from "@mui/material";
 import { PhoneOutlined } from "@mui/icons-material";
 import Image from "next/image";
@@ -351,16 +352,18 @@ export function Footer() {
         <Stack
           flexDirection="row"
           alignItems="center"
-          justifyContent="center"
+          justifyContent="space-between"
           gap={2}
           pb={{ lg: 3, xs: 10 }}
-          mt={2}
+          mt={1}
         >
-          <CopyrightOutlinedIcon className=" text-slate-400!" />
-          <Typography className="!text-xs  text-slate-400! leading-loose!">
-            کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
-            پیاده سازی توسط تیم IT کیشلندیار
-          </Typography>
+            <Typography className="!text-xs text-slate-500! font-light! leading-loose!">
+              کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
+              پیاده سازی توسط تیم IT کیشلندیار
+            </Typography>
+          <Button variant="text" color="secondary" size="small" className="font-light!">
+            قوانین و مقررات
+          </Button>
         </Stack>
       </Container>
     </Stack>
