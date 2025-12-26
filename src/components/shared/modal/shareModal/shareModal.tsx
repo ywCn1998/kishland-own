@@ -17,29 +17,30 @@ export default function ShareModal({ open, setOpen }: ModalProps) {
         fullWidth={true}
         showIcon={false}
         maxWidth={"sm"}
+        p={2.5}
       >
-        <Stack className="items-center gap-5!">
-          <img src={"/images/modals/sharemodal.png"} className="w-90 h-62" />
+        <Stack className="items-center gap-5! ">
+          <img src={"/images/modals/sharemodal.png"} className="w-full! md:w-90 h-44! md:h-62" />
 
           <Stack className="flex! flex-row! items-center! ">
-            <Typography className="text-4xl! font-[750]! ">
+            <Typography className="text-2xl! md:text-3xl! lg:text-4xl! font-[750]! ">
               بفرست واسه اونی که نیاز داره{" "}
             </Typography>
           </Stack>
-          <Typography className="text-lg! text-slate-500!">
+          <Typography className="text-base! md:text-lg! text-slate-500!">
             شاید همین الان یکی از دوستات بهش نیاز داشته باشه{" "}
           </Typography>
-          <Stack className="flex! flex-row! gap-5! w-full!">
+          <Stack className="flex! flex-row! gap-3! md:gap-5! w-full!">
             <Button
               variant="outlined"
               className="w-full!"
               size="medium"
               startIcon={<PhoneInTalkIcon color="action" />}
             >
-              <Typography className="text-black">کپی کردن لینک</Typography>
+              <Typography className="text-black text-xs! sm:text-sm! md:text-base!">کپی کردن لینک</Typography>
             </Button>
             <Button variant="contained" className="w-full!" size="medium">
-              <Typography className="text-white">ارسال برای ...</Typography>
+              <Typography className="text-white text-xs! sm:text-sm! md:text-base!">ارسال برای ...</Typography>
             </Button>
           </Stack>
           
@@ -57,7 +58,7 @@ export default function ShareModal({ open, setOpen }: ModalProps) {
             <Stack>
               <Typography className="text-slate-500">اشتراک در :</Typography>
             </Stack>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={{xs:1, sm:2}}>
               <TelegramIcon color="action"/>
               <TelegramIcon color="action"/>
               <TelegramIcon color="action"/>

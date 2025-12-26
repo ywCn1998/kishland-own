@@ -26,7 +26,7 @@ import RHFSimpleSelect from "@/components/shared/form/RHFSimpleSelect";
 import HotelClassOutlinedIcon from '@mui/icons-material/HotelClassOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
-import LoginPhoneModal from "@/components/auth/authModals/login/loginPhoneModal";
+import LoginPhoneModal from "@/app/[locale]/(client-area)/auth/(desktop)/login/loginPhoneModal";
 import TravelFirstModal from "@/components/shared/modal/commentsModals/travelFirstModal";
 import SuccessModal from "@/components/shared/modal/commentsModals/failOrSuccessModal";
 
@@ -81,11 +81,11 @@ const RatingModal = ({
             PaperProps={{
                 sx: {
                     borderRadius: { xs: 0, md: 4 },
-                    overflow: { xs: "auto", md: "hidden" },
+                    overflow: { xs: "auto", md: "auto" },
                     px: { xs: 2, md: 8 },
                     py: { xs: 2, md: 4 },
                     width: "100%",
-                    height: { xs: "100vh", md: "auto" },
+                    height: { xs: "100%", md: "auto" },
                     minHeight: { xs: "100vh", md: "70dvh" },
                     maxHeight: { xs: "100vh", md: "90vh" },
                     m: { xs: 0, md: 2 },
@@ -95,10 +95,10 @@ const RatingModal = ({
             }}
         >
             <FormProvider methods={methods} onSubmit={OnSubmit} className=" flex! flex-col! justify-between! ">
-                <Box sx={{ flex: 1, overflowY: { xs: "auto", md: "visible" }, pb: { xs: 10, md: 0 }, height: { xs: "auto", md: "100%" }, minHeight: { xs: "100%", md: "70dvh" } }}>
+                <Box sx={{ flex: 1, overflowY: { xs: "auto", md: "visible" }, height: { xs: "auto", md: "100%" }, minHeight: { xs: "100%", md: "70dvh" } }}>
                     <Grid container className="flex! flex-row! " spacing={{ xs: 2, md: 6 }}>
                         <Grid size={{ xs: 12, md: 4 }} className="flex! flex-col! ">
-                            <Stack className="flex! flex-row! justify-between! items-center!">
+                            <Stack className="flex! flex-row! justify-between! items-center! py-3! md:py-0!">
                                 <Typography className="text-xl! font-medium!" sx={{ fontSize: { xs: "18px", md: "20px" } }}>
                                     امتیاز دهی
                                 </Typography>
@@ -311,32 +311,21 @@ const RatingModal = ({
                             </Stack>
                         </Grid>
                     </Grid>
+                    <Stack className="w-full!">
+                        <Button
+                            variant="contained"
+                            className="text-white!"
+                            onClick={() => handleSubmit()}
+                            sx={{
+                                width: { xs: "100%", md: "200px", lg: "250px" },
+                                py: { xs: 1.5, md: 2 }
+                            }}
+                        >
+                            ثبت و ارسال نظر
+                        </Button>
+                    </Stack>
                 </Box>
-                <Stack
-                    className="flex! flex-row-reverse! w-full! absolute bottom-10! left-15!"
-                    sx={{
-                        position: { xs: "sticky", md: "sticky" },
-                        bottom: { xs: 0, md: 40 },
-                        left: { xs: 0, md: 60 },
-                        right: { xs: 0, md: "auto" },
-                        px: { xs: 2, md: 0 },
-                        py: { xs: 2, md: 0 },
-                        mt: { xs: 2, md: 0 },
-                        zIndex: 1000
-                    }}
-                >
-                    <Button
-                        variant="contained"
-                        className="text-white!"
-                        onClick={() => handleSubmit()}
-                        sx={{
-                            width: { xs: "100%", md: "300px" },
-                            py: { xs: 1.5, md: 2 }
-                        }}
-                    >
-                        ثبت و ارسال نظر
-                    </Button>
-                </Stack>
+
             </FormProvider>
             <LoginPhoneModal open={openLoginModal} setOpen={setOpenLoginModal} title="ثبت نظر" description="برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید" />
             <TravelFirstModal open={openTravelledModal} setOpen={setOpenTravelledModal} />

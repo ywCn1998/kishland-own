@@ -122,7 +122,7 @@ const reviews: Review[] = [
 export default function PeopleComments() {
     const [open, setOpen] = React.useState<boolean>(false);
     return (
-        <Stack className="rounded-2xl! md:border-1! border-slate-200! p-4!">
+        <Stack className="rounded-2xl! md:border-1! border-slate-200! px-2! md:p-4!">
             <Stack className="flex! flex-row! justify-between! items-center!">
                 <Typography className="font-bold! md:font-semibold! text-base! md:text-3xl!">نظرات کاربران</Typography>
                 <Button variant="contained" startIcon={<AddCircleOutlineIcon />} className="text-sm! p-3! md:text-base! rounded-lg! md:rounded-xl! text-white!" onClick={() => setOpen(!open)}>افزودن دیدگاه جدید</Button>

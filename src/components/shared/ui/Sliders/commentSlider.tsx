@@ -15,7 +15,7 @@ export default function CommentSlider({ }) {
   return (
     <>
       <Stack
-        className="flex! flex-col! justify-center! items-center! "
+        className="flex! flex-col! justify-center! items-center! ps-4!"
         mt={10}
         spacing={2}
       >

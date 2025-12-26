@@ -63,7 +63,7 @@ export default function OfferBanner({
             {buttonText}
           </Button>
           {copyBtn &&
-            <Button onClick={copyPageLink} className="border-1! border-orange-400! bg-orange-100!">
+            <Button onClick={copyPageLink} className="border-1! border-orange-400! bg-orange-100! hidden! md:block!">
               <ContentCopyIcon color="primary"/>
             </Button>}
         </Stack>
