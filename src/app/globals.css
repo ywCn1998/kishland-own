@@ -590,6 +590,43 @@ body {
   animation-play-state: running;
 }
 
-.rdp-day_button {
-  color: var(--primary-500);
+.rdp-today-custom {
+  position: relative;
+}
+
+.rdp-today-custom::after {
+  content: "امروز";
+  position: absolute;
+  bottom:2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 600;
+  color: black;
+}
+.rdp-range-start-custom::after {
+  content: "ورود";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* خروج (end) */
+.rdp-range-end-custom::after {
+  content: "خروج";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  pointer-events: none;
 }

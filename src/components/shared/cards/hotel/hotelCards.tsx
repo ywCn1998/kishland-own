@@ -56,9 +56,9 @@ export default async function HotelCards({
         borderRadius: 1.3,
         boxShadow: 0,
         background: "white",
-        overflow: "visible",
+        overflow: "hidden",
         "& img": { transition: "transform 0.4s ease-in-out" },
-        "&:hover img": { transform: "scale(1.08)" },
+        "&:hover img": { transform: "scale(1.02)" },
       }}
       className="border-1! border-slate-200! reveal"
     >
@@ -69,7 +69,7 @@ export default async function HotelCards({
           sx={{
             height: "90%",
             borderRadius: { sm: 1, lg: 2 },
-            overflow: "visible",
+            overflow: "hidden",
             mx: 1.5,
             
           }}
@@ -83,7 +83,6 @@ export default async function HotelCards({
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              mt: "-10px",
             }}
           />
         </Box>

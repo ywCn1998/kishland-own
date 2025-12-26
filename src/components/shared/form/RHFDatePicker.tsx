@@ -22,6 +22,7 @@ import "react-day-picker/dist/style.css";
 
 
 
+
 function formatJalali(input?: unknown) {
   if (!input) return "";
 
@@ -65,7 +66,6 @@ export default function RHF2MonthRangePicker({
 
   const fromDate = watch(startName);
   const toDate = watch(endName);
-
 
   return (
     <Controller
@@ -164,7 +164,7 @@ export default function RHF2MonthRangePicker({
             {helperComponent}
 
             {/* Popup calendar */}
-            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md">
+            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="lg">
               <DialogContent className="p-3! sm:p-5!">
                 <div className="mb-3 flex items-center! justify-between!">
                   <span className="text-lg font-medium calender-title">
@@ -191,11 +191,13 @@ export default function RHF2MonthRangePicker({
                     onSelect={handleSelect}
                     disabled={{ before: today }}
                     classNames={{
-                      today: `text-[var(--primary-500)]!`,
+                      day: "md:p-1! relative",
+                      month_grid: "border-separate md:border-spacing-2",
+                      today: "rdp-today-custom", 
                       chevron: `${defaultClassNames.chevron} fill-[var(--primary-500)]!`,
-                      selected: `bg-orange-50! `,
-                      range_start: `bg-orange-400! text-white! font-bold! rounded-full!`,
-                      range_end: `bg-orange-400! text-white! font-bold! rounded-full!`,
+                      selected: `bg-orange-200! rounded-xl! `,
+                      range_start: `rdp-range-start-custom bg-orange-400! text-white!  font-semibold! rounded-full!`,
+                      range_end: `rdp-range-end-custom bg-orange-400! text-white! font-semibold! rounded-full!`,
                       disabled: `text-gray-300! `,
                     }}
                   />
@@ -207,11 +209,13 @@ export default function RHF2MonthRangePicker({
                     onSelect={handleSelect}
                     disabled={{ before: today }}
                     classNames={{
-                      today: `text-[var(--primary-500)]!`,
+                      day: `md:p-1!`,
+                      month_grid: "border-separate md:border-spacing-2",
+                      today: "rdp-today-custom", 
                       chevron: `${defaultClassNames.chevron} fill-[var(--primary-500)]!`,
-                      selected: `bg-orange-50!`,
-                      range_start: `bg-orange-400! text-white! font-bold! rounded-full!`,
-                      range_end: `bg-orange-400! text-white! font-bold! rounded-full!`,
+                      selected: `bg-orange-200! rounded-xl! `,
+                      range_start: `rdp-range-start-custom bg-orange-400! text-white!  font-semibold! rounded-full!`,
+                      range_end: `rdp-range-end-custom bg-orange-400! text-white! font-semibold! rounded-full!`,
                       disabled: `text-gray-300! `,
                     }}
                   />
@@ -266,3 +270,4 @@ export default function RHF2MonthRangePicker({
     />
   );
 }
+

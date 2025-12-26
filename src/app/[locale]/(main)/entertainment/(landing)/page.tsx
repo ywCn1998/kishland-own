@@ -1,4 +1,5 @@
-import { Stack, Container, Box } from "@mui/material";
+import { Stack, Container, Typography, Box } from "@mui/material";
+import { setRequestLocale } from "next-intl/server";
 import {
   ExtraFooterInformation,
   CategorySlider,
@@ -22,6 +23,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
 import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
+import { TourSearchSection } from "../../tour/(landing)/_components";
 
 const activityData = [
   { title: "کشتی تفریحی کارینا کیش" },
@@ -44,7 +46,8 @@ export default function Home() {
 
         <Stack spacing={10} className="md:mt-8! mt-2!">
           <Stack className="px-4! md:px-0!">
-            <SearchTabSection />
+            <TourSearchSection activePage="fun"/>
+            {/* <SearchTabSection /> */}
           </Stack>
 
           <LastSearch data={activityData} />
@@ -153,8 +156,6 @@ export default function Home() {
               hasFooter={false}
             />
           </Box>
-        </Container>
-        <Container maxWidth="xl" disableGutters>
           <CommentSlider />
         </Container>
         <Stack mb={7}>
