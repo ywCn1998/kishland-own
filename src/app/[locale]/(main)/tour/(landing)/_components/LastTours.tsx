@@ -172,19 +172,21 @@ const LatestToursSection = ({ umbrella = true, titles = true, isHotel = false }:
           className="reveal-down"
         >
           <ReusableSwiper slidePerViewXs={1.4} slideperviewMd={4} slidePerviewLg={4} spaceBetween={20} pagination={true}>
-            {isHotel ?(hotels.map((hotel , index)=>(
+            {isHotel ? (hotels.map((hotel, index) => (
+              <Stack className="h-[350px]! md:h-[600px]!">
               <TourCard key={index} {...hotel} index={index} sell={true} /> 
-            ))) : (
+              </Stack>
+          ))) : (
               tours.map((tour, index) => (
-                <Stack className="h-[350px]! md:h-[600px]!">
-                  <TourCard key={index} {...tour} index={index} />
-                </Stack>
-              ))
+          <Stack className="h-[350px]! md:h-[600px]!">
+            <TourCard key={index} {...tour} index={index} />
+          </Stack>
+          ))
             )}
 
-          </ReusableSwiper>
-        </Box>
-      </Container>
+        </ReusableSwiper>
+      </Box>
+    </Container >
     </>
   );
 };

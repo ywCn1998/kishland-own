@@ -45,7 +45,7 @@ export default function Home() {
 
         <Stack spacing={10} className="md:mt-8! mt-2!">
           <Stack className="px-4! md:px-0!">
-            <TourSearchSection activePage="fun"/>
+            <TourSearchSection activePage="fun" />
             {/* <SearchTabSection /> */}
           </Stack>
 
@@ -60,7 +60,7 @@ export default function Home() {
         </Stack>
 
         {/* banner */}
-        <Stack className="w-full h-[450px] relative rounded-3xl! mt-10! mb-20! reveal hidden! md:block">
+        <Stack className="w-full h-[450px] relative rounded-3xl! mt-10! mb-20! reveal hidden! md:block!">
           <Link href="/fa/entertainment/list">
             <Image
               src={"/images/sea-chair.png"}
@@ -131,8 +131,10 @@ export default function Home() {
             <BestEntertainmentSection />
           </Stack>
         </Stack>
+        <Stack className="md:p-0! p-4!">
+          <BestExperienceBannerSection />
 
-        <BestExperienceBannerSection />
+        </Stack>
       </Container>
 
       <Stack>

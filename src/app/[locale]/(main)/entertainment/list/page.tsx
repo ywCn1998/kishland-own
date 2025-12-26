@@ -193,7 +193,7 @@ export default function Home() {
           </Grid>
         </Grid>
 
-        <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} />
+        <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} companies={false}/>
       </Container>
 
       <EntertainmentDetail />

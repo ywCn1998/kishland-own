@@ -20,6 +20,7 @@ import { useEffect } from "react";
 import { ListAlt } from "@mui/icons-material";
 import { BlitType } from "../../entertainment/list/_components/blitType";
 import FilterContainer from "../../entertainment/list/_components/filterBox/_components/filterContainer";
+import ChanceCard from "../../entertainment/list/_components/chanceCard";
 
 
 const cardData = [
@@ -73,27 +74,33 @@ export default function List() {
                         <Grid className="md:hidden! w-9/12! md:w-auto!">
                             <BlitType />
                         </Grid>
-                        <Grid className="md:border-1 border-slate-200  rounded-xl md:p-4 w-3/12! md:w-auto!">
-                            <FilterContainer />
+                        <Grid className=" w-3/12! md:w-auto! flex! flex-col! gap-4!">
+                            <Stack className="mt-[-32px]!">
+                                <ChanceCard
+                                    title="شانس امروزتو امتحان کن !"
+                                    description="هر روز یک گردونه شانس با کلی جایزه"
+                                    btn_title="بچرخون"
+                                    img="/images/entertainment/list/chance.png"
+                                    onClick={() => console.log("dsaf")}
+                                    className="hidden! md:flex!"
+                                />
+                            </Stack>
+                            <Stack className="md:border-1 border-slate-200  rounded-xl! md:p-4  md:w-auto!">
+                                <FilterContainer />
+                            </Stack >
+
                         </Grid>
                     </Grid>
                     <Grid size={{ xs: 12, md: 9 }}>
                         <ListSection />
                     </Grid>
                 </Grid>
-
             </Container>
-
-
-            {/* دیگر پیشنهادات */}
-
-            {/* 
-
-            <Container maxWidth="xl">
+            
+            <Container maxWidth="xl" className="md:block! hidden!">
                 <CommonQuestions hasFooter={false} />
-
-                <HotelCategory />
-            </Container> */}
+                 <HotelCategory />
+            </Container> 
 
 
 

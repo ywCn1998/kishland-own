@@ -69,7 +69,7 @@ export default function Details({ isMobile }: { isMobile?: boolean }) {
     return (
         <Grid container mt={5} spacing={2.5}>
             <Grid size={{ xs: 12, md: 9 }}>
-                <MainTabs data={tabData} borderBottom />
+                {/* <MainTabs data={tabData}  /> */}
 
                 <Stack className="md:border-1! p-5! border-slate-200! rounded-2xl!" mb={{ xs: 2, md: 5 }} sx={{ p: { xs: 3, md: 5 } }}>
                     <Typography color="text.secondary" className="text-sm! md:text-lg! leading-8! md:leading-10!" mb={5}>

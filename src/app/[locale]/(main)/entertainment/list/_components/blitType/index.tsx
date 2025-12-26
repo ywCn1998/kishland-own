@@ -13,19 +13,40 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import FormatLineSpacingIcon from "@mui/icons-material/FormatLineSpacing";
+import MainTabs from "@/components/shared/mainTabs";
+import SortIcon from "@mui/icons-material/Sort";
+
 
 export function BlitType() {
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const sortOptions = [
-    "پیشنهادات کیش لندیار",
-    "کمترین قیمت",
-    "بیشترین قیمت",
-    "پرفروش‌ترین",
-    "محبوب‌ترین",
+  const tabsData = [
+    {
+      label: "مرتب سازی",
+      icon: <SortIcon className="ml-1!" fontSize="small" />,
+      disabled: true,
+    },
+    {
+      label:  "پیشنهادات کیش لندیار",
+    },
+    {
+      label:"کمترین قیمت",
+    },
+    {
+      label:"بیشترین قیمت",
+    },
+    {
+      label: "پرفروش‌ترین",
+    },
+    {
+      label: "محبوب‌ترین",
+    }
   ];
+
+  // Sync sortOptions with tabsData (skip first item which is disabled)
+  const sortOptions = tabsData.slice(1).map(tab => tab.label);
 
   const handleChangeTabs = (_: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -41,47 +62,17 @@ export function BlitType() {
         direction="row"
         alignItems="center"
         justifyContent="space-between"
-        className="border-1 border-slate-200 rounded-2xl h-14 md:mb-10! px-4! overflow-visible bg-white! w-full!"
         sx={{
           borderColor: "#E1E6F0",
           gap: 2,
         }}
+        className="w-full!"
       >
         {!isMobile && (
           <>
-
-
-            <Tabs
-              value={value}
-              onChange={handleChangeTabs}
-              sx={{
-                overflow: "visible",
-                position: "relative",
-                "& .MuiTabs-scroller": { overflow: "visible !important" },
-                "& .MuiTabs-flexContainer": {
-                  justifyContent: "center",
-                  gap: 2,
-                },
-                "& .MuiTab-root": {
-                  color: "text.disabled",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  backgroundColor: "white",
-                },
-                "& .Mui-selected": { color: "primary", fontWeight: 500 },
-                "& .MuiTabs-indicator": {
-                  height: "1px",
-                  borderRadius: "2px",
-                  bottom: -8,
-                  backgroundColor: "white",
-
-                },
-              }}
-            >
-              {sortOptions.map((label, i) => (
-                <Tab key={i} label={label} />
-              ))}
-            </Tabs>
+            <MainTabs
+              data={tabsData}
+            />
           </>
         )}
 

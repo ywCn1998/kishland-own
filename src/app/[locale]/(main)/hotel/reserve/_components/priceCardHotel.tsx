@@ -58,6 +58,10 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
           borderRadius: 2,
           p: 2,
           width: "auto",
+          position: "sticky",
+          top: 20,
+          zIndex: 100,
+          alignSelf: "flex-start",
         }}
         className="reveal-down"
       >
@@ -253,8 +257,7 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
         </Box>
         <TotalResponsive total={"22,000,000"} />
       </Stack>
-      {/* <CancelModal open={openCancelModal} setOpen={setOpenCancelModal}/> */}
-      <LogOutModal open={openCancelModal} setOpen={setOpenCancelModal} />
+      <CancelModal open={openCancelModal} setOpen={setOpenCancelModal}/>
     </>
   );
 }
