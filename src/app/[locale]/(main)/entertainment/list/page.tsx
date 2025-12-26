@@ -45,7 +45,6 @@ export default function Home() {
     setLefItem(<ListAlt />);
   }, []);
 
-  const router = useRouter();
 
   return (
     <div

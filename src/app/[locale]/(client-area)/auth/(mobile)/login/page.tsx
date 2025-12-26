@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import GetPhone from "./_components/GetPhone";
-import GetOtp from "./_components/GetOtp";
+import GetOtp from "./_components/GetOTP";
 
 type LoginStep = "splashScreen" | "phone" | "otp";
 
@@ -13,12 +13,6 @@ export default function Login() {
     const [step, setStep] = useState<LoginStep>("splashScreen");
     const [phoneNumber, setPhoneNumber] = useState<string>("");
 
-
-    const handleBack = () => {
-        if (step === "otp") {
-            setStep("phone");
-        };
-    }
 
     useEffect(() => {
         if (step === "splashScreen") {
@@ -45,5 +39,5 @@ export default function Login() {
         return <GetOtp setStep={setStep} setPhone={setPhoneNumber} phone={phoneNumber} />
     }
 
-    return <></>
+    return <GetPhone setStep={setStep} setPhone={setPhoneNumber} />
 }

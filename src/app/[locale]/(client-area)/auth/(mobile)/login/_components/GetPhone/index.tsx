@@ -20,7 +20,7 @@ export default function GetPhone({ setPhone, setStep }: { setPhone: (val: string
 
 
     return (
-        <Stack className="w-full! min-h-[100dvh]! px-4! pb-4! pt-8!">
+        <Stack className="w-full! min-h-[100dvh]! px-4! pb-4! pt-8! mx-auto!" maxWidth={'sm'}>
             <Stack>
                 <Box className="flex! justify-center! items-center! w-full!">
                     <Image src={"/images/headerlogo.png"} alt="headerlogo" width={150} height={40} />
