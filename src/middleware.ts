@@ -90,9 +90,9 @@ export function middleware(request: NextRequest) {
 
 
   // If user is authenticated and trying to access auth routes, redirect to panel
-  if (authenticated && isAuthRoute(pathname)) {
-    return NextResponse.redirect(new URL('/panel', request.url))
-  }
+  // if (authenticated && isAuthRoute(pathname)) {
+  //   return NextResponse.redirect(new URL('/panel', request.url))
+  // }
 
   // If user is not authenticated and trying to access protected routes, redirect to login
   // if (!authenticated && isProtectedRoute(pathname)) {
