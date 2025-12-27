@@ -77,7 +77,8 @@ export default function DiscountedEntertainmentSection() {
               </Typography>
             </Stack>
             <Typography className="md:font-bold! font-semibold! md:text-3xl! text-xl! text-center! reveal-down">
-              شگفت انگیزهای امروز
+              شگفت
+              انـگـیـزهـای امروز
             </Typography>
           </Stack>
 
@@ -100,10 +101,10 @@ export default function DiscountedEntertainmentSection() {
             </Grid>
           ))}
         </Grid>
-      </Grid>
+      </Grid >
 
       {/* responsive */}
-      <Grid
+      < Grid
         container
         height={430}
         sx={{
@@ -113,7 +114,8 @@ export default function DiscountedEntertainmentSection() {
           pr: { xs: 0, lg: 3 },
           borderRadius: { xs: "none", lg: 2 },
           border: { xs: "none", lg: "1px solid #FF8C0B" },
-        }}
+        }
+        }
         className="md:hidden! flex! items-center! "
       >
         <ReusableSwiper
@@ -131,13 +133,16 @@ export default function DiscountedEntertainmentSection() {
                   </Typography>
                   <HourglassFullIcon />
                 </div>
-                <Typography className="text-sm! text-center! mt-1!">
+                <Typography className="text-base! text-center! mt-1!">
                   فرصت خرید رو از دست نده که دیره
                 </Typography>
               </div>
 
-              <Typography className="font-semibold! text-xl! text-center! mt-4!">
-                شگفت‌انگیزهای امروز
+              <Typography className="font-semibold! text-2xl! text-center! mt-1!">
+                <Typography className="font-regular! text-2xl! text-center! mb-2!" color="primary">
+                  شــــــگــــفــــــــــت
+                </Typography>
+                انـگـیـزهـای امروز
               </Typography>
             </div>
             <div className="relative w-full h-[170px]">
@@ -155,7 +160,7 @@ export default function DiscountedEntertainmentSection() {
             </div>
           ))}
         </ReusableSwiper>
-      </Grid>
+      </Grid >
     </>
   );
 }

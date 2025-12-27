@@ -56,7 +56,7 @@ export default function Home() {
         <Stack className="hidden! md:block!">
           <BreadCrumbFa />
         </Stack>
-        <Stack className="md:hidden! flex! ">
+        <Stack className="md:hidden! flex! mt-2!">
           <SubCategorySwiper />
         </Stack>
         <Stack className="md:p-6! p-0! md:mt-0! mt-4!">
@@ -98,13 +98,13 @@ export default function Home() {
 
         <Grid container className="md:mt-4  mt-[-40] " spacing={2}>
           <Grid
-            size={{ md: 3 }}
-            className="md:block! flex! flex-row! gap-2! md:p-0! p-5!"
+            size={{xs: 12 , md: 3  }}
+            className="md:block! flex! flex-row! gap-6! md:p-0! p-6! w-full!"
           >
-            <Grid className="md:hidden!">
+            <Grid className="md:hidden! " size={10}>
               <BlitType />
             </Grid>
-            <Grid className="md:border-1 border-slate-200  rounded-xl md:p-4">
+            <Grid className="md:border-1! border-slate-200!  rounded-xl! md:p-4!">
               <FilterContainer />
             </Grid>
           </Grid>
@@ -193,10 +193,8 @@ export default function Home() {
           </Grid>
         </Grid>
 
-        <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} companies={false}/>
+        <ExtraFooterInformation honerOfColobrate={true} moreToRead={true} companies={true}/>
       </Container>
-
-      <EntertainmentDetail />
     </div>
   );
 }

@@ -47,19 +47,19 @@ export default function Home() {
           <Stack className="px-4! md:px-0!">
             <TourSearchSection activePage="fun" />
             {/* <SearchTabSection /> */}
+            <LastSearch data={activityData} />
           </Stack>
-
-          <LastSearch data={activityData} />
-          <Stack className="mt-4! w-full! md:hidden!">
+          <Stack className="mt-4! w-full! md:hidden! md:px-0! px-4!">
             <ChanceMobile />
           </Stack>
 
-          <Stack className="mt-[20px]! md:mt-0!">
+          <Stack className="mt-[20px]! md:mt-0! flex! flex-col! gap-8!">
+            <Stack className="md:hidden!">
+              <DicountedEntertainmentSection />
+            </Stack>
             <WhyKishLand path="/images/tirex-dolphin.png" width="w-[380px]!" />
           </Stack>
         </Stack>
-
-        {/* banner */}
         <Stack className="w-full h-[450px] relative rounded-3xl! mt-10! mb-20! reveal hidden! md:block!">
           <Link href="/fa/entertainment/list">
             <Image
@@ -70,7 +70,7 @@ export default function Home() {
             />
           </Link>
         </Stack>
-        <Box className="w-full h-[140px]  rounded-3xl! mt-5! mb-20! reveal md:hidden!">
+        <Box className="w-full h-[180px]  rounded-3xl! mt-5! mb-20! reveal md:hidden!">
           <Link href="/fa/entertainment/list">
             <Image
               src={
@@ -84,11 +84,11 @@ export default function Home() {
         </Box>
 
         {/* discounded tours */}
-        <Stack className="">
+        <Stack className="md:block! hidden!">
           <DicountedEntertainmentSection />
         </Stack>
 
-        <Stack className=" md:mt-0!">
+        <Stack className=" md:mt-0! px-4! md:px-0!">
           <BuyOneGetTwoSection />
 
           {/* banner */}
@@ -105,7 +105,7 @@ export default function Home() {
           </Stack>
         </Stack>
 
-        <Box className="mt-10! md:mt-0!">
+        <Box className="mt-10! md:mt-0! md:px-0! px-4!">
           <OfferBanner
             caption="این بار این سفر واست خاطره میشه ..."
             responsiveCaption="این بار این سفر واست خاطره میشه ..."
@@ -113,10 +113,11 @@ export default function Home() {
             buttonText={"مشاهده لیست پیشنهادات ها"}
             href="/fa/entertainment/list"
           />
+           <EconomyPackageSection />
         </Box>
 
         {/* acconamy */}
-        <EconomyPackageSection />
+       
 
         <Stack className="bg-[#F0F7FF] rounded-3xl! md:mt-20! mt-20! pb-8! mb-0! md:mb-28! reveal hidden! md:block!">
           <OfferBanner
@@ -150,7 +151,7 @@ export default function Home() {
           <Box className="hidden! md:block!">
             <CommonQuestions />
           </Box>
-          <Box className=" md:hidden!">
+          <Box className=" md:hidden! ">
             <CommonQuestions
               responsive={true}
               hasTItle={false}
@@ -159,12 +160,15 @@ export default function Home() {
           </Box>
         </Container>
         <Container maxWidth="xl" disableGutters>
+          <Stack className="ps-4! md:ps-0!">
           <CommentSlider />
+
+          </Stack>
         </Container>
         <Stack mb={7}>
           <MainBlog />
         </Stack>
-        <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} />
+        <ExtraFooterInformation honerOfColobrate={true} moreToRead={true} />
       </Stack>
     </Stack>
   );

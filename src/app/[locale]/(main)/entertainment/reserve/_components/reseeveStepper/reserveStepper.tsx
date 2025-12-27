@@ -61,7 +61,7 @@ export default function ReserveStepper() {
     },
   ];
 
-  const [activeStep, setActiveStep] = useState<number>(2);
+  const [activeStep, setActiveStep] = useState<number>(1);
 
   return (
     <>

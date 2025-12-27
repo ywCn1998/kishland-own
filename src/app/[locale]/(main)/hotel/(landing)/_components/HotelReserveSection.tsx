@@ -6,8 +6,8 @@ import TourFromCity from "./tourFromCity";
 
 const HotelReserveSection = () => {
   return (
-    <Grid container sx={{ height: { xs: 'auto', md: 500 } }} >
-      <Grid size={{ xs: 12, md: 7 }} className=" flex! flex-col h-full! justify-center! mt-10">
+    <Grid container sx={{ height: { xs: 'auto', md: 500 } }} className="flex! md:flex-row! flex-col-reverse!">
+      <Grid size={{ xs: 12, md: 7 }} className=" flex! flex-col! h-full! justify-center! mt-10">
         <Typography className="text-slate-500! md:text-lg! reveal-down">
           کیش، سرزمین ماجراجویی و لذت!
         </Typography>
@@ -33,10 +33,8 @@ const HotelReserveSection = () => {
 
       </Grid>
       <Grid size={{ xs: 12, md: 5 }}>
-        <div className="h-[95%]! relative reveal">
-          <Image
-            //   component="img"
-            fill
+        <div className="h-[95%]! relative! reveal">
+          <img
             src={"/images/reserve.png"}
             alt={"fromsea"}
             style={{

@@ -83,11 +83,14 @@ export function BlitType() {
             justifyContent="space-between"
             sx={{
               width: "100%",
-              px: 0,
-              py: 0.5,
-              borderRadius: 2,
-              gap: 1,
+              px:2,
+              py: 0.7,
+              borderRadius: 1.5,
+              gap: 2,
+              border : "solid 1px ",
+             
             }}
+            className="border-slate-200!"
           >
             <Stack direction="row" alignItems="center" gap={0.8}>
               <FormatLineSpacingIcon fontSize="small" color="action" />

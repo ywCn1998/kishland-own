@@ -116,9 +116,9 @@ const LatestToursSection = ({ umbrella = true, titles = true, isHotel = false }:
         {isHotel && (
           <Stack className="md:hidden! flex! flex-row! justify-between! w-full! items-center! mt-0! relative!">
             <div>
-              <Typography className="text-sm! md:text-lg! text-slate-400! mb-5! reveal-down">
+              <Typography className="text-sm! md:text-lg! text-slate-400! mb-2! reveal-down">
                 {isHotel ? (
-                  <span>
+                  <span className="text-xs!">
                     یه تفریح عالی یه اقامت گاه درجه یک میخواد
                   </span>
                 ) : (
@@ -148,7 +148,7 @@ const LatestToursSection = ({ umbrella = true, titles = true, isHotel = false }:
                 <span className="hidden! md:inline!">
                   مشاهده لیست پکیج ها
                 </span>
-                <span className=" md:hidden!">
+                <span className=" md:hidden! text-xs!">
                   {
                     isHotel ? "مشاهده همه" : "لیست مشاهده"
                   }

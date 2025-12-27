@@ -8,7 +8,7 @@ const BuyOneGetTwoSection = () => {
   return (
     <Grid
       container
-      mt={10}
+      mt={{xs : 0 , lg : 10}}
       sx={{ height: { xs: 140, lg: 550 } }}
       className=""
       spacing={{ xs: 2, lg: 4 }}
@@ -62,10 +62,10 @@ const BuyOneGetTwoSection = () => {
 
         <Stack className="w-full! flex! flex-row! gap-8! reveal" mt={2}>
           <Button
-            className="w-6/12 text-black! rounded-xl! text-lg! reveal hidden! md:block! text-nowrap!"
+            className="w-6/12 text-black! rounded-xl! text-lg! reveal hidden! md:block! text-nowrap! flex! flex-row! items-center! gap-4!"
             variant="outlined"
-            startIcon={<AdbIcon />}
           >
+            <AdbIcon fontSize="small"/>
             دانلود اپلیکیشن
           </Button>
           <Button

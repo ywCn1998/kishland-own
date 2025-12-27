@@ -29,9 +29,9 @@ export default function WhyKishland({
           </div>
         </Grid>
 
-        <Grid container spacing={2} mt={5} className="items-end justify-between w-full flex-row-reverse md:flex-row">
+        <Grid container spacing={2} mt={5} className="items-end justify-between w-full flex-row-reverse md:flex-row!">
           <Grid
-            size={{ xs: 6, md: 3, xl: "grow" }}
+            size={{ xs: 3, md: 3, xl: "grow" }}
             className="flex flex-col gap-3 items-center! justify-center! reveal-down"
           >
             <div className="relative! w-20! h-20! hidden md:inline">
@@ -40,7 +40,7 @@ export default function WhyKishland({
             <div className="relative! w-12! h-12! md:hidden">
               <Image alt="" fill src="/images/takhte-moj.png" />
             </div>
-            <Typography className="text-sm! md:text-lg! font-semibold! text-center!">
+            <Typography className="text-xs! md:text-lg! font-semibold! text-center! text-nowrap!">
               رزرو سریع و آنی
             </Typography>
             <Typography className=" text-base! text-gray-800 text-center! hidden xl:inline">
@@ -49,7 +49,7 @@ export default function WhyKishland({
           </Grid>
 
           <Grid
-            size={{ xs: 6, md: 3, xl: "grow" }}
+            size={{ xs: 3, md: 3, xl: "grow" }}
             className="flex flex-col gap-3 items-center! justify-center! reveal-down"
           >
             <div className="relative! w-20! h-20! hidden md:inline">
@@ -58,7 +58,7 @@ export default function WhyKishland({
             <div className="relative! w-12! h-12! md:hidden">
               <Image alt="" fill src="/images/rocket.png" />
             </div>
-            <Typography className="text-sm! md:text-lg! font-semibold! font-semibold! text-center!">
+            <Typography className="text-xs! md:text-lg! font-semibold! font-semibold! text-center! text-nowrap!">
               تفریحات بی نظیر
             </Typography>
             <Typography className="text-base! text-gray-800 text-center! hidden xl:inline">
@@ -67,8 +67,8 @@ export default function WhyKishland({
           </Grid>
 
           <Grid
-            size={{ xs: 6, md: 3, xl: "grow" }}
-            className="hidden xl:flex flex-col gap-3 px-10! items-center! justify-center! reveal-down"
+            size={{ xs: 3, md: 3, xl: "grow" }}
+            className="hidden! xl:flex! flex-col gap-3 px-10! items-center! justify-center! reveal-down"
           >
             <div
               className={`relative! ${width ? width : 'w-[256px]!'} h-[365px]!`}
@@ -84,7 +84,7 @@ export default function WhyKishland({
           </Grid>
 
           <Grid
-            size={{ xs: 6, md: 3, xl: "grow" }}
+            size={{ xs: 3, md: 3, xl: "grow" }}
             className="flex flex-col gap-3 items-center! justify-center! reveal-down"
           >
             <div className="relative! hidden md:inline w-20! h-20!">
@@ -93,16 +93,16 @@ export default function WhyKishland({
             <div className="relative! w-12! h-12! md:hidden">
               <Image alt="" fill src="/images/cash.png" />
             </div>
-            <Typography className="text-sm! md:text-lg! font-semibold! text-center!">
+            <Typography className="text-xs! md:text-lg! font-semibold! text-center! text-nowrap!">
               قیمت مناسب
             </Typography>
-            <Typography className="text-base! text-gray-800 font-normal! text-center! hidden xl:inline">
+            <Typography className="text-base! text-gray-800 font-normal! text-center! hidden! lg:inline!">
               بهترین خدمات با مقرون‌به‌صرفه‌ترین هزینه، بدون افت کیفیت
             </Typography>
           </Grid>
 
           <Grid
-            size={{ xs: 6, md: 3, xl: "grow" }}
+            size={{ xs: 3, md: 3, xl: "grow" }}
             className="flex flex-col gap-3 items-center! justify-center! reveal-down"
           >
             <div className="relative! w-20! h-20! hidden md:inline">
@@ -111,7 +111,7 @@ export default function WhyKishland({
             <div className="relative! w-12! h-12! md:hidden">
               <Image alt="" fill src="/images/message.png" />
             </div>
-            <Typography className="text-sm! md:text-lg! font-semibold! center!">
+            <Typography className="text-xs! md:text-lg! font-semibold! center! text-nowrap!">
               پشتیبانی قوی
             </Typography>
             <Typography className="text-base! text-gray-800 text-center! hidden xl:inline">

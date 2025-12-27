@@ -44,7 +44,7 @@ export default function FilterContainer({ isTour = false}: filterContainerProps)
         variant="outlined"
         startIcon={<FilterAltOutlined fontSize="large" />}
         onClick={() => setOpen(true)}
-        className="h-14! w-full"
+        className="h-14! w-full!"
         sx={{
           color: "text.secondary",
           // px: 2,

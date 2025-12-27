@@ -193,7 +193,7 @@ export default async function Home() {
         </Container>
       </Container>
       <Stack mt={-10}>
-        <ExtraFooterInformation honerOfColobrate={false} hotels={true} />
+        <ExtraFooterInformation honerOfColobrate={true} hotels={true} />
       </Stack>
     </Stack>
   );

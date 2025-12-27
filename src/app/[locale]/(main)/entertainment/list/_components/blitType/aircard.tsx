@@ -29,7 +29,7 @@ export function AirCard({ onClick }: { onClick: (val: boolean) => void }) {
         >
           <img
             src={"/images/entertainment/list/jong.jpg"}
-            className="md:h-[265px] h-[150px] w-full! md:w-auto!"
+            className="md:h-[265px] h-[200px] w-full! md:w-auto!"
           />
 
           <Stack
