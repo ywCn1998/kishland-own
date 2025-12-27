@@ -79,7 +79,7 @@ export default function Favorites() {
                 <MainTabs
                     data={tabs}
                     border={false}
-                    borderBottom={true}
+                    // borderBottom={true}
                     icons={true}
                     IconsInMobile={false}
                     bgColor="white"

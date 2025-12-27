@@ -8,7 +8,6 @@ import RHFOTPInput from "@/components/shared/form/RHFOTPInput";
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 // import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import useSubmitPhoneLogin from "../../../../hooks/login/useSubmitPhoneLogin";
 import { UserAuthAPI } from "@/services/users/auth.services";
 
 export default function GetOtp({
@@ -29,17 +28,7 @@ export default function GetOtp({
         },
     });
 
-
-    const { OnSubmit: OnSubmitPhone } =
-        useSubmitPhoneLogin({
-
-            onSuccess: (phone: string) => {
-                setPhone(phone);
-                // setStep("otp");
-            },
-        });
-
-    const { mutate: login, isPending } = UserAuthAPI.login({
+    const { mutate: login } = UserAuthAPI.login({
 
     });
 
@@ -76,7 +65,7 @@ export default function GetOtp({
     };
 
     return (
-        <Stack className="w-full! min-h-[100dvh]! px-4! pb-4! pt-5!">
+        <Stack className="w-full! min-h-[100dvh]! px-4! pb-4! pt-5!" maxWidth={'sm'}>
             <Stack>
                 <Box
                     className="flex! items-center! w-fit! gap-2! p-0!"

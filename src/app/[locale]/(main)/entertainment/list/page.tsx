@@ -45,14 +45,13 @@ export default function Home() {
     setLefItem(<ListAlt />);
   }, []);
 
-  const router = useRouter();
 
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
-      className="mb-10!"
+      className="mb-10! pt-3!"
     >
-      <Container maxWidth="xl" sx={{ marginBottom: 5 }} disableGutters>
+      <Container maxWidth="xl" sx={{ marginBottom: 5 }} className="md:px-4!" disableGutters>
         <Stack className="hidden! md:block!">
           <BreadCrumbFa />
         </Stack>

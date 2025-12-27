@@ -109,7 +109,6 @@ export default function UserAccount() {
                     <MainTabs
                         data={tabItemsForMainTabs}
                         border={false}
-                        borderBottom={true}
                         icons={true}
                         IconsInMobile={false}
                         bgColor="white"
