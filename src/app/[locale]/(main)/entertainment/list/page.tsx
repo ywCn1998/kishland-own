@@ -51,7 +51,7 @@ export default function Home() {
       style={{ display: "flex", flexDirection: "column" }}
       className="mb-10! pt-3!"
     >
-      <Container maxWidth="xl" sx={{ marginBottom: 5 }} disableGutters>
+      <Container maxWidth="xl" sx={{ marginBottom: 5 }} className="md:px-4!" disableGutters>
         <Stack className="hidden! md:block!">
           <BreadCrumbFa />
         </Stack>
@@ -194,8 +194,6 @@ export default function Home() {
 
         <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} companies={false}/>
       </Container>
-
-      <EntertainmentDetail />
     </div>
   );
 }
