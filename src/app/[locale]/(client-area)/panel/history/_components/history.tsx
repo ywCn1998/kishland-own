@@ -67,7 +67,6 @@ export default function History({ orderId = 35457478 }: { orderId: number }) {
                 <MainTabs
                     data={tabItemsForMainTabs}
                     border={false}
-                    borderBottom={true}
                     icons={true}
                     IconsInMobile={false}
                     bgColor="white"

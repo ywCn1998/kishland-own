@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
-      className="mb-10!"
+      className="mb-10! pt-3!"
     >
       <Container maxWidth="xl" sx={{ marginBottom: 5 }} disableGutters>
         <Stack className="hidden! md:block!">
@@ -192,7 +192,7 @@ export default function Home() {
           </Grid>
         </Grid>
 
-        <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} />
+        <ExtraFooterInformation honerOfColobrate={false} moreToRead={true} companies={false}/>
       </Container>
 
       <EntertainmentDetail />

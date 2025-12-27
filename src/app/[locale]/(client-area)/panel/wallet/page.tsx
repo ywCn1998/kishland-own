@@ -195,7 +195,6 @@ export default function Wallet() {
                     <MainTabs
                         data={tabItemsForMainTabs}
                         border={false}
-                        borderBottom={true}
                         icons={true}
                         IconsInMobile={false}
                         bgColor="white"

@@ -1,9 +1,24 @@
 import ImgTextGrid from "@/components/shared/ui/banner/ImageAndText";
 import { Button, Stack, Typography } from "@mui/material";
-import MessageIcon from "@mui/icons-material/Message";
-import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
-import StadiumIcon from "@mui/icons-material/Stadium";
 import GoldenText from "@/components/shared/ui/GoldenText";
+
+const buttons = [
+  {
+    id: 1,
+    image: "/images/entertainment/landing/supenter.png",
+    text: "پشتیبانی 24 ساعته",
+  },
+  {
+    id: 2,
+    image: "/images/entertainment/landing/packenter.png",
+    text: "پکیج‌های اقامتی",
+  },
+  {
+    id: 3,
+    image: "/images/entertainment/landing/jobenter.png",
+    text: "موقعیت استثانیی",
+  },
+];
 
 export default function BestExprienceBannerSection() {
   return (
@@ -18,7 +33,7 @@ export default function BestExprienceBannerSection() {
       </Typography>
       <Typography
         variant="h3"
-        className="text-2xl! md:text-5xl! mb-5! leading-[50px]! md:leading-[80px]"
+        className="text-2xl! md:text-5xl! mb-5! leading-[50px]! md:leading-[80px]!"
       >
         کیش لندیار، تجربه‌ای بی‌نظیر از بهترین {/* <div> */}
         <GoldenText
@@ -40,54 +55,22 @@ export default function BestExprienceBannerSection() {
         لحظاتی فراموش‌نشدنی در زیباترین جزیره ایران برایتان می‌سازیم.
         خاطره‌سازترین لحظات عمرتان را با کیش لندیار رقم بزنید!
       </Typography>
-      <Stack className="flex! flex-row! gap-5! items-center!">
-        <Stack
-          alignItems="center"
-          justifyContent="center"
-          spacing={1.5}
-          className="w-4/12 border-none! md:border-solid! border-slate-200 rounded-2xl!  p-1! md:p-4  md:flex-row! flex-col! text-nowrap!"
-        >
-          <img
-            src={"/images/entertainment/landing/supenter.png"}
-            className="block! md:hidden! w-12!"
-          />
-
-          <MessageIcon className="hidden! md:block!" />
-          <Typography className="text-xs! md:text-lg!" fontWeight={500}>
-            پشتیبانی 24 ساعته
-          </Typography>
-        </Stack>
-        <Stack
-          alignItems="center"
-          justifyContent="center"
-          spacing={1.5}
-          className="w-4/12 border-none! md:border border-slate-200 rounded-2xl! p-1! md:p-4 md:flex-row! flex-col! text-nowrap!"
-        >
-          <img
-            src={"/images/entertainment/landing/packenter.png"}
-            className="block! md:hidden! w-12!"
-          />
-
-          <MessageIcon className="hidden! md:block!" />
-          <Typography className="text-xs! md:text-lg!" fontWeight={500}>
-            پکیج‌های اقامتی
-          </Typography>
-        </Stack>
-        <Stack
-          alignItems="center"
-          justifyContent="center"
-          spacing={1.5}
-          className="w-4/12  md:border-1!` border-none! border-slate-200 rounded-2xl!  p-1! md:p-4 md:flex-row! flex-col! text-nowrap!  "
-        >
-          <img
-            src={"/images/entertainment/landing/jobenter.png"}
-            className="block! md:hidden! w-12!"
-          />
-          <MessageIcon className="hidden! md:block!  " />
-          <Typography className="text-xs! md:text-lg!" fontWeight={500}>
-            موقعیت استثانیی
-          </Typography>
-        </Stack>
+      <Stack className="flex! flex-row! gap-8! items-center!">
+        {buttons.map((button) => (
+          <Stack
+            key={button.id}
+            className={`w-4/12!  md:border-1!   md:border-slate-200! rounded-2xl! p-1! md:p-3! md:flex-row! flex-col! text-nowrap! items-center! text-center! md:gap-2! gap-4! justify-center!`}
+          >
+            <img
+              src={button.image}
+              alt={button.text}
+              className="md:w-10! w-12!"
+            />
+            <Typography className="text-xs! md:text-base! font-medium!" >
+              {button.text}
+            </Typography>
+          </Stack>
+        ))}
       </Stack>
     </ImgTextGrid>
   );

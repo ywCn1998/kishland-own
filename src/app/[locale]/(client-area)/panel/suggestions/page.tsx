@@ -79,7 +79,6 @@ export default function Suggestions() {
                 <MainTabs
                     data={tabs}
                     border={false}
-                    borderBottom={true}
                     icons={true}
                     IconsInMobile={false}
                     bgColor="white"

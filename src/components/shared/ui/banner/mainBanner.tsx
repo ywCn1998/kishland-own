@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import Link from "next/link";
 
-export default function MainBanner({ hasBannerInMobile = true, hasBannerInDesktop = true, href, heightInDesktop = "300px", heightInMobile = "200px" }: { hasBannerInMobile?: boolean, hasBannerInDesktop?: boolean, href: string, heightInDesktop?: string, heightInMobile?: string }) {
+export default function MainBanner({ hasBannerInMobile = true, hasBannerInDesktop = true, href, heightInDesktop = "320px", heightInMobile = "200px" }: { hasBannerInMobile?: boolean, hasBannerInDesktop?: boolean, href: string, heightInDesktop?: string, heightInMobile?: string }) {
   return (
     <Stack component={Link} href={href}>
       {
@@ -10,7 +10,7 @@ export default function MainBanner({ hasBannerInMobile = true, hasBannerInDeskto
             component={"img"}
             src={"/images/tafrih-list.png"}
             sx={{ width: "100%" }}
-            className={`reveal px-4! sm:px-0! hidden! md:inline! h-[${heightInDesktop}]! rounded-3xl!`}
+            className={`reveal px-4! sm:px-0! hidden! md:inline! h-[${heightInDesktop}]! rounded-3xl! `}
           />
         )
       }

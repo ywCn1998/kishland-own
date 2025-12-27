@@ -17,20 +17,21 @@ const tabsData = [
     disabled: true,
   },
   {
-    label: "بلیط هواپیما",
+    label: "5 ستاره",
   },
   {
-    label: "بلیط قطار",
+    label: "4 ستاره",
   },
   {
-    label: "بلیط اتوبوس",
+    label: "3 ستاره",
+  },
+  {
+    label: "اقامتگاه",
   },
   {
     label: "پیشنهادی کیش لندیار",
   },
-  {
-    label: "چارتری",
-  },
+
 ];
 
 export default function ListSection() {
@@ -61,13 +62,13 @@ export default function ListSection() {
         </Box>)}
 
       <Stack px={2}>
-        <Grid container mt={{ xs: 0, md: 3 }} spacing={3}>
+        <Grid container mt={{ xs: 0, md: 3 }} spacing={3} mb={{xs:0, md:3}}>
           {[...Array(changeCardUi ? 3 : 6)].map((_, index) => (
             <Grid key={index} size={changeCardUi ? 12 : { xs: 12, md: 4 }}>
               <NormalListCard isWide={changeCardUi} />
             </Grid>
           ))}
-        </Grid>ّ
+        </Grid>
 
         <MainBanner heightInDesktop="280px" href="/fa/hotel/list" />
 
@@ -81,7 +82,7 @@ export default function ListSection() {
         <Link href={"/fa/tour/list"}>
           <img
             src={"/images/new/tour-ba-ahle-del.png"}
-            className="mt-6! h-[280px]! w-full! hidden! md:inline"
+            className="mt-6! h-[280px]! w-full! hidden! md:inline!"
           />
           {/* <img
             src={"/images/new/tour-ba-ahle-del.png"}

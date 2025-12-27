@@ -1,5 +1,4 @@
 "use client"
-
 import { OfferBanner } from '@/components/shared/ui'
 import { Button, Container, Grid, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
@@ -8,7 +7,7 @@ import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import PackageCard from './packageCard'
 import CartCards from '@/app/[locale]/(main)/entertainment/reserve/_components/cart/yourCart/CartCards'
 
-export default function EchoPackageDetails() {
+export default function VipPackageDetails() {
   const [count, setCount] = useState(1);
 
   const handlePlus = () => {
@@ -19,12 +18,12 @@ export default function EchoPackageDetails() {
     setCount((prev) => (prev > 1 ? prev - 1 : 1));
   };
   return (
-    <Stack className="md:!bg-[#F0F7FF]   lg:rounded-3xl! reveal xs-fullwidth !flex" >
+    <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal xs-fullwidth !hidden lg:!flex" >
       <Container maxWidth="xl" >
         <OfferBanner
         copyBtn ={true}
-          caption="این پکیج شامل 4 تفریح میباشد."
-          title="امکانات پکیج اکونومی"
+          caption="تجربه‌ای لوکس و اختصاصی برای سفری به یادماندنی در کیش"
+          title="امکانات پکیج VIP"
           buttonText="دریافت مشاوره"
           className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA]"
         />
@@ -37,7 +36,7 @@ export default function EchoPackageDetails() {
           <PackageCard />
         </Stack>
         <Grid container spacing={4} className="mt-6! flex! flex-row! items-center! ">
-          <Grid size={{xs : 12 , lg : 6}} className="flex! flex-col! gap-3! ">
+          <Grid size={6} className="flex! flex-col! gap-3! ">
             <Stack className='bg-white! border-1! border-slate-200! p-4!  rounded-xl! flex! flex-row! justify-between! items-center! '>
               {/* <CartCards /> */}
               <Stack className='flex! flex-col! items-start! justify-between! gap-4!'>
@@ -130,12 +129,12 @@ export default function EchoPackageDetails() {
               
 
             </Stack>
-           <Typography className='md:p-2! p-6! text-red-500! bg-red-100! border-1! border-red-500! rounded-lg! text-sm! px-4!'>
+           <Typography className='p-2! text-red-500! bg-red-100! border-1! border-red-500! rounded-lg! text-sm! px-4!'>
            پکیج‌ها تک نفره می باشد و در صورت نیاز، می‌توان چندین پکیج برای افراد مختلف خریداری کرد.
            </Typography>
           </Grid>
 
-          <Grid className='md:flex! flex-col! gap-4! hidden!  ' size={6}>
+          <Grid className='flex! flex-col! gap-4! ' size={6}>
             <Button variant='contained' color='primary' className='text-white! text-lg! py-5!'>
               رزرو پکیج
             </Button>

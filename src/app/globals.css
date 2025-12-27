@@ -590,6 +590,9 @@ body {
   animation-play-state: running;
 }
 
+.rdp-day_button {
+  color: var(--primary-500);
+}
 .rdp-today-custom {
   position: relative;
 }

@@ -1,9 +1,11 @@
 "use client";
 
 import GoldenText from '@/components/shared/ui/GoldenText';
-import { Stack, Typography, Button } from '@mui/material'
+import { Stack, Typography, Button, Tabs, Tab } from '@mui/material'
 import React, { useState } from 'react'
 import EchonomyPackage from './echonomyPackage';
+import FreePackage from './freePackage';
+import VipPackage from './vipPackage';
 
 // Customize these 3 options here
 const options = [
@@ -11,32 +13,6 @@ const options = [
     { id: 1, label: "پکیج اقتصادی" },
     { id: 2, label: "پکیج VIP" },
 ];
-
-// Customize the content for each tab's boxes here
-const tabContent: Record<number, Array<{ title: string; description: string; image?: string }>> = {
-    0: [
-        {
-            title: "  تارا کارت",
-            description: "در این قسمت شرایط استفاده از تارا کارت نوشته میشه و کاربر با مطالعه این قسمت متوجه میشه که چطوری میتونه با کمک تارا کارت اعتبار شو به دست بیاره. اگر API میشه از تارا کارت گرفت لطفا بررسی بشه.",
-            image: "/images/taradetails.png",
-        },
-    ],
-    1: [
-        {
-            title: "عنوان باکس اول",
-            description: "توضیحات باکس اول برای توانا کارت",
-            image: "/images/taradetails.png",
-        },
-    ],
-    2: [
-        {
-            title: "عنوان باکس اول",
-            description: "توضیحات باکس اول برای ثمین کارت",
-            image: "/images/taradetails.png",
-        },
-    ]
-};
-
 
 
 
@@ -51,14 +27,36 @@ export default function FavouritePackages() {
     };
 
     return (
-        <div className='mt-12!'>
+        <div className='md:mt-12! mt-0!'>
+            <Stack className="block! md:hidden! ">
+                <Tabs
+                    value={activeTab}
+                    onChange={(_, newValue) => setActiveTab(newValue)}
+                    variant="fullWidth"
+                    indicatorColor="primary"
+                    textColor="primary"
+                    sx={{
+                        minHeight: 44,
+                        "& .MuiTab-root": {
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            minHeight: 44,
+                            textTransform: "none",
+                        },
+                    }}
+                >
+                    {options.map((option) => (
+                        <Tab key={option.id} label={option.label} />
+                    ))}
+                </Tabs>
+            </Stack>
             <Stack className="bg-[#F5F7FA]! rounded-2xl! px-2! py-8!">
                 <Stack
-                    className="flex! flex-col! justify-center! items-center! "
+                    className="md:flex! flex-col! justify-center! items-center! hidden! "
                     spacing={4}
                 >
                     <Typography className="text-slate-400! text-lg!">
-                    این بار این سفر واست خاطره میشه ...           </Typography>
+                        این بار این سفر واست خاطره میشه ...           </Typography>
                     <GoldenText
                         textClass="text-5xl! font-bold!"
                         text={
@@ -114,8 +112,11 @@ export default function FavouritePackages() {
 
             </Stack>
             {/* Boxes that change based on active tab */}
-            {activeTab === 0 && <EchonomyPackage/>}
-       
+            {activeTab === 0 && <EchonomyPackage />}
+            {activeTab === 1 && <FreePackage />}
+            {activeTab === 2 && <VipPackage />}
+
+
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default function CancelModal({ open, setOpen }: cancelProps) {
     <div>
       <BaseModal open={open} setOpen={setOpen} title="قوانین استرداد" showIcon={false}>
         <Stack className="flex! flex-col! gap-5! items-center! mt-6!">
-          <Stack className="bg-[#FAFAFA]! flex! justify-between! p-3! w-full flex-row! items-center rounded-lg!">
+          <Stack className="bg-transparent! flex! justify-between! p-3! w-full flex-row! items-center rounded-lg!">
             <Stack className="flex! flex-col! gap-2!">
               <Typography className="text-lg! font-semibold!">استرداد عادی</Typography>
               <Typography className="text-base! " color="primary">
@@ -20,7 +20,7 @@ export default function CancelModal({ open, setOpen }: cancelProps) {
             </Stack>
             <Switch />
           </Stack>
-          <Stack className="bg-[#FAFAFA]! flex! justify-between! p-3! w-full flex-row! items-center rounded-lg!">
+          <Stack className="bg-transparent! flex! justify-between! p-3! w-full flex-row! items-center rounded-lg!">
             <Stack className="flex! flex-col! gap-2!">
               <Stack className="flex! flex-row! items-center! gap-1">
                 <Typography className="text-lg! font-semibold!"> استرداد بدون جریمه</Typography>
