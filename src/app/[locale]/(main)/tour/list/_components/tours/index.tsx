@@ -14,9 +14,9 @@ import MainBanner from "@/components/shared/ui/banner/mainBanner";
 export const sortTabsData = [
     { label: "5 ستاره" },
     { label: "4 ستاره" },
-    { label: "3 ستاره", },
-    { label: "2 ستاره", },
-    { label: "1 ستاره", },
+    { label: "2 ستاره و کمتر", },
+    { label: "صبحانه", },
+    { label: "هاف برد", },
 ];
 
 export default function ToursSection() {
@@ -38,7 +38,7 @@ export default function ToursSection() {
 
             <Grid size={{ xs: 12, md: 9 }} >
                 <Grid size={{ md: 12 }} spacing={3} container className="hidden! md:flex!">
-                    <Grid size={{ md: 10.5 }} >
+                    <Grid size={{ md: 12 }} >
                         <MainTabs
                             data={sortTabsData}
                             tabStyle={{
@@ -47,10 +47,11 @@ export default function ToursSection() {
                                 py: 0.5,
                                 minHeight: 36,
                             }}
+                            sortByPrice
                         />
                     </Grid>
 
-                    <Grid size={{ md: 1.5 }} className='border-1 border-slate-200 rounded-2xl   h-16  '>
+                    {/* <Grid size={{ md: 1.5 }} className='border-1 border-slate-200 rounded-2xl   h-16  '>
                         <Stack className="flex flex-row! h-full justify-center">
                             <IconButton>
                                 <Menu color="primary" sx={{ fontSize: 32 }} />
@@ -60,7 +61,7 @@ export default function ToursSection() {
                                 <WindowOutlined sx={{ fontSize: 32 }} />
                             </IconButton>
                         </Stack>
-                    </Grid>
+                    </Grid> */}
 
                 </Grid>
 

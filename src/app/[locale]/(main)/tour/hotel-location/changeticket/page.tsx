@@ -57,8 +57,8 @@ export default function ChangeTicket() {
             <Container maxWidth="xl" >
                 <TitlePlusBack title="تغییر بلیط رفت و برگشت" />
                 <Stack className="w-full! flex! flex-row! w-full! gap-5 ">
-                    <TicketCard isFade={true} canBuyTicket={false} ticketType="انتخاب بلیط رفت جدید" />
-                    <TicketCard isFade={true} canBuyTicket={true} ticketType="انتخاب بلیط برگشت جدید" />
+                    <TicketCard isFade={true} ticketType="انتخاب بلیط رفت جدید" />
+                    <TicketCard isFade={true} ticketStatus="canBuyTicket" ticketType="انتخاب بلیط برگشت جدید" />
                 </Stack>
 
                 <Grid container spacing={2} mt={6}>
@@ -74,12 +74,12 @@ export default function ChangeTicket() {
                     <Grid size={{ md: 9 }}>
                         <MainTabs data={tabsData} />
                         <Stack gap={4}>
-                            <TicketCard hasBought={true}/>
-                            <TicketCard hasBought={true}/>
-                            <TicketCard hasBought={true}/>
-                            <TicketCard hasBought={true}/>
-                            <TicketCard hasBought={true}/>
-                            <TicketCard hasBought={true}/>
+                            <TicketCard ticketStatus="hasBought"/>
+                            <TicketCard ticketStatus="hasBought"/>
+                            <TicketCard ticketStatus="hasBought"/>
+                            <TicketCard ticketStatus="hasBought"/>
+                            <TicketCard ticketStatus="hasBought"/>
+                            <TicketCard ticketStatus="hasBought"/>
                         </Stack>
                     </Grid>
                 </Grid>

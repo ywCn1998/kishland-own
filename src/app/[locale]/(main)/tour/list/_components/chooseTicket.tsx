@@ -1,6 +1,37 @@
 import ReusableSwiper from "@/components/shared/reusableSwiper";
 import TextNumber from "@/components/shared/textNumber";
 import { Typography, Stack, Container, Divider } from "@mui/material";
+import DaysSwiper from "../../../entertainment/list/detail/_components/dateSlider";
+
+
+
+
+export type DayItem = {
+    id: string;
+    dateFa: string;
+    nameFa: string;
+    isWeekend?: boolean;
+};
+
+const days: DayItem[] = [
+    { id: "d1", dateFa: "۲۰ فروردین", nameFa: "چهارشنبه" },
+    { id: "d2", dateFa: "۲۱ فروردین", nameFa: "پنج‌شنبه", isWeekend: true },
+    { id: "d3", dateFa: "۲۲ فروردین", nameFa: "جمعه", isWeekend: true },
+    { id: "d4", dateFa: "۲۳ فروردین", nameFa: "شنبه" },
+    { id: "d5", dateFa: "۲۴ فروردین", nameFa: "یک‌شنبه" },
+    { id: "d6", dateFa: "۲۵ فروردین", nameFa: "دو شنبه", isWeekend: true },
+    { id: "d7", dateFa: "۲۶ فروردین", nameFa: "سه‌شنبه" },
+    { id: "d8", dateFa: "۲۷ فروردین", nameFa: "چهارشنبه" },
+    { id: "d9", dateFa: "۲۸ فروردین", nameFa: "پنج‌شنبه", isWeekend: true },
+    { id: "d10", dateFa: "۲۹ فروردین", nameFa: "جمعه", isWeekend: true },
+    { id: "d11", dateFa: "۳۰ فروردین", nameFa: "شنبه" },
+    { id: "d12", dateFa: "۳۱ فروردین", nameFa: "یک‌شنبه" },
+    { id: "d13", dateFa: "۱ اردیبهشت", nameFa: "دو شنبه", isWeekend: true },
+    { id: "d14", dateFa: "۲ اردیبهشت", nameFa: "سه‌شنبه" },
+];
+
+
+
 
 export default function ChooseTicketSection({ data }: { data: any[] }) {
     const perView = 7;
@@ -13,7 +44,7 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
     return (
         <Container maxWidth="xl" disableGutters
             sx={{
-                px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
+                px: { xs: 0, sm: 2, md: 0 }, // xs=0, others keep normal spacing
             }}
         >
             <Stack className="hidden! w-full! md:flex! flex-row! items-center! justify-between! mb-5!">
@@ -21,6 +52,10 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                 <Typography className="text-sm! text-slate-400!">
                     ارزان‌ترین قیمت تور های 4 روزه قبل و بعد از تاریخ جستجوی شما
                 </Typography>
+            </Stack>
+
+            <Stack className="hidden! md:block!">
+                <DaysSwiper items={days} />
             </Stack>
 
             <Stack className="md:hidden! md:mb-10! py-3!" sx={{ backgroundColor: "background.paper" }}>
@@ -32,6 +67,11 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                         </Typography>
                     </Stack>
                 } />
+
+
+                <Stack className="md:hidden! mt-5! px-3!">
+                    <DaysSwiper items={days} />
+                </Stack>
 
                 <Stack className="hidden! md:flex! bg-white! mt-4!">
                     <ReusableSwiper

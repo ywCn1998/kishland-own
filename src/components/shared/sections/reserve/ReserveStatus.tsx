@@ -248,8 +248,8 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                 {/* ------------------------------------------------------ */}
                 <Stack className="border-1 border-slate-200! rounded-2xl! py-4!" mt={4}>
                     <Stack className="w-full! flex! flex-col! gap-5 px-4!">
-                        <TicketCard hasBought />
-                        <TicketCard canBuyTicket />
+                        <TicketCard ticketStatus="hasBought" />
+                        <TicketCard ticketStatus="canBuyTicket" />
                     </Stack>
                 </Stack>
 

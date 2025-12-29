@@ -47,8 +47,8 @@ export default function LocationHotel() {
                     <Stack className="mt-20!" gap={5}>
                         <Stack className="hidden! md:block!">
                             <CustomAccordion title="بلیط شما">
-                                <Stack sx={{ background: "#f5f7fa" }} className="py-4! rounded-2xl! mt-5">
-                                    <TicketTypeSection isLocationModal={true} />
+                                <Stack sx={{ background: "#f5f7fa" }} className="py-4! rounded-2xl! mt-5 px-4!">
+                                    <TicketTypeSection isLocationModal={true} ticketStatus="hasBought" />
                                 </Stack>
                             </CustomAccordion>
                         </Stack>

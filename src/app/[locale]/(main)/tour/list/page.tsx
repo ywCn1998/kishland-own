@@ -71,12 +71,12 @@ export default function List(
                 </Stack>
 
                 {/* step 3 */}
-                <Stack mt={10} >
+                <Stack mt={10}>
                     <ChooseTicketSection data={cardData} />
                 </Stack>
 
 
-                <Stack mt={{ xs: 0, md: 3 }} pt={{ xs: 2, md: 0 }} sx={{ backgroundColor: { xs: "background.paper", md: "white" } }}>
+                <Stack mt={{ xs: 0, md: 1 }} pt={{ xs: 2, md: 0 }} sx={{ backgroundColor: { xs: "background.paper", md: "white" } }}>
                     {/* tours */}
                     <ToursSection />
                 </Stack>

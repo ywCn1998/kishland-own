@@ -24,22 +24,16 @@ const tabsData = [
 ];
 
 
-export default function TicketTypeSection({ isLocationModal = false }: { isLocationModal?: boolean }) {
+export default function TicketTypeSection({ isLocationModal = false, ticketStatus = "hasBought" }: { isLocationModal?: boolean, ticketStatus?: "hasBought" | "canBuyTicket" | "backTicket" }) {
     const theme = useTheme()
     const mdUp = useMediaQuery(theme.breakpoints.up("md"));
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
     return (
-        <Container maxWidth="xl"
-            sx={{
-                px: { xs: 0, sm: 2, md: 3 }, // xs=0, others keep normal spacing
-            }}
-            disableGutters
-        >
+        <Container maxWidth="xl" disableGutters>
             {!isLocationModal && (
                 mdUp ? (
                     <Stack className="w-full! flex! flex-row! items-center! justify-between! mb-5!">
-
                         <Stack className="w-full! flex! flex-row! items-center! justify-between! mb-5!">
                             <TextNumber number={2} text="انتخاب نوع بلیط" />
                             <Button onClick={handleOpen} variant="contained" sx={{ backgroundColor: "secondary.main", color: "white", px: 6, height: 50 }}>تغییر بلیط</Button>
@@ -67,8 +61,8 @@ export default function TicketTypeSection({ isLocationModal = false }: { isLocat
                 <Stack className="md:hidden!">
                     <TextIcon className="text-lg! font-semibold!" text="بلیط رفت و برگشت هواپیما" startIcon={<img src="/images/airplaneicon.svg" className="w-8! h-8!" />} />
                 </Stack>
-                <TicketCard />
-                <TicketCard />
+                <TicketCard ticketStatus={ticketStatus}/>
+                <TicketCard ticketStatus={ticketStatus}/>
             </Stack>
             <ChangeBliteDrawer open={open} setOpen={setOpen} />
         </Container>

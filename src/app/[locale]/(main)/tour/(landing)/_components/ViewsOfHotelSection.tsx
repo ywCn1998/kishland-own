@@ -214,6 +214,17 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelL
               </Stack>
             </Stack>
           </Stack>
+
+          {/* <Stack className="lg:hidden! h-[350px]! w-full! md:w-1/3!  relative!">
+            <BlogCard
+              description={"تور کیش از مشهد"}
+              imageUrl="/images/kourosh-hotel.png" // مسیر عکس خود را قرار دهید
+              height="100%"
+            />
+            <Stack className="absolute! bottom-6! px-6! w-full! z-10!">
+              <ViewsGalleryStrip images={galleryImages} additionalImages={galleryImages! as any} />
+            </Stack>
+          </Stack> */}
         </Grid>
 
       </Grid>
@@ -227,7 +238,7 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelL
             <Grid container spacing={1}
             >
               {services.map((item, index) => (
-                <Grid size={{xs: 3,sm: "auto"}}>
+                <Grid size={{ xs: 3, sm: "auto" }}>
                   <Typography
                     key={"services" + index}
                     className="text-[10px]! sm:text-xs! md:text-sm! text-center! border-1! border-slate-200! rounded-lg! h-16! flex! items-center! px-3! justify-center!"

@@ -15,16 +15,13 @@ import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import NorthWestIcon from "@mui/icons-material/NorthWest";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import AddIcon from "@mui/icons-material/Add";
 import LocalActivityOutlinedIcon from "@mui/icons-material/LocalActivityOutlined";
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 
 type TicketCardProps = {
   isFade?: boolean;
-  canBuyTicket?: boolean;
   ticketType?: "انتخاب بلیط برگشت جدید" | "انتخاب بلیط رفت جدید";
-  backTicket?: boolean;
-  hasBought?: boolean;
   /** If true: change dash color to secondary.50, add end circles, and show footer strip */
   isTicketShape?: boolean;
   /** footer fields (used when isTicketShape) */
@@ -34,13 +31,13 @@ type TicketCardProps = {
   isDisabled?: boolean;
   /** Custom button to show on overlay when isDisabled is true */
   overlayButton?: React.ReactNode;
+  ticketStatus?: "hasBought" | "canBuyTicket" | "backTicket";
 };
 
 export default function TicketCard({
   isFade = false,
-  canBuyTicket,
   ticketType,
-  hasBought,
+  ticketStatus,
   isTicketShape = false,
   ticketNumber = "۵۵۴۸۷۴۱",
   tripLabel = "بلیط رفت",
@@ -206,12 +203,12 @@ export default function TicketCard({
             />
           </Stack>
 
-          {!hasBought ? (
+          {ticketStatus !== "hasBought" ? (
             <Button variant="text" endIcon={<AddIcon className="md:text-xl!" />} color="secondary" className="text-xs! text-nowrap! md:text-base! p-1!">
               انتخاب این بلیط
             </Button>
           ) : (
-            <Button variant="text" endIcon={<FilterListIcon />} className="text-xs! md:text-base text-nowrap! p-1! text-red-500!">
+            <Button variant="text" endIcon={<ConfirmationNumberIcon />} className="text-xs! md:text-base! text-nowrap! p-1! text-red-500!">
               تغییر بلیط رفت
             </Button>
           )}
@@ -237,7 +234,7 @@ export default function TicketCard({
             overlayButton
           ) : (
             <Button
-              disabled={canBuyTicket}
+              disabled={ticketStatus === "canBuyTicket"}
               startIcon={<AddIcon className="text-xl!" />}
               variant="outlined"
               color="secondary"

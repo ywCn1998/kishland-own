@@ -101,10 +101,11 @@ export default function MainTabs({
                     minHeight: { xs: 0, md: 60 },
                 },
                 mb: { xs: 0, md: 2 },
-                border: border ? "1px solid" : "none",
+                border: border ? "1px solid " : "none",
                 borderColor: "divider",
-                borderRadius: border  ? "14px" : 0,
+                borderRadius: border ? "14px" : 0,
                 position: "relative",
+                pb: { xs: 0, md: 0.2 },
                 "& .MuiTabs-scrollButtons": {
                     display: IconsInMobile ? "flex" : "none",
                 },
@@ -150,7 +151,7 @@ export default function MainTabs({
 
 
             {sortByPrice && (
-                <Stack className="flex flex-row! h-full absolute! left-4!">
+                <Stack className="flex flex-row! h-full absolute! left-4! pt-2!">
                     <Button
                         // @ts-ignore
                         onClick={() => setSortByCheap?.((prev) => !prev)}

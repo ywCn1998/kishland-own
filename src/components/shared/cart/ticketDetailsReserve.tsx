@@ -13,8 +13,8 @@ export default function TicketDetailsReserve() {
       >
         <Stack className="mt-4!">
           <Stack className="w-full! flex! flex-col! gap-5 ">
-            <TicketCard hasBought />
-            <TicketCard canBuyTicket />
+            <TicketCard ticketStatus="hasBought" />
+            <TicketCard ticketStatus="canBuyTicket" />
           </Stack>
         </Stack>
       </CustomAccordion>
