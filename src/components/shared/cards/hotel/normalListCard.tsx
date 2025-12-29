@@ -81,10 +81,10 @@ export default function NormalListCard({ isWide, isOfferCard = false }: { isWide
                                 </Stack>
                             )}
                         </Stack>
-                        <div className="half-circle-divider hidden! md:flex!">
+                        <div className="half-circle-divider flex!">
                             <span className="half-circle left bg-[#e1e6f0]! w-3!"></span>
                             {/* <hr className="text-[#e1e6f0]! bg-[#e1e6f0]!" /> */}
-                            <Divider orientation="horizontal" className="text-[#e1e6f0]! bg-[#e1e6f0]!" />
+                            <Divider orientation="horizontal" className="text-[#e1e6f0]!" />
                             <span className="half-circle right bg-[#e1e6f0]!  w-3!"></span>
                         </div>
 

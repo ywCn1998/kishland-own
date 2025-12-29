@@ -10,11 +10,7 @@ import {
     useTheme,
 } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import ApartmentIcon from "@mui/icons-material/Apartment";
-import SportsRugbyIcon from "@mui/icons-material/SportsRugby";
 import RHFSelect from "@/components/shared/form/RHFSelect";
 import FormProvider from "@/providers/FormProvider";
 import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
@@ -28,6 +24,7 @@ import { useState } from "react";
 import ShowMoreButton from "@/components/shared/showMoreButton";
 import DaysSwiper from "@/app/[locale]/(main)/entertainment/list/detail/_components/dateSlider";
 import { DayItem } from "@/app/[locale]/(main)/entertainment/list/detail/page";
+import RHFPassengerPicker from "@/components/shared/form/RHFPassengerPicker";
 
 export default function RoomsList({ days }: { days: DayItem[] }) {
     const { methods, OnSubmit } = useSearch();
@@ -39,10 +36,11 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
         <>
             <Stack className="md:border-1! border-slate-200! rounded-2xl!" sx={{ p: { xs: 2, md: 8 } }}>
                 <Stack className="flex! flex-col! gap-3! md:gap-4!" mb={2}>
-                    <Stack className="flex! flex-col! md:flex-row! justify-between! items-start! md:items-center! gap-2! md:gap-0!">
+                    <Stack className="flex! flex-row! justify-between! items-start! md:items-center! gap-2! md:gap-0!">
                         <Typography className="text-xl! md:text-3xl! font-semibold!">لیست اتاق ها</Typography>
-                        <Typography className="text-sm! md:text-base!" color="text.secondary">{30} اتاق خالی موجود</Typography>
+                        <Typography className="text-sm! md:text-base!" color="text.secondary">{30} اتاق خالی موجود است</Typography>
                     </Stack>
+                    <Divider className="md:hidden! mt-2!" />
                     <FormProvider methods={methods}>
                         <Grid container spacing={3} className="flex flex-row-reverse! ">
 
@@ -52,15 +50,16 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                 className=" reveal"
                             >
                                 <Stack className="flex! flex-col! md:flex-row! gap-3!">
-                                    <Stack className="w-full! md:w-9/12! border-2! border-slate-200! p-1! rounded-2xl! flex flex-col md:flex-row bg-white reveal">
-                                        <Grid container  >
+                                    <Stack className="w-full! md:w-9/12! md:border-1! border-slate-200! p-1! rounded-2xl! flex flex-col md:flex-row bg-white reveal">
+                                        <Grid container className="flex! flex-row!">
                                             {/* فیلد موبایل - نمایش ترکیبی */}
-                                            <Grid size={12} sx={{ display: { xs: "block", md: "none" } }}>
+                                            <Grid size={6} sx={{ display: { xs: "block", md: "none" } }}>
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }}>
                                                     <RHFDatePicker
                                                         startName="startDate"
                                                         endName="endDate"
-                                                        label="تاریخ رفت و برگشت"
+
+                                                        label="ورود و خروج"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />
                                                         }
@@ -74,6 +73,7 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                                     <RHFDatePicker
                                                         startName="startDate"
                                                         endName="endDate"
+                                                        isStart={true}
                                                         label="تاریخ ورود"
                                                         startIcon={
                                                             <BusinessCenterIcon sx={{ color: "primary.main" }} />
@@ -95,19 +95,15 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                                     />
                                                 </Box>
                                             </Grid>
-                                            <Divider orientation="vertical" flexItem variant="middle" />
+                                            <Divider orientation="vertical" flexItem variant="middle" className="md:block! hidden!" />
                                             {/* <Divider orientation="horizontal" sx={{ display: { xs: "block", md: "hidden" }, }} flexItem variant="middle" /> */}
 
                                             <Grid size="grow">
                                                 <Box sx={{ minWidth: 10, p: 1, pb: 0 }} >
-                                                    <RHFSelect
-                                                        name="number"
-                                                        isSelect={false}
-                                                        label="مسافران و تعداد اتاق"
-                                                        startIcon={<BusinessCenterIcon />}
-                                                    >
-                                                        <MenuItem value="مشهد">4 تفر</MenuItem>
-                                                    </RHFSelect>
+                                                    <RHFPassengerPicker name="passengers" label="مسافران و تعداد اتاق" startIcon={
+                                                        <BusinessCenterIcon sx={{ color: "primary.main" }} />
+                                                    } />
+
                                                 </Box>
                                             </Grid>
                                         </Grid>
