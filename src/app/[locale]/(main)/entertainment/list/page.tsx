@@ -95,10 +95,10 @@ export default function Home() {
           <Typography variant="subtitle1">25 تفریح موجود</Typography>
         </Stack>
 
-        <Grid container className="md:mt-4  mt-[-40] " spacing={2}>
+        <Grid container className="md:mt-4  mt-[-40]" spacing={2}>
           <Grid
-            size={{xs: 12 , md: 3  }}
-            className="md:block! flex! flex-row! gap-6! md:p-0! p-6! w-full!"
+            size={{ xs: 12, md: 3 }}
+            className="flex! flex-row! gap-6! md:p-0! p-6!"
           >
             <Grid className="md:hidden! " size={10}>
               <BlitType />
@@ -109,13 +109,13 @@ export default function Home() {
           </Grid>
 
           <Grid size={{ md: 9 }} className="md:mt-0 mt-[-40]">
-            <Grid size={{ md: 12 }} spacing={3} container>
-              <Grid size={{ md: 10.5 }} className="hidden! md:block!">
+            <Grid container spacing={3} >
+              <Grid size={{ md: 10.5 }} className="hidden! md:flex!">
                 <BlitType />
               </Grid>
               <Grid
                 size={{ md: 1.5 }}
-                className="border-1 border-slate-200 rounded-2xl   h-16 hidden! md:block! "
+                className="border-1 border-slate-200 rounded-2xl   h-16 hidden! md:flex! "
               >
                 <Stack className="flex flex-row! h-full justify-center">
                   <IconButton>
@@ -129,16 +129,16 @@ export default function Home() {
               </Grid>
             </Grid>
 
-            <Grid size={12} container spacing={2} className="p-6! md:p-0!">
-              <AirCard onClick={() => {}} />
-              <AirCard onClick={() => {}} />
-              <MainBanner hasBannerInDesktop={false} href="/fa/entertainment/list"/>
-              <AirCard onClick={() => {}} />
-              <AirCard onClick={() => {}} />
+            <Grid container spacing={2} className="p-6! md:p-0! w-full!">
+              <AirCard onClick={() => { }} />
+              <AirCard onClick={() => { }} />
+              <MainBanner hasBannerInDesktop={false} href="/fa/entertainment/list" />
+              <AirCard onClick={() => { }} />
+              <AirCard onClick={() => { }} />
               <Stack>
                 <img
                   src={"/images/entertainment/list/buytwo.png"}
-                  className="w-100! md:hidden!"
+                  className="w-full! md:hidden!"
                 />
               </Stack>
               <Grid
@@ -174,9 +174,9 @@ export default function Home() {
                 />
               </Grid>
 
-              <AirCard onClick={() => {}} />
-              <AirCard onClick={() => {}} />
-              <AirCard onClick={() => {}} />
+              <AirCard onClick={() => { }} />
+              <AirCard onClick={() => { }} />
+              <AirCard onClick={() => { }} />
 
               <Link href={"/fa/hotel/list"}>
                 <img
@@ -185,14 +185,14 @@ export default function Home() {
                 />
               </Link>
 
-              <AirCard onClick={() => {}} />
-              <AirCard onClick={() => {}} />
-              <AirCard onClick={() => {}} />
+              <AirCard onClick={() => { }} />
+              <AirCard onClick={() => { }} />
+              <AirCard onClick={() => { }} />
             </Grid>
           </Grid>
         </Grid>
 
-        <ExtraFooterInformation honerOfColobrate={true} moreToRead={true} companies={true}/>
+        <ExtraFooterInformation honerOfColobrate={true} moreToRead={true} companies={true} />
       </Container>
     </div>
   );

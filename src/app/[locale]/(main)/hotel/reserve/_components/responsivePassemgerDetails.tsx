@@ -32,17 +32,17 @@ export default function ResponsivePassengerDetails() {
         <Stack className="reveal">
           <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3! ">
             <Stack className="flex! gap-2! flex-row! items-center">
-              <Typography className="md:text-xl! text-base! font-medium! text-nowrap!">
+              <Typography className="md:text-xl! text-lg! font-semibold! text-nowrap!">
                 رزرو کننده اصلی
               </Typography>
               <Typography className="md:text-base! text-xs! text-slate-400!">
                 سرپرست
               </Typography>
             </Stack>
-            <Stack className="flex! gap-2! flex-row! items-center">
+            <Stack className="flex! md:gap-2! gap-1! flex-row! items-center">
               <Button
                 variant="text"
-                className="w-fit! p-0! text-sm! md:text-base!"
+                className="w-fit! p-0! text-xs! md:text-base!"
                 sx={{ color: "secondary.main" }}
                 endIcon={<AddCircleOutlineOutlinedIcon className="md:text-xl! text-lg!" />}
               >
@@ -58,13 +58,13 @@ export default function ResponsivePassengerDetails() {
             <RHFTextInput
               startIcon={<PersonIcon />}
               name="firstName"
-              placeholder="نام به فارسی"
+              placeholder="نام و نام خانوادگی به فارسی"
             />
-            <RHFTextInput
+            {/* <RHFTextInput
               startIcon={<PersonIcon />}
               name="lastName"
               placeholder="نام خانوادگی به فارسی"
-            />
+            /> */}
             <RHFTextInput
               startIcon={<PhoneInTalkIcon />}
               name="phone"
@@ -79,17 +79,17 @@ export default function ResponsivePassengerDetails() {
         <Stack className="reveal">
           <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3!">
             <Stack className="flex! gap-2! md:flex-row! flex-col! items-start!">
-              <Typography className="md:text-xl! text-base! font-medium! text-nowrap!">
+              <Typography className="md:text-xl! text-lg! font-semibold! text-nowrap!">
                 اتاق 1 :
               </Typography>
               <Typography className="md:text-base! text-xs! text-slate-400!">
                 اتاق یک تخته (اقامت با صبحانه)
               </Typography>
             </Stack>
-            <Stack className="flex! gap-2! flex-row! items-center">
+            <Stack className="flex! md:gap-2! gap-1! flex-row! items-center">
               <Button
                 variant="text"
-                className="w-fit! p-0! text-sm! md:text-base!"
+                className="w-fit! p-0! text-xs! md:text-base!"
                 sx={{ color: "secondary.main" }}
                 endIcon={<AddCircleOutlineOutlinedIcon className="md:text-xl! text-lg!" />}
               >
@@ -126,22 +126,27 @@ export default function ResponsivePassengerDetails() {
               name="nationCode"
               placeholder=" کد ملی"
             />
+             <RHFTextInput
+              startIcon={<PhoneInTalkIcon />}
+              name="phone"
+              placeholder="شماره تماس"
+            />
           </Stack>
         </Stack>
         <Stack className="reveal">
           <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3!">
           <Stack className="flex! gap-2! md:flex-row! flex-col! items-start!">
-          <Typography className="md:text-xl! text-base! font-medium!">
+          <Typography className="md:text-xl! text-lg! font-semibold!">
                 اتاق 2 :
               </Typography>
               <Typography className="md:text-base! text-xs! text-slate-400!">
                 اتاق یک تخته (اقامت با صبحانه)
               </Typography>
             </Stack>
-            <Stack className="flex! gap-2! flex-row! items-center">
+            <Stack className="flex! md:gap-2! gap-1! flex-row! items-center">
               <Button
                 variant="text"
-                className="w-fit! p-0! text-sm! md:text-base!"
+                className="w-fit! p-0! text-xs! md:text-base!"
                 sx={{ color: "secondary.main" }}
                 endIcon={<AddCircleOutlineOutlinedIcon className="md:text-xl! text-lg!" />}
               >
@@ -177,6 +182,11 @@ export default function ResponsivePassengerDetails() {
               startIcon={<PersonIcon />}
               name="nationCode"
               placeholder=" کد ملی"
+            />
+             <RHFTextInput
+              startIcon={<PhoneInTalkIcon />}
+              name="phone"
+              placeholder="شماره تماس"
             />
           </Stack>
         </Stack>

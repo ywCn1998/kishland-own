@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useRef, useEffect } from "react";
 import { Stack, Grid, Box, Typography } from "@mui/material";
 import Step1 from "./step1";
 import PriceCard from "@/components/shared/cards/cart/PriceCard";
@@ -31,6 +31,68 @@ interface IStep {
 
 export default function ReserveStepper({ steps }: { steps: IStep[] }) {
   const [activeStep, setActiveStep] = useState<number>(1);
+  const stickyContainerRef = useRef<HTMLDivElement>(null);
+  const stickyElementRef = useRef<HTMLDivElement>(null);
+  const leftColumnRef = useRef<HTMLDivElement>(null);
+  const [stickyStyle, setStickyStyle] = useState<{
+    position: "fixed" | "absolute" | "relative";
+    top?: number;
+    left?: number;
+    width?: number;
+  }>({ position: "relative" });
+
+  useEffect(() => {
+    const topOffset = 20;
+
+    const handleScroll = () => {
+      if (!stickyContainerRef.current || !stickyElementRef.current || !leftColumnRef.current) return;
+      
+      const containerRect = stickyContainerRef.current.getBoundingClientRect();
+      const leftColumnRect = leftColumnRef.current.getBoundingClientRect();
+      const elementHeight = stickyElementRef.current.offsetHeight;
+      
+      // Use left column bottom as the boundary
+      const leftColumnBottom = leftColumnRect.bottom;
+      
+      // When container top reaches the offset, make it fixed
+      const shouldBeFixed = containerRect.top <= topOffset;
+      
+      // When left column bottom reaches the bottom of the sticky element, stop it
+      const shouldBeAbsolute = leftColumnBottom <= topOffset + elementHeight;
+      
+      if (shouldBeFixed && !shouldBeAbsolute) {
+        setStickyStyle({
+          position: "fixed",
+          top: topOffset,
+          left: containerRect.left,
+          width: containerRect.width,
+        });
+      } else if (shouldBeAbsolute) {
+        // Position it at the bottom of the left column
+        const containerTop = stickyContainerRef.current.getBoundingClientRect().top;
+        const absoluteTop = leftColumnRef.current.offsetHeight - elementHeight;
+        setStickyStyle({
+          position: "absolute",
+          top: absoluteTop > 0 ? absoluteTop : 0,
+          width: containerRect.width,
+        });
+      } else {
+        setStickyStyle({ position: "relative" });
+      }
+    };
+
+    // Initial call
+    const timeoutId = setTimeout(handleScroll, 100);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   // Tour specific steps
   const mobilesSteps = [];
@@ -117,8 +179,8 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
                   {index < activeStep
                     ? step.iconPast
                     : index === activeStep
-                    ? step.iconActive
-                    : step.iconFuture}
+                      ? step.iconActive
+                      : step.iconFuture}
                 </Box>
 
                 <Typography
@@ -128,8 +190,8 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
                       index < activeStep
                         ? "#000E08"
                         : index === activeStep
-                        ? "#FF8A00"
-                        : "text.disabled",
+                          ? "#FF8A00"
+                          : "text.disabled",
                     whiteSpace: "nowrap",
                   }}
                   className="text-xs! lg:text-sm!"
@@ -163,9 +225,8 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
                     sx={{
                       display: { xs: "none", lg: "block" },
                       flex: 1,
-                      borderTop: `2px dashed ${
-                        index < activeStep ? "#FF8A00" : "#E6E6E6"
-                      }`,
+                      borderTop: `2px dashed ${index < activeStep ? "#FF8A00" : "#E6E6E6"
+                        }`,
                       alignSelf: "center",
                     }}
                   />
@@ -185,44 +246,65 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
       </Stack>
 
       {/* Desktop View - All steps visible */}
-      <Stack className="mb-16! !hidden lg:!block">
-        <Grid
+      <Stack className="mb-16! hidden! lg:!block">
+        <Stack
+          direction="row"
           spacing={2.5}
-          container
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: { lg: "row", xs: "column" },
+            display: { lg: "flex", xs: "none" },
+            alignItems: "flex-start",
+            width: "100%",
           }}
         >
-          <Grid
-            size={{ lg: 9, xs: 12 }}
-            display={"flex"}
-            flexDirection={"column"}
-            gap={2.5}
+          <Box
+            ref={leftColumnRef}
+            sx={{
+              display: { lg: "flex", xs: "none" },
+              flexDirection: "column",
+              gap: 2.5,
+              flex: "0 0 75%",
+              width: "75%",
+              maxWidth: "75%",
+            }}
           >
             <>
               <TextNumber number={1} text="مشخصات مسافران" className="!" />
               <Step1 />
             </>
 
-            {/* step 2 */}
             <TextNumber number={2} text="پرداخت" className="mt-5!" />
-            <HowToPay discount={true} />
+            <HowToPay discount />
 
-            {/* step 3 */}
-            <TextNumber
-              number={3}
-              text="نگاهی دوباره به وضعیت تور"
-              className="mt-5!"
-            />
+            <TextNumber number={3} text="نگاهی دوباره به وضعیت تور" className="mt-5!" />
             <Step3 />
-          </Grid>
-          <Grid size={{ lg: 3, xs: 12 }}>
-            <PriceCard isReserveTour={true} />
-          </Grid>
-        </Grid>
-        <Stack></Stack>
+          </Box>
+
+          <Box
+            ref={stickyContainerRef}
+            sx={{
+              display: { xs: "none", lg: "block" },
+              flex: "0 0 25%",
+              width: "25%",
+              maxWidth: "25%",
+              position: "relative",
+              alignSelf: "stretch", // Match left column height
+            }}
+          >
+            <Box
+              ref={stickyElementRef}
+              sx={{
+                position: stickyStyle.position,
+                top: stickyStyle.top !== undefined ? stickyStyle.top : "auto",
+                right: stickyStyle.left !== undefined ? stickyStyle.left : "auto",
+                width: stickyStyle.width !== undefined ? stickyStyle.width : "100%",
+                zIndex: stickyStyle.position === "fixed" ? 100 : 0,
+                transition: "none",
+              }}
+            >
+              <PriceCard isReserveTour />
+            </Box>
+          </Box>
+        </Stack>
       </Stack>
 
       {/* Mobile View - Show only active step */}
@@ -236,16 +318,16 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
           <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
             <HowToPay />
             <Discount />
-            <PassengerDetails/>
-            <TourDetailsReserve/>
-            <TicketDetailsReserve/>
+            <PassengerDetails />
+            <TourDetailsReserve />
+            <TicketDetailsReserve />
           </Stack>
         )}
         {activeStep === 2 && (
-            <ReserveStatus isSuccess={true} code={1234}/>
+          <ReserveStatus isSuccess={true} code={1234} />
         )}
       </Stack>
-      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333"/>
+      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333" />
     </>
   );
 }

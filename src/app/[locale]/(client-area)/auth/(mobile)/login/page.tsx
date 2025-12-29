@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import GetPhone from "./_components/GetPhone";
-import GetOtp from "./_components/GetOTP";
+import GetOtp from "./_components/GetOtp";
 
 type LoginStep = "splashScreen" | "phone" | "otp";
 

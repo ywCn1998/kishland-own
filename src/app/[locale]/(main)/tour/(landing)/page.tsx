@@ -1,6 +1,4 @@
 import { Stack, Container, Typography } from "@mui/material";
-import { setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import {
   BodyIntroSection,
   HotelsListSection,

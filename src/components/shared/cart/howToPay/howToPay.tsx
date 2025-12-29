@@ -28,7 +28,8 @@ export default function HowToPay({ discount = false }: { discount?: boolean }) {
         borderRadius: { xs: "12px", lg: "16px" },
         backgroundColor: "white",
         overflow: "hidden",
-        p: { xs: 0, lg: 2 },
+        pt: { xs: 0, lg: 1 },
+        pb: { xs: 0, lg: 0.5 },
       }}
     >
       <Accordion sx={{ border: "none" }}>
@@ -62,7 +63,7 @@ export default function HowToPay({ discount = false }: { discount?: boolean }) {
             // // onClick={() => setSelected("wallet")}
             />
             {discount && (
-              <Grid className="flex! justify-between items-center mt-5! reveal">
+              <Grid className="flex! justify-between items-center mt-5! ">
                 <Grid
                   sx={{
                     display: "flex",

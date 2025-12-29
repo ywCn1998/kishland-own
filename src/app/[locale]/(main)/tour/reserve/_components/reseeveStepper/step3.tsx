@@ -32,8 +32,8 @@ export default function Step3() {
 
                     <Stack className="w-full! flex! flex-row!  gap-5">
                         <Stack className="w-full! flex! flex-row!  gap-5 mt-4!">
-                            <TicketCard />
-                            <TicketCard />
+                            <TicketCard ticketStatus="hasBought" />
+                            <TicketCard ticketStatus="hasBought" />
                         </Stack>
                     </Stack>
                 </CustomAccordion>

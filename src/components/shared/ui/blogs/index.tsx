@@ -54,7 +54,7 @@ export default async function MainBlogs() {
       <Grid
         container
         spacing={2}
-        className="md:h-[600px]! flex-col! md:flex-row-reverse!"
+        className="md:h-[750px]! flex-col! md:flex-row-reverse!"
       >
         {/* ستون سمت چپ */}
         <Grid
