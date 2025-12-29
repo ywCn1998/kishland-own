@@ -351,16 +351,20 @@ export function Footer() {
         <Stack
           flexDirection="row"
           alignItems="center"
-          justifyContent="center"
+          justifyContent="space-between"
           gap={2}
           pb={{ lg: 3, xs: 10 }}
           mt={2}
         >
-          <CopyrightOutlinedIcon className=" text-slate-400!" />
-          <Typography className="!text-xs  text-slate-400! leading-loose!">
-            کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
-            پیاده سازی توسط تیم IT کیشلندیار
-          </Typography>
+          <Stack className="flex-row! gap-4! items-center">
+            <Typography className="!text-xs  text-slate-400! leading-loose!">
+              کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
+              پیاده سازی توسط تیم IT کیشلندیار
+            </Typography>
+          </Stack>
+          <Link href="/fa/policies">
+            <Typography color="secondary.main" className="text-xs!">قوانین و مقررات</Typography>
+          </Link>
         </Stack>
       </Container>
     </Stack>

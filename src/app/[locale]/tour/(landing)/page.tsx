@@ -58,7 +58,7 @@ export default function Home() {
         {/* پیشنهادات لحظه ایی */}
         <Stack className="w-full! flex! flex-col-reverse! md:flex-col">
           <Container maxWidth={"xl"}>
-            <ViewsOfHotelSection />
+            <ViewsOfHotelSection isIntegrated={false}/>
           </Container>
           <Stack className="bg-slate-100 md:bg-[white] mx-0! my-5! md:my-0!">
             <Container maxWidth="xl" className="mx-auto! md:bg-[#F0F7FF]! bg-none!  rounded-3xl!">
