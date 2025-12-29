@@ -25,6 +25,7 @@ import ShowMoreButton from "@/components/shared/showMoreButton";
 import DaysSwiper from "@/app/[locale]/(main)/entertainment/list/detail/_components/dateSlider";
 import { DayItem } from "@/app/[locale]/(main)/entertainment/list/detail/page";
 import RHFPassengerPicker from "@/components/shared/form/RHFPassengerPicker";
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 export default function RoomsList({ days }: { days: DayItem[] }) {
     const { methods, OnSubmit } = useSearch();
@@ -61,7 +62,7 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
 
                                                         label="ورود و خروج"
                                                         startIcon={
-                                                            <BusinessCenterIcon sx={{ color: "primary.main" }} />
+                                                            <BusinessCenterIcon sx={{ color: "primary.main" }} fontSize="small" />
                                                         }
                                                     />
                                                 </Box>
@@ -109,7 +110,7 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                         </Grid>
 
                                     </Stack>
-                                    <Box sx={{ minWidth: 10, p: 2, pb: 0, fontSize: 20 }} className="border-2 border-slate-200! rounded-2xl! w-full! md:w-3/12!">
+                                    <Box sx={{ minWidth: 10, p: 2, pb: 0, fontSize: 20 }} className="border-2 border-slate-200! rounded-2xl! w-full! md:w-3/12! hidden! md:block!">
                                         <RHFSelect
                                             name="sort"
                                             label="مرتب سازی"
@@ -118,6 +119,20 @@ export default function RoomsList({ days }: { days: DayItem[] }) {
                                             <MenuItem value="همراه با صبحانه">همراه با صبحانه</MenuItem>
                                             <MenuItem value="تهران">همراه با ناهار</MenuItem>
                                         </RHFSelect>
+                                    </Box>
+                                    <Box sx={{ minWidth: 10, p: 2, fontSize: 20, height: "56px" }} className="border-1 border-slate-200! rounded-2xl! w-full! md:w-3/12! md:hidden! flex! flex-row! items-center! justify-between! gap-4!">
+                                        <Typography className="text-nowrap! text-base! text-slate-400!">
+                                            <FilterListIcon sx={{ fontSize: 20 }} />
+                                            فیلتر بر اساس
+                                        </Typography>
+                                        <Stack className="mb-4! ">
+                                            <RHFSelect
+                                                name="sort"
+                                            >
+                                                <MenuItem value="همراه با صبحانه">  صبحانه</MenuItem>
+                                                <MenuItem value="تهران">  ناهار</MenuItem>
+                                            </RHFSelect>
+                                        </Stack>
                                     </Box>
                                 </Stack>
 

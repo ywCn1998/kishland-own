@@ -164,7 +164,7 @@ export default function RHF2MonthRangePicker({
             {helperComponent}
 
             {/* Popup calendar */}
-            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="lg">
+            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="lg" sx={{ zIndex: 1450 }}>
               <DialogContent className="p-3! sm:p-5!">
                 <div className="mb-3 flex items-center! justify-between!">
                   <span className="text-lg font-medium calender-title">
