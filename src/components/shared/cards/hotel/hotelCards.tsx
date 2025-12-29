@@ -50,28 +50,26 @@ export default async function HotelCards({
       sx={{
         width: "100%",
         maxWidth: 500,
-        maxHeight: 540,
         display: "flex",
         flexDirection: "column",
         borderRadius: 1.3,
         boxShadow: 0,
         background: "white",
-        overflow: "visible",
+        overflow: "hidden",
         "& img": { transition: "transform 0.4s ease-in-out" },
-        "&:hover img": { transform: "scale(1.08)" },
+        "&:hover img": { transform: "scale(1.02)" },
       }}
       className="border-1! border-slate-200! reveal"
     >
       {/* Media area */}
-      <Box sx={{ position: "relative", flex: "0 0 52%" /* ~208px of 400 */ }}>
+      <Box >
         {/* Put spacing on wrapper instead of image padding */}
         <Box
           sx={{
-            height: "90%",
+            height: "100%",
             borderRadius: { sm: 1, lg: 2 },
-            overflow: "visible",
-            mx: 1.5,
-            
+            overflow: "hidden",
+            p: 2,
           }}
         >
           <CardMedia
@@ -79,11 +77,9 @@ export default async function HotelCards({
             image={image}
             alt={""}
             sx={{
-              display: "block",
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              mt: "-10px",
             }}
           />
         </Box>

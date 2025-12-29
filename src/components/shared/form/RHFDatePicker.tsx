@@ -22,6 +22,7 @@ import "react-day-picker/dist/style.css";
 
 
 
+
 function formatJalali(input?: unknown) {
   if (!input) return "";
 
@@ -66,7 +67,6 @@ export default function RHF2MonthRangePicker({
   const fromDate = watch(startName);
   const toDate = watch(endName);
 
-
   return (
     <Controller
       name={startName || endName}
@@ -87,7 +87,7 @@ export default function RHF2MonthRangePicker({
         const displayText = React.useMemo(() => {
           const isValidFromDate = fromDate && fromDate instanceof Date;
           const isValidToDate = toDate && toDate instanceof Date;
-          
+
           if (!isValidFromDate || !isValidToDate) return "انتخاب بازه";
 
           if (isJalali) {
@@ -126,11 +126,11 @@ export default function RHF2MonthRangePicker({
             if (toDate instanceof Date && !isNaN(toDate.getTime())) {
               to = toDate;
             } else if (typeof toDate === 'string') {
-      
+
               to = undefined;
             }
           }
-          
+
           return { from, to };
         }, [fromDate, toDate]);
 
@@ -149,11 +149,11 @@ export default function RHF2MonthRangePicker({
               </span>
             </div>
             <span className="text-base! cursor-pointer! hidden! md:block! " onClick={() => setOpen(true)}>
-              {isStart 
-                ? (fromDate 
+              {isStart
+                ? (fromDate
                   ? (isJalali ? formatJalali(fromDate) : (fromDate instanceof Date ? fromDate.toLocaleDateString("fa-IR") : new Date(fromDate).toLocaleDateString("fa-IR")))
                   : displayText)
-                : (toDate 
+                : (toDate
                   ? (isJalali ? formatJalali(toDate) : (toDate instanceof Date ? toDate.toLocaleDateString("fa-IR") : new Date(toDate).toLocaleDateString("fa-IR")))
                   : displayText)}
             </span>
@@ -164,14 +164,14 @@ export default function RHF2MonthRangePicker({
             {helperComponent}
 
             {/* Popup calendar */}
-            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md">
-              <DialogContent>
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="text-lg font-medium">
+            <Dialog open={open} onClose={() => setOpen(false)} maxWidth="lg" sx={{ zIndex: 1450 }}>
+              <DialogContent className="p-3! sm:p-5!">
+                <div className="mb-3 flex items-center! justify-between!">
+                  <span className="text-lg font-medium calender-title">
                     {isJalali ? "تقویم شمسی" : "تقویم میلادی"}
                   </span>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center! gap-2">
                     <span className="text-sm">
                       {isJalali ? "شمسی" : "میلادی"}
                     </span>
@@ -191,11 +191,13 @@ export default function RHF2MonthRangePicker({
                     onSelect={handleSelect}
                     disabled={{ before: today }}
                     classNames={{
-                      today: `text-[var(--primary-500)]!`,
+                      day: "md:p-1! relative",
+                      month_grid: "border-separate md:border-spacing-2",
+                      today: "rdp-today-custom", 
                       chevron: `${defaultClassNames.chevron} fill-[var(--primary-500)]!`,
-                      selected: `bg-orange-50! `,
-                      range_start: `bg-orange-400! text-white! font-bold! rounded-full!`,
-                      range_end: `bg-orange-400! text-white! font-bold! rounded-full!`,
+                      selected: `bg-orange-200! rounded-xl! `,
+                      range_start: `rdp-range-start-custom bg-orange-400! text-white!  font-semibold! rounded-full!`,
+                      range_end: `rdp-range-end-custom bg-orange-400! text-white! font-semibold! rounded-full!`,
                       disabled: `text-gray-300! `,
                     }}
                   />
@@ -207,11 +209,13 @@ export default function RHF2MonthRangePicker({
                     onSelect={handleSelect}
                     disabled={{ before: today }}
                     classNames={{
-                      today: `text-[var(--primary-500)]!`,
+                      day: `md:p-1!`,
+                      month_grid: "border-separate md:border-spacing-2",
+                      today: "rdp-today-custom", 
                       chevron: `${defaultClassNames.chevron} fill-[var(--primary-500)]!`,
-                      selected: `bg-orange-50!`,
-                      range_start: `bg-orange-400! text-white! font-bold! rounded-full!`,
-                      range_end: `bg-orange-400! text-white! font-bold! rounded-full!`,
+                      selected: `bg-orange-200! rounded-xl! `,
+                      range_start: `rdp-range-start-custom bg-orange-400! text-white!  font-semibold! rounded-full!`,
+                      range_end: `rdp-range-end-custom bg-orange-400! text-white! font-semibold! rounded-full!`,
                       disabled: `text-gray-300! `,
                     }}
                   />
@@ -266,3 +270,4 @@ export default function RHF2MonthRangePicker({
     />
   );
 }
+

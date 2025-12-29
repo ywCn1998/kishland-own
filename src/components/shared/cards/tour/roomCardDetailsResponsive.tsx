@@ -7,7 +7,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MessageIcon from '@mui/icons-material/Message';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
-import MobileRoomDrawer from "@/app/[locale]/hotel/hotel-details/_components/mobileRoomDrawer";
+import MobileRoomDrawer from "@/app/[locale]/(main)/hotel/hotel-details/_components/mobileRoomDrawer";
 
 export default function RoomCardDetailsResponsive({
     onClick,
