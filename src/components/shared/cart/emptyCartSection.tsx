@@ -11,7 +11,7 @@ export default function EmptyCartSection({ onNext, variant = "entertainment" }: 
   const isEntertainment = variant === "entertainment";
   
   return (
-    <Stack mt={{xs : isEntertainment ? "120px" : 10, lg : 10}}>
+    <Stack mt={{xs : isEntertainment ? 2 : 10, lg : 10}}>
       <Stack>
         <CategorySlider />
       </Stack>
@@ -40,7 +40,7 @@ export default function EmptyCartSection({ onNext, variant = "entertainment" }: 
           alignItems="center"
           gap={1}
         >
-          <Typography variant="sub_title">
+          <Typography className="text-xl! font-semibold!">
             {isEntertainment ? "سبد تفریحات شما منتظره پر بشه!" : "سبد شما خالی است"}
           </Typography>
           <Typography color="textDisabled" variant="subtitle2" sx={{textAlign : 'center'}}>

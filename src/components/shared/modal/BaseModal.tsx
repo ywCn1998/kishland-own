@@ -49,7 +49,7 @@ const BaseModal = ({
       PaperProps={{
         sx: {
           borderRadius: 4,
-          overflow: "hidden",
+          overflow: "auto",
           p: 0,
         },
       }}

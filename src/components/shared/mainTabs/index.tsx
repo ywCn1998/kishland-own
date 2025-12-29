@@ -25,7 +25,6 @@ type TabItem = {
 export default function MainTabs({
     data,
     border = true,
-    borderBottom = false,
     tabStyle,
     changeCardUi,
     setChangeCardUi,
@@ -39,11 +38,10 @@ export default function MainTabs({
     activeTabBorderColor, // ✅ NEW PROP: color for active tab border bottom
     value: controlledValue, // ✅ NEW PROP: controlled value
     onChange, // ✅ NEW PROP: onChange handler
-    iconPosition = "end" // ✅ NEW PROP: icon position (start or end)
+    iconPosition = "start" // ✅ NEW PROP: icon position (start or end)
 }: {
     data: TabItem[];
     border?: boolean;
-    borderBottom?: boolean;
     tabStyle?: SxProps<Theme>;
     changeCardUi?: boolean;
     setChangeCardUi?: (val: boolean) => void;
@@ -90,6 +88,7 @@ export default function MainTabs({
             variant="scrollable"
             allowScrollButtonsMobile={IconsInMobile} // ✅ Arrows only show when icons=true
             scrollButtons={icons ? "auto" : false} // ✅ Completely hide nav arrows
+            className="w-full!"
             sx={{
                 "& .MuiTabs-flexContainer": {
                     justifyContent: "flex-start",
@@ -102,10 +101,9 @@ export default function MainTabs({
                     minHeight: { xs: 0, md: 60 },
                 },
                 mb: { xs: 0, md: 2 },
-                border: (border && !borderBottom) ? "1px solid" : "none",
-                borderBottom: borderBottom ? "1px solid" : "0",
+                border: border ? "1px solid" : "none",
                 borderColor: "divider",
-                borderRadius: (border && !borderBottom) ? "14px" : 0,
+                borderRadius: border  ? "14px" : 0,
                 position: "relative",
                 "& .MuiTabs-scrollButtons": {
                     display: IconsInMobile ? "flex" : "none",
@@ -120,7 +118,7 @@ export default function MainTabs({
                     iconPosition={iconPosition}
                     disabled={tab.disabled}
                     disableRipple={tab.disabled}
-                    className="text-base! md:text-lg!"
+                    className="text-base! md:text-base!"
                     sx={[
                         {
                             textWrap: "nowrap",
@@ -128,7 +126,6 @@ export default function MainTabs({
                             "&.Mui-disabled": {
                                 opacity: 1,
                                 color: "text.secondary",
-                                fontWeight: 600,
                                 cursor: "default",
                                 pointerEvents: "none",
                             },

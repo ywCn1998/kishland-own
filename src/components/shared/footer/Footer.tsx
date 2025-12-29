@@ -10,6 +10,7 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  Button,
 } from "@mui/material";
 import { PhoneOutlined } from "@mui/icons-material";
 import Image from "next/image";
@@ -354,17 +355,15 @@ export function Footer() {
           justifyContent="space-between"
           gap={2}
           pb={{ lg: 3, xs: 10 }}
-          mt={2}
+          mt={1}
         >
-          <Stack className="flex-row! gap-4! items-center">
-            <Typography className="!text-xs  text-slate-400! leading-loose!">
+            <Typography className="!text-xs text-slate-500! font-light! leading-loose!">
               کلیه حقوق این وب سایت متعلق است به آژانس هواپیمایی سریع سیر.طراحی و
               پیاده سازی توسط تیم IT کیشلندیار
             </Typography>
-          </Stack>
-          <Link href="/fa/policies">
-            <Typography color="secondary.main" className="text-xs!">قوانین و مقررات</Typography>
-          </Link>
+          <Button variant="text" color="secondary" size="small" className="font-light!">
+            قوانین و مقررات
+          </Button>
         </Stack>
       </Container>
     </Stack>
