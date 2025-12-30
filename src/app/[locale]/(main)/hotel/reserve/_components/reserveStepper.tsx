@@ -21,6 +21,7 @@ import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
 import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
 import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
+import NormalListCard from "@/components/shared/cards/hotel/normalListCard";
 
 interface IStep {
   title: string;
@@ -249,8 +250,17 @@ export default function ReserveStepper() {
             <HotelDetailsCart />
           </Grid>
           <Grid size={{ lg: 3, xs: 12 }} className="!hidden lg:!block">
-            <PriceCardHotel />
-            <LateHotel />
+            <Stack
+              sx={{
+                position: "sticky",
+                top: 10,
+                zIndex: 100,
+                alignSelf: "flex-start",
+              }}
+            >
+              <PriceCardHotel />
+              <LateHotel />
+            </Stack>
           </Grid>
         </Grid>
         <Stack></Stack>

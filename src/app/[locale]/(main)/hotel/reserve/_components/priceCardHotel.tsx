@@ -58,10 +58,6 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
           borderRadius: 2,
           p: 2,
           width: "auto",
-          position: "sticky",
-          top: 20,
-          zIndex: 100,
-          alignSelf: "flex-start",
         }}
         className="reveal-down"
       >
