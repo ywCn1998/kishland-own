@@ -19,7 +19,7 @@ import Discount from "@/components/shared/cart/discount";
 import PassengerDetails from "@/components/shared/cart/passengerDetails";
 import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
 import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
-import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
+import HotelReserveStatus from "@/components/shared/sections/reserve/hotelReserveStatus";
 import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
 import NormalListCard from "@/components/shared/cards/hotel/normalListCard";
 
@@ -284,7 +284,7 @@ export default function ReserveStepper() {
         )}
         {activeStep === 4 && (
           <Stack sx={{ mt: 0, gap: 2.5}}>
-            <ReserveStatus isSuccess={true} code={1234}/>
+            <HotelReserveStatus isSuccess={true} code={1234}/>
           </Stack>
         )}
         {activeStep === 3 && (

@@ -19,8 +19,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CustomAccordion from "@/components/shared/collapse/collapse";
 import useSubmitRating from "./hooks/ratingSubmition";
 import FormProvider from "@/providers/FormProvider";
-import RHFSelect from "@/components/shared/form/RHFSelect";
-import RHFTextarea from "@/components/shared/form/RHFTextarea";
 import RHFTextInput from "@/components/shared/form/RHFTextInput";
 import RHFSimpleSelect from "@/components/shared/form/RHFSimpleSelect";
 import HotelClassOutlinedIcon from '@mui/icons-material/HotelClassOutlined';
@@ -29,6 +27,7 @@ import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutl
 import LoginPhoneModal from "@/app/[locale]/(client-area)/auth/(desktop)/login/loginPhoneModal";
 import TravelFirstModal from "@/components/shared/modal/commentsModals/travelFirstModal";
 import SuccessModal from "@/components/shared/modal/commentsModals/failOrSuccessModal";
+import CloseIcon from '@mui/icons-material/Close';
 
 interface Props {
     open: boolean;
@@ -45,10 +44,18 @@ const RatingModal = ({
     const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
     const CloseHandle = () => setOpen(!open);
     const { OnSubmit, methods } = useSubmitRating();
-    const [openLoginModal, setOpenLoginModal] = useState<boolean>(false)
-    const [openTravelledModal, setOpenTravelledModal] = useState<boolean>(false)
-    const [openStatusModal, setOpenStatusModal] = useState<boolean>(false)
-    const [status, setStatus] = useState<boolean>(false)
+  const [openLoginModal, setOpenLoginModal] = useState<boolean>(false)
+  const [openTravelledModal, setOpenTravelledModal] = useState<boolean>(false)
+  const [openStatusModal, setOpenStatusModal] = useState<boolean>(false)
+  const [status, setStatus] = useState<boolean>(false)
+
+  const ratingCategories = [
+    "ارزش نسبت به قیمت",
+    "کیفیت خدمات",
+    "بهداشت و ایمنی",
+    "هیجان و لذت تجربه",
+    "دسترسی و موقعیت مکانی",
+  ];
 
     const isLogin = true;
     const isTraveled = true;
@@ -98,9 +105,9 @@ const RatingModal = ({
                 <Box sx={{ flex: 1, overflowY: { xs: "auto", md: "visible" }, height: { xs: "auto", md: "100%" }, minHeight: { xs: "100%", md: "70dvh" } }}>
                     <Grid container className="flex! flex-row! " spacing={{ xs: 2, md: 6 }}>
                         <Grid size={{ xs: 12, md: 4 }} className="flex! flex-col! ">
-                            <Stack className="flex! flex-row! justify-between! items-center! py-3! md:py-0!">
+                            <Stack className="flex! md:flex-row! flex-row-reverse! justify-end!  md:justify-between! items-center! py-3! md:py-0!">
                                 <Typography className="text-xl! font-medium!" sx={{ fontSize: { xs: "18px", md: "20px" } }}>
-                                    امتیاز دهی
+                                   {isMdUp ? "امتیاز دهی" : " افوزدن دیدگاه تازه"}
                                 </Typography>
                                 <Button
                                     variant="text"
@@ -108,118 +115,84 @@ const RatingModal = ({
                                     sx={{
                                         display: { xs: "flex", md: "none" },
                                         alignItems: "center",
-                                        gap: 1,
+                                        gap: {xs : 0 , md : 1 },
                                         color: "text.secondary",
                                         py: 0,
                                     }}
                                     onClick={onClose ? onClose : CloseHandle}
                                 >
+                                    {isMdUp ? <>
                                     <Typography variant="body2">بازگشت</Typography>
                                     <ArrowBackIcon fontSize="small" />
+                                    </> : <>
+                                    <CloseIcon fontSize="medium" />
+                                    </>}
+                                 
                                 </Button>
                             </Stack>
 
                             <Divider className="mt-2!" />
                             <Stack className="py-8! flex! flex-col! gap-2!" sx={{ py: { xs: 4, md: 8 } }}>
-                                <Typography color="textSecondary" className="text-base! mx-4!" sx={{ fontSize: { xs: "14px", md: "16px" }, mx: { xs: 0, md: 4 } }}>
-                                    5 ستاره بهترین و 1 ستاره بدترین امتیاز می باشد
+                            <Typography  className="text-lg! mx-4! font-semibold! md:hidden!" sx={{ fontSize: { xs: "14px", md: "16px" }, mx: { xs: 0, md: 4 } }}>
+                            امتیازدهی
                                 </Typography>
-                                <Stack className="mt-6!" sx={{ mt: { xs: 3, md: 6 } }}>
-                                    <CustomAccordion title="ارزش نسبت به قیمت" >
-                                        <div className="flex! flex-row! justify-between! items-center! gap-1! py-4!" style={{ paddingTop: "16px", paddingBottom: "16px" }}>
+                                <Typography color="textSecondary" className="text-base! mx-4!" sx={{ fontSize: { xs: "14px", md: "16px" }, mx: { xs: 0, md: 4 } }}>
+                                    5 ستاره بهترین و 1 ستاره بدترین امتیاز می‌باشد
+                                </Typography>
+                                {ratingCategories.map((item) =>
+                                    isMdUp ? (
+                                        <CustomAccordion key={item} title={item} titleClass="text-base!">
+                                            <Stack
+                                                direction="row"
+                                                alignItems="center"
+                                                justifyContent="space-between"
+                                                gap={1}
+                                                sx={{ py: 2 }}
+                                            >
+                                                <Rating
+                                                    sx={{
+                                                        direction: "rtl",
+                                                        "& .MuiRating-icon": {
+                                                            mx: { lg: 2, md: 1, xs: 0.5 },
+                                                            fontSize: { xs: "1.5rem", md: "2rem" },
+                                                        },
+                                                    }}
+                                                    defaultValue={1}
+                                                    size="large"
+                                                />
+                                            <Typography className="text-slate-400 text-xs lg:text-sm! text-nowrap!" sx={{ fontSize: "12px" }}>
+                                                1 از 5
+                                            </Typography>
+                                            </Stack>
+                                            <Divider />
+                                        </CustomAccordion>
+                                    ) : (
+                                        <Stack
+                                            key={item}
+                                            direction="row"
+                                            alignItems="center"
+                                            justifyContent="space-between"
+                                            sx={{
+                                                px: 2,
+                                                py: 2,
+                                                borderBottom: "1px solid #E5E7EB",
+                                            }}
+                                        >
+                                            <Typography className="text-base! font-medium!">{item}</Typography>
                                             <Rating
                                                 sx={{
                                                     direction: "rtl",
                                                     "& .MuiRating-icon": {
-                                                        mx: { lg: 2, md: 1, xs: 0.5 },
-                                                        fontSize: { xs: "1.5rem", md: "2rem" },
+                                                        mx: 0.5,
+                                                        fontSize: "1.4rem",
                                                     },
                                                 }}
                                                 defaultValue={1}
-                                                size="large"
+                                                size="medium"
                                             />
-                                            <span className="text-slate-400 text-xs lg:text-sm! text-nowrap!" style={{ fontSize: "12px" }}>
-                                                1 از 5
-                                            </span>
-                                        </div>
-                                        <Divider />
-
-                                    </CustomAccordion>
-                                </Stack>
-                                <CustomAccordion title="کیفیت خدمات" >
-                                    <div className="flex! flex-row! justify-between! items-center! gap-1! py-4! ">
-                                        <Rating
-                                            sx={{
-
-                                                direction: "rtl",
-                                                "& .MuiRating-icon": {
-                                                    mx: { lg: 2, md: 1, sm: 0 },
-                                                },
-                                            }}
-                                            defaultValue={1}
-                                            size="large"
-                                        />
-                                        <span className="text-slate-400 text-xs lg:text-sm! text-nowrap!">
-                                            1 از 5
-                                        </span>
-                                    </div>
-                                    <Divider />
-
-                                </CustomAccordion>
-                                <CustomAccordion title="بهداشت و ایمنی">
-                                    <div className="flex! flex-row! justify-between! items-center! gap-1! py-4!">
-                                        <Rating
-                                            sx={{
-                                                direction: "rtl",
-                                                "& .MuiRating-icon": {
-                                                    mx: { lg: 2, md: 1, sm: 0 },
-                                                },
-                                            }}
-                                            defaultValue={1}
-                                            size="large"
-                                        />
-                                        <span className="text-slate-400 text-xs lg:text-sm! text-nowrap!">
-                                            1 از 5
-                                        </span>
-                                    </div>
-                                    <Divider />
-                                </CustomAccordion>
-                                <CustomAccordion title="هیجان و لذت تجربه">
-                                    <div className="flex! flex-row! justify-between! items-center! gap-1! py-4!">
-                                        <Rating
-                                            sx={{
-                                                direction: "rtl",
-                                                "& .MuiRating-icon": {
-                                                    mx: { lg: 2, md: 1, sm: 0 },
-                                                },
-                                            }}
-                                            defaultValue={1}
-                                            size="large"
-                                        />
-                                        <span className="text-slate-400 text-xs lg:text-sm! text-nowrap!">
-                                            1 از 5
-                                        </span>
-                                    </div>
-                                    <Divider />
-                                </CustomAccordion>
-                                <CustomAccordion title="دسترسی و موقعیت مکانی">
-                                    <div className="flex! flex-row! justify-between! items-center! gap-1! py-4!">
-                                        <Rating
-                                            sx={{
-                                                direction: "rtl",
-                                                "& .MuiRating-icon": {
-                                                    mx: { lg: 2, md: 1, sm: 0 },
-                                                },
-                                            }}
-                                            defaultValue={1}
-                                            size="large"
-                                        />
-                                        <span className="text-slate-400 text-xs lg:text-sm! text-nowrap!">
-                                            1 از 5
-                                        </span>
-                                    </div>
-                                    <Divider />
-                                </CustomAccordion>
+                                        </Stack>
+                                    )
+                                )}
                             </Stack>
 
                         </Grid>
@@ -314,10 +287,10 @@ const RatingModal = ({
                     <Stack className="w-full!">
                         <Button
                             variant="contained"
-                            className="text-white!"
+                            className="text-white! md:absolute! md:bottom-10! md:left-15!  "
                             onClick={() => handleSubmit()}
                             sx={{
-                                width: { xs: "100%", md: "200px", lg: "250px" },
+                                width: { xs: "100%", md: "250px", lg: "350px" },
                                 py: { xs: 1.5, md: 2 }
                             }}
                         >

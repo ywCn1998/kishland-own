@@ -87,18 +87,18 @@ export default function ReserveStepper() {
         spacing={3}
         className="xs-fullwidth "
       >
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{
-            width: "100%",
-            overflowX: { xs: "auto", lg: "visible" },
-            scrollbarWidth: "none",
-            "&::-webkit-scrollbar": { display: "none" },
-            px: { xs: 2, lg: 0 },
-            py: { xs: 1, lg: 0 },
-          }}
+          <Stack
+         direction="row"
+         alignItems="center"
+         spacing={2}
+         sx={{
+           width: "100%",
+           overflowX: { xs: "auto", lg: "visible" },
+           scrollbarWidth: "none",
+           "&::-webkit-scrollbar": { display: "none" },
+           px: { xs: 2, lg: 0 },
+           py: { xs: 1, lg: 0 },
+         }}
         >
           {steps.map((step, index) => (
             <React.Fragment key={step.title}>
@@ -106,34 +106,41 @@ export default function ReserveStepper() {
                 alignItems="center"
                 spacing={1}
                 sx={{
-                  minWidth: { xs: "fit-content", lg: 80 },
                   flexShrink: 0,
                   flexDirection: { xs: "row", lg: "column" },
+                  cursor: "pointer",
+                  gap: { xs: 2, lg: 1 },
                 }}
+                onClick={() => setActiveStep(index)}
               >
-                <Box>
-                  {index < activeStep
-                    ? step.iconPast
-                    : index === activeStep
-                    ? step.iconActive
-                    : step.iconFuture}
-                </Box>
-
-                <Typography
-                  sx={{
-                    fontWeight: index === activeStep ? 500 : 400,
-                    color:
-                      index < activeStep
-                        ? "#000E08"
-                        : index === activeStep
-                        ? "#FF8A00"
-                        : "text.disabled",
-                    whiteSpace: "nowrap",
-                  }}
-                  className="text-xs! lg:text-sm!"
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  gap={0.8}
+                  sx={{ whiteSpace: "nowrap" }}
                 >
-                  {step.title}
-                </Typography>
+                  <Box>
+                    {index < activeStep
+                      ? step.iconPast
+                      : index === activeStep
+                      ? step.iconActive
+                      : step.iconFuture}
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontWeight: index === activeStep ? 500 : 500,
+                      color:
+                        index < activeStep
+                          ? "#000E08"
+                          : index === activeStep
+                          ? "#FF8A00"
+                          : "text.disabled",
+                    }}
+                    className="text-xs! lg:text-sm!"
+                  >
+                    {step.title}
+                  </Typography>
+                </Box>
 
                 <Typography
                   variant="caption"
@@ -141,14 +148,13 @@ export default function ReserveStepper() {
                     color: "#7E8AAB",
                     textAlign: "center",
                     whiteSpace: "nowrap",
-                    display: { xs: "none", lg: "block" }, 
+                    display: { xs: "none", lg: "block" },
                   }}
                 >
                   {step.description}
                 </Typography>
               </Stack>
 
-        
               {index < steps.length - 1 && (
                 <Box
                   sx={{

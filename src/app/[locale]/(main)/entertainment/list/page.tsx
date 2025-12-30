@@ -55,7 +55,7 @@ export default function Home() {
         <Stack className="hidden! md:block!">
           <BreadCrumbFa />
         </Stack>
-        <Stack className="md:hidden! flex! mt-2!">
+        <Stack className="md:hidden! flex! ">
           <SubCategorySwiper />
         </Stack>
         <Stack className="md:p-6! p-0! md:mt-0! mt-4!">
@@ -135,7 +135,7 @@ export default function Home() {
               <MainBanner hasBannerInDesktop={false} href="/fa/entertainment/list" />
               <AirCard onClick={() => { }} />
               <AirCard onClick={() => { }} />
-              <Stack>
+              <Stack className="w-full!">
                 <img
                   src={"/images/entertainment/list/buytwo.png"}
                   className="w-full! md:hidden!"

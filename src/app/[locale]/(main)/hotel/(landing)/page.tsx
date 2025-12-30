@@ -29,6 +29,7 @@ import HotelsCardSection from "./_components/HotelsCardSection";
 import MobileHeaderTabs from "@/components/shared/header/mobileHeaderTab";
 import MainBanner from "@/components/shared/ui/banner/mainBanner";
 import ChanceMobile from "@/components/shared/ui/banner/chanceMobile";
+import HotelSuggestionSlider from "./_components/hotelSuggestionSlider";
 
 // { params }: { params: { locale: string } }
 export default async function Home() {
@@ -71,9 +72,9 @@ export default async function Home() {
               <Container maxWidth="xl" className="mx-auto!">
                 {/* <Stack className="hidden! md:block!"> */}
                 <OfferBanner
-                  caption=" این تور های رو از دست نده ..."
-                  responsiveCaption=" این تور های رو از دست نده ..."
-                  title={" پیشنهادات لحظه ای"}
+                  caption="جایی که آرامش و تفریح یکجا معنا پیدا میکنند "
+                  responsiveCaption="جایی که آرامش و تفریح یکجا معنا پیدا میکنند "
+                  title="بهترین قیمت هتل های کیش "
                   buttonText={"مشاهده لیست پیشنهادات ها"}
                   href="/fa/tour/list"
                 // captionClass="block! text-xs! sm:text-base md:text-xl"
@@ -88,7 +89,7 @@ export default async function Home() {
                 pl: { xs: 2 }
               }}
                 disableGutters>
-                <TourSuggestionSlider />
+                <HotelSuggestionSlider />
               </Container>
 
             </Stack>

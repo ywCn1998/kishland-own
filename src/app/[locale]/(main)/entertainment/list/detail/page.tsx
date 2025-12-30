@@ -395,10 +395,10 @@ export default function EntertainmentDetail() {
               </Stack>
             </Stack> */}
         </Grid>
-        <Stack className="md:hidden!">
-          <FixedBottomButton py={1.2}>
-            <Stack className="flex-row-reverse! items-center! gap-5! sm:gap-6! w-full! justify-center!">
-              <Button variant="contained" className="text-white! py-4! w-auto sm:w-1/2!">ثبت و ادامه</Button>
+        <Stack className="md:hidden! w-full! ">
+          <FixedBottomButton py={1.2} >
+            <Stack className="flex-row-reverse! items-center! gap-5! sm:gap-6! w-full! justify-between! px-4!">
+              <Button variant="contained" className="text-white! py-3! w-auto sm:w-1/2!">ثبت و ادامه</Button>
               <Stack className="gap-2! w-auto!">
                 <Typography color="text.secondary" className="text-sm! flex! items-center! gap-2!">
                   قیمت <span className="text-black! text-lg! font-medium!">22000 ت</span>
