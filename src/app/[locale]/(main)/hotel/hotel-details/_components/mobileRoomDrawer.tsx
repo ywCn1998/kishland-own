@@ -19,6 +19,7 @@ import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
 import TextIcon from "@/components/shared/textIcon";
 import Link from "next/link";
 import useCalculateTotal from "./useCalculateTotal";
+import RHFPassengerPicker from "@/components/shared/form/RHFPassengerPicker";
 
 interface RoomsSummary {
     id: string;
@@ -78,7 +79,7 @@ export default function MobileRoomDrawer({ isSelected, onSelect }: DrawerButtonP
                 closeText="بستن"
                 height="auto"
                 anchor="bottom"
-                sx={{ zIndex: 10000 }}
+                sx={{ zIndex: 1400 }}
             >
                 <Stack className="flex! flex-col! gap-4! justify-between!">
                     <Stack spacing={2}>
@@ -86,24 +87,17 @@ export default function MobileRoomDrawer({ isSelected, onSelect }: DrawerButtonP
                             <Stack className="border-2! border-slate-200! rounded-2xl! p-3! bg-white! gap-3!">
                                 <Grid container spacing={2}>
                                     <Grid size={6}>
-                                        <Box sx={{ minWidth: 10 }}>
+                                    <Box sx={{ minWidth: 10 }}>
                                             <RHFDatePicker
                                                 startName="startDate"
                                                 endName="endDate"
-                                                label="تاریخ ورود"
+                                                label="ورود و خروج"
                                                 startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
                                             />
                                         </Box>
                                     </Grid>
                                     <Grid size={6}>
-                                        <Box sx={{ minWidth: 10 }}>
-                                            <RHFDatePicker
-                                                startName="startDate"
-                                                endName="endDate"
-                                                label="تاریخ رفت و برگشت"
-                                                startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />}
-                                            />
-                                        </Box>
+                                        <RHFPassengerPicker name="passengers" label="مسافران و تعداد اتاق" startIcon={<BusinessCenterIcon sx={{ color: "primary.main" }} />} />
                                     </Grid>
                                 </Grid>
                             </Stack>

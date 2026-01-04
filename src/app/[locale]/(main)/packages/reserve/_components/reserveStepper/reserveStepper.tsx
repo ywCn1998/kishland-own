@@ -15,7 +15,7 @@ import Step2 from "./step2";
 export default function ReserveStepper() {
   const steps = [
     {
-      title: "انتخاب تفریح",
+      title: "انتخاب پکیج",
       description: "توضیح این مرحله",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
@@ -25,7 +25,7 @@ export default function ReserveStepper() {
     },
     {
       title: "سبد خرید",
-      description: "مشاهده تفریحات",
+      description: "مشاهده پکیج‌ها",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
         <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
@@ -240,3 +240,4 @@ export default function ReserveStepper() {
     </>
   );
 }
+

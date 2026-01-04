@@ -154,18 +154,30 @@ export default function HotelDetails() {
                     <Stack className="flex! flex-col! md:hidden! gap-3!" mt={3} mb={5}>
                         {/* <Stack
                             sx={{
-                                display: "grid",
-                                gridTemplateColumns: "repeat(2, 1fr)",
+                                display: "flex",
+                                flexDirection : "row",
+                                overflowX : "auto",
+                                px: 0.1,
                                 gap: 1.5,
+                                "&::-webkit-scrollbar": {
+                                    display: "none",
+                                },
+                                scrollbarWidth: "none",
+                                WebkitOverflowScrolling: "touch",
                             }}
                         > */}
 
-                        <ReusableSwiper pagination dots={false} slidePerViewXs={2.5} slideperviewMd={4} spaceBetween={10}>
+                        <ReusableSwiper pagination dots={false} slidePerViewXs={'auto'} slideperviewMd={4} spaceBetween={10}>
                             {services.map((item, index) => (
                                 <Button
                                     key={"service" + index}
-                                    sx={{ backgroundColor: "white" }}
-                                    className="h-14! rounded-lg! p-0! w-full! border-1! border-slate-200! text-black! text-xs!"
+                                    sx={{ 
+                                        backgroundColor: "white",
+                                        minWidth: "fit-content",
+                                        flexShrink: 0,
+                                        whiteSpace: "nowrap",
+                                    }}
+                                    className="md:h-14! h-10! rounded-lg! md:px-3! px-2! border-1! border-slate-200! text-black! text-xs!"
                                     startIcon={item.icon}
                                 >
                                     {item.label}

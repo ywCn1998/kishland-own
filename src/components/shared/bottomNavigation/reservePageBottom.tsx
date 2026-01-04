@@ -13,7 +13,7 @@ interface IReservePageBottom {
     maxStep?: number,
 }
 
-export default function ReservePageBottom({ step, setStep, totalPrice, maxStep = 2 }: IReservePageBottom) {
+export default function ReservePageBottom({ step, setStep, totalPrice, maxStep = 3 }: IReservePageBottom) {
 
     const handleStep = () => {
         if (step < maxStep) {

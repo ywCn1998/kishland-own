@@ -16,19 +16,21 @@ import LateHotel from "./lateHotel";
 import Discount from "@/components/shared/cart/discount";
 import PassengerDetails from "@/components/shared/cart/passengerDetails";
 import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
-import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
+import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
+import HotelReserveStatus from "@/components/shared/sections/reserve/hotelReserveStatus";
 import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
+import NormalListCard from "@/components/shared/cards/hotel/normalListCard";
 
 
 export default function ReserveStepper() {
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const [activeStep, setActiveStep] = useState<number>(2);
 
 
   // Hotel specific steps
   const hotelSteps = [
     {
-      title: "مشخصات سرپرست و همراهان",
-      description: "اطلاعات مسافران",
+      title: "انتخاب هتل",
+      description: "جزئیات اتاق‌ها",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
         <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
@@ -36,7 +38,25 @@ export default function ReserveStepper() {
       iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
     },
     {
-      title: "پرداخت",
+      title: "اطلاعات مسافران",
+      description: "مشخصات سرپرست و همراهان",
+      iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
+      iconActive: (
+        <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
+      ),
+      iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
+    },
+    {
+      title: "بازبینی اطلاعات",
+      description: "بازبینی نهایی",
+      iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
+      iconActive: (
+        <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
+      ),
+      iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
+    },
+    {
+      title: "پرداخت آنلاین",
       description: "روش پرداخت",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
@@ -45,8 +65,8 @@ export default function ReserveStepper() {
       iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
     },
     {
-      title: "نگاهی دوباره به اصلاعات هتل",
-      description: "بازبینی نهایی",
+      title: "صدور بلیط",
+      description: "اتمام رزرو",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
         <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
@@ -102,32 +122,38 @@ export default function ReserveStepper() {
                   flexShrink: 0,
                   flexDirection: { xs: "row", lg: "column" },
                   cursor: "pointer",
+                  gap: { xs: 2, lg: 1 },
                 }}
                 onClick={() => setActiveStep(index)}
               >
-                <Box>
-                  {index < activeStep
-                    ? step.iconPast
-                    : index === activeStep
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  gap={0.8}
+                  sx={{ whiteSpace: "nowrap" }}
+                >
+                  <Box>
+                    {index < activeStep
+                      ? step.iconPast
+                      : index === activeStep
                       ? step.iconActive
                       : step.iconFuture}
-                </Box>
-
-                <Typography
-                  sx={{
-                    fontWeight: index === activeStep ? 500 : 400,
-                    color:
-                      index < activeStep
-                        ? "#000E08"
-                        : index === activeStep
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontWeight: index === activeStep ? 500 : 500,
+                      color:
+                        index < activeStep
+                          ? "#000E08"
+                          : index === activeStep
                           ? "#FF8A00"
                           : "text.disabled",
-                    whiteSpace: "nowrap",
-                  }}
-                  className="text-xs! lg:text-sm!"
-                >
-                  {step.title}
-                </Typography>
+                    }}
+                    className="text-xs! lg:text-sm!"
+                  >
+                    {step.title}
+                  </Typography>
+                </Box>
 
                 <Typography
                   variant="caption"
@@ -214,35 +240,53 @@ export default function ReserveStepper() {
             <HotelDetailsCart />
           </Grid>
           <Grid size={{ lg: 3, xs: 12 }} className="!hidden lg:!block">
-            <Box>
+            <Stack
+              sx={{
+                position: "sticky",
+                top: 10,
+                zIndex: 100,
+                alignSelf: "flex-start",
+              }}
+            >
               <PriceCardHotel />
-            </Box>
-            <LateHotel />
+              <LateHotel />
+            </Stack>
           </Grid>
         </Grid>
       </Stack>
 
       {/* Mobile View - Show only active step */}
       <Stack className="md:hidden!">
-        {activeStep === 0 && (
+        {activeStep === 1 && (
           <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
             <ResponsivePassengerDetails />
             <LateHotel />
           </Stack>
         )}
-        {activeStep === 1 && (
+        {activeStep === 2 && (
           <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
             <HowToPay />
-            <Discount />
-            <PassengerDetails />
-            <TourDetailsReserve />
+            <Discount/>
+            <PassengerDetails/>
+            <HotelDetailsCart/>
           </Stack>
         )}
-        {activeStep === 2 && (
-          <Stack sx={{ mt: 0, gap: 2.5 }}>
-            <ReserveStatus isSuccess={true} code={1234} />
+        {activeStep === 4 && (
+          <Stack sx={{ mt: 0, gap: 2.5}}>
+            <HotelReserveStatus isSuccess={true} code={1234}/>
           </Stack>
         )}
+        {activeStep === 3 && (
+          <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
+            {/* <HowToPay />
+            <Discount/> */}
+          </Stack>
+        )}
+        {/* {activeStep === 4 && (
+          <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
+            <ReserveStatus isSuccess={true} code={1234}/>
+          </Stack>
+        )} */}
       </Stack>
       <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333" />
     </>

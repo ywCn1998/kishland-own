@@ -24,10 +24,10 @@ const hotelsList = [
 
 export default function HotelsList({ className }: { className?: string }) {
   return (
-    <Stack mt={10} spacing={2} className={`bg-[#FFF9EC] rounded-xl! p-3 ${className}`}>
-      <Grid container columns={10} spacing={2} className="hidden! md:flex!">
+    <Stack mt={{xs : 2, md : 10}} spacing={2} className={`bg-[#FFF9EC] rounded-xl! p-3 ${className}`}>
+      <Grid container columns={10} spacing={2} className="flex! flex-wrap!">
         {hotelsList.map((row, rowIndex) => (
-          <Grid size={2} key={rowIndex} className="
+          <Grid size={{xs : 5, md : 2}} key={rowIndex} className="
           flex flex-row items-center justify-around border-1 border-slate-200 rounded-2xl text-center cursor-pointer
           transition-all duration-300 ease-in-out active:scale-95 hover:shadow-md hover:border-blue-300
         ">
@@ -41,7 +41,7 @@ export default function HotelsList({ className }: { className?: string }) {
         ))}
       </Grid>
 
-      <Stack className="md:hidden!">
+      {/* <Stack className="md:hidden!">
         <ReusableSwiper slidePerViewXs={2} slideperviewMd={4} slidePerviewLg={4} spaceBetween={10} pagination={true}>
           {hotelsList.map((row, index) => (
             <Button
@@ -52,7 +52,7 @@ export default function HotelsList({ className }: { className?: string }) {
             </Button>
           ))}
         </ReusableSwiper>
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 }

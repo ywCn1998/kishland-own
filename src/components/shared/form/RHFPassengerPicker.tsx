@@ -80,6 +80,7 @@ export default function RHFPassengerSelect({ name, label, startIcon }: IProps) {
             />
 
             <Popover
+                sx={{ zIndex: 1450 }}
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}

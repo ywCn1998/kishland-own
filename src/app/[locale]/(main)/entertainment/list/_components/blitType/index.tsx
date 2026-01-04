@@ -88,9 +88,8 @@ export function BlitType() {
               borderRadius: 1.5,
               gap: 2,
               border : "solid 1px ",
-             
             }}
-            className="border-slate-200!"
+            className="border-slate-200! bg-white!"
           >
             <Stack direction="row" alignItems="center" gap={0.8}>
               <FormatLineSpacingIcon fontSize="small" color="action" />

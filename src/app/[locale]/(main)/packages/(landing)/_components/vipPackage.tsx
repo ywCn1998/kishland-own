@@ -9,41 +9,45 @@ import VipPackageDetails from './vipPackageDetails'
 
 export default function VipPackage() {
   return (
-    <div className='flex! flex-col! gap-10! mt-10!'>
+    <div className='flex! md:flex-col! flex-col-reverse! gap-10! md:mt-10! mt-0! mb-10! md:mb-0!'>
+      <Stack className='md:hidden!'>
+        <CategoryDetailCards />
+      </Stack>
       <ImageAndText
         imgUrl='/images/package/vippackage.png'
         imgGridSIze={{ xs: 12, md: 6 }}
         childrenGridSIze={{ xs: 12, md: 6 }}
+        height={{ xs: 'auto', md: 500 }}
       >
         <Stack className='flex! flex-col! gap-4!'>
-          <Typography className='text-slate-500! text-lg!'>
+          <Typography className='text-slate-500! md:text-lg! text-base!'>
             تجربه‌ای لوکس و اختصاصی برای سفری به یادماندنی در کیش
           </Typography>
 
-          <Typography className='text-5xl! font-bold! leading-[45px]! md:leading-[75px]!'>
+          <Typography className='md:text-5xl! text-xl! font-bold! leading-[45px]! md:leading-[75px]!'>
             <GoldenText
               text='پکیج‌های'
               textColor='primary'
-              textClass='inline! text-5xl! font-bold!'
+              textClass='inline! md:text-5xl! text-xl! font-bold! leading-[45px]! md:leading-[75px]!'
             />{' '}
             <GoldenText
               text='VIP'
               textColor='secondary'
-              textClass='inline! text-5xl! font-bold!'
+              textClass='inline! md:text-5xl! text-xl! font-bold! leading-[45px]! md:leading-[75px]!'
             />{' '}
             کیش
             <br />
             تجمل، راحتی و امکانات ویژه برای یک سفر استثنائی
           </Typography>
 
-          <Typography className='text-xl! leading-[40px]!'>
+          <Typography className='md:text-xl! text-sm! leading-[40px]!'>
             پکیج‌های VIP برای کسانی طراحی شده که به دنبال تجربه‌ای خاص و لوکس از سفر
             به کیش هستند. اقامتگاه‌های مجلل، خدمات اختصاصی، امکانات رفاهی درجه یک و
             تفریحات خصوصی در محیطی آرام و بی‌نظیر، تضمین‌کننده سفری فراتر از انتظار.
           </Typography>
 
-          <Stack className='gap-3! flex-row!'>
-            <Button variant='outlined' className='text-nowrap! px-10!' startIcon={<CallIcon />}>
+          <Stack className='md:gap-3! gap-4! md:flex-row! flex-col!'>
+            <Button variant='outlined' className='text-nowrap! px-10!' startIcon={<CallIcon color='primary'/>}>
               دریافت مشاوره
             </Button>
 
@@ -69,7 +73,7 @@ export default function VipPackage() {
         </Stack>
       </ImageAndText>
 
-      <Stack className='mt-10!'>
+      <Stack className='md:block! hidden!'>
         <CategoryDetailCards />
       </Stack>
 
