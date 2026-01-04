@@ -36,11 +36,11 @@ const details = [
 export default function CategoryDetailCards() {
   return (
     <>
-      <Grid className="flex! flex-row! w-full! " container spacing={3}>
+      <Grid className="flex! flex-row! w-full! " container spacing={{xs : 2 , lg : 3}}>
         {details.map((detail, index) => (
-          <Grid key={index + detail.title} className="border-slate-200! py-5! px-3! flex! items-center! flex-col! gap-3! rounded-2xl border-1" size={2}>
+          <Grid key={index + detail.title} className="border-slate-200! py-5! px-3! flex! items-center! flex-col! gap-3! rounded-2xl border-1" size={{ xs: 4, md: 2 }}>
             <img src={detail.img} alt={detail.title} />
-            <Typography className="text-lg! font-[650]!">{detail.des}</Typography>
+            <Typography className="md:text-lg! text-base! font-[650]! text-center! text-nowrap!">{detail.des}</Typography>
           </Grid>
         ))}
       </Grid>
