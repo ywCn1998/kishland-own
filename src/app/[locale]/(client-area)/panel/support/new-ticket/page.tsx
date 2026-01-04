@@ -1,5 +1,5 @@
 "use client"
-import { Button, Typography, Stack, Grid } from "@mui/material";
+import { Button, Typography, Stack, Grid, MenuItem } from "@mui/material";
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import { useRouter } from "next/navigation";
 import RHFTextInput from "@/components/shared/form/RHFTextInput";
@@ -14,6 +14,7 @@ import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottom
 import { headerTitleAtom } from "@/store/atomHeader";
 import { useEffect } from "react";
 import { useAtom } from "jotai";
+import RHFSelect from "@/components/shared/form/RHFSelect";
 
 export default function NewTicket() {
     const [html, setHtml] = useState("");
@@ -37,17 +38,42 @@ export default function NewTicket() {
 
             <FormProvider onSubmit={OnSubmit} methods={methods}>
                 <Grid container spacing={2}>
-                    <Grid size={{ xs: 12, md: 6 }}>
-                        <RHFTextInput className="bg-white!" name="firstName" startIcon={<PersonOutlineOutlinedIcon />} placeholder="نام" />
+                    <Grid size={{ xs: 12, md: 6 }} className="border-1! border-slate-300! rounded-xl! px-4! pb-1! pt-3!">
+                        <RHFSelect name="F" placeholder="ds" label="بخش">
+                            <MenuItem value="knjkh">انتخاب کنید</MenuItem>
+                            <MenuItem value="general">عمومی</MenuItem>
+                            <MenuItem value="technical">فنی</MenuItem>
+                            <MenuItem value="billing">مالی</MenuItem>
+                        </RHFSelect>
                     </Grid>
 
-                    <Grid size={{ xs: 12, md: 6 }}>
-                        <RHFTextInput className="bg-white!" name="lastName" startIcon={<PersonOutlineOutlinedIcon />} placeholder="نام خانوادگی" />
+                    <Grid size={{ xs: 12, md: 6 }} className="border-1! border-slate-300! rounded-xl! px-4! pb-1! pt-3!">
+                        <RHFSelect name="F" placeholder="ds" label="واحد">
+                            <MenuItem value="knjkh">انتخاب کنید</MenuItem>
+                            <MenuItem value="general">عمومی</MenuItem>
+                            <MenuItem value="technical">فنی</MenuItem>
+                            <MenuItem value="billing">مالی</MenuItem>
+                        </RHFSelect>
                     </Grid>
 
-                    <Grid size={12}>
-                        <RHFTextInput className="bg-white!" name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تاریخ تولدت" />
+                    <Grid size={{ xs: 12 }} className="border-1! border-slate-300! rounded-xl! px-4! pb-1! pt-3!">
+                        <RHFSelect name="F" placeholder="ds" label="اولویت">
+                            <MenuItem value="knjkh">انتخاب کنید</MenuItem>
+                            <MenuItem value="general">عمومی</MenuItem>
+                            <MenuItem value="technical">فنی</MenuItem>
+                            <MenuItem value="billing">مالی</MenuItem>
+                        </RHFSelect>
                     </Grid>
+
+                    <Grid size={{ xs: 12 }} className="border-1! border-slate-300! rounded-xl! px-4! pb-1! pt-3!">
+                        <RHFSelect name="F" placeholder="ds" label="موضوع تیکت">
+                            <MenuItem value="knjkh">انتخاب کنید</MenuItem>
+                            <MenuItem value="general">عمومی</MenuItem>
+                            <MenuItem value="technical">فنی</MenuItem>
+                            <MenuItem value="billing">مالی</MenuItem>
+                        </RHFSelect>
+                    </Grid>
+
 
 
                     <Grid size={12}>

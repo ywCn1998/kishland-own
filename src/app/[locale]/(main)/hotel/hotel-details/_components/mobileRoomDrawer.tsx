@@ -16,7 +16,6 @@ import SingleBedIcon from "@mui/icons-material/SingleBed";
 import ReusableDrawer from "@/components/shared/reuseableDrawer";
 import FormProvider from "@/providers/FormProvider";
 import RHFDatePicker from "@/components/shared/form/RHFDatePicker";
-import RHFSelect from "@/components/shared/form/RHFSelect";
 import TextIcon from "@/components/shared/textIcon";
 import Link from "next/link";
 import useCalculateTotal from "./useCalculateTotal";

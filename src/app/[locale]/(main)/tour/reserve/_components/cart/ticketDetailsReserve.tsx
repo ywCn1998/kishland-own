@@ -5,16 +5,16 @@ import React from "react";
 
 export default function TicketDetailsReserve() {
   return (
-    <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-5">
+    <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-2">
       <CustomAccordion
-        title={"مشخصات هتل "}
+        title={"مشخصات بلیط"}
         titleClass="text-xl!"
         defaultExpanded={true}
       >
         <Stack className="mt-4!">
           <Stack className="w-full! flex! flex-col! gap-5">
             <TicketCard ticketStatus="hasBought" />
-            <TicketCard ticketStatus="canBuyTicket" />
+            <TicketCard ticketStatus="backTicket" />
           </Stack>
         </Stack>
       </CustomAccordion>

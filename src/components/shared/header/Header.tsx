@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, Stack, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
@@ -14,22 +14,28 @@ import {
 } from "@/store/atomHeader";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { PhoneInTalk } from "@mui/icons-material";
+import { BreadCrumbFa } from "../breadCrumb/breadCrumbFa";
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import CheckIcon from '@mui/icons-material/Check';
 
 export default function Header({ }) {
-  const [headerTitle] = useAtom(headerTitleAtom);
+  const [headerTitle, setHeaderTitle] = useAtom(headerTitleAtom);
   const [backIcon] = useAtom(headerBackIconAtom);
   const [date] = useAtom(headerDateAtom);
   const [leftItem] = useAtom(headerLeftItemAtom);
   const [open, setOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchValue, setSearchValue] = useState("")
 
   // Safe pathname (keeps your logic, avoids SSR crash)
   const path = typeof window !== "undefined" ? window.location.pathname : "";
   const parts = path.split("/");
   const lastPart = parts.pop() || "";
   const router = useRouter();
+  const pathname = usePathname()
   // const pathname = usePathname();
   console.log("lastPart", lastPart);
 
@@ -37,6 +43,13 @@ export default function Header({ }) {
     lastPart === "tour" ||
     lastPart === "entertainment" ||
     lastPart === "hotel";
+
+  const isListPage =
+    pathname === "/fa/tour/list" ||
+    pathname === "/fa/entertainment/list" ||
+    pathname === "/fa/hotel/list";
+  console.log("islist page", isListPage);
+
 
   return (
     <Container maxWidth="xl">
@@ -231,16 +244,58 @@ py-2
                 </IconButton>
               </Stack>
               <Stack className="flex! flex-col! gap-2! justify-center! items-center!">
-                <Typography className="text-base! font-medium! mt-2!">{headerTitle}</Typography>
-                <Typography className="text-sm! font-light!">{date}</Typography>
+                {isSearchOpen && isListPage ? (
+                  <Stack flexDirection="row" alignItems="center" gap={1}>
+                    <TextField
+                      size="small"
+                      autoFocus
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      sx={{ width: "100%", "& .mui-rtl-5wonww-MuiInputBase-input-MuiOutlinedInput-input": { fontSize: 13 } }}
+                    />
+                    <IconButton
+                      size="small"
+                      onClick={() => {
+                        setHeaderTitle(searchValue);
+                        setIsSearchOpen(false);
+                      }}
+                    >
+                      <CheckIcon />
+                    </IconButton>
+                  </Stack>
+                ) : (
+                  <>
+                    <Typography className="text-base! font-medium! mt-2!">{headerTitle}</Typography>
+                    <Typography className="text-sm! font-light!">{date}</Typography>
+                  </>
+                )}
               </Stack>
             </Stack>
-            <Stack>{leftItem}</Stack>
+            {
+              isListPage ? (
+                <IconButton onClick={() => {
+                  setIsSearchOpen(true);
+                  setSearchValue(headerTitle);
+                }}>
+                  <SearchOutlinedIcon />
+                </IconButton>
+              ) : (
+                <Stack>{leftItem}</Stack>
+              )
+            }
           </Stack>
         )}
 
         <Box className={`lg:hidden ${isLandingPage ? "h-[110px]" : lastPart === "panel" ? "h-[0px]" : "h-[80px]"}`} />
       </Stack>
+
+      {
+        isListPage && (
+          <Stack className="md:hidden! py-2.5! bg-[#DEE2EE]! xs-fullwidth sm-fullwidth px-3!">
+            <BreadCrumbFa />
+          </Stack>
+        )
+      }
 
       <LoginPhoneModal open={open} setOpen={setOpen} />
     </Container>

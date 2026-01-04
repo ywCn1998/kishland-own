@@ -72,14 +72,14 @@ export default function TicketCard({
             <Typography className="text-xl! font-semibold! md:font-normal! md:text-3xl!">18:55</Typography>
             <Typography className="text-xl! font-semibold! md:font-normal! md:text-3xl!">17:25</Typography>
           </Stack>
-
+          {/* 
           <img
             src="/images/plane-dash.png"
             className="hidden! md:inline! absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7/12 h-9!"
             alt="plane path"
-          />
+          /> */}
 
-          {tripLabel === "بلیط رفت" ? (
+          {ticketStatus !== "backTicket" ? (
             <img
               src="/images/go-plane-dash.svg"
               className="md:hidden! absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6/12 h-9!"
@@ -123,7 +123,7 @@ export default function TicketCard({
             <Box
               sx={{
                 position: "absolute",
-                left: -25,
+                left: -28,
                 top: "50%",
                 transform: "translateY(-50%)",
                 width: 25,
@@ -136,7 +136,7 @@ export default function TicketCard({
             <Box
               sx={{
                 position: "absolute",
-                right: -25,
+                right: -28,
                 top: "50%",
                 transform: "translateY(-50%)",
                 width: 25,
@@ -203,15 +203,22 @@ export default function TicketCard({
             />
           </Stack>
 
-          {ticketStatus !== "hasBought" ? (
+          {ticketStatus === "hasBought" ? (
+            <Button variant="text" endIcon={<ConfirmationNumberIcon />} className="text-xs! md:text-base! text-nowrap! p-1! text-red-500!">
+              تغییر بلیط رفت
+            </Button>
+          ) : ticketStatus === "canBuyTicket" ? (
             <Button variant="text" endIcon={<AddIcon className="md:text-xl!" />} color="secondary" className="text-xs! text-nowrap! md:text-base! p-1!">
               انتخاب این بلیط
             </Button>
           ) : (
-            <Button variant="text" endIcon={<ConfirmationNumberIcon />} className="text-xs! md:text-base! text-nowrap! p-1! text-red-500!">
-              تغییر بلیط رفت
-            </Button>
-          )}
+            ticketStatus === "backTicket" ? (
+              <Button variant="text" endIcon={<ConfirmationNumberIcon className="md:text-xl!" />} color="primary" className="text-xs! text-nowrap! md:text-base! p-1!">
+                بلیط برگشت
+              </Button>
+            ) : ""
+          )
+          }
         </Stack>
       )}
 

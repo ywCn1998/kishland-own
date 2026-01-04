@@ -2,18 +2,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
-import StarIcon from "@mui/icons-material/Star";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import { Rating, Stack } from "@mui/material";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 
-// 2. -------- کامپوننت کارت محصول (با قابلیت دریافت Props) --------
-export default async function EntertainmentCard({
+export default function EntertainmentCard({
   image,
   title,
   startDate,

@@ -33,6 +33,7 @@ import { useEffect } from "react";
 import Details from "./_components/details";
 import TextNumber from "@/components/shared/textNumber";
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import ReusableSwiper from "@/components/shared/reusableSwiper";
 
 
 const services = [
@@ -151,14 +152,15 @@ export default function HotelDetails() {
                         </Grid>
                     </Grid>
                     <Stack className="flex! flex-col! md:hidden! gap-3!" mt={3} mb={5}>
-                        <Stack
+                        {/* <Stack
                             sx={{
                                 display: "grid",
                                 gridTemplateColumns: "repeat(2, 1fr)",
                                 gap: 1.5,
                             }}
-                        >
+                        > */}
 
+                        <ReusableSwiper pagination dots={false} slidePerViewXs={2.5} slideperviewMd={4} spaceBetween={10}>
                             {services.map((item, index) => (
                                 <Button
                                     key={"service" + index}
@@ -169,7 +171,9 @@ export default function HotelDetails() {
                                     {item.label}
                                 </Button>
                             ))}
-                        </Stack>
+                        </ReusableSwiper>
+
+                        {/* </Stack> */}
 
                         <Button
                             sx={{ backgroundColor: "text.secondary" }}
@@ -183,21 +187,21 @@ export default function HotelDetails() {
                         <ViewsOfHotel />
                     </Stack>
                     <Stack className="md:hidden!">
-                        <ViewsOfHotel isHotelLocation isIntegrated hasDetails={false} />
+                        <ViewsOfHotel isGalleryInMobile isIntegrated hasDetails={false} />
                     </Stack>
                 </Stack>
 
                 <Stack className="hidden! md:block!">
                     <Details />
                 </Stack>
-                <Stack className="md:hidden!">
+                <Stack className="md:hidden! md:mt-10!">
                     <Details isMobile={true} />
                 </Stack>
 
             </Container>
 
 
-            <ExtraFooterInformation honerOfColobrate={false} companies={false}  />
+            <ExtraFooterInformation honerOfColobrate={false} companies={false} />
         </Stack >
     );
 }

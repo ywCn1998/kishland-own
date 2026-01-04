@@ -41,9 +41,9 @@ const RHFSingleRadioGroup = ({
       control={control}
       render={({ field, fieldState: { error } }) => (
         <FormControl error={!!error?.message} sx={{ width: "100%" }}>
-          <Stack gap={0.5}>
+          <Stack gap={0.5} direction={"row"} justifyContent={'space-between'} alignItems={"center"}>
             {label && (
-              <Typography fontWeight={600} fontSize="0.95rem">
+              <Typography fontWeight={500} fontSize="0.95rem">
                 {label}
               </Typography>
             )}
@@ -56,6 +56,12 @@ const RHFSingleRadioGroup = ({
                 onChangeValue?.(e.target.value);
               }}
               onBlur={field.onBlur}
+              sx={{
+                "& .mui-rtl-1ww64j6-MuiButtonBase-root-MuiRadio-root.Mui-checked": {
+                  color: "red"
+                }
+              }}
+              className="gap-5!"
             >
               {options.map((option) => (
                 <FormControlLabel
@@ -72,7 +78,7 @@ const RHFSingleRadioGroup = ({
             ) : null}
             {helperComponenet}
           </Stack>
-        </FormControl>
+        </FormControl >
       )}
     />
   );

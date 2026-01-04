@@ -13,22 +13,12 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LateHotel from "./lateHotel";
-import { useAtom } from "jotai";
-import { hasFooterResponsive } from "@/store/atomHeader";
 import Discount from "@/components/shared/cart/discount";
 import PassengerDetails from "@/components/shared/cart/passengerDetails";
 import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
-import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
 import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
 
-interface IStep {
-  title: string;
-  description: string;
-  iconPast: ReactNode;
-  iconActive: ReactNode;
-  iconFuture: ReactNode;
-}
 
 export default function ReserveStepper() {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -69,39 +59,39 @@ export default function ReserveStepper() {
     <>
       {/* Mobile Stepper Navigation */}
       <Stack
-       alignItems="center"
-       sx={{
-         p: { lg: 3, xs: 0 },
-         alignItems: "center",
-         borderRadius: { xs: 0, lg: 2 },
-         bgcolor: "#fff",
-         border: { xs: "none", lg: "1px solid #EAEAEA" },
-         borderBottom: { xs: "1px solid #EAEAEA" },
-         width: { lg: "100%", xs: "100dvw" },
-         overflow: "hidden",
-         mb: 4,
-         mt: { xs: 0, lg: 0 },
-         display: {
-           xs: "flex",
-           lg: "none",
-         },
-       }}
-       dir="rtl"
-       spacing={3}
-       className="xs-fullwidth "
+        alignItems="center"
+        sx={{
+          p: { lg: 3, xs: 0 },
+          alignItems: "center",
+          borderRadius: { xs: 0, lg: 2 },
+          bgcolor: "#fff",
+          border: { xs: "none", lg: "1px solid #EAEAEA" },
+          borderBottom: { xs: "1px solid #EAEAEA" },
+          width: { lg: "100%", xs: "100dvw" },
+          overflow: "hidden",
+          mb: 4,
+          mt: { xs: 0, lg: 0 },
+          display: {
+            xs: "flex",
+            lg: "none",
+          },
+        }}
+        dir="rtl"
+        spacing={3}
+        className="xs-fullwidth "
       >
         <Stack
-         direction="row"
-         alignItems="center"
-         spacing={2}
-         sx={{
-           width: "100%",
-           overflowX: { xs: "auto", lg: "visible" },
-           scrollbarWidth: "none",
-           "&::-webkit-scrollbar": { display: "none" },
-           px: { xs: 2, lg: 0 },
-           py: { xs: 1, lg: 0 },
-         }}
+          direction="row"
+          alignItems="center"
+          spacing={2}
+          sx={{
+            width: "100%",
+            overflowX: { xs: "auto", lg: "visible" },
+            scrollbarWidth: "none",
+            "&::-webkit-scrollbar": { display: "none" },
+            px: { xs: 2, lg: 0 },
+            py: { xs: 1, lg: 0 },
+          }}
         >
           {hotelSteps.map((step, index) => (
             <React.Fragment key={step.title}>
@@ -119,8 +109,8 @@ export default function ReserveStepper() {
                   {index < activeStep
                     ? step.iconPast
                     : index === activeStep
-                    ? step.iconActive
-                    : step.iconFuture}
+                      ? step.iconActive
+                      : step.iconFuture}
                 </Box>
 
                 <Typography
@@ -130,8 +120,8 @@ export default function ReserveStepper() {
                       index < activeStep
                         ? "#000E08"
                         : index === activeStep
-                        ? "#FF8A00"
-                        : "text.disabled",
+                          ? "#FF8A00"
+                          : "text.disabled",
                     whiteSpace: "nowrap",
                   }}
                   className="text-xs! lg:text-sm!"
@@ -165,9 +155,8 @@ export default function ReserveStepper() {
                     sx={{
                       display: { xs: "none", lg: "block" },
                       flex: 1,
-                      borderTop: `2px dashed ${
-                        index < activeStep ? "#FF8A00" : "#E6E6E6"
-                      }`,
+                      borderTop: `2px dashed ${index < activeStep ? "#FF8A00" : "#E6E6E6"
+                        }`,
                       alignSelf: "center",
                     }}
                   />
@@ -225,11 +214,12 @@ export default function ReserveStepper() {
             <HotelDetailsCart />
           </Grid>
           <Grid size={{ lg: 3, xs: 12 }} className="!hidden lg:!block">
-            <PriceCardHotel />
+            <Box>
+              <PriceCardHotel />
+            </Box>
             <LateHotel />
           </Grid>
         </Grid>
-        <Stack></Stack>
       </Stack>
 
       {/* Mobile View - Show only active step */}
@@ -242,19 +232,19 @@ export default function ReserveStepper() {
         )}
         {activeStep === 1 && (
           <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
-            <HowToPay  />
-            <Discount/>
-            <PassengerDetails/>
-            <TourDetailsReserve/>
+            <HowToPay />
+            <Discount />
+            <PassengerDetails />
+            <TourDetailsReserve />
           </Stack>
         )}
         {activeStep === 2 && (
-          <Stack sx={{ mt: 0, gap: 2.5}}>
-            <ReserveStatus isSuccess={true} code={1234}/>
+          <Stack sx={{ mt: 0, gap: 2.5 }}>
+            <ReserveStatus isSuccess={true} code={1234} />
           </Stack>
         )}
       </Stack>
-      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333"/>
+      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333" />
     </>
   );
 }

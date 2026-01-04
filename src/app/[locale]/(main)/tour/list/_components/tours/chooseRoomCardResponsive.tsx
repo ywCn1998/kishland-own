@@ -36,8 +36,8 @@ export default function ChooseRoomCardResponsive({ isWide, isOfferCard = false }
                 <Box sx={{ p: 1.2, height: 240 }}>
                     <Grid size={12} className="flex! flex-row! gap-2! h-full!">
                         <Stack className="w-1/3! gap-2!">
-                            <BlogCard className="rounded-xl!" boxShadow={0} overlay="none" imageUrl="/images/building.png" height={"35%"} />
-                            <BlogCard className="rounded-xl!" boxShadow={0} overlay="none" imageUrl="/images/building.png" height={"65%"} />
+                            <BlogCard className="rounded-xl!" boxShadow={0} overlay="none" imageUrl="/images/building.png" height={"50%"} />
+                            <BlogCard className="rounded-xl!" boxShadow={0} overlay="none" imageUrl="/images/building.png" height={"50%"} />
                         </Stack>
 
                         <Stack className="w-2/3!">
@@ -73,18 +73,19 @@ export default function ChooseRoomCardResponsive({ isWide, isOfferCard = false }
                         </Stack>
                     </Stack>
                     <Stack className="flex! flex-col! gap-2!">
-                        <Typography className="text-xl!" fontWeight={700}>هتل بین المللی کیش </Typography>
+                        <Typography className="text-xl!" fontWeight={700}>تور 4 روز هتل کوروش</Typography>
                     </Stack>
                     <ReusableSwiper
                         dots={false}
                         slidePerviewLg={9}
-                        slidePerViewXs={2.5}
+                        slideperviewMd={4}
+                        slidePerViewXs={"auto"}
                         spaceBetween={10}
                         pagination={true}
                     >
-                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!" startIcon={<BedroomParentIcon />}>ترانسفر فرودگاهی (رایگان)</Button>
-                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!">شام و صبحانه</Button>
-                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!" startIcon={<WifiOutlinedIcon />}>اینترنت رایگان</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! h-10!" startIcon={<BedroomParentIcon />}>ترانسفر فرودگاهی (رایگان)</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! h-10!">شام و صبحانه</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! h-10!" startIcon={<WifiOutlinedIcon />}>اینترنت رایگان</Button>
                     </ReusableSwiper>
 
                     <Stack className="">

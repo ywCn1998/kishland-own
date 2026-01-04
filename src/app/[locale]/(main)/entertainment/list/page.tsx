@@ -95,10 +95,10 @@ export default function Home() {
           <Typography variant="subtitle1">25 تفریح موجود</Typography>
         </Stack>
 
-        <Grid container className="md:mt-4  mt-[-40]" spacing={2}>
+        <Grid container className="md:mt-4  mt-[-40] relative!" spacing={2}>
           <Grid
             size={{ xs: 12, md: 3 }}
-            className="flex! flex-row! gap-6! md:p-0! p-6!"
+            className="flex! flex-row! gap-6! md:p-0! p-6! sticky! top-0! z-10!"
           >
             <Grid className="md:hidden! " size={10}>
               <BlitType />

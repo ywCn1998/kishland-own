@@ -67,7 +67,7 @@ export default function Details({ isMobile }: { isMobile?: boolean }) {
     // const [openMore, setOpenMore] = useState(false)
 
     return (
-        <Grid container mt={5} spacing={2.5}>
+        <Grid container spacing={2.5}>
             <Grid size={{ xs: 12, md: 9 }}>
                 {/* <MainTabs data={tabData}  /> */}
 

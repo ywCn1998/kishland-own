@@ -41,7 +41,7 @@ export default function PayLoan() {
   };
 
   return (
-    <Stack className="reveal">
+    <Stack >
       <Accordion
         sx={{
           border: "1px solid #e2e8f0",

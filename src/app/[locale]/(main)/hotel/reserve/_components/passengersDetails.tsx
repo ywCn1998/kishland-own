@@ -58,7 +58,7 @@ export default function PassengersDetails() {
               onSubmit={OnSubmit}
               className="flex! flex-col! gap-6!"
             >
-              <Stack className="reveal">
+              <Stack >
                 <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3! ">
                   <Stack className="flex! gap-2! flex-row! items-center">
                     <Typography className="text-xl! font-medium!">
@@ -94,6 +94,7 @@ export default function PassengersDetails() {
                     name="lastName"
                     placeholder="نام خانوادگی به فارسی"
                   />
+                  
                   <RHFTextInput
                     startIcon={<PhoneInTalkIcon />}
                     name="phone"
@@ -157,7 +158,7 @@ export default function PassengersDetails() {
                   />
                 </Stack>
               </Stack>
-              <Stack className="reveal">
+              <Stack>
                 <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3!">
                   <Stack className="flex! gap-2! flex-row! items-center">
                     <Typography className="text-xl! font-medium!">

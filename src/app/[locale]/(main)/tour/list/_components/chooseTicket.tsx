@@ -54,9 +54,9 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                 </Typography>
             </Stack>
 
-            <Stack className="hidden! md:block!">
+            {/* <Stack className="hidden! md:block!">
                 <DaysSwiper items={days} />
-            </Stack>
+            </Stack> */}
 
             <Stack className="md:hidden! md:mb-10! py-3!" sx={{ backgroundColor: "background.paper" }}>
                 <TextNumber className="px-3!" numberClassName="text-base!" alignItems="start" number={3} text={
@@ -69,17 +69,18 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                 } />
 
 
-                <Stack className="md:hidden! mt-5! px-3!">
+                {/* <Stack className="md:hidden! mt-5! px-3!">
                     <DaysSwiper items={days} />
-                </Stack>
+                </Stack> */}
 
-                <Stack className="hidden! md:flex! bg-white! mt-4!">
+                <Stack className="bg-white! mt-4!">
                     <ReusableSwiper
                         pagination={true}
                         dots={false}
                         navigation={false}
                         slidePerViewXs={2.5}
                         style={{ width: "100%" }}
+                        spaceBetween={0}
                     >
                         {data.map((item, i) => {
                             const val = Number(item.price);
@@ -90,8 +91,7 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                             return (
                                 <Stack
                                     key={i}
-                                    direction="row"
-                                    className="flex! flex-row! items-center! justify-center! relative!"
+                                    className="flex! flex-row! text-center! items-center! justify-center! "
                                 >
                                     <Stack className="mx-auto! flex! flex-col! items-center! justify-center! gap-3! py-5!">
                                         <Typography className="text-gray-500! text-xs! mb-1!">
@@ -118,7 +118,7 @@ export default function ChooseTicketSection({ data }: { data: any[] }) {
                 </Stack>
             </Stack>
 
-            <Stack className="hidden! md:block border-1! border-slate-200! rounded-2xl! py-5!">
+            <Stack className="hidden! md:block! border-1! border-slate-200! rounded-2xl! py-5!">
                 <ReusableSwiper
                     pagination={true}
                     dots={false}

@@ -76,8 +76,12 @@ export default function SmallTourCard({ isWide, isOfferCard = false }: { isWide?
                     </Stack>
                     <div className="half-circle-divider">
                         <span className="half-circle left bg-[#e1e6f0]! w-3!"></span>
-                        {/* <hr className="text-[#e1e6f0]! bg-[#e1e6f0]!" /> */}
-                        <Divider orientation="horizontal" className="text-[#e1e6f0]! bg-[#e1e6f0]!" />
+                        <div
+                            className="w-full h-[2px]"
+                            style={{
+                                backgroundImage: "repeating-linear-gradient(to right, #ccc 0 8px, transparent 0 14px)"
+                            }}
+                        />
                         <span className="half-circle right bg-[#e1e6f0]!  w-3!"></span>
                     </div>
 

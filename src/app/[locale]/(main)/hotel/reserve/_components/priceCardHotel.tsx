@@ -63,7 +63,6 @@ export default function PriceCardHotel({ onNext }: PriceCardProps) {
           zIndex: 100,
           alignSelf: "flex-start",
         }}
-        className="reveal-down"
       >
         <Box
           sx={{

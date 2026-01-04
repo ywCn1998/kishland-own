@@ -32,7 +32,7 @@ const tourDetail = {
 
 export default function TourDetailsReserve() {
   return (
-    <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-5">
+    <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-2">
       <CustomAccordion
         title={" مشخصات تور"}
         titleClass="text-xl!"
@@ -77,7 +77,7 @@ export default function TourDetailsReserve() {
           />
         </Stack>
 
-        <Stack className="flex! flex-col! gap-3!" mt={2}>
+        <Stack className="flex! flex-col! gap-3!" my={2}>
           <Typography className="font-semibold! text-xl!" mb={1}>
             تور ۴ روز هتل کوروش
           </Typography>
@@ -89,7 +89,7 @@ export default function TourDetailsReserve() {
         <ReusableSwiper
           dots={false}
           slidePerviewLg={9}
-          slidePerViewXs={2.5}
+          slidePerViewXs={'auto'}
           spaceBetween={10}
           pagination={true}
         >

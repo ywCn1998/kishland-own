@@ -33,13 +33,13 @@ export default function Discount() {
     <Stack
       sx={{
         border: "1px solid #e2e8f0",
-        borderRadius: {xs : "12px" , lg : "16px"},
+        borderRadius: { xs: "12px", lg: "16px" },
         backgroundColor: "white",
         overflow: "hidden",
-        px: {xs : 0 , lg : 2},
-        py : {xs : 0 , lg : 2},
+        px: { xs: 0, lg: 2 },
+        // py: { xs: 0, lg: 2 },
+        pt: 1
       }}
-      className="reveal"
     >
       <Accordion sx={{ border: "none" }} >
         <AccordionSummary
@@ -55,10 +55,10 @@ export default function Discount() {
               justifyContent: "start",
             }}
           >
-            <Typography className="!text-lg lg:!text-xl" fontWeight={{xs : 550 , lg : 500}}>
+            <Typography className="!text-lg lg:!text-xl" fontWeight={{ xs: 500, lg: 500 }}>
               کد تخفیف
             </Typography>
-            <Typography fontSize={"12px"} fontWeight={400} color="textDisabled" sx={{display : {xs : "none" , lg : "block"}}}>
+            <Typography fontSize={"12px"} fontWeight={400} color="textDisabled" sx={{ display: { xs: "none", lg: "block" } }}>
               در صورت داشتن کد تخفیف آن را اینجا وارد کنید
             </Typography>
           </Stack>

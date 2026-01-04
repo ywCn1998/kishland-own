@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
-import { Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import { Button, Divider, Stack, Typography } from "@mui/material";
 import RHFTextInput from "@/components/shared/form/RHFTextInput";
 import FormProvider from "@/providers/FormProvider";
 import useSubmitPerson from "../../hooks/useSubmitPersons";
 import PersonIcon from "@mui/icons-material/Person";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import AddIcon from "@mui/icons-material/Add";
-import TextNumber from "@/components/shared/textNumber";
-import RHFSelect from "@/components/shared/form/RHFSelect";
 import RHFSwitch from "@/components/shared/form/RHFSwitch";
 
 export default function Step1() {
@@ -34,17 +32,23 @@ export default function Step1() {
             <RHFTextInput
               startIcon={<PersonIcon />}
               name="firstName"
-              placeholder="نام به فارسی"
+              placeholder="نام خانوادگی به فارسی"
+
             />
             <RHFTextInput
               startIcon={<PersonIcon />}
               name="lasName"
-              placeholder="نام خانوادگی به فارسی"
+              placeholder="نام به فارسی"
             />
             <RHFTextInput
               startIcon={<PhoneInTalkIcon />}
               name="phone"
-              placeholder="شماره تماس"
+              placeholder="تاریخ تولد"
+            />
+             <RHFTextInput
+              startIcon={<PhoneInTalkIcon />}
+              name="phone"
+              placeholder="کد ملی"
             />
           </Stack>
           <Divider className="hidden! md:block!" />
