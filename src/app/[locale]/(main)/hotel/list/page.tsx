@@ -75,14 +75,14 @@ export default function List() {
                             <BlitType />
                         </Grid>
                         <Grid className=" w-3/12! md:w-auto! flex! flex-col! gap-4!">
-                            <Stack className="mt-[-32px]!">
+                            <Stack className="mt-[-32px]! hidden! md:flex!">
                                 <ChanceCard
                                     title="شانس امروزتو امتحان کن !"
                                     description="هر روز یک گردونه شانس با کلی جایزه"
                                     btn_title="بچرخون"
                                     img="/images/entertainment/list/chance.png"
                                     onClick={() => console.log("dsaf")}
-                                    className="hidden! md:flex!"
+                          
                                 />
                             </Stack>
                             <Stack className="md:border-1 border-slate-200  rounded-xl! md:p-4  md:w-auto!">

@@ -25,8 +25,11 @@ export default function ContactInformation() {
                 <RHFTextInput name="birthDafy" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره تماس ضروری (اختیاری)" />
             </Grid>
 
-
             <Grid size={{ xs: 12, md: 6 }}>
+            </Grid>
+
+            <Grid size={6} className="hidden! md:block!">
+                <Button type="submit" sx={{ width: "100%", color: "white", height: "100%", fontWeight: 500, fontSize: 18 }} variant="contained"> ذخیره تغییرات</Button>
             </Grid>
 
             <FixedBottomButton py={1.5}>

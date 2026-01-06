@@ -12,6 +12,7 @@ const useTicket = () => {
       province: "",
       birthDay: "",
       nationalCode: "",
+      F: "knjkh"
     },
   });
 

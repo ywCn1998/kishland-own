@@ -13,22 +13,14 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LateHotel from "./lateHotel";
-import { useAtom } from "jotai";
-import { hasFooterResponsive } from "@/store/atomHeader";
 import Discount from "@/components/shared/cart/discount";
 import PassengerDetails from "@/components/shared/cart/passengerDetails";
 import TourDetailsReserve from "@/components/shared/cart/tourDetailsReserve";
 import TicketDetailsReserve from "@/components/shared/cart/ticketDetailsReserve";
-import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
+import HotelReserveStatus from "@/components/shared/sections/reserve/hotelReserveStatus";
 import ReservePageBottom from "@/components/shared/bottomNavigation/reservePageBottom";
+import NormalListCard from "@/components/shared/cards/hotel/normalListCard";
 
-interface IStep {
-  title: string;
-  description: string;
-  iconPast: ReactNode;
-  iconActive: ReactNode;
-  iconFuture: ReactNode;
-}
 
 export default function ReserveStepper() {
   const [activeStep, setActiveStep] = useState<number>(2);
@@ -87,39 +79,39 @@ export default function ReserveStepper() {
     <>
       {/* Mobile Stepper Navigation */}
       <Stack
-       alignItems="center"
-       sx={{
-         p: { lg: 3, xs: 0 },
-         alignItems: "center",
-         borderRadius: { xs: 0, lg: 2 },
-         bgcolor: "#fff",
-         border: { xs: "none", lg: "1px solid #EAEAEA" },
-         borderBottom: { xs: "1px solid #EAEAEA" },
-         width: { lg: "100%", xs: "100dvw" },
-         overflow: "hidden",
-         mb: 4,
-         mt: { xs: 0, lg: 0 },
-         display: {
-           xs: "flex",
-           lg: "none",
-         },
-       }}
-       dir="rtl"
-       spacing={3}
-       className="xs-fullwidth "
+        alignItems="center"
+        sx={{
+          p: { lg: 3, xs: 0 },
+          alignItems: "center",
+          borderRadius: { xs: 0, lg: 2 },
+          bgcolor: "#fff",
+          border: { xs: "none", lg: "1px solid #EAEAEA" },
+          borderBottom: { xs: "1px solid #EAEAEA" },
+          width: { lg: "100%", xs: "100dvw" },
+          overflow: "hidden",
+          mb: 4,
+          mt: { xs: 0, lg: 0 },
+          display: {
+            xs: "flex",
+            lg: "none",
+          },
+        }}
+        dir="rtl"
+        spacing={3}
+        className="xs-fullwidth "
       >
         <Stack
-         direction="row"
-         alignItems="center"
-         spacing={2}
-         sx={{
-           width: "100%",
-           overflowX: { xs: "auto", lg: "visible" },
-           scrollbarWidth: "none",
-           "&::-webkit-scrollbar": { display: "none" },
-           px: { xs: 2, lg: 0 },
-           py: { xs: 1, lg: 0 },
-         }}
+          direction="row"
+          alignItems="center"
+          spacing={2}
+          sx={{
+            width: "100%",
+            overflowX: { xs: "auto", lg: "visible" },
+            scrollbarWidth: "none",
+            "&::-webkit-scrollbar": { display: "none" },
+            px: { xs: 2, lg: 0 },
+            py: { xs: 1, lg: 0 },
+          }}
         >
           {hotelSteps.map((step, index) => (
             <React.Fragment key={step.title}>
@@ -189,9 +181,8 @@ export default function ReserveStepper() {
                     sx={{
                       display: { xs: "none", lg: "block" },
                       flex: 1,
-                      borderTop: `2px dashed ${
-                        index < activeStep ? "#FF8A00" : "#E6E6E6"
-                      }`,
+                      borderTop: `2px dashed ${index < activeStep ? "#FF8A00" : "#E6E6E6"
+                        }`,
                       alignSelf: "center",
                     }}
                   />
@@ -249,11 +240,19 @@ export default function ReserveStepper() {
             <HotelDetailsCart />
           </Grid>
           <Grid size={{ lg: 3, xs: 12 }} className="!hidden lg:!block">
-            <PriceCardHotel />
-            <LateHotel />
+            <Stack
+              sx={{
+                position: "sticky",
+                top: 10,
+                zIndex: 100,
+                alignSelf: "flex-start",
+              }}
+            >
+              <PriceCardHotel />
+              <LateHotel />
+            </Stack>
           </Grid>
         </Grid>
-        <Stack></Stack>
       </Stack>
 
       {/* Mobile View - Show only active step */}
@@ -274,7 +273,7 @@ export default function ReserveStepper() {
         )}
         {activeStep === 4 && (
           <Stack sx={{ mt: 0, gap: 2.5}}>
-            <ReserveStatus isSuccess={true} code={1234}/>
+            <HotelReserveStatus isSuccess={true} code={1234}/>
           </Stack>
         )}
         {activeStep === 3 && (
@@ -289,7 +288,7 @@ export default function ReserveStepper() {
           </Stack>
         )} */}
       </Stack>
-      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333"/>
+      <ReservePageBottom step={activeStep} setStep={setActiveStep} totalPrice="333" />
     </>
   );
 }

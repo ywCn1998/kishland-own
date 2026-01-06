@@ -1,10 +1,10 @@
+"use client";
 import {
   ExtraFooterInformation,
   OfferBanner,
 } from "@/components/shared/ui";
-import { KeyboardBackspaceOutlined } from "@mui/icons-material";
-import { Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import { Container, Stack } from "@mui/material";
+import React, { useEffect } from "react";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
@@ -12,6 +12,8 @@ import PagesIcon from "@mui/icons-material/Pages";
 import YouMayLoveSection from "@/components/shared/sections/recommendations/youMayLoveSection";
 import ReserveStepper from "./_components/reseeveStepper/reserveStepperTour";
 import { BreadCrumbFa } from "@/components/shared/breadCrumb/breadCrumbFa";
+import { headerTitleAtom } from "@/store/atomHeader";
+import { useAtom } from "jotai";
 
 const steps = [
   {
@@ -62,6 +64,13 @@ const steps = [
 ];
 
 export default function Home() {
+
+  const [, setHeaderTitle] = useAtom(headerTitleAtom);
+
+  useEffect(() => {
+    setHeaderTitle("شیوه پرداخت");
+  }, []);
+
   return (
     <div
       style={{ display: "flex", flexDirection: "column", }}
@@ -69,11 +78,13 @@ export default function Home() {
     >
       <Container
         maxWidth="xl"
+        disableGutters
         sx={{
           marginBottom: 5,
           display: "flex",
           flexDirection: "column",
           gap: 8,
+          px: { sm: 2 }
         }}
       >
         <Stack
@@ -95,7 +106,7 @@ export default function Home() {
           <ReserveStepper steps={steps} />
         </Stack>
         <Stack className="lg:!bg-[#F0F7FF] !bg-[#F5F7FA] lg:rounded-3xl! reveal hidden! md:block!" >
-          <Container maxWidth="xl" >
+          <Container maxWidth="xl">
             <OfferBanner
               responsiveCaption="بهترین ها را در کیش میسازیم برای شما"
               caption=" یه سر به اینا هم بزن بقیه دوست داشتن ..."
@@ -116,7 +127,7 @@ export default function Home() {
           />
         </Stack>
       </Container>
-      
+
     </div>
   );
 }

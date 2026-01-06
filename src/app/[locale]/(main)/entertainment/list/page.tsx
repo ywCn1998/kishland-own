@@ -55,7 +55,7 @@ export default function Home() {
         <Stack className="hidden! md:block!">
           <BreadCrumbFa />
         </Stack>
-        <Stack className="md:hidden! flex! mt-2!">
+        <Stack className="md:hidden! flex! ">
           <SubCategorySwiper />
         </Stack>
         <Stack className="md:p-6! p-0! md:mt-0! mt-4!">
@@ -95,10 +95,10 @@ export default function Home() {
           <Typography variant="subtitle1">25 تفریح موجود</Typography>
         </Stack>
 
-        <Grid container className="md:mt-4  mt-[-40]" spacing={2}>
+        <Grid container className="md:mt-4  mt-[-40] relative!" spacing={2}>
           <Grid
             size={{ xs: 12, md: 3 }}
-            className="flex! flex-row! gap-6! md:p-0! p-6!"
+            className="flex! flex-row! gap-6! md:p-0! p-6! sticky! top-0! z-10!"
           >
             <Grid className="md:hidden! " size={10}>
               <BlitType />
@@ -135,7 +135,7 @@ export default function Home() {
               <MainBanner hasBannerInDesktop={false} href="/fa/entertainment/list" />
               <AirCard onClick={() => { }} />
               <AirCard onClick={() => { }} />
-              <Stack>
+              <Stack className="w-full!">
                 <img
                   src={"/images/entertainment/list/buytwo.png"}
                   className="w-full! md:hidden!"

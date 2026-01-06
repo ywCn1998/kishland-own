@@ -1,9 +1,11 @@
 import RHFTextInput from "@/components/shared/form/RHFTextInput";
-import { Button, Grid, MenuItem } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import RHFSelect from "@/components/shared/form/RHFSelect";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottomBotton";
+import RHFSimpleDatePicker from "@/components/shared/form/RHFSimpleDatePicker";
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
 
 export default function PassportInformation() {
     return (
@@ -18,15 +20,19 @@ export default function PassportInformation() {
 
 
             <Grid size={{ xs: 12, md: 6 }}>
-                <RHFTextInput name="birthsDay" startIcon={<LocationOnOutlinedIcon />} placeholder="تولد به میلادی" />
+                <RHFSimpleDatePicker isJalalis={false} placeholder="انتخاب از تقویم" name="bwrtshDay" endIcon={<CalendarMonthOutlinedIcon className="text-[#626e94]!" />} startIcon={<CakeOutlinedIcon />} label="تاریخ تولدت" />
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-                <RHFTextInput name="birwthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="انقضا پاسپورت" />
+                <RHFSimpleDatePicker isJalalis={false} placeholder="انتخاب از تقویم" name="bwrtshDay" startIcon={<LocationOnOutlinedIcon />} label="انقضا پاسپورت" />
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
                 <RHFTextInput name="birthfDay" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره پاسپورت " />
+            </Grid>
+
+            <Grid size={6} className="hidden! md:block!">
+                <Button type="submit" sx={{ width: "100%", color: "white", height: "100%", fontWeight: 500, fontSize: 18 }} variant="contained"> ذخیره تغییرات</Button>
             </Grid>
 
             <FixedBottomButton py={1.5}>

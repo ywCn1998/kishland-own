@@ -62,7 +62,7 @@ export default function TicketTypeSection({ isLocationModal = false, ticketStatu
                     <TextIcon className="text-lg! font-semibold!" text="بلیط رفت و برگشت هواپیما" startIcon={<img src="/images/airplaneicon.svg" className="w-8! h-8!" />} />
                 </Stack>
                 <TicketCard ticketStatus={ticketStatus}/>
-                <TicketCard ticketStatus={ticketStatus}/>
+                <TicketCard ticketStatus={'backTicket'} tripLabel="بلیط برگشت"/>
             </Stack>
             <ChangeBliteDrawer open={open} setOpen={setOpen} />
         </Container>

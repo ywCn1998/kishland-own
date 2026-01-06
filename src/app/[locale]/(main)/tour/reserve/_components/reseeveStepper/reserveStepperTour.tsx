@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode, useState, useRef, useEffect } from "react";
-import { Stack, Grid, Box, Typography } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import Step1 from "./step1";
 import PriceCard from "@/components/shared/cards/cart/PriceCard";
 import Step3 from "./step3";
@@ -12,10 +12,7 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import PagesIcon from "@mui/icons-material/Pages";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Discount from "@/components/shared/cart/discount";
-import CustomAccordion from "@/components/shared/collapse/collapse";
-import { SelectedTourCard } from "@/components/shared/cards/tour/selectedTourCard";
 import PassengerDetails from "../cart/passengerDetails";
-import TourDetails from "../../status/_components/tourDetails";
 import TourDetailsReserve from "../cart/tourDetailsReserve";
 import ReserveStatus from "@/components/shared/sections/reserve/ReserveStatus";
 import TicketDetailsReserve from "../cart/ticketDetailsReserve";
@@ -95,7 +92,6 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
   }, []);
 
   // Tour specific steps
-  const mobilesSteps = [];
   const tourSteps = [
     {
       title: "مشخصات مسافران",
@@ -107,8 +103,8 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
       iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
     },
     {
-      title: "پرداخت",
-      description: "روش پرداخت",
+      title: "بازیابی اطلاعات",
+      description: "بازیابی اطلاعات",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
         <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
@@ -116,7 +112,16 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
       iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
     },
     {
-      title: "نگاهی دوباره به وضعیت تور",
+      title: "پرداخت آنلاین",
+      description: "پرداخت آنلاین",
+      iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
+      iconActive: (
+        <CheckBoxOutlineBlankIcon fontSize="small" sx={{ color: "#FF8C0B" }} />
+      ),
+      iconFuture: <PagesIcon fontSize="small" sx={{ color: "#E1E6F0" }} />,
+    },
+    {
+      title: "صدور بلیط",
       description: "بازبینی نهایی",
       iconPast: <CheckBoxIcon fontSize="small" sx={{ color: "#FF8C0B" }} />,
       iconActive: (
@@ -252,7 +257,7 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
           spacing={2.5}
           sx={{
             display: { lg: "flex", xs: "none" },
-            alignItems: "flex-start",
+            alignItems: "flex",
             width: "100%",
           }}
         >
@@ -283,7 +288,7 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
             ref={stickyContainerRef}
             sx={{
               display: { xs: "none", lg: "block" },
-              flex: "0 0 25%",
+              flex: 1,
               width: "25%",
               maxWidth: "25%",
               position: "relative",
@@ -323,7 +328,16 @@ export default function ReserveStepper({ steps }: { steps: IStep[] }) {
             <TicketDetailsReserve />
           </Stack>
         )}
-        {activeStep === 2 && (
+         {activeStep === 2 && (
+          <Stack sx={{ mt: 0, gap: 2.5, px: 2 }}>
+            <HowToPay />
+            <Discount />
+            <PassengerDetails />
+            <TourDetailsReserve />
+            <TicketDetailsReserve />
+          </Stack>
+        )}
+        {activeStep === 3 && (
           <ReserveStatus isSuccess={true} code={1234} />
         )}
       </Stack>

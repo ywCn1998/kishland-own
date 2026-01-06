@@ -29,7 +29,7 @@ export default function ResponsivePassengerDetails() {
         onSubmit={OnSubmit}
         className="flex! flex-col! gap-6!"
       >
-        <Stack className="reveal">
+        <Stack >
           <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3! ">
             <Stack className="flex! gap-2! flex-row! items-center">
               <Typography className="md:text-xl! text-lg! font-semibold! text-nowrap!">
@@ -76,7 +76,7 @@ export default function ResponsivePassengerDetails() {
         <Divider />
 
         {/* گردشگر اول */}
-        <Stack className="reveal">
+        <Stack>
           <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3!">
             <Stack className="flex! gap-2! md:flex-row! flex-col! items-start!">
               <Typography className="md:text-xl! text-lg! font-semibold! text-nowrap!">
@@ -133,7 +133,7 @@ export default function ResponsivePassengerDetails() {
             />
           </Stack>
         </Stack>
-        <Stack className="reveal">
+        <Stack>
           <Stack className="flex! justify-between! flex-row! items-center! w-full! py-3!">
           <Stack className="flex! gap-2! md:flex-row! flex-col! items-start!">
           <Typography className="md:text-xl! text-lg! font-semibold!">

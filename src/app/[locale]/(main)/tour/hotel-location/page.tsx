@@ -1,3 +1,4 @@
+"use client"
 import { Stack, Container, Typography, Button } from "@mui/material";
 import {
     CommonQuestions,
@@ -20,9 +21,25 @@ import FixedBottomButton from "@/components/shared/fixedBottomBotton/fixedBottom
 import Image from "next/image";
 import Link from "next/link";
 import ReserveButtonWithModal from "@/components/shared/modal/reserveModal/reserveModal";
-
+import { useAtom } from "jotai";
+import {
+    headerDateAtom,
+    headerLeftItemAtom,
+    headerTitleAtom,
+} from "@/store/atomHeader";
+import { useEffect } from "react";
+import TextNumber from "@/components/shared/textNumber";
 
 export default function LocationHotel() {
+    const [, setHeaderTitle] = useAtom(headerTitleAtom);
+    const [, setDate] = useAtom(headerDateAtom);
+    const [, setLefItem] = useAtom(headerLeftItemAtom);
+
+    useEffect(() => {
+        setHeaderTitle("تفریحات آبی کیش");
+        setDate("4 فروردین 1404 ");
+    }, []);
+
     const options = [
         {
             label: "صبحانه",
@@ -35,6 +52,15 @@ export default function LocationHotel() {
     ]
     return (
         <>
+            <Stack className="w-full! flex! flex-row! md:hidden! items-center! justify-between! py-4" sx={{ backgroundColor: "background.paper" }}>
+                <TextNumber className="px-3!" numberClassName="md:text-lg!" alignItems="start" number={4} text={
+                    <Stack>
+                        <Typography className="font-semibold! text-base! text-black! text-right! mb-2!">انتخاب محل اقامت</Typography>
+                        <Typography color="text.secondary" className=" text-xs! text-right! ">از بین اتاق های هتل کوروش اتاق اقامتی خود را انتخاب کنید</Typography>
+                    </Stack>
+                } />
+            </Stack>
+
             <Container maxWidth="xl" sx={{ mt: 2 }}>
                 <Stack >
                     <Stack className="hidden! md:inline!">
@@ -84,7 +110,7 @@ export default function LocationHotel() {
                                 <ViewsOfHotel hasDetails={true} />
                             </Stack>
                             <Stack mt={2} className="md:hidden!">
-                                <ViewsOfHotel isHotelLocation isIntegrated hasDetails={true} />
+                                <ViewsOfHotel isGalleryInMobile isIntegrated hasDetails={true} />
                             </Stack>
                         </CustomAccordion>
 
@@ -121,10 +147,10 @@ export default function LocationHotel() {
                 </FixedBottomButton>
 
             </Container>
-
-
-
-            {/* <ExtraFooterInformation /> */}
         </>
+
+
+
+            // {/* <ExtraFooterInformation /> */ }
     );
 }

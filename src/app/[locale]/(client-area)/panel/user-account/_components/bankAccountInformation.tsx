@@ -20,6 +20,11 @@ export default function BankAccountInformation() {
             <Grid size={{ xs: 12, md: 6 }}>
                 <RHFTextInput name="birthDay" startIcon={<LocationOnOutlinedIcon />} placeholder="شماره حساب" />
             </Grid>
+
+            <Grid size={6} className="hidden! md:block!">
+                <Button type="submit" sx={{ width: "100%", color: "white", height: "100%", fontWeight: 500, fontSize: 18 }} variant="contained"> ذخیره تغییرات</Button>
+            </Grid>
+
             <FixedBottomButton py={1.5}>
                 <Button type="submit" sx={{ py: 0, width: "100%", color: "white", height: "100%", fontWeight: 500, fontSize: 16 }} variant="contained"> ذخیره تغییرات</Button>
             </FixedBottomButton>

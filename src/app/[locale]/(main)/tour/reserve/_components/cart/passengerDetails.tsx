@@ -50,7 +50,7 @@ const PassengerCards: React.FC = () => {
 
 export default function PassengerDetails() {
   return (
-    <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-5">
+    <Stack className="border-1! border-slate-200! rounded-2xl! px-4 pt-2">
       <CustomAccordion
         title={" مشخصات مسافران "}
         titleClass="text-xl!"

@@ -49,8 +49,6 @@ export default function LateHotel() {
           flexDirection: "column",
           mt: 2,
         }}
-                className="reveal-down"
-
       >
         <Typography className="text-lg! font-medium!">
           ورود دﯾﺮﻫﻨﮕﺎم ﺑﻪ ﻫﺘﻞ

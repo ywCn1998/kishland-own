@@ -20,7 +20,7 @@ const options = [
 
 
 export default function FavouritePackages() {
-    const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(2);
 
     const handleTabClick = (tabId: number) => {
         setActiveTab(tabId);
@@ -33,26 +33,34 @@ export default function FavouritePackages() {
                     value={activeTab}
                     onChange={(_, newValue) => setActiveTab(newValue)}
                     variant="fullWidth"
+                    textColor="inherit"
                     indicatorColor="primary"
-                    textColor="primary"
                     sx={{
+                        borderBottom: "1px solid #E1E6F0",
                         minHeight: 44,
+                        "& .MuiTabs-indicator": {
+                            backgroundColor: "#000000 !important",
+                        },
                         "& .MuiTab-root": {
                             fontSize: "14px",
                             fontWeight: 600,
                             minHeight: 44,
                             textTransform: "none",
+                            color: "#64748B", 
+                        },
+                        "& .MuiTab-root.Mui-selected": {
+                            color: "#000000 !important", 
                         },
                     }}
                 >
-                    {options.map((option) => (
+                    {options.map((option) => (   
                         <Tab key={option.id} label={option.label} />
                     ))}
                 </Tabs>
             </Stack>
-            <Stack className="bg-[#F5F7FA]! rounded-2xl! px-2! py-8!">
+            <Stack className="bg-[#F5F7FA]! rounded-2xl! px-2! py-8! hidden! md:block!">
                 <Stack
-                    className="md:flex! flex-col! justify-center! items-center! hidden! "
+                    className="flex! flex-col! justify-center! items-center!  "
                     spacing={4}
                 >
                     <Typography className="text-slate-400! text-lg!">

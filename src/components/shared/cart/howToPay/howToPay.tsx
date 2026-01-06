@@ -28,7 +28,7 @@ export default function HowToPay({ discount = false }: { discount?: boolean }) {
         borderRadius: { xs: "12px", lg: "16px" },
         backgroundColor: "white",
         overflow: "hidden",
-        pt: { xs: 0, lg: 1 },
+        pt: { xs: 1, lg: 1 },
         pb: { xs: 0, lg: 0.5 },
       }}
     >
@@ -40,7 +40,7 @@ export default function HowToPay({ discount = false }: { discount?: boolean }) {
         >
           <Typography
             className="!text-lg lg:!text-xl"
-            fontWeight={{ xs: 550, lg: 500 }}
+            fontWeight={{ xs: 500, lg: 500 }}
           >
             شیوه پرداخت
           </Typography>
@@ -63,7 +63,7 @@ export default function HowToPay({ discount = false }: { discount?: boolean }) {
             // // onClick={() => setSelected("wallet")}
             />
             {discount && (
-              <Grid className="flex! justify-between items-center mt-5! ">
+              <Grid className="flex! justify-between items-center mt-5!">
                 <Grid
                   sx={{
                     display: "flex",

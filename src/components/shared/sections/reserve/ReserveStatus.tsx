@@ -148,7 +148,6 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                                 <Stack className="flex! flex-row! gap-8! w-full!" mt={4}>
                                     <Button className="w-full! text-2xl! text-black!" variant="outlined" >ارتباط با پشتیبانی</Button>
                                     <Button className="w-full! text-2xl! text-white!" sx={{ backgroundColor: "success.main" }}>تلاش مجدد</Button>
-
                                     <Button className="w-full! text-2xl! text-white!" sx={{ backgroundColor: "text.secondary" }}>بازگشت</Button>
                                 </Stack>
                             )}
@@ -171,18 +170,6 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             {/* responsive */}
 
             <Stack className="md:hidden! px-4!">
@@ -198,7 +185,7 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                 {/* ------------------------------------------------------ */}
 
                 <Stack className="border-1 border-slate-200! rounded-2xl! py-4! px-4!" mt={4}>
-                    <Typography className="text-center! text-2xl! font-semibold!" color="success.main">رزور موفق</Typography>
+                    <Typography className="text-center! text-2xl! font-semibold!" color="success.main">رزرو موفق</Typography>
                     <Divider orientation="horizontal" sx={{ my: 2 }} />
 
                     <Stack className="w-full! h-[160px]! relative! rounded-xl">
@@ -218,7 +205,7 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                         <TextIcon sx={{ color: "primary.100" }} startIcon={<StarOutlinedIcon />} text="4.9" className="ml-6!" />
                     </Stack>
 
-                    <Stack className="flex! flex-col! gap-3!" mt={2}>
+                    <Stack className="flex! flex-col! gap-3!" my={2} >
                         <Typography className="font-semibold! text-xl!" mb={1}>
                             تور ۴ روز هتل کوروش
                         </Typography>
@@ -227,13 +214,13 @@ export default function ReserveStatus({ isSuccess = true, code = 554574 }: { isS
                     <ReusableSwiper
                         dots={false}
                         slidePerviewLg={9}
-                        slidePerViewXs={2.5}
+                        slidePerViewXs={"auto"}
                         spaceBetween={10}
                         pagination={true}
                     >
-                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!" startIcon={<BedroomParentIcon />}>ترانسفر فرودگاهی (رایگان)</Button>
-                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!">شام و صبحانه</Button>
-                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! text-nowrap!" startIcon={<WifiOutlinedIcon />}>اینترنت رایگان</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! h-11" startIcon={<BedroomParentIcon />}>ترانسفر فرودگاهی (رایگان)</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! h-11">شام و صبحانه</Button>
+                        <Button variant="outlined" className="rounded-xl! text-xs! text-slate-400! py-3! px-3! h-11" startIcon={<WifiOutlinedIcon />}>اینترنت رایگان</Button>
                     </ReusableSwiper>
 
 

@@ -14,7 +14,6 @@ export default function PayWallet() {
       <Stack>
         <Stack
           component="header"
-          className="reveal"
           sx={{
             // border: selected=== "wallet" ? "1px solid #FB7201" : "1px solid #e2e8f0",
             border: "1px solid #e2e8f0",

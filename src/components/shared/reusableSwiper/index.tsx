@@ -97,7 +97,10 @@ export default function ReusableSwiper({
         {React.Children.map(children, (child, index) => (
           <SwiperSlide
             key={"swiperProducts" + index}
-            style={{ height: "auto", width: 'fit-content' }}
+            style={{ 
+              height: "auto", 
+              ...(slidePerViewXs === "auto" ? { width: 'fit-content' } : {})
+            }}
           >
             {child}
           </SwiperSlide>

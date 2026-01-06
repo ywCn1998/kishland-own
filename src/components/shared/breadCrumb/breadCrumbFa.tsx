@@ -14,8 +14,8 @@ export function BreadCrumbFa() {
     const items = ["صفحه اصلی ", ...paths];
 
     return (
-        <Stack className="flex! flex-row-reverse! items-center! justify-between! w-full!">
-            <Button endIcon={<KeyboardBackspaceOutlined />} sx={{ color: "secondary.main" }} className="" variant="text">برگشت</Button>
+        <Stack className="flex! flex-row-reverse! items-center! justify-end! md:justify-between! w-full!">
+            <Button endIcon={<KeyboardBackspaceOutlined />} sx={{ color: "secondary.main" }} className="hidden! md:flex!" variant="text">برگشت</Button>
             <Breadcrumbs aria-label="breadcrumb" sx={{ direction: "ltr" }} className="">
                 {items.map((segment, index) => {
                     const href = "/" + "fa/" + paths.slice(0, index).join("/");
@@ -23,12 +23,12 @@ export function BreadCrumbFa() {
                     const isLast = index === items.length - 1;
 
                     return isLast ? (
-                        <Typography key={href} color="text.primary">
+                        <Typography key={href} className="text-sm! md:text-base md:text-black!">
                             {label}
                         </Typography>
                     ) : (
                         <span key={href} style={{ display: "flex", alignItems: "center" }}>
-                            <Link href={href} className="text-gray-500 hover:text-black">
+                            <Link href={href} className="text-gray-500 hover:text-black text-sm! md:text-base!">
                                 {label}
                             </Link>
                         </span>

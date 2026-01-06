@@ -17,7 +17,7 @@ export default function PayOnline() {
     <Stack>
       <Stack
         component="header"
-        className="reveal"
+        // className="reveal"
         sx={{
           border: "1px solid #FB7201",
           p: { xs: 1, lg: 2 },

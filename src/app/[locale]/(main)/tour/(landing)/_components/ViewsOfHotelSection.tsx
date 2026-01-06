@@ -1,6 +1,7 @@
 import { Container, Typography, Stack, Grid, Button } from "@mui/material";
 import BlogCard from "../../../../../../components/shared/cards/blogCard";
 import ViewsGalleryStrip from "./ViewsGalleryStrip";
+import ReusableSwiper from "@/components/shared/reusableSwiper";
 
 const services = [
   "لابی",
@@ -64,13 +65,13 @@ const galleryImages = Array.from(
   new Set([...primaryImages, ...additionalGalleryImages!])
 );
 
-export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelLocation }: { hasDetails?: boolean, isIntegrated?: boolean, isHotelLocation?: boolean }) {
+export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isGalleryInMobile }: { hasDetails?: boolean, isIntegrated?: boolean, isGalleryInMobile?: boolean }) {
   return (
     <Container disableGutters maxWidth="xl" sx={{ marginBottom: "10px", mx: "auto" }}>
       <Grid
         container
         spacing={2}
-        sx={{ p: 0, height: { xs: "500px", md: "600px" }, flexDirection: "row-reverse" }}
+        sx={{ p: 0, height: { xs: "100%", md: "600px" }, flexDirection: "row-reverse" }}
       >
         {/* ستون سمت چپ */}
         <Grid size={5} sx={{ height: "100%", display: { xs: "none", md: "block" } }}>
@@ -163,70 +164,73 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelL
 
         {/* ستون سمت راست */}
         <Grid size={{ xs: 12, md: 7 }} sx={{ height: "100%" }} spacing={10}>
-          <Stack spacing={{ xs: 1, md: 2 }} sx={{ height: "100%" }}>
-            <BlogCard
-              description={"تور کیش از مشهد"}
-              imageUrl="/images/kourosh-hotel.png" // مسیر عکس خود را قرار دهید
-              height="100%"
-            />
-            <Stack
-              spacing={0}
-              className="flex! flex-row! gap-1.5! md:gap-4!"
-              sx={{ height: { xs: "50%", md: "100%" }, width: "100%" }}
-            >
-              <Stack className="flex! flex-row! gap-1.5! md:gap-4! w-[50%]!">
+          {
+            isGalleryInMobile ? (
+              <Stack className="lg:hidden! h-[350px]! w-full! md:w-1/3!  relative!">
                 <BlogCard
-                  description={""}
-                  imageUrl="/images/hotel-view.png" // مسیر عکس خود را قرار دهید
+                  description={"تور کیش از مشهد"}
+                  imageUrl="/images/kourosh-hotel.png" // مسیر عکس خود را قرار دهید
                   height="100%"
                 />
+                <Stack className="absolute! bottom-6! px-6! w-full! z-10!">
+                  <ViewsGalleryStrip images={galleryImages} additionalImages={galleryImages! as any} />
+                </Stack>
+              </Stack>
+            ) : (
+              <Stack spacing={{ xs: 1, md: 2 }} sx={{ height: "100%" }}>
                 <BlogCard
-                  description={""}
-                  imageUrl="/images/lobby-hotel.png" // مسیر عکس خود را قرار دهید
+                  description={"تور کیش از مشهد"}
+                  imageUrl="/images/kourosh-hotel.png" // مسیر عکس خود را قرار دهید
                   height="100%"
                 />
-              </Stack>
-              <Stack className="flex! flex-col! gap-1.5! md:gap-4! w-[50%]! h-full!">
-                <Stack className="flex! flex-row! gap-1.5! md:gap-4! h-6/12!">
-                  <BlogCard
-                    description={""}
-                    imageUrl="/images/lobby-2.png" // مسیر عکس خود را قرار دهید
-                    height="100%"
-                  />
-                  <BlogCard
-                    description={""}
-                    imageUrl="/images/bathroom-2.png" // مسیر عکس خود را قرار دهید
-                    height="100%"
-                  />
+                <Stack
+                  spacing={0}
+                  className="flex! flex-row! gap-1.5! md:gap-4!"
+                  sx={{ height: { xs: "50%", md: "100%" }, width: "100%" }}
+                >
+                  <Stack className="flex! flex-row! gap-1.5! md:gap-4! w-[50%]!">
+                    <BlogCard
+                      description={""}
+                      imageUrl="/images/hotel-view.png" // مسیر عکس خود را قرار دهید
+                      height="100%"
+                    />
+                    <BlogCard
+                      description={""}
+                      imageUrl="/images/lobby-hotel.png" // مسیر عکس خود را قرار دهید
+                      height="100%"
+                    />
+                  </Stack>
+                  <Stack className="flex! flex-col! gap-1.5! md:gap-4! w-[50%]! h-full!">
+                    <Stack className="flex! flex-row! gap-1.5! md:gap-4! h-6/12!">
+                      <BlogCard
+                        description={""}
+                        imageUrl="/images/lobby-2.png" // مسیر عکس خود را قرار دهید
+                        height="100%"
+                      />
+                      <BlogCard
+                        description={""}
+                        imageUrl="/images/bathroom-2.png" // مسیر عکس خود را قرار دهید
+                        height="100%"
+                      />
+                    </Stack>
+                    <Stack className="flex! flex-row! gap-1.5! md:gap-4! h-6/12!">
+                      <BlogCard
+                        description={""}
+                        imageUrl="/images/lobby-3.png" // مسیر عکس خود را قرار دهید
+                        height="100%"
+                      />
+                      <BlogCard
+                        description={""}
+                        imageUrl="/images/lobby-4.png" // مسیر عکس خود را قرار دهید
+                        height="100%"
+                      />
+                    </Stack>
+                  </Stack>
                 </Stack>
-                <Stack className="flex! flex-row! gap-1.5! md:gap-4! h-6/12!">
-                  <BlogCard
-                    description={""}
-                    imageUrl="/images/lobby-3.png" // مسیر عکس خود را قرار دهید
-                    height="100%"
-                  />
-                  <BlogCard
-                    description={""}
-                    imageUrl="/images/lobby-4.png" // مسیر عکس خود را قرار دهید
-                    height="100%"
-                  />
-                </Stack>
               </Stack>
-            </Stack>
-          </Stack>
-
-          {/* <Stack className="lg:hidden! h-[350px]! w-full! md:w-1/3!  relative!">
-            <BlogCard
-              description={"تور کیش از مشهد"}
-              imageUrl="/images/kourosh-hotel.png" // مسیر عکس خود را قرار دهید
-              height="100%"
-            />
-            <Stack className="absolute! bottom-6! px-6! w-full! z-10!">
-              <ViewsGalleryStrip images={galleryImages} additionalImages={galleryImages! as any} />
-            </Stack>
-          </Stack> */}
+            )
+          }
         </Grid>
-
       </Grid>
 
       {hasDetails && (
@@ -235,28 +239,32 @@ export default function ViewsOfHotel({ hasDetails, isIntegrated = true, isHotelL
             className="flex! flex-row! justify-between!"
             mt={4}
           >
-            <Grid container spacing={1}
-            >
-              {services.map((item, index) => (
-                <Grid size={{ xs: 3, sm: "auto" }}>
-                  <Typography
-                    key={"services" + index}
-                    className="text-[10px]! sm:text-xs! md:text-sm! text-center! border-1! border-slate-200! rounded-lg! h-16! flex! items-center! px-3! justify-center!"
-                    color="text.secondary"
-                  >
-                    {item}
-                  </Typography>
-                </Grid>
+            <ReusableSwiper pagination dots={false} slidePerViewXs={"auto"} slideperviewMd={4} spaceBetween={10}>
+              {services.slice(0, 8).map((item, index) => (
+                <Typography
+                  key={"services" + index}
+                  className="text-[10px]! sm:text-xs! md:text-sm! text-center! border-1! border-slate-200! rounded-lg! md:h-16! h-10! flex! items-center! px-3! justify-center!"
+                  color="text.secondary"
+                >
+                  {item}
+                </Typography>
               ))}
-            </Grid>
+            </ReusableSwiper>
+
 
             <Button
               sx={{ backgroundColor: "text.secondary" }}
-              className="h-16! text-sm! rounded-lg! text-white! hidden! md:inline! text-nowrap! w-[250px]! xl:w-[200px]!"
+              className="hidden! lg:inline! h-16! text-sm! rounded-lg! text-white! text-nowrap! w-[250px]! xl:w-[200px]!"
             >
               مشاهده کامل خدمات
             </Button>
           </Stack>
+
+          <Stack className="md:hidden! w-full!">
+              <Typography className="leading-10! text-sm!" >
+                هتل پنج ستاره کوروش کیش واقع در میدان پردیس در نوروز سال 1397 فعالیت خود را آغاز نمود. این هتل تازه تاسیس در 16 طبقه بنا و دارای 198 باب اتاق و سوئیت اقامتی لوکس با امکانات رفاهی مناسب می‌باشد. موقعیت مکانی هتل موجب دسترسی آسان به ساحل نیلگون خلیج فارس و مراکز خرید مهم جزیره زیبای کیش از جمله پردیس 1 و 2 گردیده است. هتل مجلل کوروش با پرسنلی آموزش دیده و مجرب فرصت میزبانی از شما را غنیمت شمرده و در تلاش اند اقامتی بیادماندنی را برای میهمانان عزیز رقم بزنند. لازم به ذکر است اتاق های رو به دریا تنها دارای چشم انداز دریا می‌باشند.
+              </Typography>
+            </Stack>
 
 
           <Typography className="text-start! leading-10! text-sm! hidden! md:inline!">
